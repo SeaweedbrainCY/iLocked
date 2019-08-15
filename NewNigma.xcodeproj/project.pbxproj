@@ -3,17 +3,36 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9AB773D63DB4B5AE63AACC0F /* Pods_Trust.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1E4ACF5A2B34469A5785C45 /* Pods_Trust.framework */; };
+		D84BD12022ED058800F9786A /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D84BD11F22ED058800F9786A /* AttributedText.swift */; };
+		D86D147622F0AC2E00AE5B20 /* AddKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D147522F0AC2E00AE5B20 /* AddKey.swift */; };
+		D86D147922F0CBC700AE5B20 /* GlobalVariable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D147822F0CBC700AE5B20 /* GlobalVariable.swift */; };
+		D86D147B22F0CE4100AE5B20 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D147A22F0CE4100AE5B20 /* String.swift */; };
+		D86D147F22F1E3E800AE5B20 /* KeyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D147E22F1E3E800AE5B20 /* KeyList.swift */; };
+		D86D148122F203C700AE5B20 /* CustomCellTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D148022F203C600AE5B20 /* CustomCellTableView.swift */; };
+		D86D148522F20A3800AE5B20 /* ShowKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86D148422F20A3800AE5B20 /* ShowKey.swift */; };
+		D8766CA322ECFEA200AFB3D3 /* EncryptedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8766CA222ECFEA200AFB3D3 /* EncryptedResult.swift */; };
+		D88DC9572305FC6000673FA9 /* GifController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88DC9562305FC6000673FA9 /* GifController.swift */; };
+		D88DC95B2305FD5300673FA9 /* locked.gif in Resources */ = {isa = PBXBuildFile; fileRef = D88DC9592305FD5300673FA9 /* locked.gif */; };
+		D88DC95C2305FD5300673FA9 /* arrows.gif in Resources */ = {isa = PBXBuildFile; fileRef = D88DC95A2305FD5300673FA9 /* arrows.gif */; };
+		D8B5A46B2300A9F50097A776 /* KeyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5A46A2300A9F50097A776 /* KeyId.swift */; };
 		D8F37CAE22EC851500104CB8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CAD22EC851500104CB8 /* AppDelegate.swift */; };
-		D8F37CB022EC851500104CB8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CAF22EC851500104CB8 /* ViewController.swift */; };
 		D8F37CB322EC851500104CB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F37CB122EC851500104CB8 /* Main.storyboard */; };
 		D8F37CB522EC852100104CB8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8F37CB422EC852100104CB8 /* Assets.xcassets */; };
 		D8F37CB822EC852100104CB8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8F37CB622EC852100104CB8 /* LaunchScreen.storyboard */; };
 		D8F37CC322EC852100104CB8 /* TrustTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CC222EC852100104CB8 /* TrustTests.swift */; };
 		D8F37CCE22EC852100104CB8 /* TrustUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CCD22EC852100104CB8 /* TrustUITests.swift */; };
+		D8F37CDE22EC924800104CB8 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CDD22EC924800104CB8 /* UIButton.swift */; };
+		D8F37CE722ECC14100104CB8 /* Encrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CE622ECC14100104CB8 /* Encrypt.swift */; };
+		D8F37CE822ECC14100104CB8 /* Encrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CE622ECC14100104CB8 /* Encrypt.swift */; };
+		D8F37CE922ECC14100104CB8 /* Encrypt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CE622ECC14100104CB8 /* Encrypt.swift */; };
+		D8F37CEB22ECC19000104CB8 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CEA22ECC19000104CB8 /* TextView.swift */; };
+		D8F37CEC22ECC19000104CB8 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CEA22ECC19000104CB8 /* TextView.swift */; };
+		D8F37CED22ECC19000104CB8 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F37CEA22ECC19000104CB8 /* TextView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,19 +53,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D8F37CAA22EC851500104CB8 /* Trust.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trust.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2213E58E240AFC1A1864AF38 /* Pods-Trust.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trust.release.xcconfig"; path = "Target Support Files/Pods-Trust/Pods-Trust.release.xcconfig"; sourceTree = "<group>"; };
+		C1E4ACF5A2B34469A5785C45 /* Pods_Trust.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trust.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C258F9CEEF2582662431FFFB /* Pods-Trust.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trust.debug.xcconfig"; path = "Target Support Files/Pods-Trust/Pods-Trust.debug.xcconfig"; sourceTree = "<group>"; };
+		D84BD11F22ED058800F9786A /* AttributedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
+		D86D147522F0AC2E00AE5B20 /* AddKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddKey.swift; sourceTree = "<group>"; };
+		D86D147822F0CBC700AE5B20 /* GlobalVariable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GlobalVariable.swift; path = "../../../../../../../System/Volumes/Data/Users/nathan/Desktop/Projet Xcode/Trust/Trust/GlobalVariable/GlobalVariable.swift"; sourceTree = "<group>"; };
+		D86D147A22F0CE4100AE5B20 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = "../../../../../../../../System/Volumes/Data/Users/nathan/Desktop/Projet Xcode/Trust/Trust/Style/Extension/String.swift"; sourceTree = "<group>"; };
+		D86D147E22F1E3E800AE5B20 /* KeyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyList.swift; sourceTree = "<group>"; };
+		D86D148022F203C600AE5B20 /* CustomCellTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellTableView.swift; sourceTree = "<group>"; };
+		D86D148422F20A3800AE5B20 /* ShowKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowKey.swift; sourceTree = "<group>"; };
+		D8766CA222ECFEA200AFB3D3 /* EncryptedResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptedResult.swift; sourceTree = "<group>"; };
+		D88DC9562305FC6000673FA9 /* GifController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifController.swift; sourceTree = "<group>"; };
+		D88DC9592305FD5300673FA9 /* locked.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = locked.gif; sourceTree = "<group>"; };
+		D88DC95A2305FD5300673FA9 /* arrows.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = arrows.gif; sourceTree = "<group>"; };
+		D8B5A46A2300A9F50097A776 /* KeyId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyId.swift; path = "../../../../../../../System/Volumes/Data/Users/nathan/Desktop/Projet Xcode/Trust/Trust/DataFormatting/KeyId.swift"; sourceTree = "<group>"; };
+		D8F37CAA22EC851500104CB8 /* NewNigma.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewNigma.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F37CAD22EC851500104CB8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8F37CAF22EC851500104CB8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8F37CB222EC851500104CB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8F37CB422EC852100104CB8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8F37CB722EC852100104CB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8F37CB922EC852100104CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8F37CBE22EC852100104CB8 /* TrustTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrustTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F37CBE22EC852100104CB8 /* NewNigmaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewNigmaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F37CC222EC852100104CB8 /* TrustTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustTests.swift; sourceTree = "<group>"; };
 		D8F37CC422EC852100104CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8F37CC922EC852100104CB8 /* TrustUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TrustUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8F37CC922EC852100104CB8 /* NewNigmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewNigmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8F37CCD22EC852100104CB8 /* TrustUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrustUITests.swift; sourceTree = "<group>"; };
 		D8F37CCF22EC852100104CB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8F37CDD22EC924800104CB8 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		D8F37CE622ECC14100104CB8 /* Encrypt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encrypt.swift; sourceTree = "<group>"; };
+		D8F37CEA22ECC19000104CB8 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB773D63DB4B5AE63AACC0F /* Pods_Trust.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +111,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5FE753F10944B6382D78BE4E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C1E4ACF5A2B34469A5785C45 /* Pods_Trust.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		858139B1A6B62C323F1963AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C258F9CEEF2582662431FFFB /* Pods-Trust.debug.xcconfig */,
+				2213E58E240AFC1A1864AF38 /* Pods-Trust.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D86D147722F0CB4400AE5B20 /* GlobalVariable */ = {
+			isa = PBXGroup;
+			children = (
+				D86D147822F0CBC700AE5B20 /* GlobalVariable.swift */,
+			);
+			path = GlobalVariable;
+			sourceTree = "<group>";
+		};
+		D88DC9582305FC7500673FA9 /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				D88DC95A2305FD5300673FA9 /* arrows.gif */,
+				D88DC9592305FD5300673FA9 /* locked.gif */,
+			);
+			path = Gif;
+			sourceTree = "<group>";
+		};
+		D8B5A4692300A94C0097A776 /* DataFormatting */ = {
+			isa = PBXGroup;
+			children = (
+				D8B5A46A2300A9F50097A776 /* KeyId.swift */,
+			);
+			path = DataFormatting;
+			sourceTree = "<group>";
+		};
 		D8F37CA122EC851500104CB8 = {
 			isa = PBXGroup;
 			children = (
@@ -81,15 +160,17 @@
 				D8F37CC122EC852100104CB8 /* TrustTests */,
 				D8F37CCC22EC852100104CB8 /* TrustUITests */,
 				D8F37CAB22EC851500104CB8 /* Products */,
+				858139B1A6B62C323F1963AE /* Pods */,
+				5FE753F10944B6382D78BE4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		D8F37CAB22EC851500104CB8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D8F37CAA22EC851500104CB8 /* Trust.app */,
-				D8F37CBE22EC852100104CB8 /* TrustTests.xctest */,
-				D8F37CC922EC852100104CB8 /* TrustUITests.xctest */,
+				D8F37CAA22EC851500104CB8 /* NewNigma.app */,
+				D8F37CBE22EC852100104CB8 /* NewNigmaTests.xctest */,
+				D8F37CC922EC852100104CB8 /* NewNigmaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,8 +178,11 @@
 		D8F37CAC22EC851500104CB8 /* Trust */ = {
 			isa = PBXGroup;
 			children = (
+				D8B5A4692300A94C0097A776 /* DataFormatting */,
+				D86D147722F0CB4400AE5B20 /* GlobalVariable */,
+				D8F37CDF22EC92DD00104CB8 /* ViewController */,
+				D8F37CDB22EC922500104CB8 /* Style */,
 				D8F37CAD22EC851500104CB8 /* AppDelegate.swift */,
-				D8F37CAF22EC851500104CB8 /* ViewController.swift */,
 				D8F37CB122EC851500104CB8 /* Main.storyboard */,
 				D8F37CB422EC852100104CB8 /* Assets.xcassets */,
 				D8F37CB622EC852100104CB8 /* LaunchScreen.storyboard */,
@@ -125,29 +209,65 @@
 			path = TrustUITests;
 			sourceTree = "<group>";
 		};
+		D8F37CDB22EC922500104CB8 /* Style */ = {
+			isa = PBXGroup;
+			children = (
+				D88DC9582305FC7500673FA9 /* Gif */,
+				D8F37CDC22EC923000104CB8 /* Extension */,
+			);
+			path = Style;
+			sourceTree = "<group>";
+		};
+		D8F37CDC22EC923000104CB8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				D8F37CDD22EC924800104CB8 /* UIButton.swift */,
+				D84BD11F22ED058800F9786A /* AttributedText.swift */,
+				D8F37CEA22ECC19000104CB8 /* TextView.swift */,
+				D86D147A22F0CE4100AE5B20 /* String.swift */,
+				D86D148022F203C600AE5B20 /* CustomCellTableView.swift */,
+				D88DC9562305FC6000673FA9 /* GifController.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		D8F37CDF22EC92DD00104CB8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D8F37CE622ECC14100104CB8 /* Encrypt.swift */,
+				D8766CA222ECFEA200AFB3D3 /* EncryptedResult.swift */,
+				D86D147522F0AC2E00AE5B20 /* AddKey.swift */,
+				D86D147E22F1E3E800AE5B20 /* KeyList.swift */,
+				D86D148422F20A3800AE5B20 /* ShowKey.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D8F37CA922EC851500104CB8 /* Trust */ = {
+		D8F37CA922EC851500104CB8 /* NewNigma */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8F37CD222EC852100104CB8 /* Build configuration list for PBXNativeTarget "Trust" */;
+			buildConfigurationList = D8F37CD222EC852100104CB8 /* Build configuration list for PBXNativeTarget "NewNigma" */;
 			buildPhases = (
+				0781D962731E52F8F9E8D5B7 /* [CP] Check Pods Manifest.lock */,
 				D8F37CA622EC851500104CB8 /* Sources */,
 				D8F37CA722EC851500104CB8 /* Frameworks */,
 				D8F37CA822EC851500104CB8 /* Resources */,
+				0B1E9C0F9E199B7685F5B065 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Trust;
+			name = NewNigma;
 			productName = Trust;
-			productReference = D8F37CAA22EC851500104CB8 /* Trust.app */;
+			productReference = D8F37CAA22EC851500104CB8 /* NewNigma.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D8F37CBD22EC852100104CB8 /* TrustTests */ = {
+		D8F37CBD22EC852100104CB8 /* NewNigmaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8F37CD522EC852100104CB8 /* Build configuration list for PBXNativeTarget "TrustTests" */;
+			buildConfigurationList = D8F37CD522EC852100104CB8 /* Build configuration list for PBXNativeTarget "NewNigmaTests" */;
 			buildPhases = (
 				D8F37CBA22EC852100104CB8 /* Sources */,
 				D8F37CBB22EC852100104CB8 /* Frameworks */,
@@ -158,14 +278,14 @@
 			dependencies = (
 				D8F37CC022EC852100104CB8 /* PBXTargetDependency */,
 			);
-			name = TrustTests;
+			name = NewNigmaTests;
 			productName = TrustTests;
-			productReference = D8F37CBE22EC852100104CB8 /* TrustTests.xctest */;
+			productReference = D8F37CBE22EC852100104CB8 /* NewNigmaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		D8F37CC822EC852100104CB8 /* TrustUITests */ = {
+		D8F37CC822EC852100104CB8 /* NewNigmaUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D8F37CD822EC852100104CB8 /* Build configuration list for PBXNativeTarget "TrustUITests" */;
+			buildConfigurationList = D8F37CD822EC852100104CB8 /* Build configuration list for PBXNativeTarget "NewNigmaUITests" */;
 			buildPhases = (
 				D8F37CC522EC852100104CB8 /* Sources */,
 				D8F37CC622EC852100104CB8 /* Frameworks */,
@@ -176,9 +296,9 @@
 			dependencies = (
 				D8F37CCB22EC852100104CB8 /* PBXTargetDependency */,
 			);
-			name = TrustUITests;
+			name = NewNigmaUITests;
 			productName = TrustUITests;
-			productReference = D8F37CC922EC852100104CB8 /* TrustUITests.xctest */;
+			productReference = D8F37CC922EC852100104CB8 /* NewNigmaUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -204,7 +324,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D8F37CA522EC851500104CB8 /* Build configuration list for PBXProject "Trust" */;
+			buildConfigurationList = D8F37CA522EC851500104CB8 /* Build configuration list for PBXProject "NewNigma" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,9 +337,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D8F37CA922EC851500104CB8 /* Trust */,
-				D8F37CBD22EC852100104CB8 /* TrustTests */,
-				D8F37CC822EC852100104CB8 /* TrustUITests */,
+				D8F37CA922EC851500104CB8 /* NewNigma */,
+				D8F37CBD22EC852100104CB8 /* NewNigmaTests */,
+				D8F37CC822EC852100104CB8 /* NewNigmaUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -229,6 +349,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D88DC95B2305FD5300673FA9 /* locked.gif in Resources */,
+				D88DC95C2305FD5300673FA9 /* arrows.gif in Resources */,
 				D8F37CB822EC852100104CB8 /* LaunchScreen.storyboard in Resources */,
 				D8F37CB522EC852100104CB8 /* Assets.xcassets in Resources */,
 				D8F37CB322EC851500104CB8 /* Main.storyboard in Resources */,
@@ -251,13 +373,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0781D962731E52F8F9E8D5B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Trust-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0B1E9C0F9E199B7685F5B065 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trust/Pods-Trust-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Trust/Pods-Trust-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Trust/Pods-Trust-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D8F37CA622EC851500104CB8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8F37CB022EC851500104CB8 /* ViewController.swift in Sources */,
+				D84BD12022ED058800F9786A /* AttributedText.swift in Sources */,
+				D86D147F22F1E3E800AE5B20 /* KeyList.swift in Sources */,
+				D8F37CE722ECC14100104CB8 /* Encrypt.swift in Sources */,
+				D8F37CEB22ECC19000104CB8 /* TextView.swift in Sources */,
+				D88DC9572305FC6000673FA9 /* GifController.swift in Sources */,
+				D86D147B22F0CE4100AE5B20 /* String.swift in Sources */,
 				D8F37CAE22EC851500104CB8 /* AppDelegate.swift in Sources */,
+				D86D148522F20A3800AE5B20 /* ShowKey.swift in Sources */,
+				D8B5A46B2300A9F50097A776 /* KeyId.swift in Sources */,
+				D86D148122F203C700AE5B20 /* CustomCellTableView.swift in Sources */,
+				D8766CA322ECFEA200AFB3D3 /* EncryptedResult.swift in Sources */,
+				D8F37CDE22EC924800104CB8 /* UIButton.swift in Sources */,
+				D86D147922F0CBC700AE5B20 /* GlobalVariable.swift in Sources */,
+				D86D147622F0AC2E00AE5B20 /* AddKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +441,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F37CEC22ECC19000104CB8 /* TextView.swift in Sources */,
 				D8F37CC322EC852100104CB8 /* TrustTests.swift in Sources */,
+				D8F37CE822ECC14100104CB8 /* Encrypt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +451,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8F37CED22ECC19000104CB8 /* TextView.swift in Sources */,
 				D8F37CCE22EC852100104CB8 /* TrustUITests.swift in Sources */,
+				D8F37CE922ECC14100104CB8 /* Encrypt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +462,12 @@
 /* Begin PBXTargetDependency section */
 		D8F37CC022EC852100104CB8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D8F37CA922EC851500104CB8 /* Trust */;
+			target = D8F37CA922EC851500104CB8 /* NewNigma */;
 			targetProxy = D8F37CBF22EC852100104CB8 /* PBXContainerItemProxy */;
 		};
 		D8F37CCB22EC852100104CB8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D8F37CA922EC851500104CB8 /* Trust */;
+			target = D8F37CA922EC851500104CB8 /* NewNigma */;
 			targetProxy = D8F37CCA22EC852100104CB8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -430,6 +610,7 @@
 		};
 		D8F37CD322EC852100104CB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C258F9CEEF2582662431FFFB /* Pods-Trust.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +629,7 @@
 		};
 		D8F37CD422EC852100104CB8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2213E58E240AFC1A1864AF38 /* Pods-Trust.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -481,7 +663,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trust.app/Trust";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewNigma.app/NewNigma";
 			};
 			name = Debug;
 		};
@@ -502,7 +684,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Trust.app/Trust";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NewNigma.app/NewNigma";
 			};
 			name = Release;
 		};
@@ -549,7 +731,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D8F37CA522EC851500104CB8 /* Build configuration list for PBXProject "Trust" */ = {
+		D8F37CA522EC851500104CB8 /* Build configuration list for PBXProject "NewNigma" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8F37CD022EC852100104CB8 /* Debug */,
@@ -558,7 +740,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D8F37CD222EC852100104CB8 /* Build configuration list for PBXNativeTarget "Trust" */ = {
+		D8F37CD222EC852100104CB8 /* Build configuration list for PBXNativeTarget "NewNigma" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8F37CD322EC852100104CB8 /* Debug */,
@@ -567,7 +749,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D8F37CD522EC852100104CB8 /* Build configuration list for PBXNativeTarget "TrustTests" */ = {
+		D8F37CD522EC852100104CB8 /* Build configuration list for PBXNativeTarget "NewNigmaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8F37CD622EC852100104CB8 /* Debug */,
@@ -576,7 +758,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D8F37CD822EC852100104CB8 /* Build configuration list for PBXNativeTarget "TrustUITests" */ = {
+		D8F37CD822EC852100104CB8 /* Build configuration list for PBXNativeTarget "NewNigmaUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D8F37CD922EC852100104CB8 /* Debug */,
