@@ -1,0 +1,313 @@
+//
+//  addKey.swift
+//  Trust
+//
+//  Created by Nathan on 30/07/2019.
+//  Copyright © 2019 Nathan. All rights reserved.
+//
+
+import Foundation
+import UIKit
+import SwiftKeychainWrapper
+
+class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
+    
+    var nameLabel = UILabel()
+    var nameField = UITextField()
+    var nameError = UIButton()
+    var publicKeyLabel = UILabel()
+    var publicKeyField = UITextView()
+    var publicKeyError = UIButton()
+    var nextButton = UIButton()
+    var chargement = UIActivityIndicatorView()
+    var tikImage = UIImageView()
+    var currentColorButton = UIButton()
+    var chooseColorControl = UISegmentedControl()
+    
+    //local var
+    let listeImageColor: [UIImage] = [UIImage(named: "blue")!, UIImage(named: "red")!, UIImage(named: "orange")!, UIImage(named: "green")!, UIImage(named: "pink")!, UIImage(named: "white")!, UIImage(named: "gray")!]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.scrollView.delegate = self
+        self.scrollView.keyboardDismissMode = .onDrag
+        self.backgroundView.layer.cornerRadius = 40
+        addViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+    }
+    
+    
+    //
+    // View constructions func
+    //
+    
+    private func addViews(){
+        backgroundView.addSubview(nameLabel)
+        self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.nameLabel.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.leftAnchor, multiplier: 2).isActive = true
+        self.nameLabel.topAnchor.constraint(equalToSystemSpacingBelow: self.scrollView.topAnchor, multiplier: 2).isActive = true
+        self.nameLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 30)
+        self.nameLabel.textColor = .white
+        self.nameLabel.text = "Name of this key :"
+        
+        backgroundView.addSubview(nameField)
+        self.nameField.translatesAutoresizingMaskIntoConstraints = false
+        self.nameField.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
+        self.nameField.topAnchor.constraint(equalToSystemSpacingBelow: self.nameLabel.bottomAnchor, multiplier: 2).isActive = true
+        self.nameField.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width -  20).isActive = true
+        self.nameField.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
+        self.nameField.textColor = .systemOrange
+        self.nameField.placeholder = "Aa"
+        self.nameField.keyboardAppearance = .dark
+        self.nameField.textContentType = .name
+        self.nameField.borderStyle = .roundedRect
+        self.nameField.layer.cornerRadius = 15
+        self.nameField.layer.borderWidth = 5
+        self.nameField.layer.borderColor = .none
+        self.nameField.backgroundColor = .black
+        
+        backgroundView.addSubview(nameError)
+        self.nameError.translatesAutoresizingMaskIntoConstraints = false
+        self.nameError.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
+        self.nameError.topAnchor.constraint(equalToSystemSpacingBelow: self.nameLabel.bottomAnchor, multiplier: 2).isActive = true
+        self.nameError.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width -  20).isActive = true
+        self.nameError.titleLabel!.font = UIFont(name: "Arial Rounded MT Bold", size: 18)
+        self.nameError.setTitleColor(.systemRed, for: .normal)
+        self.nameError.layer.cornerRadius = 15
+        self.nameError.layer.borderWidth = 1
+        self.nameError.layer.borderColor = UIColor.white.cgColor
+        self.nameError.backgroundColor = .white
+        self.nameError.isHidden = true
+        self.nameError.addTarget(self, action: #selector(nameErrorSelected), for: .touchUpInside)
+        
+        backgroundView.addSubview(publicKeyLabel)
+        self.publicKeyLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.publicKeyLabel.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.leftAnchor, multiplier: 2).isActive = true
+        self.publicKeyLabel.topAnchor.constraint(equalToSystemSpacingBelow: self.nameField.topAnchor, multiplier: 5).isActive = true
+        self.publicKeyLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
+        self.publicKeyLabel.textColor = .white
+        self.publicKeyLabel.text = "Encryption key in clear:"
+        
+        backgroundView.addSubview(publicKeyField)
+        self.publicKeyField.translatesAutoresizingMaskIntoConstraints = false
+        self.publicKeyField.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
+        self.publicKeyField.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyLabel.bottomAnchor, multiplier: 1.5).isActive = true
+        self.publicKeyField.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 20).isActive = true
+        self.publicKeyField.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        self.publicKeyField.font = UIFont(name: "American Typewriter", size: 20)
+        self.publicKeyField.textColor = .lightGray
+        self.publicKeyField.text = "The key must start by ==START== and end by ==END=="
+        self.publicKeyField.keyboardAppearance = .dark
+        self.publicKeyField.textContentType = .name
+        self.publicKeyField.rondBorder()
+        self.publicKeyField.layer.borderColor = UIColor.black.cgColor
+        self.publicKeyField.backgroundColor = .black
+        self.publicKeyField.delegate = self
+        
+        backgroundView.addSubview(publicKeyError)
+        self.publicKeyError.translatesAutoresizingMaskIntoConstraints = false
+        self.publicKeyError.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
+        self.publicKeyError.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyLabel.bottomAnchor, multiplier: 1.5).isActive = true
+        self.publicKeyError.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 20).isActive = true
+        self.publicKeyError.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        self.publicKeyError.titleLabel!.font = UIFont(name: "Arial Rounded MT Bold", size: 18)
+        self.publicKeyError.setTitleColor(.systemRed, for: .normal)
+        self.publicKeyError.layer.cornerRadius = 15
+        self.publicKeyError.layer.borderWidth = 1
+        self.publicKeyError.titleLabel?.numberOfLines = 20
+        self.publicKeyError.layer.borderColor = UIColor.white.cgColor
+        self.publicKeyError.backgroundColor = .white
+        self.publicKeyError.isHidden = true
+        self.publicKeyError.addTarget(self, action: #selector(publicKeyErrorSelected), for: .touchUpInside)
+        
+        /*self.backgroundView.addSubview(self.currentColorButton)
+        self.currentColorButton.translatesAutoresizingMaskIntoConstraints = false
+        self.currentColorButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
+        self.currentColorButton.topAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: self.publicKeyField.bottomAnchor, multiplier: 4).isActive = true
+        self.currentColorButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        self.currentColorButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.currentColorButton.titleLabel?.backgroundColor = .blue
+        self.currentColorButton.addTarget(self, action: #selector(colorButtonSelected), for: .touchUpInside)
+        
+        self.backgroundView.addSubview(self.chooseColorControl)
+        self.chooseColorControl.translatesAutoresizingMaskIntoConstraints = false
+        self.chooseColorControl.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.rightAnchor, multiplier: 2).isActive = true
+        self.chooseColorControl.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyField.bottomAnchor, multiplier: 4).isActive = true
+        self.chooseColorControl.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - self.currentColorButton.frame.size.width - 40).isActive = true
+        for i in 0 ..< listeImageColor.count {
+            self.chooseColorControl.setImage(listeImageColor[i], forSegmentAt: i)
+        }
+        self.chooseColorControl.isHidden = true*/
+        
+        self.backgroundView.addSubview(self.nextButton)
+        self.nextButton.translatesAutoresizingMaskIntoConstraints = false
+        self.nextButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
+        self.nextButton.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyField.bottomAnchor, multiplier: 3).isActive = true
+        self.nextButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        self.nextButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        self.nextButton.setImage(UIImage(named: "next"), for: .normal)
+        self.nextButton.addTarget(self, action: #selector(nextButtonSelected), for: .touchUpInside)
+        
+        self.backgroundView.addSubview(self.chargement)
+        self.chargement.translatesAutoresizingMaskIntoConstraints = false
+        self.chargement.centerXAnchor.constraint(equalToSystemSpacingAfter: self.nextButton.centerXAnchor, multiplier: 1).isActive = true
+        self.chargement.centerYAnchor.constraint(equalToSystemSpacingBelow: self.nextButton.centerYAnchor, multiplier: 1).isActive = true
+        self.chargement.hidesWhenStopped = true
+        
+    }
+    
+    
+    //
+    // Objective C func
+    //
+    
+    @objc private func nameErrorSelected(sender: UIButton){
+        flip(firstView: self.nameError, secondView: self.nameField)
+    }
+    
+    @objc private func publicKeyErrorSelected(sender: UIButton){
+        flip(firstView: self.publicKeyError, secondView: self.publicKeyField)
+    }
+    
+    //Bouton pour changer la couleur selectionné
+    @objc private func colorButtonSelected(sender:UIButton){
+        let animation = UIViewPropertyAnimator(duration: 1, curve: .easeInOut, animations: {
+            self.currentColorButton.translatesAutoresizingMaskIntoConstraints = true
+            self.chooseColorControl.translatesAutoresizingMaskIntoConstraints = true
+            self.currentColorButton.frame.origin.x = 20
+            self.chooseColorControl.frame.origin.x = 20 + self.currentColorButton.frame.size.width
+        })
+        animation.startAnimation()
+    }
+    
+    @objc private func nextButtonSelected(sender: UIButton){
+        let keyArray = KeyId()
+        //startChargement(true)
+        var testOk = true
+        var listeIdNom:[String: String] = [:]
+        
+        if self.nameField.text == ""{
+            testOk = false
+            self.nameError.setTitle("This key needs a little name 🥺", for: .normal)
+            flip(firstView: self.nameField, secondView: self.nameError)
+        } else if self.publicKeyField.text == "" || self.publicKeyField.text == "The key must start by ==START== and end by ==END=="{
+            testOk = false
+            self.publicKeyError.setTitle("Without key, no encryption 🤷‍♂️", for: .normal)
+            self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
+        } else if !self.publicKeyField.text.contains("==START==") || !self.publicKeyField.text.contains("==END=="){
+            testOk = false
+            self.publicKeyError.setTitle("Are you sure that's you have the correct key ? Remember, it must start with '==START==' and end with '==END=='. You should never edit it yourself 🤭", for: .normal)
+            self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
+        }
+        
+        listeIdNom = keyArray.getKeyIdArray()
+        
+        if let firstCase = listeIdNom["##ERROR##"]{
+            testOk = false
+            self.publicKeyError.setTitle(firstCase, for: .normal)
+            flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
+        } else { // we don't have any error
+            for (_, nom) in listeIdNom { // we verify if the name already exist
+                if nom == self.nameField.text! {
+                    testOk = false
+                    self.nameError.setTitle("This name is already taken 💩", for: .normal)
+                    flip(firstView: self.nameField, secondView: self.nameError)
+                }
+            }
+        }
+        
+        //We can try to save data
+        if testOk {
+            var greaterNum = 0
+            for (id, _) in listeIdNom {
+                if Int(id) ?? 0 > greaterNum {
+                    greaterNum = Int(id) ?? 0
+                }
+            }
+            listeIdNom.updateValue(self.nameField.text!, forKey: String(greaterNum + 1))
+            keyArray.stockNewNameIdArray(listeIdNom)
+            
+            //enregsitrement dans la keyChain:
+            let successfulSave:Bool = KeychainWrapper.standard.set("\(self.publicKeyField.text!)", forKey: "\(greaterNum + 1)")
+            if successfulSave {
+                do {
+                    let _ = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath), encoding: .utf8)
+                    //
+                    //SUCCÈS ::
+                    //
+                    print("button = \(self.nextButton.state)")
+                    self.nextButton.setImage(UIImage(named: "success"), for: .selected)
+                    perform(#selector(dismissView), with: nil, afterDelay: 0.5)
+                } catch {
+                    print("Fichier introuvable. ERREUR GRAVE")
+                    // UNE ERREUR EST SURVENUE
+                    self.publicKeyError.setTitle("We are unable to save the key into your device's space. Please verify that the field is well filled. If you see this message several times, please, contact the developer ❌", for: .normal)
+                    self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
+                }
+            } else {
+                self.publicKeyError.setTitle("We are unable to save the key into your Keychain. Please verify that the field is well filled. If you see this message several times, please, contact the developer ❌", for: .normal)
+                self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
+            }
+        }
+    }
+    
+    @objc func dismissView(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //
+    // @IBOutlet func
+    //
+    
+    @IBAction func cancelSelected(sender: UIBarButtonItem){
+        print("cancel button selected")
+        perform(#selector(dismissView), with: nil)
+    }
+    
+    //
+    // Design function
+    //
+    
+    func flip(firstView : UIView, secondView: UIView) {
+        let transitionOptions: UIView.AnimationOptions = [.transitionFlipFromRight, .showHideTransitionViews]
+
+        UIView.transition(with: firstView , duration: 1.0, options: transitionOptions, animations: {
+            firstView.isHidden = true
+        })
+
+        UIView.transition(with: secondView, duration: 1.0, options: transitionOptions, animations: {
+            secondView.isHidden = false
+        })
+    }
+    
+    
+    
+   
+
+    //
+    //Text view delegate
+    //
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == "The key must start by ==START== and end by ==END=="{
+            textView.text = ""
+            textView.textColor = .systemOrange
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView){
+        if textView.text == "" {
+            textView.text = "The key must start by ==START== and end by ==END=="
+            textView.textColor = .lightGray
+        }
+    }
+}
+
