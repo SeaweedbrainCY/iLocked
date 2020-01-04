@@ -23,6 +23,7 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBOutlet weak var chargement: UIActivityIndicatorView!
     @IBOutlet weak var littleHelpLabel : UILabel!
     @IBOutlet weak var refreshButton: UIBarButtonItem!
+    @IBOutlet weak var lockAppButton: UIBarButtonItem!
     
     var keyArray: [String] = ["Add a key"]
     var heightPicker: NSLayoutConstraint?
@@ -173,12 +174,21 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     @IBAction public func refreshButtonSelected(sender: UIBarButtonItem){
-        //Suppression de anciennes données
-        keyArray = ["Add a key"]
-        idArray = []
-        //On load les nouvelles
-        loadData()
-        self.keyList.reloadAllComponents()
+        if sender.image == UIImage(systemName: "arrow.clockwise.circle.fill") {
+            //Suppression de anciennes données
+            keyArray = ["Add a key"]
+            idArray = []
+            //On load les nouvelles
+            loadData()
+            self.keyList.reloadAllComponents()
+        } else { // User ask for shut keyboard down
+             self.view.endEditing(true)
+        }
+        
+    }
+    
+    @IBAction func lockAppSelected(sender: UIBarButtonItem){
+        performSegue(withIdentifier: "lockApp", sender: self)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -219,6 +229,8 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.translatesAutoresizingMaskIntoConstraints = true
         textView.frame.origin.y = 10
+        self.refreshButton.image = UIImage(systemName: "keyboard.chevron.compact.down")
+        self.encryptButton.isHidden = true
         if textView.text == "Text to encrypt"{
             textView.text = ""
             textView.textColor = UIColor.white
@@ -226,7 +238,9 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     func textViewDidEndEditing(_ textView: UITextView){
-        textView.translatesAutoresizingMaskIntoConstraints = false 
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        self.refreshButton.image = UIImage(systemName: "arrow.clockwise.circle.fill")
+        self.encryptButton.isHidden = false
         if textView.text == "" {
             textView.text = "Text to encrypt"
             textView.textColor = .lightGray

@@ -29,12 +29,19 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     var chooseColorControl = UISegmentedControl()
     
     var viewOnBack: String = ""
+    var oldName:String = ""
+    var oldKey: String = ""
     
+    let keyTextViewPlaceholder = "If it's not ugly it can't be that ..."
     
-    //ATTENTION CE MRCEAU DE CODE EST STRICTEMENT SUPERFLU. IL CONCERNE UNE FONCTIONNALITÉ NON IMPLENTÉE ET TOUJOURS EN COURS DE DEVELOPPEMENT.
-    //RÉINTEGRER CETTE PARTIE DE CODE EST INUTILE PUISQUE NON-UTILISÉ.
-    /*//local var
-    let listeImageColor: [UIImage] = [UIImage(named: "blue")!, UIImage(named: "red")!, UIImage(named: "orange")!, UIImage(named: "green")!, UIImage(named: "pink")!, UIImage(named: "white")!, UIImage(named: "gray")!]*/
+    //##################################################################################
+    //##################################################################################
+        //ATTENTION CE MORCEAU DE CODE EST STRICTEMENT SUPERFLU. IL CONCERNE UNE FONCTIONNALITÉ NON IMPLENTÉE ET TOUJOURS EN COURS DE DEVELOPPEMENT.
+        //RÉINTEGRER CETTE PARTIE DE CODE EST INUTILE PUISQUE NON-UTILISÉ.
+        /*local var
+        let listeImageColor: [UIImage] = [UIImage(named: "blue")!, UIImage(named: "red")!, UIImage(named: "orange")!, UIImage(named: "green")!, UIImage(named: "pink")!, UIImage(named: "white")!, UIImage(named: "gray")!]*/
+    //##################################################################################
+    //##################################################################################
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +91,9 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         self.nameField.layer.borderWidth = 5
         self.nameField.layer.borderColor = .none
         self.nameField.backgroundColor = .black
+        if self.oldName != ""{ // Name is given by ShowKey.swift in case of modification
+            self.nameField.text = oldName
+        }
         
         backgroundView.addSubview(nameError)
         self.nameError.translatesAutoresizingMaskIntoConstraints = false
@@ -105,7 +115,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         self.publicKeyLabel.topAnchor.constraint(equalToSystemSpacingBelow: self.nameField.topAnchor, multiplier: 5).isActive = true
         self.publicKeyLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
         self.publicKeyLabel.textColor = .white
-        self.publicKeyLabel.text = "Encryption key in clear:"
+        self.publicKeyLabel.text = "Public (encryption) key :"
         
         backgroundView.addSubview(publicKeyField)
         self.publicKeyField.translatesAutoresizingMaskIntoConstraints = false
@@ -115,13 +125,16 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         self.publicKeyField.heightAnchor.constraint(equalToConstant: 300).isActive = true
         self.publicKeyField.font = UIFont(name: "American Typewriter", size: 20)
         self.publicKeyField.textColor = .lightGray
-        self.publicKeyField.text = "The key must start by ==START== and end by ==END=="
+        self.publicKeyField.text = self.keyTextViewPlaceholder
         self.publicKeyField.keyboardAppearance = .dark
         self.publicKeyField.textContentType = .name
         self.publicKeyField.rondBorder()
         self.publicKeyField.layer.borderColor = UIColor.black.cgColor
         self.publicKeyField.backgroundColor = .black
         self.publicKeyField.delegate = self
+        if self.oldKey != ""{ //Given by ShowKey.swift's class in case of modification
+            self.publicKeyField.text = self.oldKey
+        }
         
         backgroundView.addSubview(publicKeyError)
         self.publicKeyError.translatesAutoresizingMaskIntoConstraints = false
@@ -139,6 +152,8 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         self.publicKeyError.isHidden = true
         self.publicKeyError.addTarget(self, action: #selector(publicKeyErrorSelected), for: .touchUpInside)
         
+        //##################################################################################
+        //##################################################################################
         //ATTENTION : CETTE PARTIE DE CODE EST NON OPTIMISÉE ET NON TERMINÉE.
         //CE CODE EST EN PRÉVSISION D'UNE FUTUR MISE À JOUR MAIS N'EST ABSOLUMENT PAS AU POINT
         //LE RÉTABLISSEMENT DE CE CODE SANS SÉRIEUX COMPLÉMENT MET EN PÉRIL LE CHARGEMENT DE LA VIEW
@@ -160,6 +175,8 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
             self.chooseColorControl.setImage(listeImageColor[i], forSegmentAt: i)
         }
         self.chooseColorControl.isHidden = true*/
+        //##################################################################################
+        //##################################################################################
         
         self.backgroundView.addSubview(self.nextButton)
         self.nextButton.translatesAutoresizingMaskIntoConstraints = false
@@ -191,11 +208,13 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         flip(firstView: self.publicKeyError, secondView: self.publicKeyField)
     }
     
+    //##################################################################################
+    //##################################################################################
     //Bouton pour changer la couleur selectionné
     //ATTENTION CETTE FONCTION EST NON IMPLÉMENTÉE DANS LE CODE
     //CETTE FONCTION EST DANS LA PRÉVISION D'UNE AMÉRLIORATION À VENIR.
     //CETTE FONCTION PEUT ÉVENTUELLEMENT DISPARAITRE MOMENTANEMÉNT OU PASSER EN COMMENTAIRE
-    @objc private func colorButtonSelected(sender:UIButton){
+    /*@objc private func colorButtonSelected(sender:UIButton){
         let animation = UIViewPropertyAnimator(duration: 1, curve: .easeInOut, animations: {
             self.currentColorButton.translatesAutoresizingMaskIntoConstraints = true
             self.chooseColorControl.translatesAutoresizingMaskIntoConstraints = true
@@ -203,7 +222,9 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
             self.chooseColorControl.frame.origin.x = 20 + self.currentColorButton.frame.size.width
         })
         animation.startAnimation()
-    }
+    }*/
+    //##################################################################################
+    //##################################################################################
     
     @objc private func nextButtonSelected(sender: UIButton){
         let keyArray = KeyId()
@@ -258,6 +279,9 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
                     //
                     print("button = \(self.nextButton.state)")
                     NotificationCenter.default.post(name: Encrypt.notificationName, object: nil, userInfo:["addKey success" : true])
+                    if self.viewOnBack == "ShowKey"{
+                        NotificationCenter.default.post(name: ShowKey.notificationOfModificationName, object: nil, userInfo: ["name": self.nameField.text!, "key": self.publicKeyField.text!, "idKey": "\(greaterNum + 1)"])
+                    }
                     dismissView()
                 } catch {
                     print("Fichier introuvable. ERREUR GRAVE")
@@ -289,7 +313,9 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     @IBAction func cancelSelected(sender: UIBarButtonItem){
         print("cancel button selected")
         NotificationCenter.default.post(name: Encrypt.notificationName, object: nil, userInfo:["addKey dismissed" : true])
+        
         perform(#selector(dismissView), with: nil)
+        
     }
     
     //
@@ -327,7 +353,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     //
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "The key must start by ==START== and end by ==END=="{
+        if textView.text == self.keyTextViewPlaceholder{
             textView.text = ""
             textView.textColor = .systemOrange
         }
@@ -335,7 +361,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView){
         if textView.text == "" {
-            textView.text = "The key must start by ==START== and end by ==END=="
+            textView.text = self.keyTextViewPlaceholder
             textView.textColor = .lightGray
         }
     }

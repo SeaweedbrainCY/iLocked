@@ -128,7 +128,7 @@ class LockedView: UIViewController{
         self.actionButton.isHidden = false
         
         //Instanciation des differents textes
-        self.titleLabel.text = "🔐 Locked 🔐"
+        self.titleLabel.text = "Locked"
         self.descriptionLabel.text = ""
         self.actionButton.setImage(UIImage(named: "fingerprint"), for: .normal)
         //self.actionButton.layer.cornerRadius = self.actionButton.frame.size.width / 2
@@ -171,9 +171,10 @@ class LockedView: UIViewController{
             animation.startAnimation()
             let keys = PublicPrivateKeys()
             if keys.generateAndStockKeyUser() {
-                descriptionLabel.text = "IT'S A SUCCESS !!!"
+                descriptionLabel.text = "Welcome ... "
+                self.performSegue(withIdentifier: "HomePage", sender: self)
             } else {
-                descriptionLabel.text = "It's a fail ... "
+                descriptionLabel.text = "Error occured while creating keys. Please restart the application"
             }
         }
         
@@ -221,7 +222,7 @@ class LockedView: UIViewController{
                 return
             }
             
-            let message = "Unlocked iLocked"
+            let message = "For more security your app is locked"
             context?.evaluatePolicy(policy!, localizedReason: message, reply: { (success, error) in
                 DispatchQueue.main.async {
                     if success {

@@ -13,7 +13,6 @@ class KeyId {
     // Convert
     public func getKeyIdArray() -> [String: String]{
         //Récupération des données enregistrées
-        
         var dicoEncoded: String! = "nil"
         do {
             dicoEncoded = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath), encoding: .utf8)
@@ -97,3 +96,5 @@ class KeyId {
         return array
     }
 }
+
+

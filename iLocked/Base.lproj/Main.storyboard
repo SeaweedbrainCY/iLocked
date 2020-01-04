@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,10 +19,10 @@
                                 <rect key="frame" x="0.0" y="125" width="375" height="522"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjX-sJ-7hk">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1054"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="0.4900203339041096" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="1054" id="J7H-mv-cj2"/>
+                                            <constraint firstAttribute="height" constant="700" id="J7H-mv-cj2"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -61,7 +61,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add an encryption key" id="YYc-gE-kow">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UfM-Kd-6gU">
-                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="cancelSelectedWithSender:" destination="nVe-hc-Wct" id="idn-Z2-09X"/>
                             </connections>
@@ -102,10 +102,10 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Ezs-OQ-DzN"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="ellipsis.circle" catalog="system" id="dbh-Z3-bvU">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </barButtonItem>
                             <barButtonItem systemItem="add" id="Wx0-92-Gn4">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="tOU-fV-Ibc" kind="presentation" identifier="addKey" modalPresentationStyle="pageSheet" id="4dG-a0-Usv"/>
                                 </connections>
@@ -183,7 +183,7 @@
                             </textView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="uU6-HN-sJY">
                                 <rect key="frame" x="169" y="293" width="37" height="37"/>
-                                <color key="color" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to confirm the selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEL-Uo-5ld">
                                 <rect key="frame" x="73" y="95" width="229" height="20"/>
@@ -214,11 +214,14 @@
                     <navigationItem key="navigationItem" title="  " id="eGS-Iy-0AG">
                         <barButtonItem key="backBarButtonItem" title=" " id="IYN-4d-LIH"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" image="empreinte" id="fFF-Oo-VMX">
-                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="lockAppSelectedWithSender:" destination="BYZ-38-t0r" id="Hrm-Vs-4HF"/>
+                            </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="storage" id="sgb-fw-ESs">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="Bw4-Uw-PF4" kind="show" identifier="showList" id="spH-7f-JcM"/>
                                 </connections>
@@ -235,6 +238,7 @@
                         <outlet property="encryptButton" destination="ghn-Fx-AAU" id="Zml-SY-F0I"/>
                         <outlet property="keyList" destination="oNt-SV-y2Z" id="0vg-Ao-3E6"/>
                         <outlet property="littleHelpLabel" destination="HEL-Uo-5ld" id="lhD-QR-Oke"/>
+                        <outlet property="lockAppButton" destination="fFF-Oo-VMX" id="dtr-mY-P7z"/>
                         <outlet property="publicKeyButton" destination="qnH-r1-Y92" id="xBF-ce-gOz"/>
                         <outlet property="refreshButton" destination="TCW-I1-elO" id="yUD-jZ-NKg"/>
                         <outlet property="senderView" destination="y5f-SM-Sl0" id="t2k-Kn-Bxf"/>
@@ -291,7 +295,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
                                 <state key="normal" title="Button">
-                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="actionButtonSelectedWithSender:" destination="QiX-9o-pKS" eventType="touchUpInside" id="0v9-k9-rfK"/>
@@ -362,7 +366,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="42"/>
                                 <state key="normal" image="key"/>
                                 <connections>
-                                    <action selector="decryptButton:" destination="N9l-yk-OqT" eventType="touchUpInside" id="J4I-5y-c5H"/>
+                                    <action selector="decryptButton:" destination="N9l-yk-OqT" eventType="touchUpInside" id="00K-4M-S1n"/>
                                     <action selector="encryptSelectedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gDX-Sj-K0m"/>
                                 </connections>
                             </button>
@@ -372,7 +376,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Emy-d5-LV4"/>
                                     <constraint firstAttribute="width" constant="300" id="J9V-Rh-Smy"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="  Share my public encryption key" image="arrowshape.turn.up.left.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -390,6 +394,9 @@
                                 <state key="normal" image="info.circle.fill" catalog="system">
                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareButtonHelpWithSender:" destination="N9l-yk-OqT" eventType="touchUpInside" id="KaH-CR-0nU"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8f-5m-Xda">
                                 <rect key="frame" x="67" y="156" width="241" height="3"/>
@@ -429,14 +436,24 @@
                         <viewLayoutGuide key="safeArea" id="i6Q-Kn-bPO"/>
                     </view>
                     <navigationItem key="navigationItem" id="CZT-Kn-kla">
+                        <barButtonItem key="leftBarButtonItem" title="  " id="WON-mG-2rD">
+                            <connections>
+                                <action selector="closeKeyboardWithSender:" destination="N9l-yk-OqT" id="euw-gm-02j"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="Uiz-bs-MhO">
-                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="closeKeyboardWithSender:" destination="N9l-yk-OqT" id="G5c-VO-LLP"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="encryptButton" destination="ltB-tF-OTZ" id="vP0-Dn-qKW"/>
                         <outlet property="helpAboutSharingButton" destination="6rQ-2h-nZ4" id="t6k-Et-eao"/>
                         <outlet property="helpBarButtonItem" destination="Uiz-bs-MhO" id="WPv-ie-kyY"/>
+                        <outlet property="leftItemButton" destination="WON-mG-2rD" id="LjD-40-m4O"/>
                         <outlet property="sharePublicKeyButton" destination="tqz-Jq-k5Z" id="7FZ-bo-NyE"/>
                         <outlet property="textToEncryptView" destination="sj2-ux-wxP" id="zMZ-N7-AQq"/>
                         <segue destination="xbo-aT-QG9" kind="presentation" identifier="showDecryptedText" id="sqZ-hZ-a1j"/>
@@ -462,7 +479,7 @@
                                         <rect key="frame" x="50" y="4" width="275" height="33"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
                                         <state key="normal" title="Close the decryption program">
-                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
                                             <action selector="closButtonSelectedWithSender:" destination="xbo-aT-QG9" eventType="touchUpInside" id="sPt-2W-Gks"/>
@@ -486,18 +503,18 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" text="Decryption ..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aj7-eM-Sf2">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" text="Decryption ..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aj7-eM-Sf2">
                                 <rect key="frame" x="0.0" y="90" width="375" height="493"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIb-8W-OFr">
                                 <rect key="frame" x="0.0" y="591" width="375" height="48"/>
                                 <string key="text">Please be sure that no one can read the text.                           We certificate that this message is very strongly protected and you are the only one who can decrypt it. </string>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
-                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhm-jP-F8x">
@@ -532,9 +549,12 @@
                     </view>
                     <connections>
                         <outlet property="barView" destination="mhm-jP-F8x" id="Yfb-nj-Njj"/>
+                        <outlet property="bottomMessageLabel" destination="DIb-8W-OFr" id="14v-fE-qbZ"/>
                         <outlet property="closeButton" destination="pEy-Df-sd5" id="JhY-iz-VZb"/>
                         <outlet property="closeButtonBackgroundView" destination="I1c-Eh-l0H" id="Su8-7n-QNe"/>
                         <outlet property="decryptedTextView" destination="aj7-eM-Sf2" id="CLH-PE-bO5"/>
+                        <outlet property="titleLabel" destination="kna-az-4RE" id="kTd-nZ-wg2"/>
+                        <outlet property="topBarView" destination="mhm-jP-F8x" id="JlS-ro-5id"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="kJe-TR-tAr"/>
                     </connections>
                 </viewController>
@@ -554,9 +574,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="50L-Vd-Lqr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -587,11 +607,12 @@
             </objects>
             <point key="canvasLocation" x="1078" y="981"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Add Key Navigation Controller-->
         <scene sceneID="7cN-su-u73">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" id="tOU-fV-Ibc" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" interfaceStyle="dark" id="tOU-fV-Ibc" customClass="AddKeyNavigationController" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="rMj-7O-Ak6"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="qLi-aw-YgC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
@@ -648,19 +669,19 @@
                     <navigationItem key="navigationItem" title=" " id="KDJ-5D-bZe">
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="arrowshape.turn.up.right" catalog="system" id="VFf-9K-JYb">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="shareBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="oqx-FL-iT6"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="trash" catalog="system" id="2Ie-P9-434">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="trashBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="15X-Pe-31a"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="pencil.and.outline" catalog="system" id="14A-bk-UTI">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <action selector="editBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="Q8Y-dT-QNU"/>
                                 </connections>
@@ -675,6 +696,7 @@
                         <outlet property="shareBarButtonItem" destination="VFf-9K-JYb" id="8Fm-6d-5QQ"/>
                         <outlet property="trashBarButtonItem" destination="2Ie-P9-434" id="N6v-QI-Gq3"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="j11-r2-z5x"/>
+                        <segue destination="nVe-hc-Wct" kind="presentation" id="MbM-zP-E0T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80f-07-qES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -722,7 +744,7 @@
                     </view>
                     <navigationItem key="navigationItem" title=" " id="Ka6-NT-ubG">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrowshape.turn.up.right" catalog="system" id="oYc-Yu-lKD">
-                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="shareButtonSelectedWithSender:" destination="lni-hq-xo9" id="Ma0-UX-Xof"/>
                             </connections>
@@ -740,18 +762,18 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.clockwise.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="arrow.clockwise.circle.fill" catalog="system" width="64" height="60"/>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="64" height="52"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="64" height="52"/>
         <image name="coffre" width="345" height="345"/>
-        <image name="ellipsis.circle" catalog="system" width="64" height="62"/>
+        <image name="ellipsis.circle" catalog="system" width="64" height="60"/>
         <image name="empreinte" width="24" height="24"/>
         <image name="fingerprint_alone" width="533" height="697"/>
-        <image name="info.circle" catalog="system" width="64" height="62"/>
-        <image name="info.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="info.circle" catalog="system" width="64" height="60"/>
+        <image name="info.circle.fill" catalog="system" width="64" height="60"/>
         <image name="key" width="345" height="345"/>
         <image name="locked" width="24" height="24"/>
-        <image name="pencil.and.outline" catalog="system" width="64" height="60"/>
+        <image name="pencil.and.outline" catalog="system" width="64" height="58"/>
         <image name="storage" width="24" height="24"/>
         <image name="trash" catalog="system" width="60" height="64"/>
         <image name="unlocked" width="24" height="24"/>
@@ -759,6 +781,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lMQ-dt-c2G"/>
-        <segue reference="1Wa-3S-HsL"/>
+        <segue reference="EQK-VC-Mck"/>
+        <segue reference="hXU-1E-RYM"/>
     </inferredMetricsTieBreakers>
 </document>

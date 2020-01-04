@@ -32,7 +32,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var trashBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var shareBarButtonItem: UIBarButtonItem!
     
-    
+    static let notificationOfModificationName = Notification.Name("notificationOfModifcationFormEditKeyToShowKey")
     
     var name = ""
     var idKey = ""
@@ -56,6 +56,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         //Call when the user tap once or twice on the home button
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(editKeyResult), name: ShowKey.notificationOfModificationName, object: nil)
                     
     }
         
@@ -211,7 +212,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction private func editBarButtonItemSelected(sender: UIBarButtonItem){
-        
+        performSegue(withIdentifier: "editKey", sender: self)
     }
     
     //
@@ -250,6 +251,14 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         performSegue(withIdentifier: "lockApp", sender: self)
     }
     
+    @objc private func editKeyResult(notification: Notification){
+        let notificationData = notification.userInfo
+        self.name = notificationData?["name"] as! String
+        self.nameKey.text = (notificationData?["name"] as! String)
+        self.key.text = (notificationData?["key"] as! String)
+        self.idKey = notificationData?["idKey"] as! String
+    }
+    
     //
     // Data gestion func
     //
@@ -282,6 +291,11 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         if segue.identifier == "lockApp"{
             let lockedView = segue.destination as! LockedView
             lockedView.activityInProgress = true
+        } else if segue.identifier == "editKey"{
+            let editView = segue.destination as! AddKeyNavigationController
+            editView.name = self.nameKey.text!
+            editView.key = self.key.text!
+            editView.viewOnBack = "ShowKey"
         }
     }
 }

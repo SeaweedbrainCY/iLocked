@@ -13,18 +13,19 @@ import SwiftKeychainWrapper
 
 class Decryption {
     ///This function return the decrypted text of a String given
-    func decryptText(_ text:String) -> String{
+    /// - return : A dictionnary containing ONLY two keys : "state" : Bool (True if success, False if not) and "message" : String(The message according to the error or the result asked for)
+    func decryptText(_ text:String) -> [String: Any]{
         do {
             let decrypted = try EncryptedMessage(base64Encoded: text)
             if let privateKey: String = KeychainWrapper.standard.string(forKey: userPrivateKeyId) {
                 let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)
-                return try clear.string(encoding: .utf8)
+                return ["state" : true, "message" : try clear.string(encoding: .utf8)]
             } else {
-                return "iLocked can't access to your private Key"
+                return ["state" : false, "message" : "iLocked can't access to your private Key"]
             }
             
         } catch {
-            return "An error occur while decrypting the text"
+            return ["state" : false, "message": "Your cannot decrypt this text. You don't have the right key. Please ensure this message has been encrypted with YOUR public key"]
         }
     }
 }
