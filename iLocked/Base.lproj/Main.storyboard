@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -267,8 +267,8 @@
                                     <constraint firstAttribute="height" constant="195" id="u11-Gh-5cd"/>
                                 </constraints>
                             </imageView>
-                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fingerprint_alone" translatesAutoresizingMaskIntoConstraints="NO" id="pjE-vj-6J4">
-                                <rect key="frame" x="-96" y="-64" width="567" height="795"/>
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockedBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pjE-vj-6J4">
+                                <rect key="frame" x="-42" y="-64" width="636" height="795"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version bêta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atc-ZZ-hf6">
                                 <rect key="frame" x="131" y="644.5" width="113.5" height="22.5"/>
@@ -290,12 +290,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMK-F8-837">
-                                <rect key="frame" x="67" y="439" width="241" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="22"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMK-F8-837">
+                                <rect key="frame" x="135" y="510" width="105" height="24"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="  Touch ID" image="empreinte">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="actionButtonSelectedWithSender:" destination="QiX-9o-pKS" eventType="touchUpInside" id="0v9-k9-rfK"/>
@@ -304,11 +303,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="EMK-F8-837" firstAttribute="top" secondItem="gq8-cG-f3O" secondAttribute="bottom" constant="79" id="18g-y7-i9U"/>
+                            <constraint firstItem="EMK-F8-837" firstAttribute="leading" secondItem="ija-MC-Al3" secondAttribute="leading" constant="135" id="85G-lx-Kh9"/>
                             <constraint firstItem="pjE-vj-6J4" firstAttribute="centerY" secondItem="keN-bl-jwx" secondAttribute="centerY" id="Odx-e6-Np0"/>
                             <constraint firstItem="ija-MC-Al3" firstAttribute="bottom" secondItem="Atc-ZZ-hf6" secondAttribute="bottom" id="PxE-Og-bgh"/>
-                            <constraint firstItem="pjE-vj-6J4" firstAttribute="centerX" secondItem="keN-bl-jwx" secondAttribute="centerX" id="XeX-qm-PUJ"/>
+                            <constraint firstItem="pjE-vj-6J4" firstAttribute="centerX" secondItem="keN-bl-jwx" secondAttribute="centerX" constant="88.5" id="XeX-qm-PUJ"/>
                             <constraint firstItem="gq8-cG-f3O" firstAttribute="centerY" secondItem="keN-bl-jwx" secondAttribute="centerY" id="Zxx-pk-BuU"/>
-                            <constraint firstItem="pjE-vj-6J4" firstAttribute="width" secondItem="gq8-cG-f3O" secondAttribute="width" constant="400" id="n0Q-cc-t5a"/>
+                            <constraint firstItem="ija-MC-Al3" firstAttribute="trailing" secondItem="EMK-F8-837" secondAttribute="trailing" constant="135" id="cge-jj-eqQ"/>
+                            <constraint firstItem="pjE-vj-6J4" firstAttribute="width" secondItem="gq8-cG-f3O" secondAttribute="width" constant="469" id="n0Q-cc-t5a"/>
                             <constraint firstItem="Atc-ZZ-hf6" firstAttribute="centerX" secondItem="keN-bl-jwx" secondAttribute="centerX" id="xdw-W2-Hbf"/>
                             <constraint firstItem="pjE-vj-6J4" firstAttribute="height" secondItem="gq8-cG-f3O" secondAttribute="height" constant="600" id="xqQ-lv-DX5"/>
                             <constraint firstItem="gq8-cG-f3O" firstAttribute="centerX" secondItem="keN-bl-jwx" secondAttribute="centerX" id="yEs-jF-vUd"/>
@@ -768,11 +770,11 @@
         <image name="coffre" width="345" height="345"/>
         <image name="ellipsis.circle" catalog="system" width="64" height="60"/>
         <image name="empreinte" width="24" height="24"/>
-        <image name="fingerprint_alone" width="533" height="697"/>
         <image name="info.circle" catalog="system" width="64" height="60"/>
         <image name="info.circle.fill" catalog="system" width="64" height="60"/>
         <image name="key" width="345" height="345"/>
         <image name="locked" width="24" height="24"/>
+        <image name="lockedBackground" width="1280" height="539"/>
         <image name="pencil.and.outline" catalog="system" width="64" height="58"/>
         <image name="storage" width="24" height="24"/>
         <image name="trash" catalog="system" width="60" height="64"/>

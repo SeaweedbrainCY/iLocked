@@ -83,10 +83,10 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     @IBAction private func selectKey(sender: UIButton){
-        if sender.currentTitle == "Add a key"{
-            performSegue(withIdentifier: "addKey", sender: nil)
-            //alert("done", message: "")
-        } else if sender.currentTitle != "Select a public key" && !self.keyList.isHidden {
+        if sender.currentTitle == "Add a key" && self.textToEncrypt.isHidden { // The second part of the condition solve a bug
+                performSegue(withIdentifier: "addKey", sender: nil)
+
+        } else if (sender.currentTitle != "Select a public key" && !self.keyList.isHidden) {
             self.keyList.isHidden = true
             self.littleHelpLabel.isHidden = true
             sender.setTitle(self.titleButtonClean, for: .normal)

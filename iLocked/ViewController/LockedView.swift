@@ -128,9 +128,9 @@ class LockedView: UIViewController{
         self.actionButton.isHidden = false
         
         //Instanciation des differents textes
-        self.titleLabel.text = "Locked"
+        self.titleLabel.text = "" // No title for now 
         self.descriptionLabel.text = ""
-        self.actionButton.setImage(UIImage(named: "fingerprint"), for: .normal)
+        self.actionButton.setImage(UIImage(named: "empreinte"), for: .normal)
         //self.actionButton.layer.cornerRadius = self.actionButton.frame.size.width / 2
         self.actionButton.clipsToBounds = true
             self.logoImageView.layer.cornerRadius = self.logoImageView.frame.size.width / 2;
@@ -222,7 +222,7 @@ class LockedView: UIViewController{
                 return
             }
             
-            let message = "For more security your app is locked"
+            let message = "Touch ID is required to use iLocked"
             context?.evaluatePolicy(policy!, localizedReason: message, reply: { (success, error) in
                 DispatchQueue.main.async {
                     if success {
