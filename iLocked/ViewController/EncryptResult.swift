@@ -56,6 +56,10 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
     }
     
     private func loadViews(){
+        
+        
+        
+        
         self.background.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.leftAnchor, multiplier: 2).isActive = true
@@ -136,6 +140,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.infoLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 15)
         self.infoLabel.textColor = .lightGray
         self.infoLabel.text = "Your text is now encrypted with your friend's public key. Share this new text with him. Only his own PRIVATE key will be able to decrypt this text. Remember : to encrypt a message for someone, please use his personnal public key ! Not yours....."
+        
         
     }
 

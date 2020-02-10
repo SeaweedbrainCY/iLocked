@@ -169,6 +169,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.shareButton.tintColor = .systemOrange
         self.shareButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         self.shareButton.rondBorder()
+        self.shareButton.addTarget(self, action: #selector(shareButtonSelected), for: .touchUpInside)
         
         self.backgroundView.addSubview(self.deleteButton)
         self.deleteButton.translatesAutoresizingMaskIntoConstraints = false
@@ -196,7 +197,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     //
     
     @IBAction private func shareBarButtonItemSelected(sender: UIBarButtonItem){
-        let activityViewController = UIActivityViewController(activityItems: ["\(self.nameKey.text!)'s encryption public key is: \n\n\(self.key.text!)\n\nUse it to encrypt a text that just him will be able to decrypt" as NSString], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: ["\(self.key.text!)" as NSString], applicationActivities: nil)
         present(activityViewController, animated: true, completion: {})
     }
     
@@ -220,7 +221,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     //
     
     @objc private func shareButtonSelected(sender: UIButton){
-        let activityViewController = UIActivityViewController(activityItems: ["\(self.nameKey.text!)'s encryption public key is: \n==START==\(self.key.text!)==END==\n\nUse it to encrypt a text that just him will be able to decrypt" as NSString], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: ["\(self.key.text!)" as NSString], applicationActivities: nil)
         present(activityViewController, animated: true, completion: {})
     }
     
@@ -292,10 +293,11 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
             let lockedView = segue.destination as! LockedView
             lockedView.activityInProgress = true
         } else if segue.identifier == "editKey"{
-            let editView = segue.destination as! AddKeyNavigationController
-            editView.name = self.nameKey.text!
-            editView.key = self.key.text!
-            editView.viewOnBack = "ShowKey"
+            let viewController = segue.destination as? UINavigationController
+            let targetController = viewController?.topViewController as! AddKey
+            targetController.oldName = self.nameKey.text!
+            targetController.oldKey = self.key.text!
+            targetController.viewOnBack = "ShowKey"
         }
     }
 }

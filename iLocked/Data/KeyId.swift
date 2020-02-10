@@ -10,7 +10,8 @@ import Foundation
 
 class KeyId {
     
-    // Convert
+    /// Return all key and id associated to saved keys
+    /// ! Data format = [id(String) : key(String]
     public func getKeyIdArray() -> [String: String]{
         //Récupération des données enregistrées
         var dicoEncoded: String! = "nil"
@@ -51,8 +52,8 @@ class KeyId {
     }
     
     //
-    //Stock et remplace les anciennes données
-    //array de la forme [id: nom]
+    ///Stock and remplace old data
+    ///array de la forme [id: nom]
     //
     public func stockNewNameIdArray(_ initialArray: [String: String]) {
         let array = sortByAlphabeticOrder(initialArray)

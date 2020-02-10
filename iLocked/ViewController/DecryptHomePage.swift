@@ -19,10 +19,12 @@ class Decrypt: UIViewController, UITextViewDelegate {
     @IBOutlet weak var encryptButton: UIButton!
     @IBOutlet weak var leftItemButton : UIBarButtonItem!
     
+    
     //Help views
     let helpTextLabel = UILabel()
     let helpView = UIView()
     let topBarView = UIView()
+    let backgroundInfo = UIView()
     let gesture = UIPanGestureRecognizer()
     
     var textToDecryptViewErrorMessage = UIButton()
@@ -60,6 +62,16 @@ class Decrypt: UIViewController, UITextViewDelegate {
     //
     
     private func viewConstruction(){
+        
+        self.view.addSubview(self.backgroundInfo)
+        self.backgroundInfo.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundInfo.heightAnchor.constraint(equalToConstant: self.view.frame.size.height).isActive = true
+        self.backgroundInfo.widthAnchor.constraint(equalToConstant: self.view.frame.size.width).isActive = true
+        self.backgroundInfo.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1).isActive = true
+        self.backgroundInfo.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1).isActive = true
+        self.backgroundInfo.backgroundColor = .opaqueSeparator
+        self.backgroundInfo.isHidden = true
+        
         self.sharePublicKeyButton.rondBorder()
         self.sharePublicKeyButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
         self.textToEncryptView.layer.borderColor = UIColor.lightGray.cgColor
@@ -194,7 +206,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
     }
     
     @objc private func moveHelpView(sender: UIPanGestureRecognizer) {
-        if sender.state == .began || sender.state == .changed {
+        if sender.state == .began || sender.state == .changed { // On récupère les nouvelles données
             let translation = sender.translation(in: self.view)
             // note: 'view' is optional and need to be unwrapped
             sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
@@ -210,25 +222,13 @@ class Decrypt: UIViewController, UITextViewDelegate {
         } else if sender.state == .ended{
             let width: CGFloat = self.view.frame.size.width
             if sender.view!.center.x > width * (5/8) {
-                let animation = UIViewPropertyAnimator(duration: 0.7, curve: .linear, animations: {
-                    sender.view!.frame.origin.x = 1000
-                })
-                animation.startAnimation()
+                self.closeHelp(sender: sender, x: 1000, y: 0)
             } else if sender.view!.center.x < width * (3/8){
-                let animation = UIViewPropertyAnimator(duration: 0.7, curve: .linear, animations: {
-                    sender.view!.frame.origin.x = -1000
-                })
-                animation.startAnimation()
+                self.closeHelp(sender: sender, x: -1000, y: 0)
             } else if sender.view!.center.y < self.view.frame.size.height * (3/8){
-                let animation = UIViewPropertyAnimator(duration: 0.7, curve: .linear, animations: {
-                    sender.view!.frame.origin.y = -1000
-                })
-                animation.startAnimation()
+                self.closeHelp(sender: sender, x: 0, y: -1000)
             } else if sender.view!.center.y > self.view.frame.size.height * (5/8){
-                let animation = UIViewPropertyAnimator(duration: 0.7, curve: .linear, animations: {
-                    sender.view!.frame.origin.y = 1000
-                })
-                animation.startAnimation()
+                closeHelp(sender: sender, x: 0, y: 1000)
             } else {
                 let animation = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
                     sender.view!.center = CGPoint(x: self.view.frame.size.width / 2 , y: self.view.frame.size.height / 2)
@@ -263,9 +263,25 @@ class Decrypt: UIViewController, UITextViewDelegate {
             self.helpView.center = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.height / 2)
         })
         animator.startAnimation()
-        
+        self.backgroundInfo.isHidden = false
     }
     
+    /// func which close help view shown
+    /// - sender : contain the sender associated to the help view
+    /// - x : the new x coordinate of the view. If it equals to 0, we consider that we don't have to change it
+    /// - y : the new y coordinate of the view. If it equals to 0, we consider that we don't have to change it
+    func closeHelp(sender: UIPanGestureRecognizer, x: CGFloat, y: CGFloat){
+        let animation = UIViewPropertyAnimator(duration: 0.7, curve: .linear, animations: {
+            if x != 0{
+                sender.view!.frame.origin.x = x
+            } else {
+                sender.view!.frame.origin.x = y
+            }
+            
+        })
+        animation.startAnimation()
+        self.backgroundInfo.isHidden = true
+    }
     
     
     //

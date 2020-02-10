@@ -236,7 +236,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
             testOk = false
             self.nameError.setTitle("This key needs a little name 🥺", for: .normal)
             flip(firstView: self.nameField, secondView: self.nameError)
-        } else if self.publicKeyField.text == "" || self.publicKeyField.text == "Be careful to enter the FULL and CORREct encryption public key"{
+        } else if self.publicKeyField.text == "" || self.publicKeyField.text == self.keyTextViewPlaceholder{
             testOk = false
             self.publicKeyError.setTitle("Without key, no encryption 🤷‍♂️", for: .normal)
             self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
@@ -259,39 +259,27 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         }
         
         //We can try to save data
+        
         if testOk {
-            var greaterNum = 0
-            for (id, _) in listeIdNom {
-                if Int(id) ?? 0 > greaterNum {
-                    greaterNum = Int(id) ?? 0
-                }
-            }
-            listeIdNom.updateValue(self.nameField.text!, forKey: String(greaterNum + 1))
-            keyArray.stockNewNameIdArray(listeIdNom)
-            
-            //enregsitrement dans la keyChain:
-            let successfulSave:Bool = KeychainWrapper.standard.set("\(self.publicKeyField.text!)", forKey: "\(greaterNum + 1)")
-            if successfulSave {
-                do {
-                    let _ = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath), encoding: .utf8)
-                    //
-                    //SUCCÈS ::
-                    //
-                    print("button = \(self.nextButton.state)")
-                    NotificationCenter.default.post(name: Encrypt.notificationName, object: nil, userInfo:["addKey success" : true])
-                    if self.viewOnBack == "ShowKey"{
-                        NotificationCenter.default.post(name: ShowKey.notificationOfModificationName, object: nil, userInfo: ["name": self.nameField.text!, "key": self.publicKeyField.text!, "idKey": "\(greaterNum + 1)"])
+            ///we save new data
+            if oldKey == "" {
+                var greaterNum = 0
+                for (id, _) in listeIdNom {
+                    if Int(id) ?? 0 > greaterNum {
+                        greaterNum = Int(id) ?? 0
                     }
-                    dismissView()
-                } catch {
-                    print("Fichier introuvable. ERREUR GRAVE")
-                    // UNE ERREUR EST SURVENUE
-                    self.publicKeyError.setTitle("We are unable to save the key into your device's space. Please verify that the field is well filled. If you see this message several times, please, contact the developer ❌", for: .normal)
-                    self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
                 }
-            } else {
-                self.publicKeyError.setTitle("We are unable to save the key into your Keychain. Please verify that the field is well filled. If you see this message several times, please, contact the developer ❌", for: .normal)
-                self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
+                self.saveKeyWithId(idString: "\(greaterNum + 1)")
+            } else { /// we edit new data :
+                let keyId = KeyId()
+                let listeKey = keyId.getKeyIdArray()
+                var oldKeyId = ""
+                for (id, key) in listeKey{
+                    if key == oldKey{ // we search id associated to the old key
+                        oldKeyId = id
+                    }
+                }
+                self.saveKeyWithId(idString: oldKeyId)
             }
         }
     }
@@ -363,6 +351,41 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         if textView.text == "" {
             textView.text = self.keyTextViewPlaceholder
             textView.textColor = .lightGray
+        }
+    }
+    
+    //
+    // Data func
+    //
+    
+    ///Save a key with an Id
+    /// - id : String which correspond to an int
+    public func saveKeyWithId(idString id: String){
+        let keyArray = KeyId()
+        var listeIdNom = keyArray.getKeyIdArray()
+        listeIdNom.updateValue(self.nameField.text!, forKey: id)
+        keyArray.stockNewNameIdArray(listeIdNom)
+        
+        //enregsitrement dans la keyChain:
+        let successfulSave:Bool = KeychainWrapper.standard.set("\(self.publicKeyField.text!)", forKey: id)
+        if successfulSave {
+            do {
+                let _ = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath), encoding: .utf8)
+                //
+                //SUCCÈS ::
+                //
+                print("button = \(self.nextButton.state)")
+                NotificationCenter.default.post(name: Encrypt.notificationName, object: nil, userInfo:["addKey success" : true])
+                if self.viewOnBack == "ShowKey"{
+                    NotificationCenter.default.post(name: ShowKey.notificationOfModificationName, object: nil, userInfo: ["name": self.nameField.text!, "key": self.publicKeyField.text!, "idKey": id])
+                }
+                dismissView()
+            }catch {
+                print("Fichier introuvable. ERREUR GRAVE")
+                // UNE ERREUR EST SURVENUE
+                self.publicKeyError.setTitle("We are unable to save the key into your device's space. Please verify that the field is well filled. If you see this message several times, please, contact the developer ❌", for: .normal)
+                self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
+            }
         }
     }
 }

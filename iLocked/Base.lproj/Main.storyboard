@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjM-sU-qmO">
-                                <rect key="frame" x="0.0" y="125" width="375" height="522"/>
+                                <rect key="frame" x="0.0" y="69" width="375" height="578"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjX-sJ-7hk">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
@@ -37,7 +37,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Aee-q1-9bD"/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90w-RG-POI">
-                                <rect key="frame" x="16" y="56" width="343" height="61"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="25Z-D7-hdK"/>
                                     <constraint firstAttribute="height" constant="61" id="aLk-EK-ogk"/>
@@ -699,6 +699,7 @@
                         <outlet property="trashBarButtonItem" destination="2Ie-P9-434" id="N6v-QI-Gq3"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="j11-r2-z5x"/>
                         <segue destination="nVe-hc-Wct" kind="presentation" id="MbM-zP-E0T"/>
+                        <segue destination="tOU-fV-Ibc" kind="presentation" identifier="editKey" id="FyZ-iz-rV4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80f-07-qES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -782,8 +783,8 @@
         <image name="view_chargement" width="489" height="489"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lMQ-dt-c2G"/>
-        <segue reference="EQK-VC-Mck"/>
-        <segue reference="hXU-1E-RYM"/>
+        <segue reference="FyZ-iz-rV4"/>
+        <segue reference="j11-r2-z5x"/>
+        <segue reference="MbM-zP-E0T"/>
     </inferredMetricsTieBreakers>
 </document>

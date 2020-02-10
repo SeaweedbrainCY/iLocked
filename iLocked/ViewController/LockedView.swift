@@ -231,23 +231,23 @@ class LockedView: UIViewController{
                     guard success else {
                     guard let error = error else {
                         self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "I'm very sorry but an unexpected error just occur. 😶"
+                        self.descriptionLabel.text = "I'm very sorry but an unexpected error just occur 🔒"
                         return
                     }
                     switch(error) {
                     case LAError.authenticationFailed:
                         self.descriptionLabel.textColor = .systemRed
-                            self.descriptionLabel.text = "There was a problem verifying your identity. 🧬"
+                            self.descriptionLabel.text = "There was a problem verifying your identity 🧬"
                         
                     case LAError.userCancel:
                         self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "You canceled the authentication. 😡"
+                        self.descriptionLabel.text = "authentication canceled 🔒"
                         
                     // Fallback button was pressed and an extra login step should be implemented for iOS 8 users.
                     // By the other hand, iOS 9+ users will use the pasccode verification implemented by the own system.
                     case LAError.userFallback:
                         self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "You tapped the fallback button. 😑"
+                        self.descriptionLabel.text = "You tapped the fallback button 🔒"
                         
                     case LAError.systemCancel:
                         self.descriptionLabel.textColor = .systemRed
@@ -255,7 +255,7 @@ class LockedView: UIViewController{
                         
                     case LAError.passcodeNotSet:
                         self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "You didn't set any password on for device. 😰"
+                        self.descriptionLabel.text = "You didn't set any password on for device. 🔒"
                        
                     case LAError.biometryNotAvailable:
                         self.descriptionLabel.textColor = .systemRed
@@ -263,7 +263,7 @@ class LockedView: UIViewController{
                         
                     case LAError.biometryNotEnrolled:
                         self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "Touch ID or Face ID has no saved data."
+                        self.descriptionLabel.text = "Touch ID or Face ID has no saved data 🔒"
                         
                     // iOS 9+ functions
                     case LAError.biometryLockout:
@@ -272,7 +272,7 @@ class LockedView: UIViewController{
                         
                     case LAError.appCancel:
                         self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "Authentication was canceled by application. 🤭"
+                        self.descriptionLabel.text = "Authentication was canceled by application. 🔒"
                         
                     case LAError.invalidContext:
                         self.descriptionLabel.textColor = .systemRed
@@ -280,7 +280,7 @@ class LockedView: UIViewController{
                         
                     default:
                         self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "Touch ID or Face ID may not be configured. 💩"
+                        self.descriptionLabel.text = "Touch ID or Face ID may not be configured. 🔒"
                         break
                     }
                         return
