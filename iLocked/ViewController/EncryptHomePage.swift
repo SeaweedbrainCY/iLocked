@@ -32,6 +32,10 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     var textEncrypted = "error"
     var idArray: [String] = []
     
+    //Data came from ShowKey.swift > encryptMessageSelected()
+    var keyNameTransmitted = ""
+    
+    
     
     //Notification
     static let notificationName = Notification.Name("AddKeyDismissed")
@@ -64,7 +68,11 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
         self.heightSender = self.senderView.heightAnchor.constraint(equalToConstant: 0)
         self.heightSender?.isActive = true
         
-        
+        if keyNameTransmitted != "" { //User already choose the key in ShowKey.swift's view
+            self.publicKeyButton.setTitle("Use \(self.keyNameTransmitted)'s key", for: .normal)
+            self.titleButtonClean = self.keyNameTransmitted
+            self.selectKey(sender: self.publicKeyButton) // simulation of user's action
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -83,16 +91,15 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     @IBAction private func selectKey(sender: UIButton){
-        if sender.currentTitle == "Add a key" && self.textToEncrypt.isHidden { // The second part of the condition solve a bug
+        if sender.currentTitle == "Add a key" && self.textToEncrypt.isHidden { // The second part of this condition solve a bug
                 performSegue(withIdentifier: "addKey", sender: nil)
-
-        } else if (sender.currentTitle != "Select a public key" && !self.keyList.isHidden) {
+        } else if (sender.currentTitle != "Select a public key" && !self.keyList.isHidden) || self.keyNameTransmitted != ""{ // if we choose our key or if the key has already been choosen
             self.keyList.isHidden = true
             self.littleHelpLabel.isHidden = true
             sender.setTitle(self.titleButtonClean, for: .normal)
             self.textToEncrypt.isHidden = false
             self.encryptButton.isEnabled = true
-        } else if sender.currentTitle != "Select a public key" && self.keyList.isHidden {
+        } else if sender.currentTitle != "Select a public key" && self.keyList.isHidden{
             self.keyList.isHidden = false
             self.littleHelpLabel.isHidden = false
             sender.setTitle("Use \(self.titleButtonClean)", for: .normal)

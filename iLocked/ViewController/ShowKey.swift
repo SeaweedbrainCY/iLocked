@@ -153,6 +153,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.encryptButton.tintColor = .systemOrange
         self.encryptButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         self.encryptButton.rondBorder()
+        self.encryptButton.addTarget(self, action: #selector(self.encryptMessageSelected), for: .touchUpInside)
         
         self.backgroundView.addSubview(self.shareButton)
         self.shareButton.translatesAutoresizingMaskIntoConstraints = false
@@ -216,6 +217,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         performSegue(withIdentifier: "editKey", sender: self)
     }
     
+    
     //
     // Obj C func
     //
@@ -239,8 +241,11 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @objc private func editButtonSelected(sender: UIButton){
-        
+  
+    
+    /// When user click on 'Use this key to encrypt a message' button. We send data to EncryptHomePage with all field filled
+    @objc private func encryptMessageSelected(sender: UIButton){
+        performSegue(withIdentifier: "encryptMessage", sender: self)
     }
     
     @objc private func dismissView(){
@@ -295,9 +300,14 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         } else if segue.identifier == "editKey"{
             let viewController = segue.destination as? UINavigationController
             let targetController = viewController?.topViewController as! AddKey
-            targetController.oldName = self.nameKey.text!
+            targetController.oldName = self.name
             targetController.oldKey = self.key.text!
             targetController.viewOnBack = "ShowKey"
+        } else if segue.identifier == "encryptMessage"{
+            let viewController = segue.destination as? UINavigationController
+            let targetController = viewController?.topViewController as! Encrypt
+            targetController.keyNameTransmitted = self.name
         }
+        
     }
 }

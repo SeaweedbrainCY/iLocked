@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rjM-sU-qmO">
-                                <rect key="frame" x="0.0" y="69" width="375" height="578"/>
+                                <rect key="frame" x="0.0" y="125" width="375" height="522"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjX-sJ-7hk">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
@@ -37,7 +37,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Aee-q1-9bD"/>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="90w-RG-POI">
-                                <rect key="frame" x="16" y="0.0" width="343" height="61"/>
+                                <rect key="frame" x="16" y="56" width="343" height="61"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="25Z-D7-hdK"/>
                                     <constraint firstAttribute="height" constant="61" id="aLk-EK-ogk"/>
@@ -152,7 +152,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghn-Fx-AAU">
-                                <rect key="frame" x="150" y="481" width="75" height="75"/>
+                                <rect key="frame" x="150" y="530" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="OSd-8Z-oik"/>
                                     <constraint firstAttribute="width" constant="75" id="Yoz-4u-IaV"/>
@@ -175,7 +175,7 @@
                                 </constraints>
                             </pickerView>
                             <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text to encrypt" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ac5-qZ-Cvq">
-                                <rect key="frame" x="10" y="107" width="355" height="354"/>
+                                <rect key="frame" x="10" y="107" width="355" height="403"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="20"/>
@@ -638,7 +638,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMD-1q-5gB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ug-FU-uVE">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1054"/>
@@ -698,8 +698,8 @@
                         <outlet property="shareBarButtonItem" destination="VFf-9K-JYb" id="8Fm-6d-5QQ"/>
                         <outlet property="trashBarButtonItem" destination="2Ie-P9-434" id="N6v-QI-Gq3"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="j11-r2-z5x"/>
-                        <segue destination="nVe-hc-Wct" kind="presentation" id="MbM-zP-E0T"/>
                         <segue destination="tOU-fV-Ibc" kind="presentation" identifier="editKey" id="FyZ-iz-rV4"/>
+                        <segue destination="hHY-cd-32x" kind="presentation" identifier="encryptMessage" modalPresentationStyle="fullScreen" id="XNL-IU-nzq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80f-07-qES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -715,7 +715,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyQ-tL-Niz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c30-kj-W9B">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1054"/>
@@ -784,7 +784,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FyZ-iz-rV4"/>
+        <segue reference="XNL-IU-nzq"/>
         <segue reference="j11-r2-z5x"/>
-        <segue reference="MbM-zP-E0T"/>
     </inferredMetricsTieBreakers>
 </document>
