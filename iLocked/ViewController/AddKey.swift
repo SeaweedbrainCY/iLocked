@@ -134,6 +134,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         self.publicKeyField.delegate = self
         if self.oldKey != ""{ //Given by ShowKey.swift's class in case of modification
             self.publicKeyField.text = self.oldKey
+            self.publicKeyField.textColor = .systemOrange
         }
         
         backgroundView.addSubview(publicKeyError)
@@ -274,12 +275,22 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
                 let keyId = KeyId()
                 let listeKey = keyId.getKeyIdArray()
                 var oldKeyId = ""
-                for (id, key) in listeKey{
-                    if key == oldKey{ // we search id associated to the old key
+                print("old name = \(self.oldName)")
+                for (id, keyName) in listeKey{
+                    if keyName == self.oldName{ // we search id associated to the old key
                         oldKeyId = id
                     }
                 }
-                self.saveKeyWithId(idString: oldKeyId)
+                if oldKeyId == "" { // Impossible to find the id. Fatal error
+                    testOk = false
+                    self.publicKeyError.setTitle("Impossible to identify this key. Please, try to save again this key. If you see this error several times please report the bug with the id : ##DATACCESS/ADDKEY.SWIFT 0003 🛠", for: .normal)
+                    self.flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
+                    self.flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
+                } else { // id found
+                    self.saveKeyWithId(idString: oldKeyId)
+                }
+                
+                
             }
         }
     }
@@ -366,6 +377,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         listeIdNom.updateValue(self.nameField.text!, forKey: id)
         keyArray.stockNewNameIdArray(listeIdNom)
         
+        print("id trouvé = " + id)
         //enregsitrement dans la keyChain:
         let successfulSave:Bool = KeychainWrapper.standard.set("\(self.publicKeyField.text!)", forKey: id)
         if successfulSave {

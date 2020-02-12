@@ -11,7 +11,7 @@ import Foundation
 class KeyId {
     
     /// Return all key and id associated to saved keys
-    /// ! Data format = [id(String) : key(String]
+    /// - Data format = [id(String) : keyName(String)]
     public func getKeyIdArray() -> [String: String]{
         //Récupération des données enregistrées
         var dicoEncoded: String! = "nil"
