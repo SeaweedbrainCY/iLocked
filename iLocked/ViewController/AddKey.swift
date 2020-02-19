@@ -283,7 +283,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
                 }
                 if oldKeyId == "" { // Impossible to find the id. Fatal error
                     testOk = false
-                    self.publicKeyError.setTitle("Impossible to identify this key. Please, try to save again this key. If you see this error several times please report the bug with the id : ##DATACCESS/ADDKEY.SWIFT 0003 🛠", for: .normal)
+                    self.publicKeyError.setTitle("Impossible to identify this key. Please, try to save again this key. If you see this error several times please report the bug with the id : ##DATA/AK.SWIFT 0003 🛠", for: .normal)
                     self.flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
                     self.flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
                 } else { // id found

@@ -269,7 +269,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     // Data gestion func
     //
     
-    func destroyKey(){
+    private func destroyKey(){
         //First in the dictionnary :
         let keyNameData = KeyId()
         var listeKeyName = keyNameData.getKeyIdArray()

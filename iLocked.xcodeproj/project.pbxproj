@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1395D1CA7D6EF4930CF1CD39 /* Pods_iLockedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7AA47B6F9A196224EA6FA5 /* Pods_iLockedUITests.framework */; };
 		1DF007E2E6742E516BC7567D /* Pods_iLocked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */; };
+		9048E65D23FB017800098C73 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9048E65C23FB017800098C73 /* Dictionary.swift */; };
+		90B886FC23F7F31A00035C82 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B886FB23F7F31A00035C82 /* Settings.swift */; };
 		9BD4131ECD7F4E5B6A92C83A /* Pods_iLockedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83678B0E42523CF0602D1F1F /* Pods_iLockedTests.framework */; };
 		D820B848235E3559006CEB38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B847235E3559006CEB38 /* UIView.swift */; };
 		D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B849235E359D006CEB38 /* DecryptedResult.swift */; };
@@ -65,6 +67,8 @@
 		71B0E552245F79A5F208C02D /* Pods-iLockedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLockedTests.release.xcconfig"; path = "Target Support Files/Pods-iLockedTests/Pods-iLockedTests.release.xcconfig"; sourceTree = "<group>"; };
 		801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLocked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83678B0E42523CF0602D1F1F /* Pods_iLockedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLockedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9048E65C23FB017800098C73 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		90B886FB23F7F31A00035C82 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		914416024A258447A1A3E632 /* Pods-iLocked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLocked.release.xcconfig"; path = "Target Support Files/Pods-iLocked/Pods-iLocked.release.xcconfig"; sourceTree = "<group>"; };
 		AD7AA47B6F9A196224EA6FA5 /* Pods_iLockedUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLockedUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFA7C7B77771E8CF8C2BDC1C /* Pods-iLockedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLockedTests.debug.xcconfig"; path = "Target Support Files/Pods-iLockedTests/Pods-iLockedTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +252,7 @@
 				D8A64B552353BCC1000613F3 /* ShowKey.swift */,
 				D820B849235E359D006CEB38 /* DecryptedResult.swift */,
 				D820B84D235E5EB1006CEB38 /* LockedView.swift */,
+				90B886FB23F7F31A00035C82 /* Settings.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				D8A64B452353BCA0000613F3 /* TextView.swift */,
 				D8A64B442353BCA0000613F3 /* UIButton.swift */,
 				D820B847235E3559006CEB38 /* UIView.swift */,
+				9048E65C23FB017800098C73 /* Dictionary.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -523,10 +529,12 @@
 				D8A64B4A2353BCA0000613F3 /* UIButton.swift in Sources */,
 				D8A64B482353BCA0000613F3 /* AttributedText.swift in Sources */,
 				D8A64B592353BCC1000613F3 /* EncryptHomePage.swift in Sources */,
+				9048E65D23FB017800098C73 /* Dictionary.swift in Sources */,
 				D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */,
 				D8A64B4F2353BCB3000613F3 /* GlobalVariable.swift in Sources */,
 				D8416D382364F62700A0B038 /* Decryption.swift in Sources */,
 				D8A64B5A2353BCC1000613F3 /* KeyList.swift in Sources */,
+				90B886FC23F7F31A00035C82 /* Settings.swift in Sources */,
 				D820B8542363909C006CEB38 /* publicPrivateKeys.swift in Sources */,
 				D820B84E235E5EB1006CEB38 /* LockedView.swift in Sources */,
 				D8A64B582353BCC1000613F3 /* EncryptResult.swift in Sources */,
