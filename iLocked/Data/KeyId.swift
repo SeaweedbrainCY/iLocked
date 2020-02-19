@@ -29,7 +29,7 @@ class KeyId {
             // Une grave erreur s'est produite lors de l'accès à la sauvegarde ERROR
             // *************************************************************************
             //
-            return ["##ERROR##" : "An internal error unable the application to access to your stored data. Please, contact the developer with this error code : ##DATAFORMATTING/KEYID.SWIFT 0002 🛠"]
+            return ["##ERROR##" : "An internal error unable the application to access to your stored data. Please, contact the developer with this error code : ##DATA/KI.SWIFT#0002# 🛠"]
         }
         
         if dicoEncoded == "not found" {
@@ -42,7 +42,7 @@ class KeyId {
         
         
         if let dicoDecoded: [String: String] = dicoEncoded.convertToDictionary(text: dicoEncoded!)  { // convertion json->array
-            return self.sortByAlphabeticOrder(dicoDecoded)  // succès
+            return dicoDecoded // succès
                 
             } else {
                 // La portion décodé n'est pas compatible
@@ -56,7 +56,7 @@ class KeyId {
     ///array de la forme [id: nom]
     //
     public func stockNewNameIdArray(_ initialArray: [String: String]) {
-        let array = sortByAlphabeticOrder(initialArray)
+        let array = initialArray
         //on convertie et enregistre
         let jsonArray = json(from: array as Any)
         print("json array = \(String(describing: jsonArray))")
@@ -76,25 +76,18 @@ class KeyId {
            return String(data: data, encoding: String.Encoding.utf8)
        }
     
-    //alphabetic order :
-    public func sortByAlphabeticOrder(_ initialArray: [String : String]) -> [String: String] {
-        //On classe d'abord par ordre alphabétique
-        var listeNom: [String] = []
-        var listeId: [String] = []
-        for (id, nom) in initialArray{
-            listeId.append(id)
-            listeNom.append(nom)
-        }
+    /// Sort by alphabetic order two list sgiven:
+    /// - returns:[[*keys*], [*values*]] all sorted according to keys
+    public func sortByAlphabeticOrder(keys : [String], value: [String]) -> [[String]] {
         //triage :
-        let sortedNames = listeNom.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
+        let sortedNames = value.sorted { $0.localizedCaseInsensitiveCompare($1) == ComparisonResult.orderedAscending }
+        var sortedKeys : [String] = []
         print("array sorted = \(sortedNames)")
         //On réinstancie l'array initial
-        var array: [String: String] = [:]
-        for i in 0 ..< initialArray.count {
-            array.updateValue(sortedNames[i], forKey: listeId[i])
+        for i in 0 ..< sortedNames.count {
+            sortedKeys.append(keys[value.firstIndex(of: sortedNames[i])!])
         }
-        print("array sorted fin= \(array)")
-        return array
+        return [sortedKeys, sortedNames]
     }
 }
 
