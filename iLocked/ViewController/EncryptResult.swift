@@ -15,8 +15,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var background: UIView!
     
     var titleLabel = UILabel()
-    var clearText = UITextView()
-    var arrow = UIImageView()
+    
     var key = UIImageView()
     var keyName = UIImageView()
     var encryptedText = UITextView()
@@ -57,52 +56,19 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
     
     private func loadViews(){
         
-        
-        
-        
         self.background.addSubview(self.titleLabel)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         self.titleLabel.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.leftAnchor, multiplier: 2).isActive = true
         self.titleLabel.topAnchor.constraint(equalToSystemSpacingBelow: self.scrollView.topAnchor, multiplier: 2).isActive = true
         self.titleLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
         self.titleLabel.textColor = .white
-        self.titleLabel.text = "Your text is now encrypted !"
+        self.titleLabel.text = "Encrypted text :"
         
-        self.background.addSubview(self.clearText)
-        self.clearText.translatesAutoresizingMaskIntoConstraints = false
-        self.clearText.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.clearText.topAnchor.constraint(equalToSystemSpacingBelow: self.titleLabel.bottomAnchor, multiplier: 4).isActive = true
-        self.clearText.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 90).isActive = true
-        self.clearText.heightAnchor.constraint(equalToConstant: 120).isActive = true
-        self.clearText.isEditable = false
-        self.clearText.rondBorder()
-        self.clearText.layer.borderWidth = 0 // 2
-        self.clearText.layer.borderColor = UIColor.systemGreen.cgColor
-        self.clearText.font = UIFont(name: "American Typewriter", size: 15)
-        self.clearText.textColor = .systemOrange
-        //self.clearText.text = clearTextTransmitted
-        
-        self.background.addSubview(self.arrow)
-        self.arrow.translatesAutoresizingMaskIntoConstraints = false
-        self.arrow.centerXAnchor.constraint(equalToSystemSpacingAfter: self.clearText.centerXAnchor, multiplier: 1).isActive = true
-        self.arrow.centerYAnchor.constraint(equalToSystemSpacingBelow: self.clearText.centerYAnchor, multiplier: 1).isActive = true
-        self.arrow.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 90).isActive = true
-        self.arrow.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        self.arrow.loadGif(name: "binaire")
-        self.arrow.alpha = 0.5
-        
-        /*self.background.addSubview(self.key)
-        self.key.translatesAutoresizingMaskIntoConstraints = false
-        self.key.centerXAnchor.constraint(equalToSystemSpacingAfter: self.arrow.centerXAnchor, multiplier: 1).isActive = true
-        self.key.topAnchor.constraint(equalToSystemSpacingBelow: self.arrow.bottomAnchor, multiplier: 2).isActive = true
-        self.key.heightAnchor.constraint(equalToConstant: 35).isActive = true
-        self.key.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        self.arrow.loadGif(name: "load")*/
         
         self.background.addSubview(self.encryptedText)
         self.encryptedText.translatesAutoresizingMaskIntoConstraints = false
         self.encryptedText.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.encryptedText.topAnchor.constraint(equalToSystemSpacingBelow: self.arrow.bottomAnchor, multiplier: 4).isActive = true
+        self.encryptedText.topAnchor.constraint(equalToSystemSpacingBelow: self.titleLabel.bottomAnchor, multiplier: 4).isActive = true
         self.encryptedText.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 40).isActive = true
         self.encryptedText.heightAnchor.constraint(equalToConstant: 200).isActive = true
         self.encryptedText.isEditable = false

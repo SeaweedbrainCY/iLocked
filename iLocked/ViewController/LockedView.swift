@@ -24,6 +24,7 @@ class LockedView: UIViewController{
     @IBOutlet weak var backFingerprint: UIImageView!
     
     var activityInProgress = false // if it's true, this view is dismissed and don't use a segue
+    var firstTime = false
     
     override func viewDidLoad(){
         print("viewDidLoad called")
@@ -46,6 +47,7 @@ class LockedView: UIViewController{
         print("view loaded")
         
         if retrievedString == nil || retrievedString == ""{
+            firstTime = true
             loadWelcomeView()
         } else{
             lockView()
@@ -159,9 +161,8 @@ class LockedView: UIViewController{
     //
     
     @IBAction func actionButtonSelected(sender: UIButton){
-        if sender.currentImage != nil {
+        if !firstTime {
             askForAuthentification()
-            
         } else { // This is the button "start and go" when the app is open for the first time
             let animation = UIViewPropertyAnimator(duration: 5, dampingRatio: 0.7, animations: {
                 self.view.backgroundColor = .black
