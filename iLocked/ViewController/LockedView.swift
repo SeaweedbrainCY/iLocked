@@ -11,8 +11,10 @@
 
 import Foundation
 import UIKit
-import SwiftKeychainWrapper
+
+import Swift
 import LocalAuthentication
+import Swift
 
 class LockedView: UIViewController{
     
@@ -45,7 +47,6 @@ class LockedView: UIViewController{
     func checkForKeys(){
         let retrievedString: String? = KeychainWrapper.standard.string(forKey: userPublicKeyId)
         print("view loaded")
-        
         if retrievedString == nil || retrievedString == ""{
             firstTime = true
             loadWelcomeView()

@@ -3,15 +3,28 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1395D1CA7D6EF4930CF1CD39 /* Pods_iLockedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7AA47B6F9A196224EA6FA5 /* Pods_iLockedUITests.framework */; };
-		1DF007E2E6742E516BC7567D /* Pods_iLocked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */; };
 		9048E65D23FB017800098C73 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9048E65C23FB017800098C73 /* Dictionary.swift */; };
+		905877422401B171004F1894 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */; };
+		905877432401B18A004F1894 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */; };
+		905877452401B197004F1894 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B602401AF5A00EFE9BD /* Key.swift */; };
+		905877462401B19A004F1894 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B612401AF5A00EFE9BD /* Message.swift */; };
+		905877472401B1A3004F1894 /* NSData+SHA.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B632401AF5A00EFE9BD /* NSData+SHA.m */; };
+		905877482401B1A9004F1894 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B642401AF5A00EFE9BD /* PrivateKey.swift */; };
+		905877492401B1AB004F1894 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B652401AF5A00EFE9BD /* PublicKey.swift */; };
+		9058774A2401B1AD004F1894 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B662401AF5A00EFE9BD /* Signature.swift */; };
+		9058774B2401B1B2004F1894 /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B682401AF5A00EFE9BD /* SwiftyRSA.swift */; };
+		9058774C2401B1B5004F1894 /* SwiftyRSAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B692401AF5A00EFE9BD /* SwiftyRSAError.swift */; };
+		9058774D2401B1D4004F1894 /* SwiftyRSA+ObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B6A2401AF5A00EFE9BD /* SwiftyRSA+ObjC.swift */; };
+		9058774E2401B227004F1894 /* ClearMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5E2401AF5A00EFE9BD /* ClearMessage.swift */; };
 		90B886FC23F7F31A00035C82 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B886FB23F7F31A00035C82 /* Settings.swift */; };
-		9BD4131ECD7F4E5B6A92C83A /* Pods_iLockedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83678B0E42523CF0602D1F1F /* Pods_iLockedTests.framework */; };
+		90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */; };
+		90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */; };
+		90D43B5B2401AF2600EFE9BD /* Pods_iLocked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */; };
+		90D43B5C2401AF2600EFE9BD /* Pods_iLocked.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D820B848235E3559006CEB38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B847235E3559006CEB38 /* UIView.swift */; };
 		D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B849235E359D006CEB38 /* DecryptedResult.swift */; };
 		D820B84E235E5EB1006CEB38 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B84D235E5EB1006CEB38 /* LockedView.swift */; };
@@ -62,17 +75,49 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		909D26C423FDD5FA00B5C9CD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				90D43B5C2401AF2600EFE9BD /* Pods_iLocked.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		135712321A1C386BC425868D /* Pods-iLockedUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLockedUITests.release.xcconfig"; path = "Target Support Files/Pods-iLockedUITests/Pods-iLockedUITests.release.xcconfig"; sourceTree = "<group>"; };
-		71B0E552245F79A5F208C02D /* Pods-iLockedTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLockedTests.release.xcconfig"; path = "Target Support Files/Pods-iLockedTests/Pods-iLockedTests.release.xcconfig"; sourceTree = "<group>"; };
 		801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLocked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		83678B0E42523CF0602D1F1F /* Pods_iLockedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLockedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90045D5523FDD11B00323457 /* SwiftyRSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyRSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90045D5C23FDD19A00323457 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9048E65C23FB017800098C73 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		90B886FB23F7F31A00035C82 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		90D43B582401AF1E00EFE9BD /* SwiftyRSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyRSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Asn1Parser.swift; path = Source/Asn1Parser.swift; sourceTree = "<group>"; };
+		90D43B5E2401AF5A00EFE9BD /* ClearMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClearMessage.swift; path = Source/ClearMessage.swift; sourceTree = "<group>"; };
+		90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EncryptedMessage.swift; path = Source/EncryptedMessage.swift; sourceTree = "<group>"; };
+		90D43B602401AF5A00EFE9BD /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Key.swift; path = Source/Key.swift; sourceTree = "<group>"; };
+		90D43B612401AF5A00EFE9BD /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Source/Message.swift; sourceTree = "<group>"; };
+		90D43B622401AF5A00EFE9BD /* NSData+SHA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+SHA.h"; path = "Source/NSData+SHA.h"; sourceTree = "<group>"; };
+		90D43B632401AF5A00EFE9BD /* NSData+SHA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSData+SHA.m"; path = "Source/NSData+SHA.m"; sourceTree = "<group>"; };
+		90D43B642401AF5A00EFE9BD /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivateKey.swift; path = Source/PrivateKey.swift; sourceTree = "<group>"; };
+		90D43B652401AF5A00EFE9BD /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PublicKey.swift; path = Source/PublicKey.swift; sourceTree = "<group>"; };
+		90D43B662401AF5A00EFE9BD /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Signature.swift; path = Source/Signature.swift; sourceTree = "<group>"; };
+		90D43B672401AF5A00EFE9BD /* SwiftyRSA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SwiftyRSA.h; path = Source/SwiftyRSA.h; sourceTree = "<group>"; };
+		90D43B682401AF5A00EFE9BD /* SwiftyRSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftyRSA.swift; path = Source/SwiftyRSA.swift; sourceTree = "<group>"; };
+		90D43B692401AF5A00EFE9BD /* SwiftyRSAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftyRSAError.swift; path = Source/SwiftyRSAError.swift; sourceTree = "<group>"; };
+		90D43B6A2401AF5A00EFE9BD /* SwiftyRSA+ObjC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SwiftyRSA+ObjC.swift"; path = "Source/SwiftyRSA+ObjC.swift"; sourceTree = "<group>"; };
+		90D43B6C2401AF5A00EFE9BD /* SwiftyRSA.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = SwiftyRSA.modulemap; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA.modulemap"; sourceTree = "<group>"; };
+		90D43B6D2401AF5A00EFE9BD /* SwiftyRSA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SwiftyRSA.xcconfig; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA.xcconfig"; sourceTree = "<group>"; };
+		90D43B6E2401AF5A00EFE9BD /* SwiftyRSA-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SwiftyRSA-dummy.m"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-dummy.m"; sourceTree = "<group>"; };
+		90D43B6F2401AF5A00EFE9BD /* SwiftyRSA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "SwiftyRSA-Info.plist"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-Info.plist"; sourceTree = "<group>"; };
+		90D43B702401AF5A00EFE9BD /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-prefix.pch"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
+		90D43B712401AF5A00EFE9BD /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-umbrella.h"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
 		914416024A258447A1A3E632 /* Pods-iLocked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLocked.release.xcconfig"; path = "Target Support Files/Pods-iLocked/Pods-iLocked.release.xcconfig"; sourceTree = "<group>"; };
-		AD7AA47B6F9A196224EA6FA5 /* Pods_iLockedUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLockedUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CFA7C7B77771E8CF8C2BDC1C /* Pods-iLockedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLockedTests.debug.xcconfig"; path = "Target Support Files/Pods-iLockedTests/Pods-iLockedTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D7AFF80DC29F5F8973DED2D2 /* Pods-iLockedUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLockedUITests.debug.xcconfig"; path = "Target Support Files/Pods-iLockedUITests/Pods-iLockedUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D820B847235E3559006CEB38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D820B849235E359D006CEB38 /* DecryptedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptedResult.swift; sourceTree = "<group>"; };
 		D820B84D235E5EB1006CEB38 /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
@@ -118,7 +163,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DF007E2E6742E516BC7567D /* Pods_iLocked.framework in Frameworks */,
+				90D43B5B2401AF2600EFE9BD /* Pods_iLocked.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,7 +171,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BD4131ECD7F4E5B6A92C83A /* Pods_iLockedTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +178,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1395D1CA7D6EF4930CF1CD39 /* Pods_iLockedUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,20 +189,79 @@
 			children = (
 				DD8EA1F65A266A5ED9B17F67 /* Pods-iLocked.debug.xcconfig */,
 				914416024A258447A1A3E632 /* Pods-iLocked.release.xcconfig */,
-				CFA7C7B77771E8CF8C2BDC1C /* Pods-iLockedTests.debug.xcconfig */,
-				71B0E552245F79A5F208C02D /* Pods-iLockedTests.release.xcconfig */,
-				D7AFF80DC29F5F8973DED2D2 /* Pods-iLockedUITests.debug.xcconfig */,
-				135712321A1C386BC425868D /* Pods-iLockedUITests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		9058774F2401B483004F1894 /* KeychainWrapper */ = {
+			isa = PBXGroup;
+			children = (
+				90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */,
+				90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */,
+			);
+			path = KeychainWrapper;
+			sourceTree = "<group>";
+		};
+		90D43B5323FDDB1900EFE9BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9058774F2401B483004F1894 /* KeychainWrapper */,
+				90D43B732401AF5A00EFE9BD /* SwiftyRSA */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		90D43B6B2401AF5A00EFE9BD /* ObjC */ = {
+			isa = PBXGroup;
+			children = (
+				90D43B6A2401AF5A00EFE9BD /* SwiftyRSA+ObjC.swift */,
+			);
+			name = ObjC;
+			sourceTree = "<group>";
+		};
+		90D43B722401AF5A00EFE9BD /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				90D43B6C2401AF5A00EFE9BD /* SwiftyRSA.modulemap */,
+				90D43B6D2401AF5A00EFE9BD /* SwiftyRSA.xcconfig */,
+				90D43B6E2401AF5A00EFE9BD /* SwiftyRSA-dummy.m */,
+				90D43B6F2401AF5A00EFE9BD /* SwiftyRSA-Info.plist */,
+				90D43B702401AF5A00EFE9BD /* SwiftyRSA-prefix.pch */,
+				90D43B712401AF5A00EFE9BD /* SwiftyRSA-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftyRSA";
+			sourceTree = "<group>";
+		};
+		90D43B732401AF5A00EFE9BD /* SwiftyRSA */ = {
+			isa = PBXGroup;
+			children = (
+				90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */,
+				90D43B5E2401AF5A00EFE9BD /* ClearMessage.swift */,
+				90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */,
+				90D43B602401AF5A00EFE9BD /* Key.swift */,
+				90D43B612401AF5A00EFE9BD /* Message.swift */,
+				90D43B622401AF5A00EFE9BD /* NSData+SHA.h */,
+				90D43B632401AF5A00EFE9BD /* NSData+SHA.m */,
+				90D43B642401AF5A00EFE9BD /* PrivateKey.swift */,
+				90D43B652401AF5A00EFE9BD /* PublicKey.swift */,
+				90D43B662401AF5A00EFE9BD /* Signature.swift */,
+				90D43B672401AF5A00EFE9BD /* SwiftyRSA.h */,
+				90D43B682401AF5A00EFE9BD /* SwiftyRSA.swift */,
+				90D43B692401AF5A00EFE9BD /* SwiftyRSAError.swift */,
+				90D43B6B2401AF5A00EFE9BD /* ObjC */,
+				90D43B722401AF5A00EFE9BD /* Support Files */,
+			);
+			path = SwiftyRSA;
 			sourceTree = "<group>";
 		};
 		A2DCCF4BE81058B13C7B2687 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				90D43B582401AF1E00EFE9BD /* SwiftyRSA.framework */,
+				90045D5523FDD11B00323457 /* SwiftyRSA.framework */,
+				90045D5C23FDD19A00323457 /* SwiftKeychainWrapper.framework */,
 				801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */,
-				83678B0E42523CF0602D1F1F /* Pods_iLockedTests.framework */,
-				AD7AA47B6F9A196224EA6FA5 /* Pods_iLockedUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -189,6 +291,7 @@
 		D8A64B052353BC1C000613F3 /* iLocked */ = {
 			isa = PBXGroup;
 			children = (
+				90D43B5323FDDB1900EFE9BD /* Frameworks */,
 				D8A64B3A2353BC4D000613F3 /* Data */,
 				D8A64B392353BC43000613F3 /* GlobalVariable */,
 				D8A64B382353BC3D000613F3 /* ViewController */,
@@ -299,10 +402,10 @@
 			buildConfigurationList = D8A64B2D2353BC24000613F3 /* Build configuration list for PBXNativeTarget "iLocked" */;
 			buildPhases = (
 				F604DF3EB66975C51332DE6D /* [CP] Check Pods Manifest.lock */,
+				909D26C423FDD5FA00B5C9CD /* CopyFiles */,
 				D8A64AFF2353BC1C000613F3 /* Sources */,
 				D8A64B002353BC1C000613F3 /* Frameworks */,
 				D8A64B012353BC1C000613F3 /* Resources */,
-				8B1E86B3419CA8C2BF42DB77 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,7 +420,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8A64B302353BC24000613F3 /* Build configuration list for PBXNativeTarget "iLockedTests" */;
 			buildPhases = (
-				01A23EF9849D2F578816D685 /* [CP] Check Pods Manifest.lock */,
 				D8A64B152353BC24000613F3 /* Sources */,
 				D8A64B162353BC24000613F3 /* Frameworks */,
 				D8A64B172353BC24000613F3 /* Resources */,
@@ -336,7 +438,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8A64B332353BC24000613F3 /* Build configuration list for PBXNativeTarget "iLockedUITests" */;
 			buildPhases = (
-				1F1FFBD6B9D0E7011B019124 /* [CP] Check Pods Manifest.lock */,
 				D8A64B202353BC24000613F3 /* Sources */,
 				D8A64B212353BC24000613F3 /* Frameworks */,
 				D8A64B222353BC24000613F3 /* Resources */,
@@ -425,67 +526,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01A23EF9849D2F578816D685 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iLockedTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1F1FFBD6B9D0E7011B019124 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iLockedUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		8B1E86B3419CA8C2BF42DB77 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iLocked/Pods-iLocked-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iLocked/Pods-iLocked-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iLocked/Pods-iLocked-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F604DF3EB66975C51332DE6D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -515,19 +555,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				905877492401B1AB004F1894 /* PublicKey.swift in Sources */,
+				905877432401B18A004F1894 /* Asn1Parser.swift in Sources */,
 				D8A64B3C2353BC70000613F3 /* KeyId.swift in Sources */,
 				D8A64B562353BCC1000613F3 /* AddKey.swift in Sources */,
 				D8A64B4B2353BCA0000613F3 /* TextView.swift in Sources */,
 				D8A64B0B2353BC1C000613F3 /* ViewController.swift in Sources */,
+				905877422401B171004F1894 /* EncryptedMessage.swift in Sources */,
 				D8A64B4C2353BCA0000613F3 /* String.swift in Sources */,
 				D8A64B572353BCC1000613F3 /* DecryptHomePage.swift in Sources */,
 				D8A64B5B2353BCC1000613F3 /* ShowKey.swift in Sources */,
 				D8A64B492353BCA0000613F3 /* CustomCellTableView.swift in Sources */,
 				D8A64B072353BC1C000613F3 /* AppDelegate.swift in Sources */,
+				9058774A2401B1AD004F1894 /* Signature.swift in Sources */,
 				D8A64B4D2353BCA0000613F3 /* GifController.swift in Sources */,
 				D8416D362364ED5100A0B038 /* Encryption.swift in Sources */,
+				905877462401B19A004F1894 /* Message.swift in Sources */,
+				90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */,
+				9058774E2401B227004F1894 /* ClearMessage.swift in Sources */,
 				D8A64B4A2353BCA0000613F3 /* UIButton.swift in Sources */,
 				D8A64B482353BCA0000613F3 /* AttributedText.swift in Sources */,
+				9058774C2401B1B5004F1894 /* SwiftyRSAError.swift in Sources */,
+				9058774B2401B1B2004F1894 /* SwiftyRSA.swift in Sources */,
 				D8A64B592353BCC1000613F3 /* EncryptHomePage.swift in Sources */,
 				9048E65D23FB017800098C73 /* Dictionary.swift in Sources */,
 				D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */,
@@ -537,9 +586,14 @@
 				90B886FC23F7F31A00035C82 /* Settings.swift in Sources */,
 				D820B8542363909C006CEB38 /* publicPrivateKeys.swift in Sources */,
 				D820B84E235E5EB1006CEB38 /* LockedView.swift in Sources */,
+				90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */,
 				D8A64B582353BCC1000613F3 /* EncryptResult.swift in Sources */,
 				D820B848235E3559006CEB38 /* UIView.swift in Sources */,
 				D8A64B092353BC1C000613F3 /* SceneDelegate.swift in Sources */,
+				9058774D2401B1D4004F1894 /* SwiftyRSA+ObjC.swift in Sources */,
+				905877452401B197004F1894 /* Key.swift in Sources */,
+				905877472401B1A3004F1894 /* NSData+SHA.m in Sources */,
+				905877482401B1A9004F1894 /* PrivateKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +780,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/iLocked/Frameworks/SwiftyRSA/Source/NSData+SHA.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -747,6 +802,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/iLocked/Frameworks/SwiftyRSA/Source/NSData+SHA.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -754,7 +810,6 @@
 		};
 		D8A64B312353BC24000613F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFA7C7B77771E8CF8C2BDC1C /* Pods-iLockedTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -777,7 +832,6 @@
 		};
 		D8A64B322353BC24000613F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 71B0E552245F79A5F208C02D /* Pods-iLockedTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -800,7 +854,6 @@
 		};
 		D8A64B342353BC24000613F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7AFF80DC29F5F8973DED2D2 /* Pods-iLockedUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -821,7 +874,6 @@
 		};
 		D8A64B352353BC24000613F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 135712321A1C386BC425868D /* Pods-iLockedUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

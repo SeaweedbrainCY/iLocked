@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import SwiftKeychainWrapper
 
 class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     

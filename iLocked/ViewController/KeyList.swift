@@ -8,12 +8,9 @@
 
 import Foundation
 import UIKit
-import SwiftKeychainWrapper
 
 
-//
-// TO DO : TRIER LES DICTIONNAIRE EN FONCTION DU NUMÉRO DE L'INDEITIFIANT DE LA CLÉ
-//
+
 
 class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     

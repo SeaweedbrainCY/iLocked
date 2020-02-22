@@ -13,6 +13,7 @@ public class EncryptedMessage: Message {
     /// Data of the message
     public let data: Data
     
+    
     /// Creates an encrypted message with data.
     ///
     /// - Parameter data: Data of the encrypted message.

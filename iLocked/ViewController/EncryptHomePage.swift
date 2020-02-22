@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import SwiftKeychainWrapper
-import SwiftyRSA
+
+
 
 
 class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate{

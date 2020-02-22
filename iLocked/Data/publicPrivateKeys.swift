@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import SwiftyRSA
-import SwiftKeychainWrapper
+
+
 
 /// This class manage creation, stock, access to the differents keys
 class PublicPrivateKeys {

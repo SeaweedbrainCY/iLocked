@@ -8,8 +8,8 @@
 
 import Foundation
 import UIKit
-import SwiftyRSA
-import SwiftKeychainWrapper
+
+
 
 class Encryption{
     ///This func return the encryption of the text givent

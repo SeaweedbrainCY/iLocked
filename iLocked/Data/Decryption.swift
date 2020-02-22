@@ -8,14 +8,15 @@
 
 import Foundation
 import UIKit
-import SwiftyRSA
-import SwiftKeychainWrapper
+
+
 
 class Decryption {
     ///This function return the decrypted text of a String given
     /// - return : A dictionnary containing ONLY two keys : "state" : Bool (True if success, False if not) and "message" : String(The message according to the error or the result asked for)
     func decryptText(_ text:String) -> [String: Any]{
         do {
+            
             let decrypted = try EncryptedMessage(base64Encoded: text)
             if let privateKey: String = KeychainWrapper.standard.string(forKey: userPrivateKeyId) {
                 let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)

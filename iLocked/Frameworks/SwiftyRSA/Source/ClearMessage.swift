@@ -30,6 +30,7 @@ public class ClearMessage: Message {
         guard let data = string.data(using: encoding) else {
             throw SwiftyRSAError.stringToDataConversionFailed
         }
+        
         self.init(data: data)
     }
     
@@ -161,6 +162,7 @@ public class ClearMessage: Message {
     func digest(digestType: Signature.DigestType) -> Data {
         
         let digest: Data
+        
         
         switch digestType {
         case .sha1:
