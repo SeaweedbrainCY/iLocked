@@ -11,52 +11,46 @@ import Foundation
 class KeyId {
     
     /// Return all key and id associated to saved keys
-    /// - Data format = [id(String) : keyName(String)]
-    public func getKeyIdArray() -> [String: String]{
+    /// - Data format = [keyName(String)]
+    public func getKeyName() -> [String]{
         //Récupération des données enregistrées
-        var dicoEncoded: String! = "nil"
+        var arrayEncoded: String! = "nil"
         do {
-            dicoEncoded = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath), encoding: .utf8)
+            arrayEncoded = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath), encoding: .utf8)
         } catch {
             print("Fichier introuvable. ERREUR GRAVE line 211")
-            dicoEncoded = "not found"
+            arrayEncoded = "not found"
         }
         
-        if dicoEncoded == "nil" {
+        if arrayEncoded == "nil" {
             //
             // *************************************************************************
             // ERROR N° 0002
             // Une grave erreur s'est produite lors de l'accès à la sauvegarde ERROR
             // *************************************************************************
             //
-            return ["##ERROR##" : "An internal error unable the application to access to your stored data. Please, contact the developer with this error code : ##DATA/KI.SWIFT#0002# 🛠"]
+            return ["##ERROR## An internal error unable the application to access to your stored data. Please, contact the developer with this error code : ##DATA/KI.SWIFT#0002# 🛠"]
         }
         
-        if dicoEncoded == "not found" {
-            return [:]
+        if arrayEncoded == "not found" {
+            return []
         }
         
-        if dicoEncoded == "" {
-            return [:]
+        if arrayEncoded == "" {
+            return []
         }
         
         
-        if let dicoDecoded: [String: String] = dicoEncoded.JsonToDictionary()  { // convertion json->array
-            print("dico decoded = \(dicoDecoded)")
-            return dicoDecoded // succès
-                
-            } else {
-                // La portion décodé n'est pas compatible
-            return ["##ERROR##" : "We are unabled to read your saved data. They may be corrupted. If you see this error several times, please contact the developer in app's settings and report this warning 🚔"]
-                
-            }
+        let arrayDecoded: [String] = arrayEncoded.toJSON()  // convertion json->array
+            print("dico decoded = \(arrayDecoded)")
+            return arrayDecoded // succès
     }
     
     //
     ///Stock and remplace old data
     ///array de la forme [id: nom]
     //
-    public func stockNewNameIdArray(_ initialArray: [String: String]) {
+    public func stockNewNameIdArray(_ initialArray: [String]) {
         let array = initialArray
         //on convertie et enregistre
         let jsonArray = json(from: array as Any)

@@ -35,11 +35,9 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     static let notificationOfModificationName = Notification.Name("notificationOfModifcationFormEditKeyToShowKey")
     
     var name = ""
-    var idKey = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("idKey = \(idKey)")
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
@@ -114,7 +112,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.key.isEditable = false
         self.key.isSelectable = false
         self.key.textColor = .systemOrange
-        if let retrievedString: String = KeychainWrapper.standard.string(forKey: idKey){
+        if let retrievedString: String = KeychainWrapper.standard.string(forKey: name){
             self.key.text = "\(retrievedString)"
         } else if self.name == "My encyrption key"{
             if let retrievedString: String = KeychainWrapper.standard.string(forKey: userPublicKeyId){
@@ -139,10 +137,11 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         
         self.backgroundView.addSubview(self.shareButton)
         self.shareButton.translatesAutoresizingMaskIntoConstraints = false
-        self.shareButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
         self.shareButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         self.shareButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.shareButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.leftAnchor, multiplier: 4).isActive = true
+        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
+        
         if #available(iOS 13.0, *) {
             self.shareButton.setImage(UIImage(systemName: "square.and.arrow.up") , for: .normal)
         }
@@ -153,12 +152,15 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.shareButton.rondBorder()
         self.shareButton.addTarget(self, action: #selector(shareButtonSelected), for: .touchUpInside)
         
+        
+        
+        
         self.backgroundView.addSubview(self.encryptButton)
         self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
-        self.encryptButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.keyTitle.leftAnchor, multiplier: 1).isActive = true
-        self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
         self.encryptButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         self.encryptButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.encryptButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.shareButton.rightAnchor, multiplier: 4).isActive = true
+        self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
         if #available(iOS 13.0, *) {
             self.encryptButton.setImage(UIImage(systemName: "paperplane.fill") , for: .normal)
         } else {
@@ -171,22 +173,22 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.encryptButton.rondBorder()
         self.encryptButton.addTarget(self, action: #selector(self.encryptMessageSelected), for: .touchUpInside)
         
+        
+        
         self.backgroundView.addSubview(self.deleteButton)
         self.deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        self.deleteButton.rightAnchor.constraint(equalToSystemSpacingAfter: self.key.rightAnchor, multiplier: 1).isActive = true
-        self.deleteButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
         self.deleteButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         self.deleteButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.deleteButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
+        self.deleteButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.encryptButton.rightAnchor, multiplier: 4).isActive = true
         if #available(iOS 13.0, *) {
             self.deleteButton.setImage(UIImage(systemName: "trash") , for: .normal)
         }
         self.deleteButton.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
         self.deleteButton.setTitleColor(.systemRed, for: .normal)
         self.deleteButton.tintColor = .systemOrange
-        self.deleteButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         self.deleteButton.rondBorder()
         self.deleteButton.addTarget(self, action: #selector(trashButtonSelected), for: .touchUpInside)
-
         
     }
     
@@ -261,7 +263,6 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.name = notificationData?["name"] as! String
         self.nameKey.text = (notificationData?["name"] as! String)
         self.key.text = (notificationData?["key"] as! String)
-        self.idKey = notificationData?["idKey"] as! String
     }
     
     //
@@ -271,11 +272,11 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     private func destroyKey(){
         //First in the dictionnary :
         let keyNameData = KeyId()
-        var listeKeyName = keyNameData.getKeyIdArray()
-        listeKeyName.removeValue(forKey: idKey)
+        var listeKeyName = keyNameData.getKeyName()
+        listeKeyName.remove(at: listeKeyName.firstIndex(of: name)!)
         keyNameData.stockNewNameIdArray(listeKeyName)
         //then the keychain :
-        KeychainWrapper.standard.removeObject(forKey: idKey)
+        KeychainWrapper.standard.removeObject(forKey: name)
         UIView.animate(withDuration: 1.5, animations: {
             self.key.alpha = 0
             self.nameKey.alpha = 0

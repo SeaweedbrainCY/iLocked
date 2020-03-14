@@ -25,12 +25,12 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBOutlet weak var refreshButton: UIBarButtonItem!
     @IBOutlet weak var lockAppButton: UIBarButtonItem!
     
-    var keyArray: [String] = ["Add a key"]
+    var keyArray: [String] = ["Add a key"] // list of all names displayed on UIPIckerView
     var heightPicker: NSLayoutConstraint?
     var heightSender: NSLayoutConstraint?
     var titleButtonClean = ""
     var textEncrypted = "error"
-    var idArray: [String] = []
+    var nameArray: [String] = [] // list of all name saved
     
     //Data came from ShowKey.swift > encryptMessageSelected()
     var keyNameTransmitted = ""
@@ -118,14 +118,20 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     public func loadData(){
         print("PASSAGE LINE 98")
         let data = KeyId()
-        let keyIdArray = data.getKeyIdArray()
-        if let firstCase = keyIdArray["##ERROR##"]{
-            alert("Oups ! We got an error ! ", message: firstCase)
-        } else { // we don't have any error
-            for (id , nom) in keyIdArray { // we verify if the name already exist
-                keyArray.append(nom)
-                idArray.append(id)
+        let keyName = data.getKeyName()
+        print("key name recieved = \(keyName)")
+        if keyName.count != 0{
+            if keyName[0].contains("##ERROR##"){
+                alert("Oups ! We got an error ! ", message: keyName[0])
+            } else { // we don't have any error
+                self.nameArray = keyName
+                print("name array : \(nameArray)")
+                for name in nameArray{
+                    self.keyArray.append(name)
+                }
             }
+        } else {
+            alert("Oups ! We got an error ! ", message: "Impossible to retrieve ypur saved data")
         }
     }
     
@@ -144,10 +150,9 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
             self.chargement.startAnimating()
             print(publicKeyButton!)
             print(self.publicKeyButton.currentTitle!)
-            print(idArray)
+            print("key array = \(self.keyArray)")
             print(self.keyArray.firstIndex(of: self.publicKeyButton.currentTitle!)!)
-            let keySaved: String? = KeychainWrapper.standard.string(forKey: self.idArray[self.keyArray.firstIndex(of: self.publicKeyButton.currentTitle!)! - 1])
-            //"Sous quel nom sont stockées les clé ? Id ou nom direct")
+            let keySaved: String? = KeychainWrapper.standard.string(forKey:self.publicKeyButton.currentTitle!)
             if keySaved == nil {
                 alert("Impossible to find the public encryption key", message: "We're unable to find this specific key. Please check that you still have it and check is validity")
                 self.encryptButton.isEnabled = true
@@ -157,14 +162,8 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
             } else {
                 var encryptedText = encryptText(text: self.textToEncrypt.text!, publicKey: keySaved!)
                 let encryptionMethod = Encryption()
-                var nameSelected = ""
-                for i in 0 ..< keyArray.count {
-                    if "\(keyArray[i])" == self.publicKeyButton.currentTitle {
-                        nameSelected = keyArray[i]
-                    }
-                }
-                print("name selected = \(nameSelected)")
-                encryptedText = encryptionMethod.encryptText(self.textToEncrypt.text, withKeyId: nameSelected)
+                let nameSelected = self.publicKeyButton.currentTitle
+                encryptedText = encryptionMethod.encryptText(self.textToEncrypt.text, withKeyName: nameSelected!)
                 if encryptedText != "error" && encryptedText != "" {
                     self.textEncrypted = encryptedText
                     performSegue(withIdentifier: "Encryption", sender: nil)
@@ -183,8 +182,8 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBAction public func refreshButtonSelected(sender: UIBarButtonItem){
         if sender.image == UIImage(systemName: "arrow.clockwise.circle.fill") {
             //Suppression de anciennes données
-            keyArray = ["Add a key"]
-            idArray = []
+            self.keyArray = ["Add a key"]
+            self.nameArray = []
             //On load les nouvelles
             loadData()
             self.keyList.reloadAllComponents()

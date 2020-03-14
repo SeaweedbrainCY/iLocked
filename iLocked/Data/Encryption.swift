@@ -15,32 +15,20 @@ class Encryption{
     ///This func return the encryption of the text givent
     /// - text : The text to encrypt
     /// - withKeyId : The name displayed to the user, if it's user's key, its 'userPublicKey'
-    public func encryptText(_ text: String, withKeyId keyUsed : String) -> String{
-        let keyIdMethod = KeyId()
-        let keyIdList = keyIdMethod.getKeyIdArray()
-        print(keyIdList)
+    public func encryptText(_ text: String, withKeyName keyUsed : String) -> String{
         var publicKeyUsed = ""
-        for (id, name) in keyIdList{
-            print("name = \(name)")
-            print("id = \(id)")
-            if name == keyUsed{
-                publicKeyUsed = id
-                print("key found")
-            }
-        }
         if keyUsed == "userPublicKey" {
             publicKeyUsed = userPublicKeyId
+        } else {
+            publicKeyUsed = keyUsed
         }
-        if publicKeyUsed == ""  {
-            return "ERROR : The key given cannot be found."
-        }
-        if let publicKey: String = KeychainWrapper.standard.string(forKey: userPublicKeyId) {
+        if let publicKey: String = KeychainWrapper.standard.string(forKey: publicKeyUsed) {
             do {
                 let clear = try ClearMessage(string: text, using: .utf8)
                 let encrypted = try clear.encrypted(with: PublicKey(base64Encoded: publicKey), padding: .PKCS1)
                 return encrypted.base64String
             } catch {
-                return "ERROR : An error occur"
+                return "ERROR : Please verify that your public key is correct"
             }
         } else {
             return "ERROR : Impossible to get the public key associated"

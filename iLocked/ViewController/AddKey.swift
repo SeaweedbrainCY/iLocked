@@ -29,7 +29,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     
     var viewOnBack: String = ""
     var oldName:String = ""
-    var oldKey: String = ""
+    var oldKey : String = ""
     
     let keyTextViewPlaceholder = "If it's not ugly it can't be that ..."
     
@@ -230,7 +230,6 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         let keyArray = KeyId()
         //startChargement(true)
         var testOk = true
-        var listeIdNom:[String: String] = [:]
         
         if self.nameField.text == ""{
             testOk = false
@@ -242,15 +241,18 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
             self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
         }
         
-        listeIdNom = keyArray.getKeyIdArray()
+        let nameList = keyArray.getKeyName()
         
-        if let firstCase = listeIdNom["##ERROR##"]{
-            testOk = false
-            self.publicKeyError.setTitle(firstCase, for: .normal)
-            flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
+        if nameList.count != 0{
+            if nameList.contains("##ERROR##"){
+                testOk = false
+                self.publicKeyError.setTitle(nameList[0], for: .normal)
+                flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
+            }
+            
         } else { // we don't have any error
-            for (_, nom) in listeIdNom { // we verify if the name already exist
-                if nom == self.nameField.text! {
+            for name in nameList { // we verify if the name already exist
+                if name == self.nameField.text! {
                     testOk = false
                     self.nameError.setTitle("This name is already taken 💩", for: .normal)
                     flip(firstView: self.nameField, secondView: self.nameError)
@@ -262,31 +264,19 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         
         if testOk {
             ///we save new data
-            if oldKey == "" {
-                var greaterNum = 0
-                for (id, _) in listeIdNom {
-                    if Int(id) ?? 0 > greaterNum {
-                        greaterNum = Int(id) ?? 0
-                    }
-                }
-                self.saveKeyWithId(idString: "\(greaterNum + 1)")
+            if oldName == "" {
+                self.saveKeyWithName(nameString: self.nameField.text!)
             } else { /// we edit new data :
                 let keyId = KeyId()
-                let listeKey = keyId.getKeyIdArray()
-                var oldKeyId = ""
+                let nameList = keyId.getKeyName()
                 print("old name = \(self.oldName)")
-                for (id, keyName) in listeKey{
-                    if keyName == self.oldName{ // we search id associated to the old key
-                        oldKeyId = id
-                    }
-                }
-                if oldKeyId == "" { // Impossible to find the id. Fatal error
+                if !nameList.contains(oldName) { // Impossible to find the name. Fatal error
                     testOk = false
                     self.publicKeyError.setTitle("Impossible to identify this key. Please, try to save again this key. If you see this error several times please report the bug with the id : ##DATA/AK.SWIFT 0003 🛠", for: .normal)
                     self.flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
                     self.flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
                 } else { // id found
-                    self.saveKeyWithId(idString: oldKeyId)
+                    self.saveKeyWithName(nameString: nameField.text!)
                 }
                 
                 
@@ -370,33 +360,26 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     
     ///Save a key with an Id
     /// - id : String which correspond to an int
-    public func saveKeyWithId(idString id: String){
+    public func saveKeyWithName(nameString name: String){
         let keyArray = KeyId()
-        var listeIdNom = keyArray.getKeyIdArray()
-        listeIdNom.updateValue(self.nameField.text!, forKey: id)
-        keyArray.stockNewNameIdArray(listeIdNom)
-        
-        print("id trouvé = " + id)
+        var nameList = keyArray.getKeyName()
+        if nameList.contains(oldName){ // If old name where in the array, we replace it
+           nameList.remove(at: nameList.firstIndex(of: oldName)!)
+        }
+        nameList.append(name)
+        keyArray.stockNewNameIdArray(nameList)
         //enregsitrement dans la keyChain:
-        let successfulSave:Bool = KeychainWrapper.standard.set("\(self.publicKeyField.text!)", forKey: id)
+        let successfulSave:Bool = KeychainWrapper.standard.set("\(self.publicKeyField.text!)", forKey: name)
         if successfulSave {
-            do {
-                let _ = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath), encoding: .utf8)
                 //
                 //SUCCÈS ::
                 //
                 print("button = \(self.nextButton.state)")
                 NotificationCenter.default.post(name: Encrypt.notificationName, object: nil, userInfo:["addKey success" : true])
                 if self.viewOnBack == "ShowKey"{
-                    NotificationCenter.default.post(name: ShowKey.notificationOfModificationName, object: nil, userInfo: ["name": self.nameField.text!, "key": self.publicKeyField.text!, "idKey": id])
+                    NotificationCenter.default.post(name: ShowKey.notificationOfModificationName, object: nil, userInfo: ["name": self.nameField.text!, "key": self.publicKeyField.text!])
                 }
                 dismissView()
-            }catch {
-                print("Fichier introuvable. ERREUR GRAVE")
-                // UNE ERREUR EST SURVENUE
-                self.publicKeyError.setTitle("We are unable to save the key into your device's space. Please verify that the field is well filled. If you see this message several times, please, contact the developer ❌", for: .normal)
-                self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
-            }
         }
     }
 }

@@ -21,9 +21,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     
     var nameList: [String] = ["There is no key saved"]
-    var idKeyList: [String] = ["1"]
     var nameSelected = "nil"
-    var idKeySelected = "nil"
     
     var selectModeIsActive = false // false = normal mode. False = user wants to select some cells.
     var selectedCellList : [Int] = [] // contains index.row of each selected cell
@@ -129,12 +127,10 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             if indexPath.section == 0 {
                  if nameList[0] != "There is no key saved" {
                      self.nameSelected = nameList[indexPath.row]
-                     self.idKeySelected = idKeyList[indexPath.row]
                      performSegue(withIdentifier: "showKey", sender: nil)
                  }
              } else {
                  self.nameSelected = "My encyrption key"
-                 self.idKeySelected = "0"
                  performSegue(withIdentifier: "showKey", sender: nil)
              }
             tableView.deselectRow(at: indexPath, animated: true)
@@ -153,7 +149,6 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
                 
              } else {
                  self.nameSelected = "My encyrption key"
-                 self.idKeySelected = "0"
                  performSegue(withIdentifier: "showKey", sender: nil)
              }
             tableView.deselectRow(at: indexPath, animated: true)
@@ -168,36 +163,24 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     public func loadData(){
         let keyId = KeyId()
-        let listeNom : [String: String] = keyId.getKeyIdArray()
-        print(listeNom)
-        
-        for (id, nom) in listeNom {
-            if nameList[0] == "There is no key saved"{
-                nameList[0] = nom
-                idKeyList[0] = id
-            } else {
-                nameList.append(nom)
-                idKeyList.append(id)
-            }
-        }
-        let sortedLists = keyId.sortByAlphabeticOrder(keys: idKeyList, value: nameList)
-        self.nameList = sortedLists[1]
-        self.idKeyList = sortedLists[0]
+        let listeNom : [String] = keyId.getKeyName()
+        self.nameList = listeNom
+        let sortedLists = keyId.sortByAlphabeticOrder(keys: nameList, value: nameList)
+        self.nameList = sortedLists[0]
     }
     
     /// Delete keys selected
     private func destroyKey(){
         let keyNameData = KeyId()
-        var listeKeyName = keyNameData.getKeyIdArray()
+        let listeKeyName = keyNameData.getKeyName()
         for row in selectedCellList { // We destroy key after key
             if let cell : UITableViewCell = self.tableView.cellForRow(at: IndexPath(row: row, section: 0)) { // get selected cell
                 if let cellTitle: String = cell.textLabel?.text{ // get title of the selected cell
                     if let index = nameList.firstIndex(of: cellTitle) { // get title corresponding to this name
                         //Delete in local array
-                        listeKeyName.removeValue(forKey: idKeyList[index])
                         keyNameData.stockNewNameIdArray(listeKeyName)
                         //then in the keychain :
-                        KeychainWrapper.standard.removeObject(forKey: idKeyList[index])
+                        KeychainWrapper.standard.removeObject(forKey: nameList[index])
                         // We display new changes
                         self.selectCellButtonSelected(sender: self.selectCellButton)
                     } else { // No index
@@ -235,7 +218,6 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         } else { // is a refresh button
             //On supprime les anciennes infos
             nameList = ["There is no key saved"]
-            idKeyList = ["1"]
             //On load les nouvelles
             loadData()
             self.tableView.reloadData()
@@ -252,7 +234,6 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             // ... and other well unselectable
             nameList = ["There is no key saved"]
-            idKeyList = ["1"]
             //On load les nouvelles
             selectModeIsActive = false
             loadData()
@@ -268,7 +249,6 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             
             // ... and other well unselectable
             nameList = ["There is no key saved"]
-            idKeyList = ["1"]
             //On load les nouvelles
             selectModeIsActive = true
             loadData()
@@ -314,7 +294,6 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         if segue.identifier == "showKey"{
             let showKeyPage = segue.destination as? ShowKey
             showKeyPage!.name = self.nameSelected
-            showKeyPage!.idKey = self.idKeySelected
         }else if segue.identifier == "addKey"{
             let nv = segue.destination as? UINavigationController
             let addView = nv?.viewControllers.first as? AddKey
