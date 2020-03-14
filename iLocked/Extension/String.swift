@@ -9,9 +9,12 @@
 import Foundation
 
 extension String {
-    func convertToDictionary(text: String!) -> [String: String]? {
-        print("TEXT = \(text!)")
-        if let data = text!.data(using: .utf8) {
+    
+    
+    /// Convert a json string to a dictionnary [*String*:*String*]
+    func JsonToDictionary() -> [String: String]? {
+        print("TEXT = \(self)")
+        if let data = self.data(using: .utf8) {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]
             } catch {

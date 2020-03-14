@@ -43,6 +43,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         if nameList == ["There is no key saved"] {
             self.selectCellButton.isEnabled = false //no cell to select
         }
+         
         
 
     }
@@ -169,6 +170,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         let keyId = KeyId()
         let listeNom : [String: String] = keyId.getKeyIdArray()
         print(listeNom)
+        
         for (id, nom) in listeNom {
             if nameList[0] == "There is no key saved"{
                 nameList[0] = nom

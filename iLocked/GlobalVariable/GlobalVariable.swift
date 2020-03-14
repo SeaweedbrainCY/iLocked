@@ -11,3 +11,4 @@ import Foundation
 let arrayNameIdPath = "arrayNameId.txt"
 let userPublicKeyId = "userPublicKeyId"
 let userPrivateKeyId = "userPrivateKeyId"
+let settingPath = "setting.txt"

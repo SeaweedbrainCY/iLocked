@@ -44,4 +44,16 @@ class DictionnaryExtension {
         }
         return list
     }
+    
+    /// Convert a dictionnary [*String*:*String*] to a  json string
+    /// - Parameter dict: [*String*:*String*]
+    func dictionaryToJson(dict: [String: String]) -> String? {
+        if let theJSONData = try? JSONSerialization.data(
+            withJSONObject: dict,
+            options: []) {
+            let JSONText = String(data: theJSONData, encoding: .ascii)
+            return JSONText
+        }
+        return nil
+    }
 }

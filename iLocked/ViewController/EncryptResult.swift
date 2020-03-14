@@ -31,6 +31,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.scrollView.delegate = self
         self.loadViews()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -15,7 +15,8 @@ import MessageUI
 class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    var darkModeSwitch = UISwitch()
+    var logSwitch = UISwitch()
+     
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +24,15 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         self.tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell") //on associe la tableView au custom de Style/customeCelleTableView.swift
         
-        
     }
-    
+
+    ///**Give the model of saved dict**
+    func saveSetting(){
+        let dict = ["":""]
+        let dictExtension = DictionnaryExtension()
+        let jsonString = dictExtension.dictionaryToJson(dict: dict)
+        _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath).path, contents: "\(jsonString!)".data(using: String.Encoding.utf8), attributes: nil)
+    }
     
     /// Simple pop-up with one cancel button
     func alert(_ title: String, message: String) {
@@ -37,13 +44,14 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
 
     ///number of section
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     /// Cells for each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0 : return 2
+        case 1 : return 2
         default : return 0
             
         }
@@ -60,10 +68,10 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "     Report a bug"
+                cell.textLabel?.text = "Report a bug"
                 cell.iconCell.image = UIImage(named: "Alerter")
             case 1 :
-                cell.textLabel?.text = "     View developer website"
+                cell.textLabel?.text = "View developer website"
                 cell.iconCell.image = UIImage(named: "Site")
             default : cell.textLabel?.text = "ERROR"
             }
@@ -94,7 +102,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     self.mailReport(subject: "I found a bug in iLocked app !!", body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n")
                 })
                 alert.addAction(UIAlertAction(title: "Contact the developer", style: .default) { _ in
-                    self.mailReport(subject: "Can I telle you something ?", body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n")
+                    self.mailReport(subject: "Can I tell you something ?", body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n")
                 })
                 alert.addAction(UIAlertAction(title: "Annuler", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
                 present(alert, animated: true)

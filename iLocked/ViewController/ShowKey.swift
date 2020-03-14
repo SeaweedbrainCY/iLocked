@@ -48,8 +48,6 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.scrollView.delegate = self
         constructView()
         
-        
-        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -136,58 +134,59 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.key.layer.cornerRadius = 20
         
         
-        self.backgroundView.addSubview(self.encryptButton)
-        self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
-        self.encryptButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
-        self.encryptButton.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 40).isActive = true
-        self.encryptButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        if #available(iOS 13.0, *) {
-            self.encryptButton.setImage(UIImage(systemName: "lock.fill") , for: .normal)
-        } else {
-            self.encryptButton.setImage(UIImage(named: "addKey"), for: .normal)
-        }
-        self.encryptButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
-        self.encryptButton.setTitleColor(.white, for: .normal)
-        self.encryptButton.setTitle(" Use this key to encrypt a msg", for: .normal)
-        self.encryptButton.tintColor = .systemOrange
-        self.encryptButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
-        self.encryptButton.rondBorder()
-        self.encryptButton.addTarget(self, action: #selector(self.encryptMessageSelected), for: .touchUpInside)
+        
+        
         
         self.backgroundView.addSubview(self.shareButton)
         self.shareButton.translatesAutoresizingMaskIntoConstraints = false
         self.shareButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.encryptButton.bottomAnchor, multiplier: 4).isActive = true
-        self.shareButton.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 40).isActive = true
-        self.shareButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
+        self.shareButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.shareButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
         if #available(iOS 13.0, *) {
             self.shareButton.setImage(UIImage(systemName: "square.and.arrow.up") , for: .normal)
         }
         self.shareButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
         self.shareButton.setTitleColor(.white, for: .normal)
-        self.shareButton.setTitle(" Share this key", for: .normal)
         self.shareButton.tintColor = .systemOrange
         self.shareButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         self.shareButton.rondBorder()
         self.shareButton.addTarget(self, action: #selector(shareButtonSelected), for: .touchUpInside)
         
+        self.backgroundView.addSubview(self.encryptButton)
+        self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
+        self.encryptButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.keyTitle.leftAnchor, multiplier: 1).isActive = true
+        self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
+        self.encryptButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.encryptButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        if #available(iOS 13.0, *) {
+            self.encryptButton.setImage(UIImage(systemName: "paperplane.fill") , for: .normal)
+        } else {
+            self.encryptButton.setImage(UIImage(named: "addKey"), for: .normal)
+        }
+        self.encryptButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
+        self.encryptButton.setTitleColor(.white, for: .normal)
+        self.encryptButton.tintColor = .systemOrange
+        self.encryptButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
+        self.encryptButton.rondBorder()
+        self.encryptButton.addTarget(self, action: #selector(self.encryptMessageSelected), for: .touchUpInside)
+        
         self.backgroundView.addSubview(self.deleteButton)
         self.deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        self.deleteButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.deleteButton.topAnchor.constraint(equalToSystemSpacingBelow: self.shareButton.bottomAnchor, multiplier: 4).isActive = true
-        self.deleteButton.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 40).isActive = true
-        self.deleteButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+        self.deleteButton.rightAnchor.constraint(equalToSystemSpacingAfter: self.key.rightAnchor, multiplier: 1).isActive = true
+        self.deleteButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
+        self.deleteButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.deleteButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
         if #available(iOS 13.0, *) {
             self.deleteButton.setImage(UIImage(systemName: "trash") , for: .normal)
         }
-        self.deleteButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
+        self.deleteButton.backgroundColor = UIColor(red: 1, green: 0, blue: 0, alpha: 1)
         self.deleteButton.setTitleColor(.systemRed, for: .normal)
-        self.deleteButton.setTitle(" Destroy this key", for: .normal)
         self.deleteButton.tintColor = .systemOrange
         self.deleteButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         self.deleteButton.rondBorder()
         self.deleteButton.addTarget(self, action: #selector(trashButtonSelected), for: .touchUpInside)
+
         
     }
     

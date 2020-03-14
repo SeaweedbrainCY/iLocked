@@ -25,6 +25,7 @@
 		90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */; };
 		90D43B5B2401AF2600EFE9BD /* Pods_iLocked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */; };
 		90D43B5C2401AF2600EFE9BD /* Pods_iLocked.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		90DB59A92416B03F001189C5 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB59A82416B03F001189C5 /* SettingsData.swift */; };
 		D820B848235E3559006CEB38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B847235E3559006CEB38 /* UIView.swift */; };
 		D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B849235E359D006CEB38 /* DecryptedResult.swift */; };
 		D820B84E235E5EB1006CEB38 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B84D235E5EB1006CEB38 /* LockedView.swift */; };
@@ -117,6 +118,7 @@
 		90D43B6F2401AF5A00EFE9BD /* SwiftyRSA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "SwiftyRSA-Info.plist"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-Info.plist"; sourceTree = "<group>"; };
 		90D43B702401AF5A00EFE9BD /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-prefix.pch"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
 		90D43B712401AF5A00EFE9BD /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-umbrella.h"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
+		90DB59A82416B03F001189C5 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
 		914416024A258447A1A3E632 /* Pods-iLocked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLocked.release.xcconfig"; path = "Target Support Files/Pods-iLocked/Pods-iLocked.release.xcconfig"; sourceTree = "<group>"; };
 		D820B847235E3559006CEB38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D820B849235E359D006CEB38 /* DecryptedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptedResult.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				D8A64B3A2353BC4D000613F3 /* Data */,
 				D8A64B392353BC43000613F3 /* GlobalVariable */,
 				D8A64B382353BC3D000613F3 /* ViewController */,
+				D8A64B412353BC88000613F3 /* Extension */,
 				D8A64B362353BC2C000613F3 /* Style */,
 				D8A64B062353BC1C000613F3 /* AppDelegate.swift */,
 				D8A64B082353BC1C000613F3 /* SceneDelegate.swift */,
@@ -328,7 +331,6 @@
 		D8A64B362353BC2C000613F3 /* Style */ = {
 			isa = PBXGroup;
 			children = (
-				D8A64B412353BC88000613F3 /* Extension */,
 				D8A64B372353BC38000613F3 /* Gif */,
 			);
 			path = Style;
@@ -375,6 +377,7 @@
 				D820B8532363909C006CEB38 /* publicPrivateKeys.swift */,
 				D8416D352364ED5100A0B038 /* Encryption.swift */,
 				D8416D372364F62700A0B038 /* Decryption.swift */,
+				90DB59A82416B03F001189C5 /* SettingsData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				D820B8542363909C006CEB38 /* publicPrivateKeys.swift in Sources */,
 				D820B84E235E5EB1006CEB38 /* LockedView.swift in Sources */,
 				90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */,
+				90DB59A92416B03F001189C5 /* SettingsData.swift in Sources */,
 				D8A64B582353BCC1000613F3 /* EncryptResult.swift in Sources */,
 				D820B848235E3559006CEB38 /* UIView.swift in Sources */,
 				D8A64B092353BC1C000613F3 /* SceneDelegate.swift in Sources */,

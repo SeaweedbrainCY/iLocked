@@ -25,6 +25,7 @@ class Encryption{
             print("id = \(id)")
             if name == keyUsed{
                 publicKeyUsed = id
+                print("key found")
             }
         }
         if keyUsed == "userPublicKey" {

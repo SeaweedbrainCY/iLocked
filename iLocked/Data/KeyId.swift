@@ -41,7 +41,8 @@ class KeyId {
         }
         
         
-        if let dicoDecoded: [String: String] = dicoEncoded.convertToDictionary(text: dicoEncoded!)  { // convertion json->array
+        if let dicoDecoded: [String: String] = dicoEncoded.JsonToDictionary()  { // convertion json->array
+            print("dico decoded = \(dicoDecoded)")
             return dicoDecoded // succès
                 
             } else {
@@ -60,8 +61,7 @@ class KeyId {
         //on convertie et enregistre
         let jsonArray = json(from: array as Any)
         print("json array = \(String(describing: jsonArray))")
-        let file = FileManager.default
-        file.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath).path, contents: "\(jsonArray!)".data(using: String.Encoding.utf8), attributes: nil)
+        _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath).path, contents: "\(jsonArray!)".data(using: String.Encoding.utf8), attributes: nil)
     }
     
     
