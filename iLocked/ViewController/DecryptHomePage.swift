@@ -23,9 +23,8 @@ class Decrypt: UIViewController, UITextViewDelegate {
     //Help views
     let helpTextLabel = UILabel()
     let helpView = UIView()
-    let topBarView = UIView()
-    let backgroundInfo = UIView()
-    let gesture = UIPanGestureRecognizer()
+    let quitButton = UIButton()
+    let backgroundInfo = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
     
     var textToDecryptViewErrorMessage = UIButton()
     
@@ -38,8 +37,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
         
-        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector((moveHelpView)))
-        self.helpView.addGestureRecognizer(gestureRecognizer)
+       
     }
     
     
@@ -69,8 +67,9 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.backgroundInfo.widthAnchor.constraint(equalToConstant: self.view.frame.size.width).isActive = true
         self.backgroundInfo.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1).isActive = true
         self.backgroundInfo.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1).isActive = true
-        self.backgroundInfo.backgroundColor = .opaqueSeparator
-        self.backgroundInfo.isHidden = true
+        self.backgroundInfo.alpha = 0
+        
+        
         
         self.sharePublicKeyButton.rondBorder()
         self.sharePublicKeyButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
@@ -93,21 +92,10 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.view.addSubview(self.helpView)
         self.helpView.frame.size.height = self.view.frame.size.height / 2
         self.helpView.frame.size.width = self.view.frame.size.width - 20
-        self.helpView.frame.origin = CGPoint(x: self.view.frame.origin.x, y: 2000)
-        self.helpView.layer.cornerRadius = 20
-        self.helpView.backgroundColor = .black
-        self.helpView.alpha = 1
-        self.helpView.layer.borderColor = UIColor.white.cgColor
-        self.helpView.layer.borderWidth = 4
+        self.helpView.center = self.view.center
+        self.helpView.backgroundColor = .none
+        self.helpView.alpha = 0
         
-        self.helpView.addSubview(self.topBarView)
-        self.topBarView.translatesAutoresizingMaskIntoConstraints = false
-        self.topBarView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
-        self.topBarView.topAnchor.constraint(equalToSystemSpacingBelow: self.helpView.topAnchor, multiplier: 2).isActive = true
-        self.topBarView.widthAnchor.constraint(equalToConstant: self.helpView.frame.size.width / 4).isActive = true
-        self.topBarView.heightAnchor.constraint(equalToConstant: 4).isActive = true
-        self.topBarView.backgroundColor = .white
-        self.topBarView.layer.cornerRadius = 5
         
         self.helpView.addSubview(self.helpTextLabel)
         self.helpTextLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -151,10 +139,12 @@ class Decrypt: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func closeKeyboard(sender: UIBarButtonItem){ // left bar button item selected
-        if sender.image == UIImage(systemName: "keyboard.chevron.compact.down"){
+        if sender.image == UIImage(systemName: "keyboard.chevron.compact.down"){ //down keyboard button
             self.view.endEditing(true)
+        } else if sender.image == UIImage(systemName: "multiply.circle.fill"){ //close help button
+            self.closeHelp()
         } else {//help asked
-            self.showHelp(text: "To decrypt a message encrypt with your own public key, just copy and past the text in the field. Then click on the green key.\n\n A new window will be opened and will show the decrypted message. \n\n IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . .")
+            self.showHelp(text: "To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the green key.\n\n A new window will be opened and will show the decrypted message. \n\n IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . .")
         }
     }
     
@@ -205,39 +195,6 @@ class Decrypt: UIViewController, UITextViewDelegate {
         performSegue(withIdentifier: "lockApp", sender: self)
     }
     
-    @objc private func moveHelpView(sender: UIPanGestureRecognizer) {
-        if sender.state == .began || sender.state == .changed { // On récupère les nouvelles données
-            let translation = sender.translation(in: self.view)
-            // note: 'view' is optional and need to be unwrapped
-            sender.view!.center = CGPoint(x: sender.view!.center.x + translation.x, y: sender.view!.center.y + translation.y)
-            
-            print( self.view.center.x / sender.view!.center.x)
-            sender.setTranslation(CGPoint.zero, in: self.view)
-            if sender.view!.center.x > self.view.frame.size.width * (5/8) || sender.view!.center.x < self.view.frame.size.width * (3/8) || sender.view!.center.y < self.view.frame.size.height * (3/8) ||  sender.view!.center.y > self.view.frame.size.height * (5/8){
-                sender.view!.layer.borderColor = UIColor.red.cgColor
-            } else {
-                sender.view!.layer.borderColor = UIColor.white.cgColor
-            }
-                
-        } else if sender.state == .ended{
-            let width: CGFloat = self.view.frame.size.width
-            if sender.view!.center.x > width * (5/8) {
-                self.closeHelp(sender: sender, x: 1000, y: 0)
-            } else if sender.view!.center.x < width * (3/8){
-                self.closeHelp(sender: sender, x: -1000, y: 0)
-            } else if sender.view!.center.y < self.view.frame.size.height * (3/8){
-                self.closeHelp(sender: sender, x: 0, y: -1000)
-            } else if sender.view!.center.y > self.view.frame.size.height * (5/8){
-                closeHelp(sender: sender, x: 0, y: 1000)
-            } else {
-                let animation = UIViewPropertyAnimator(duration: 1, dampingRatio: 1, animations: {
-                    sender.view!.center = CGPoint(x: self.view.frame.size.width / 2 , y: self.view.frame.size.height / 2)
-                })
-                animation.startAnimation()
-                sender.view!.layer.borderColor = UIColor.white.cgColor
-            }
-        }
-    }
     
     
     //
@@ -257,30 +214,23 @@ class Decrypt: UIViewController, UITextViewDelegate {
     }
     
     func showHelp(text: String){
+        self.helpBarButtonItem.image = UIImage(systemName: "multiply.circle.fill")
         self.helpView.layer.borderColor = UIColor.white.cgColor
         self.helpTextLabel.text = text
         let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7, animations: {
-            self.helpView.center = CGPoint(x: self.view.frame.size.width / 2, y: self.view.frame.height / 2)
+            self.helpView.alpha = 1
+            self.backgroundInfo.alpha = 1
         })
         animator.startAnimation()
-        self.backgroundInfo.isHidden = false
     }
     
-    /// func which close help view shown
-    /// - sender : contain the sender associated to the help view
-    /// - x : the new x coordinate of the view. If it equals to 0, we consider that we don't have to change it
-    /// - y : the new y coordinate of the view. If it equals to 0, we consider that we don't have to change it
-    func closeHelp(sender: UIPanGestureRecognizer, x: CGFloat, y: CGFloat){
-        let animation = UIViewPropertyAnimator(duration: 0.7, curve: .linear, animations: {
-            if x != 0{
-                sender.view!.frame.origin.x = x
-            } else {
-                sender.view!.frame.origin.x = y
-            }
-            
+    func closeHelp(){
+        self.helpBarButtonItem.image = UIImage(systemName: "info.circle")
+         let animation = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7, animations: {
+            self.helpView.alpha = 0
+            self.backgroundInfo.alpha = 0
         })
         animation.startAnimation()
-        self.backgroundInfo.isHidden = true
     }
     
     

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -841,29 +841,29 @@
             <point key="canvasLocation" x="2945" y="126"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="arrow.clockwise.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="arrowshape.turn.up.left.fill" catalog="system" width="64" height="52"/>
-        <image name="arrowshape.turn.up.right" catalog="system" width="64" height="52"/>
-        <image name="coffre" width="345" height="345"/>
-        <image name="ellipsis.circle" catalog="system" width="64" height="60"/>
-        <image name="empreinte" width="24" height="24"/>
-        <image name="gear" catalog="system" width="64" height="58"/>
-        <image name="info.circle" catalog="system" width="64" height="60"/>
-        <image name="info.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="key" width="345" height="345"/>
-        <image name="locked" width="24" height="24"/>
-        <image name="lockedBackground" width="1280" height="539"/>
-        <image name="paperplane.fill" catalog="system" width="64" height="60"/>
-        <image name="pencil.and.outline" catalog="system" width="64" height="58"/>
-        <image name="storage" width="24" height="24"/>
-        <image name="trash" catalog="system" width="60" height="64"/>
-        <image name="unlocked" width="24" height="24"/>
-        <image name="view_chargement" width="489" height="489"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="FyZ-iz-rV4"/>
         <segue reference="XNL-IU-nzq"/>
-        <segue reference="kJe-TR-tAr"/>
+        <segue reference="EQK-VC-Mck"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="arrow.clockwise.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
+        <image name="coffre" width="345" height="345"/>
+        <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
+        <image name="empreinte" width="24" height="24"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="key" width="345" height="345"/>
+        <image name="locked" width="24" height="24"/>
+        <image name="lockedBackground" width="1280" height="539"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="121"/>
+        <image name="pencil.and.outline" catalog="system" width="128" height="119"/>
+        <image name="storage" width="24" height="24"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="unlocked" width="24" height="24"/>
+        <image name="view_chargement" width="489" height="489"/>
+    </resources>
 </document>

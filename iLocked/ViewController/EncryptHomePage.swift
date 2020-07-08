@@ -116,7 +116,6 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     public func loadData(){
-        print("PASSAGE LINE 98")
         let data = KeyId()
         let keyName = data.getKeyName()
         print("key name recieved = \(keyName)")
@@ -202,7 +201,6 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        print("PASSAGE LINE 156")
         return keyArray.count
     }
     
