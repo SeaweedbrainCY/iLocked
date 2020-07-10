@@ -121,7 +121,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         self.publicKeyField.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
         self.publicKeyField.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyLabel.bottomAnchor, multiplier: 1.5).isActive = true
         self.publicKeyField.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 20).isActive = true
-        self.publicKeyField.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        self.publicKeyField.heightAnchor.constraint(equalToConstant: 200).isActive = true
         self.publicKeyField.font = UIFont(name: "American Typewriter", size: 20)
         self.publicKeyField.textColor = .lightGray
         self.publicKeyField.text = self.keyTextViewPlaceholder
@@ -141,7 +141,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         self.publicKeyError.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
         self.publicKeyError.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyLabel.bottomAnchor, multiplier: 1.5).isActive = true
         self.publicKeyError.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 20).isActive = true
-        self.publicKeyError.heightAnchor.constraint(equalToConstant: 400).isActive = true
+        self.publicKeyError.heightAnchor.constraint(equalToConstant: 200).isActive = true
         self.publicKeyError.titleLabel!.font = UIFont(name: "Arial Rounded MT Bold", size: 18)
         self.publicKeyError.setTitleColor(.systemRed, for: .normal)
         self.publicKeyError.layer.cornerRadius = 15
@@ -242,22 +242,24 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         }
         
         let nameList = keyArray.getKeyName()
-        
+        print("nameList in addKey = \(nameList)")
         if nameList.count != 0{
             if nameList.contains("##ERROR##"){
                 testOk = false
                 self.publicKeyError.setTitle(nameList[0], for: .normal)
                 flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
-            }
-            
-        } else { // we don't have any error
-            for name in nameList { // we verify if the name already exist
-                if name == self.nameField.text! {
-                    testOk = false
-                    self.nameError.setTitle("This name is already taken 💩", for: .normal)
-                    flip(firstView: self.nameField, secondView: self.nameError)
+            } else { // we don't have any error
+                print("nameList in addKey = \(nameList)")
+                for name in nameList { // we verify if the name already exist
+                    print("name already stored = \(name)\n")
+                    if name == self.nameField.text! {
+                        testOk = false
+                        self.nameError.setTitle("This name is already taken 💩", for: .normal)
+                        flip(firstView: self.nameField, secondView: self.nameError)
+                    }
                 }
-            }
+            
+        }
         }
         
         //We can try to save data

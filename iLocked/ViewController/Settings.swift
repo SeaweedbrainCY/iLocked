@@ -12,10 +12,10 @@ import MessageUI
 
 
 
-class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate {
+class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate  {
     
     @IBOutlet weak var tableView: UITableView!
-    var logSwitch = UISwitch()
+    let protectionSwitch = UISwitch()
      
     
     override func viewDidLoad() {
@@ -23,12 +23,28 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         self.tableView.delegate = self
         self.tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell") //on associe la tableView au custom de Style/customeCelleTableView.swift
-        
+        protectionSwitch.addTarget(self, action: #selector(protectionSwitchChanged), for: .valueChanged)
     }
-
+    //
+    // View construction
+    //
+    
+    
+    
+    func getSetting() -> [String: String]{
+        var json = ""
+        do {
+            json = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath), encoding: .utf8)
+            
+        } catch {
+           print("***ATTENTION***\n\n ***ERROR***\n\nImpossible to retrieve data.\n\n***************")
+        }
+        let dict = json.JsonToDictionary() ?? ["":""]
+        return dict
+    }
+    
     ///**Give the model of saved dict**
-    func saveSetting(){
-        let dict = ["":""]
+    func saveSetting(dict: [String:String]){
         let dictExtension = DictionnaryExtension()
         let jsonString = dictExtension.dictionaryToJson(dict: dict)
         _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath).path, contents: "\(jsonString!)".data(using: String.Encoding.utf8), attributes: nil)
@@ -50,7 +66,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     /// Cells for each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0 : return 2
+        case 0 : return 3
         case 1 : return 2
         default : return 0
             
@@ -64,14 +80,33 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         cell.textLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         cell.backgroundColor = .black
         cell.textLabel?.textColor = .white
-        
         if indexPath.section == 0 {
             switch indexPath.row {
+            case 0 :
+                let setting = getSetting()
+                if setting["password"] == "false"{
+                    self.protectionSwitch.isOn = false
+                } else {
+                    self.protectionSwitch.isOn = true
+                }
+                cell.textLabel?.text = "🔑 Protect with a password"
+                cell.accessoryView = self.protectionSwitch
+            case 1 :
+                cell.textLabel?.text = "🔒 Lock application "
+            case 2 :
+                cell.textLabel?.text = "❌ Revoke your keys"
+                cell.backgroundColor = .systemRed
+                
+            default :
+                cell.textLabel?.text = "ERROR"
+            }
+        } else if indexPath.section == 1 {
+            switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "Report a bug"
+                cell.textLabel?.text = "🔎 Report a bug"
                 cell.iconCell.image = UIImage(named: "Alerter")
             case 1 :
-                cell.textLabel?.text = "View developer website"
+                cell.textLabel?.text = "📱 Visit developer website"
                 cell.iconCell.image = UIImage(named: "Site")
             default : cell.textLabel?.text = "ERROR"
             }
@@ -87,14 +122,23 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     /// Sections' name
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0 : return "Developement 🔨"
+        case 0 : return "Security 🔐"
+        case 1 : return "Developement 🔨"
         default : return "ERROR"
         }
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // cellule selctionnée
-        if indexPath.section == 0  {
+        if indexPath.section == 0 {
+            switch indexPath.row {
+            case 1 : // lock app
+                performSegue(withIdentifier: "lockApp", sender: self)
+            case 2 : // revoke keys
+                revokeKeys()
+            default : break
+            }
+        } else if indexPath.section == 1  {
             switch indexPath.row {
             case 0 : // report a bug
                 let alert = UIAlertController(title: "Report a bug", message: "Report a bug help the developer to upgrade this application and improve your experience", preferredStyle: .actionSheet)
@@ -143,6 +187,36 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 }
             }
         }
+    }
+    
+    //
+    // Actions
+    //
+    
+    private func revokeKeys(){
+        let alert = UIAlertController(title: "CRITICAL ACTION", message: "ATTENTION : Revoke your keys means delete them. NO ONE will NEVER be able to retrieve these keys and all messages encrypted with this public key will be lost. \n\n\nRevocation can not be canceled", preferredStyle: .alert)
+
+        alert.addAction(UIAlertAction(title: "Revoke", style: .destructive){ _ in
+            KeychainWrapper.standard.removeObject(forKey: userPublicKeyId)
+            self.performSegue(withIdentifier: "lockApp", sender: self)
+        })
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        self.present(alert, animated: true)
+    }
+    
+    //
+    // Obj C functions
+    //
+    
+    @objc private func protectionSwitchChanged(){
+        var settingDict = getSetting()
+        if self.protectionSwitch.isOn {
+            settingDict.updateValue("true", forKey: "password")
+        } else {
+            settingDict.updateValue("false", forKey: "password")
+        }
+        saveSetting(dict: settingDict)
     }
     
     /**

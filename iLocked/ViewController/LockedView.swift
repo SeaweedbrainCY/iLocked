@@ -27,11 +27,12 @@ class LockedView: UIViewController{
     
     var activityInProgress = false // if it's true, this view is dismissed and don't use a segue
     var firstTime = false
+    var password = true // password protection activated
     
     override func viewDidLoad(){
         print("viewDidLoad called")
         super.viewDidLoad()
-        
+        getSetting()
     }
     
     
@@ -153,7 +154,12 @@ class LockedView: UIViewController{
         })
         animationLabel.startAnimation()
         if !activityInProgress {
-            askForAuthentification()
+            if password {
+                askForAuthentification()
+            } else {
+                self.perform(#selector(self.dismissCurrentView))
+            }
+            
         }
     }
     
@@ -165,7 +171,12 @@ class LockedView: UIViewController{
     
     @IBAction func actionButtonSelected(sender: UIButton){
         if !firstTime {
-            askForAuthentification()
+            if password {
+                askForAuthentification()
+            } else {
+                self.perform(#selector(self.dismissCurrentView))
+            }
+            
         } else { // This is the button "start and go" when the app is open for the first time
             let animation = UIViewPropertyAnimator(duration: 5, dampingRatio: 0.7, animations: {
                 self.view.backgroundColor = .black
@@ -200,7 +211,12 @@ class LockedView: UIViewController{
     }
     
     @objc private func appMovedToForeground(){
-        askForAuthentification()
+        if password {
+            askForAuthentification()
+        } else {
+            self.perform(#selector(self.dismissCurrentView))
+        }
+        
     }
     
     //
@@ -213,6 +229,7 @@ class LockedView: UIViewController{
     
     ///Func who ask to the user is Touch ID / Face ID / password and manages the response by call an internal function if success
     private func askForAuthentification() {
+        
         var policy: LAPolicy!
         let context: LAContext!
         if #available(iOS 9.0, *) {
@@ -299,6 +316,26 @@ class LockedView: UIViewController{
         }
      
         
+    }
+    
+    
+    //
+    // Data
+    //
+    
+    private func getSetting(){
+        var json = ""
+        do {
+            json = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath), encoding: .utf8)
+        } catch {
+            print("***ATTENTION***\n\n ***ERROR***\n\nImpossible to retrieve data.\n\n***************")
+        }
+        let dict = json.JsonToDictionary() ?? ["":""]
+        if dict["password"] == "false" {
+            self.password = false
+        } else {
+            self.password = true
+        }
     }
     
    

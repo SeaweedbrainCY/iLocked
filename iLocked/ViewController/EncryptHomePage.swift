@@ -129,9 +129,7 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
                     self.keyArray.append(name)
                 }
             }
-        } else {
-            alert("Oups ! We got an error ! ", message: "Impossible to retrieve ypur saved data")
-        }
+        } 
     }
     
     //

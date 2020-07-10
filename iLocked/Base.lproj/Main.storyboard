@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="125" width="375" height="522"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mjX-sJ-7hk">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="700"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="522"/>
                                         <color key="backgroundColor" white="0.33333333333333331" alpha="0.4900203339041096" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="700" id="J7H-mv-cj2"/>
+                                            <constraint firstAttribute="height" constant="522" id="J7H-mv-cj2"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -48,6 +50,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="BT1-vS-TsE"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="90w-RG-POI" firstAttribute="top" secondItem="BT1-vS-TsE" secondAttribute="top" id="ChN-JZ-1EB"/>
@@ -57,11 +60,10 @@
                             <constraint firstItem="rjM-sU-qmO" firstAttribute="top" secondItem="90w-RG-POI" secondAttribute="bottom" constant="8" id="sgc-PI-d2U"/>
                             <constraint firstItem="rjM-sU-qmO" firstAttribute="leading" secondItem="BT1-vS-TsE" secondAttribute="leading" id="wau-n7-RU5"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="BT1-vS-TsE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add an encryption key" id="YYc-gE-kow">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UfM-Kd-6gU">
-                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
                                 <action selector="cancelSelectedWithSender:" destination="nVe-hc-Wct" id="idn-Z2-09X"/>
                             </connections>
@@ -76,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNx-ea-FbI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3929" y="-1482"/>
+            <point key="canvasLocation" x="3928.8000000000002" y="-1482.008995502249"/>
         </scene>
         <!--Public Key List-->
         <scene sceneID="6us-pM-h6T">
@@ -89,26 +91,26 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-3p-uZG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="sectionIndexColor" systemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="labelColor"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="Rw3-3O-tGg"/>
+                        <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Encryption keys list" id="Lg8-Qp-Jbh">
                         <barButtonItem key="backBarButtonItem" title=" " id="Ezs-OQ-DzN"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="ellipsis.circle" catalog="system" id="dbh-Z3-bvU">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="selectCellButtonSelectedWithSender:" destination="Bw4-Uw-PF4" id="MN1-gE-dBg"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem systemItem="add" id="Wx0-92-Gn4">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <segue destination="tOU-fV-Ibc" kind="presentation" identifier="addKey" modalPresentationStyle="pageSheet" id="4dG-a0-Usv"/>
                                 </connections>
@@ -141,7 +143,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnH-r1-Y92">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnH-r1-Y92">
                                 <rect key="frame" x="30" y="42" width="315" height="45"/>
                                 <color key="backgroundColor" red="0.022266328998207532" green="0.27601888181367606" blue="0.371113578680203" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -188,7 +190,7 @@
                             </textView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="uU6-HN-sJY">
                                 <rect key="frame" x="169" y="277" width="37" height="37"/>
-                                <color key="color" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="color" systemColor="systemPinkColor"/>
                             </activityIndicatorView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to confirm the selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEL-Uo-5ld">
                                 <rect key="frame" x="73" y="95" width="229" height="20"/>
@@ -197,6 +199,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HEL-Uo-5ld" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CKg-4N-zkQ"/>
@@ -214,19 +217,18 @@
                             <constraint firstItem="qnH-r1-Y92" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="42" id="rUB-7K-KG7"/>
                             <constraint firstItem="ac5-qZ-Cvq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ynz-r9-fac"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="  " id="eGS-Iy-0AG">
                         <barButtonItem key="backBarButtonItem" title=" " id="IYN-4d-LIH"/>
                         <barButtonItem key="leftBarButtonItem" title="Item" image="empreinte" id="fFF-Oo-VMX">
-                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
                                 <action selector="lockAppSelectedWithSender:" destination="BYZ-38-t0r" id="Hrm-Vs-4HF"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem image="storage" id="sgb-fw-ESs">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <segue destination="Bw4-Uw-PF4" kind="show" identifier="showList" id="spH-7f-JcM"/>
                                 </connections>
@@ -266,17 +268,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_chargement" translatesAutoresizingMaskIntoConstraints="NO" id="gq8-cG-f3O">
-                                <rect key="frame" x="104" y="236" width="167" height="195"/>
+                                <rect key="frame" x="104" y="226" width="167" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="167" id="Szc-7d-dRN"/>
                                     <constraint firstAttribute="height" constant="195" id="u11-Gh-5cd"/>
                                 </constraints>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockedBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pjE-vj-6J4">
-                                <rect key="frame" x="-42" y="-64" width="636" height="795"/>
+                                <rect key="frame" x="-42" y="-74" width="636" height="795"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version bêta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atc-ZZ-hf6">
-                                <rect key="frame" x="131" y="644.5" width="113.5" height="22.5"/>
+                                <rect key="frame" x="131" y="624.5" width="113.5" height="22.5"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -296,9 +298,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMK-F8-837">
-                                <rect key="frame" x="10" y="510" width="355" height="24"/>
+                                <rect key="frame" x="10" y="500" width="355" height="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="  Touch ID" image="empreinte">
+                                <state key="normal" title="  Unlock" image="empreinte">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -306,6 +308,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ija-MC-Al3"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EMK-F8-837" firstAttribute="top" secondItem="gq8-cG-f3O" secondAttribute="bottom" constant="79" id="18g-y7-i9U"/>
@@ -320,8 +323,8 @@
                             <constraint firstItem="pjE-vj-6J4" firstAttribute="height" secondItem="gq8-cG-f3O" secondAttribute="height" constant="600" id="xqQ-lv-DX5"/>
                             <constraint firstItem="gq8-cG-f3O" firstAttribute="centerX" secondItem="keN-bl-jwx" secondAttribute="centerX" id="yEs-jF-vUd"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ija-MC-Al3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TgF-xb-XCR"/>
                     <connections>
                         <outlet property="actionButton" destination="EMK-F8-837" id="SU6-VC-iqg"/>
                         <outlet property="backFingerprint" destination="pjE-vj-6J4" id="wig-pR-BJB"/>
@@ -357,6 +360,7 @@
                                 <state key="normal" title="Button" image="paperplane.fill" catalog="system"/>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ZuN-v7-qf6"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZuN-v7-qf6" firstAttribute="bottom" secondItem="WyO-SO-C2L" secondAttribute="bottom" constant="20" id="HqD-S3-IwV"/>
@@ -364,7 +368,6 @@
                             <constraint firstItem="WyO-SO-C2L" firstAttribute="top" secondItem="ZuN-v7-qf6" secondAttribute="top" constant="20" id="gn3-TV-UKu"/>
                             <constraint firstItem="WyO-SO-C2L" firstAttribute="leading" secondItem="ZuN-v7-qf6" secondAttribute="leading" constant="16" id="phz-Sz-y1u"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ZuN-v7-qf6"/>
                     </view>
                     <connections>
                         <outlet property="textView" destination="WyO-SO-C2L" id="Sn4-Oc-bj7"/>
@@ -384,23 +387,24 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="IFY-b8-gcj">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="E21-Kg-Ohn"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="IFY-b8-gcj" firstAttribute="leading" secondItem="E21-Kg-Ohn" secondAttribute="leading" id="CR9-7g-qaT"/>
                             <constraint firstItem="IFY-b8-gcj" firstAttribute="bottom" secondItem="E21-Kg-Ohn" secondAttribute="bottom" id="N3z-h5-LwU"/>
                             <constraint firstItem="IFY-b8-gcj" firstAttribute="top" secondItem="E21-Kg-Ohn" secondAttribute="top" id="XaI-8o-6P3"/>
                             <constraint firstItem="IFY-b8-gcj" firstAttribute="trailing" secondItem="E21-Kg-Ohn" secondAttribute="trailing" id="yPs-uz-ZPK"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="E21-Kg-Ohn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="1K8-zM-xKR"/>
                     <connections>
                         <outlet property="tableView" destination="IFY-b8-gcj" id="Q9R-VL-HOk"/>
                         <segue destination="SgU-1R-htW" kind="presentation" identifier="viewLog" id="uAE-Q4-tot"/>
+                        <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" id="Wbe-do-6Cm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFH-NZ-OdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -455,7 +459,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Emy-d5-LV4"/>
                                     <constraint firstAttribute="width" constant="300" id="J9V-Rh-Smy"/>
                                 </constraints>
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal" title="  Share my public encryption key" image="arrowshape.turn.up.left.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -479,7 +483,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8f-5m-Xda">
                                 <rect key="frame" x="67" y="156" width="241" height="3"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="X5r-E5-R7f"/>
                                     <constraint firstAttribute="width" constant="241" id="gum-lw-zo3"/>
@@ -487,7 +491,7 @@
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text to decrypt" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sj2-ux-wxP">
                                 <rect key="frame" x="16" y="183" width="343" height="257"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" systemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="257" id="SZf-CZ-ref"/>
                                 </constraints>
@@ -496,6 +500,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="i6Q-Kn-bPO"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6rQ-2h-nZ4" firstAttribute="top" secondItem="i6Q-Kn-bPO" secondAttribute="top" constant="44" id="2Wm-7D-QBX"/>
@@ -512,7 +517,6 @@
                             <constraint firstItem="tqz-Jq-k5Z" firstAttribute="top" secondItem="i6Q-Kn-bPO" secondAttribute="top" constant="40" id="s3a-IW-Rpz"/>
                             <constraint firstItem="D8f-5m-Xda" firstAttribute="top" secondItem="tqz-Jq-k5Z" secondAttribute="bottom" constant="86" id="tjZ-M5-R8E"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="i6Q-Kn-bPO"/>
                     </view>
                     <navigationItem key="navigationItem" id="CZT-Kn-kla">
                         <barButtonItem key="leftBarButtonItem" title="  " id="WON-mG-2rD">
@@ -521,7 +525,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="Uiz-bs-MhO">
-                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
                                 <action selector="closeKeyboardWithSender:" destination="N9l-yk-OqT" id="G5c-VO-LLP"/>
                             </connections>
@@ -554,11 +558,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I1c-Eh-l0H">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="37"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEy-Df-sd5">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEy-Df-sd5">
                                         <rect key="frame" x="50" y="4" width="275" height="33"/>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
                                         <state key="normal" title="Close the decryption program">
-                                            <color key="titleColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleColor" systemColor="systemPinkColor"/>
                                         </state>
                                         <connections>
                                             <action selector="closButtonSelectedWithSender:" destination="xbo-aT-QG9" eventType="touchUpInside" id="sPt-2W-Gks"/>
@@ -567,7 +571,7 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="tintColor" systemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="pEy-Df-sd5" firstAttribute="leading" secondItem="I1c-Eh-l0H" secondAttribute="leading" constant="50" id="G3s-OH-KCk"/>
                                     <constraint firstAttribute="trailing" secondItem="pEy-Df-sd5" secondAttribute="trailing" constant="50" id="IKk-Ba-G4n"/>
@@ -593,7 +597,7 @@
                                 <rect key="frame" x="0.0" y="591" width="375" height="48"/>
                                 <string key="text">Please be sure that no one can read the text.                           We certificate that this message is very strongly protected and you are the only one who can decrypt it. </string>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
-                                <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mhm-jP-F8x">
@@ -604,6 +608,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="ptX-cI-ahX"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mhm-jP-F8x" firstAttribute="leading" secondItem="ptX-cI-ahX" secondAttribute="leading" constant="50" id="1Wb-VP-cFA"/>
@@ -624,7 +629,6 @@
                             <constraint firstItem="ptX-cI-ahX" firstAttribute="trailing" secondItem="mhm-jP-F8x" secondAttribute="trailing" constant="50" id="q0O-b2-mtX"/>
                             <constraint firstItem="DIb-8W-OFr" firstAttribute="leading" secondItem="ptX-cI-ahX" secondAttribute="leading" id="y3V-Ye-FNX"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ptX-cI-ahX"/>
                     </view>
                     <connections>
                         <outlet property="barView" destination="mhm-jP-F8x" id="Yfb-nj-Njj"/>
@@ -653,9 +657,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="50L-Vd-Lqr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemOrangeColor"/>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textColor" systemColor="systemOrangeColor"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -711,7 +715,7 @@
             <objects>
                 <viewController id="H5r-il-Mel" customClass="ShowKey" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="9wu-Ia-hPJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMD-1q-5gB">
@@ -736,6 +740,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="5wE-CV-84e"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="HFT-g6-WvW"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HMD-1q-5gB" firstAttribute="leading" secondItem="HFT-g6-WvW" secondAttribute="leading" id="5ax-gb-taI"/>
@@ -743,24 +748,23 @@
                             <constraint firstItem="HMD-1q-5gB" firstAttribute="centerX" secondItem="9wu-Ia-hPJ" secondAttribute="centerX" id="GYY-oZ-iMd"/>
                             <constraint firstItem="HMD-1q-5gB" firstAttribute="bottom" secondItem="HFT-g6-WvW" secondAttribute="bottom" id="zJ6-sJ-QXo"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="HFT-g6-WvW"/>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="KDJ-5D-bZe">
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="arrowshape.turn.up.right" catalog="system" id="VFf-9K-JYb">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="shareBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="oqx-FL-iT6"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="trash" catalog="system" id="2Ie-P9-434">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="trashBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="15X-Pe-31a"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="pencil.and.outline" catalog="system" id="14A-bk-UTI">
-                                <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="editBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="Q8Y-dT-QNU"/>
                                 </connections>
@@ -813,6 +817,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="sc0-RJ-pVe"/>
                             </scrollView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="pY4-zy-Vtu"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uyQ-tL-Niz" firstAttribute="leading" secondItem="pY4-zy-Vtu" secondAttribute="leading" id="RJ7-4J-BNT"/>
@@ -820,11 +825,10 @@
                             <constraint firstItem="uyQ-tL-Niz" firstAttribute="centerX" secondItem="ur2-5E-dqe" secondAttribute="centerX" id="fMF-4Z-Jok"/>
                             <constraint firstItem="uyQ-tL-Niz" firstAttribute="bottom" secondItem="pY4-zy-Vtu" secondAttribute="bottom" id="hZ2-OP-dmL"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="pY4-zy-Vtu"/>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="Ka6-NT-ubG">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="arrowshape.turn.up.right" catalog="system" id="oYc-Yu-lKD">
-                            <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
                                 <action selector="shareButtonSelectedWithSender:" destination="lni-hq-xo9" id="Ma0-UX-Xof"/>
                             </connections>
@@ -842,13 +846,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="FyZ-iz-rV4"/>
+        <segue reference="lMQ-dt-c2G"/>
         <segue reference="XNL-IU-nzq"/>
-        <segue reference="EQK-VC-Mck"/>
+        <segue reference="Wbe-do-6Cm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.clockwise.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="104"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="coffre" width="345" height="345"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
@@ -859,11 +863,44 @@
         <image name="key" width="345" height="345"/>
         <image name="locked" width="24" height="24"/>
         <image name="lockedBackground" width="1280" height="539"/>
-        <image name="paperplane.fill" catalog="system" width="128" height="121"/>
-        <image name="pencil.and.outline" catalog="system" width="128" height="119"/>
+        <image name="paperplane.fill" catalog="system" width="128" height="118"/>
+        <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="storage" width="24" height="24"/>
-        <image name="trash" catalog="system" width="121" height="128"/>
+        <image name="trash" catalog="system" width="118" height="128"/>
         <image name="unlocked" width="24" height="24"/>
         <image name="view_chargement" width="489" height="489"/>
+        <systemColor name="darkTextColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="groupTableViewBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="viewFlipsideBackgroundColor">
+            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -168,21 +168,30 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         let sortedLists = keyId.sortByAlphabeticOrder(keys: nameList, value: nameList)
         self.nameList = sortedLists[0]
     }
+    /*
+     let keyNameData = KeyId()
+     var listeKeyName = keyNameData.getKeyName()
+     listeKeyName.remove(at: listeKeyName.firstIndex(of: name)!)
+     keyNameData.stockNewNameIdArray(listeKeyName)
+     //then the keychain :
+     KeychainWrapper.standard.removeObject(forKey: name)
+     */
     
     /// Delete keys selected
     private func destroyKey(){
         let keyNameData = KeyId()
-        let listeKeyName = keyNameData.getKeyName()
+        var listeKeyName = keyNameData.getKeyName()
         for row in selectedCellList { // We destroy key after key
             if let cell : UITableViewCell = self.tableView.cellForRow(at: IndexPath(row: row, section: 0)) { // get selected cell
                 if let cellTitle: String = cell.textLabel?.text{ // get title of the selected cell
                     if let index = nameList.firstIndex(of: cellTitle) { // get title corresponding to this name
                         //Delete in local array
+                        listeKeyName.remove(at: listeKeyName.firstIndex(of: nameList[index])!)
                         keyNameData.stockNewNameIdArray(listeKeyName)
                         //then in the keychain :
                         KeychainWrapper.standard.removeObject(forKey: nameList[index])
                         // We display new changes
-                        self.selectCellButtonSelected(sender: self.selectCellButton)
+                        
                     } else { // No index
                         //
                         // ERROR #0004# : SERIOUS
@@ -204,6 +213,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             }
             
         }
+        self.selectCellButtonSelected(sender: self.selectCellButton)
     }
     
     
@@ -214,7 +224,17 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBAction public func refreshButtonSelected(sender: UIBarButtonItem){
         if selectModeIsActive {// button is a trash button
-            destroyKey()
+            sender.isEnabled = false
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (_) in
+                sender.isEnabled = true
+            })
+            let A2 = UIAlertAction(title: "Destroy \(self.selectedCellList.count) key(s)", style: UIAlertAction.Style.destructive, handler: { (_) in
+                self.destroyKey()
+            })
+            alert.addAction(A1)
+            alert.addAction(A2)
+            self.present(alert, animated: true, completion: nil)
         } else { // is a refresh button
             //On supprime les anciennes infos
             nameList = ["There is no key saved"]
