@@ -22,6 +22,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var nameList: [String] = ["There is no key saved"]
     var nameSelected = "nil"
+    var userKeySelected = false // We can inform ShowKey.swift, if the key selected, is the user key or not
     
     var selectModeIsActive = false // false = normal mode. False = user wants to select some cells.
     var selectedCellList : [Int] = [] // contains index.row of each selected cell
@@ -125,18 +126,21 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //selected cell
         if !selectModeIsActive { // if user is not selecting cells
             if indexPath.section == 0 {
+                self.userKeySelected = false
                  if nameList[0] != "There is no key saved" {
                      self.nameSelected = nameList[indexPath.row]
                      performSegue(withIdentifier: "showKey", sender: nil)
                  }
              } else {
-                 self.nameSelected = "My encyrption key"
+                self.userKeySelected = true
+                 self.nameSelected = "My encryption key"
                  performSegue(withIdentifier: "showKey", sender: nil)
              }
             tableView.deselectRow(at: indexPath, animated: true)
             
         } else { // if user wants to select cells
             if indexPath.section == 0 {
+                
                 if selectedCellList.contains(indexPath.row){ // deselect this cell
                     selectedCellList.remove(at: self.selectedCellList.firstIndex(of: indexPath.row)!)
                     let cell : UITableViewCell = tableView.cellForRow(at: indexPath)!
@@ -148,7 +152,8 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
                 }
                 
              } else {
-                 self.nameSelected = "My encyrption key"
+                
+                 self.nameSelected = "My encryption key"
                  performSegue(withIdentifier: "showKey", sender: nil)
              }
             tableView.deselectRow(at: indexPath, animated: true)
@@ -314,6 +319,9 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         if segue.identifier == "showKey"{
             let showKeyPage = segue.destination as? ShowKey
             showKeyPage!.name = self.nameSelected
+            print("isUserKey from KeyList = \(self.userKeySelected)")
+            showKeyPage!.isUserKey = self.userKeySelected
+            
         }else if segue.identifier == "addKey"{
             let nv = segue.destination as? UINavigationController
             let addView = nv?.viewControllers.first as? AddKey

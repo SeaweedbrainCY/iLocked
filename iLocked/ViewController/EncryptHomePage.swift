@@ -165,7 +165,7 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
                     self.textEncrypted = encryptedText
                     performSegue(withIdentifier: "Encryption", sender: nil)
                 } else {
-                    alert("Oups ... encyrption error message", message: "Impossible to encrypt this message. Please try again")
+                    alert("Oups ... encryption error message", message: "Impossible to encrypt this message. Please try again")
                 }
                 self.encryptButton.isEnabled = true
                 self.publicKeyButton.isEnabled = true

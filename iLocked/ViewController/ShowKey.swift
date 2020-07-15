@@ -35,6 +35,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     static let notificationOfModificationName = Notification.Name("notificationOfModifcationFormEditKeyToShowKey")
     
     var name = ""
+    var isUserKey = false // if true, you cannot delete this key
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +46,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.backgroundView.backgroundColor = .black
         self.scrollView.delegate = self
         constructView()
-        
+        print("isUser key = \(isUserKey)")
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -114,7 +115,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.key.textColor = .systemOrange
         if let retrievedString: String = KeychainWrapper.standard.string(forKey: name){
             self.key.text = "\(retrievedString)"
-        } else if self.name == "My encyrption key"{
+        } else if isUserKey{
             if let retrievedString: String = KeychainWrapper.standard.string(forKey: userPublicKeyId){
             self.key.text = "\(retrievedString)"
             } else {
@@ -189,6 +190,12 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.deleteButton.tintColor = .systemOrange
         self.deleteButton.rondBorder()
         self.deleteButton.addTarget(self, action: #selector(trashButtonSelected), for: .touchUpInside)
+        if isUserKey{ // Cannot delete user own key
+            deleteButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
+            deleteButton.tintColor = .lightGray
+            self.trashBarButtonItem.tintColor = .lightGray
+            self.editBarButtonItem.tintColor = .lightGray
+        }
         
     }
     
@@ -204,18 +211,27 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     }
     
     @IBAction private func trashBarButtonItemSelected(sender: UIBarButtonItem){
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-        let A2 = UIAlertAction(title: "Destroy this key", style: UIAlertAction.Style.destructive, handler: { (_) in
-            self.destroyKey()
-        })
-        alert.addAction(A1)
-        alert.addAction(A2)
-        self.present(alert, animated: true, completion: nil)
+        if  isUserKey{ // cannot delete user key
+            alert("That's your own public key !" , message: "You cannot delete your own public key. To revoke your keys, go to settings")
+        } else {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
+            let A2 = UIAlertAction(title: "Destroy this key", style: UIAlertAction.Style.destructive, handler: { (_) in
+                self.destroyKey()
+            })
+            alert.addAction(A1)
+            alert.addAction(A2)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction private func editBarButtonItemSelected(sender: UIBarButtonItem){
-        performSegue(withIdentifier: "editKey", sender: self)
+        if isUserKey { //cannot edit user key
+            alert("That's your own public key !" , message: "You cannot edit your own public key. To revoke your keys, go to settings")
+        } else {
+            performSegue(withIdentifier: "editKey", sender: self)
+        }
+       
     }
     
     
@@ -229,17 +245,21 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     }
     
     @objc private func trashButtonSelected(sender: UIButton){
-        sender.isEnabled = false
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (_) in
+        if  isUserKey{ // cannot delete user key
+            alert("That's your own public key !" , message: "You cannot delete your own public key. To revoke your keys, go to settings")
+        } else {
+            sender.isEnabled = false
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (_) in
             sender.isEnabled = true
-        })
-        let A2 = UIAlertAction(title: "Destroy this key", style: UIAlertAction.Style.destructive, handler: { (_) in
+            })
+            let A2 = UIAlertAction(title: "Destroy this key", style: UIAlertAction.Style.destructive, handler: { (_) in
             self.destroyKey()
-        })
-        alert.addAction(A1)
-        alert.addAction(A2)
-        self.present(alert, animated: true, completion: nil)
+            })
+            alert.addAction(A1)
+            alert.addAction(A2)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
   

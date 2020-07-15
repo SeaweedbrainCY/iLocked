@@ -248,18 +248,23 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
                 testOk = false
                 self.publicKeyError.setTitle(nameList[0], for: .normal)
                 flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
-            } else { // we don't have any error
-                print("nameList in addKey = \(nameList)")
-                for name in nameList { // we verify if the name already exist
-                    print("name already stored = \(name)\n")
-                    if name == self.nameField.text! {
-                        testOk = false
-                        self.nameError.setTitle("This name is already taken 💩", for: .normal)
-                        flip(firstView: self.nameField, secondView: self.nameError)
+            } else if oldName == "" { // we don't have any error
+                if self.nameField.text! == userPublicKeyId || self.nameField.text! == userPrivateKeyId { // Forbidden name
+                    testOk = false
+                    self.nameError.setTitle("This name are forbidden 🔏", for: .normal)
+                    flip(firstView: self.nameField, secondView: self.nameError)
+                } else {
+                    print("nameList in addKey = \(nameList)")
+                    for name in nameList { // we verify if the name already exist
+                        print("name already stored = \(name)\n")
+                        if name == self.nameField.text! {
+                            testOk = false
+                            self.nameError.setTitle("This name is already taken 💩", for: .normal)
+                            flip(firstView: self.nameField, secondView: self.nameError)
+                        }
                     }
                 }
-            
-        }
+            }
         }
         
         //We can try to save data
