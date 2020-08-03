@@ -85,7 +85,7 @@
             <objects>
                 <viewController title="Public Key List" modalPresentationStyle="formSheet" id="Bw4-Uw-PF4" customClass="KeyList" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zf9-NJ-i4P">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-3p-uZG">
@@ -109,26 +109,21 @@
                                     <action selector="selectCellButtonSelectedWithSender:" destination="Bw4-Uw-PF4" id="MN1-gE-dBg"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem systemItem="add" id="Wx0-92-Gn4">
+                            <barButtonItem image="plus" catalog="system" id="Wx0-92-Gn4">
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
-                                    <segue destination="tOU-fV-Ibc" kind="presentation" identifier="addKey" modalPresentationStyle="pageSheet" id="4dG-a0-Usv"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="arrow.clockwise.circle.fill" catalog="system" id="nrV-7d-SAk">
-                                <connections>
-                                    <action selector="refreshButtonSelectedWithSender:" destination="Bw4-Uw-PF4" id="dnm-uI-0qw"/>
+                                    <action selector="addKeySelectedWithSender:" destination="Bw4-Uw-PF4" id="gab-j8-8Wt"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="addKeyButton" destination="Wx0-92-Gn4" id="D8b-Fg-MEJ"/>
-                        <outlet property="refreshButton" destination="nrV-7d-SAk" id="pt3-Kp-fkI"/>
                         <outlet property="selectCellButton" destination="dbh-Z3-bvU" id="moG-bF-miG"/>
                         <outlet property="tableView" destination="Edf-3p-uZG" id="4fQ-cD-nY0"/>
                         <segue destination="H5r-il-Mel" kind="show" identifier="showKey" id="Ntu-w4-IZM"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="dDN-fY-neD"/>
+                        <segue destination="tOU-fV-Ibc" kind="presentation" identifier="addKey" id="0gR-Ua-Nux"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ShR-ce-3eb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -140,7 +135,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="Encrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qnH-r1-Y92">
@@ -233,9 +228,9 @@
                                     <segue destination="Bw4-Uw-PF4" kind="show" identifier="showList" id="spH-7f-JcM"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem image="arrow.clockwise.circle.fill" catalog="system" id="TCW-I1-elO">
+                            <barButtonItem enabled="NO" title=" " id="TCW-I1-elO">
                                 <connections>
-                                    <action selector="refreshButtonSelectedWithSender:" destination="BYZ-38-t0r" id="fdp-sy-n0a"/>
+                                    <action selector="shutDownKeyboardWithSender:" destination="BYZ-38-t0r" id="Wyz-M0-jyi"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -247,8 +242,8 @@
                         <outlet property="littleHelpLabel" destination="HEL-Uo-5ld" id="lhD-QR-Oke"/>
                         <outlet property="lockAppButton" destination="fFF-Oo-VMX" id="dtr-mY-P7z"/>
                         <outlet property="publicKeyButton" destination="qnH-r1-Y92" id="xBF-ce-gOz"/>
-                        <outlet property="refreshButton" destination="TCW-I1-elO" id="yUD-jZ-NKg"/>
                         <outlet property="senderView" destination="y5f-SM-Sl0" id="t2k-Kn-Bxf"/>
+                        <outlet property="shutDownKeyboard" destination="TCW-I1-elO" id="Kkg-RJ-nnO"/>
                         <outlet property="textToEncrypt" destination="ac5-qZ-Cvq" id="CLN-lt-T5D"/>
                         <segue destination="tOU-fV-Ibc" kind="presentation" identifier="addKey" id="lMQ-dt-c2G"/>
                         <segue destination="lni-hq-xo9" kind="show" identifier="Encryption" id="qls-To-VOY"/>
@@ -792,11 +787,11 @@
             <objects>
                 <viewController id="lni-hq-xo9" customClass="EncryptedResult" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="ur2-5E-dqe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyQ-tL-Niz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c30-kj-W9B">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1054"/>
@@ -846,13 +841,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="spH-7f-JcM"/>
-        <segue reference="lMQ-dt-c2G"/>
+        <segue reference="Ntu-w4-IZM"/>
+        <segue reference="0gR-Ua-Nux"/>
         <segue reference="XNL-IU-nzq"/>
-        <segue reference="1Wa-3S-HsL"/>
+        <segue reference="EQK-VC-Mck"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrow.clockwise.circle.fill" catalog="system" width="128" height="121"/>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="104"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="coffre" width="345" height="345"/>
@@ -866,6 +860,7 @@
         <image name="lockedBackground" width="1280" height="539"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="storage" width="24" height="24"/>
         <image name="trash" catalog="system" width="118" height="128"/>
         <image name="unlocked" width="24" height="24"/>

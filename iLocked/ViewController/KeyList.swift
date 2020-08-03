@@ -15,7 +15,6 @@ import UIKit
 class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
     @IBOutlet weak var selectCellButton : UIBarButtonItem!
     @IBOutlet weak var addKeyButton : UIBarButtonItem!
     
@@ -26,13 +25,14 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var selectModeIsActive = false // false = normal mode. False = user wants to select some cells.
     var selectedCellList : [Int] = [] // contains index.row of each selected cell
+    var dataHasChanged = false // true if a key has been deleted or added
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //On regarde les notifications :
+        //Notifications :
         NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Encrypt.notificationName, object: nil)
         
-        //récupération des clés enregistrées :
+        // We get saved keys  :
         loadData()
         
         self.tableView.delegate = self
@@ -50,10 +50,12 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //Call when the user tap once or twice on the home button
+        self.loadData()
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-                
+        refreshData()
     }
+    
     
     func alert(_ title: String, message: String, quitMessage: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -227,33 +229,18 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     // IBAction func
     //
     
-    @IBAction public func refreshButtonSelected(sender: UIBarButtonItem){
-        if selectModeIsActive {// button is a trash button
-            sender.isEnabled = false
-            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (_) in
-                sender.isEnabled = true
-            })
-            let A2 = UIAlertAction(title: "Destroy \(self.selectedCellList.count) key(s)", style: UIAlertAction.Style.destructive, handler: { (_) in
-                self.destroyKey()
-            })
-            alert.addAction(A1)
-            alert.addAction(A2)
-            self.present(alert, animated: true, completion: nil)
-        } else { // is a refresh button
-            //On supprime les anciennes infos
-            nameList = ["There is no key saved"]
-            //On load les nouvelles
-            loadData()
-            self.tableView.reloadData()
-        }
+    private func refreshData(){
+        //We delete old data
+        nameList = ["There is no key saved"]
+        //We load the new one
+        loadData()
+        self.tableView.reloadData()
     }
     
     @IBAction public func selectCellButtonSelected(sender: UIBarButtonItem){
         if selectModeIsActive { // User already click on select button and now, want to cancel his action
-            self.addKeyButton.isEnabled = true
-            self.refreshButton.image = UIImage(systemName: "arrow.clockwise.circle.fill")
-            self.refreshButton.tintColor = .systemOrange
+            self.addKeyButton.image = UIImage(systemName: "plus")
+            self.addKeyButton.tintColor = .systemOrange
             sender.image =  UIImage(systemName: "ellipsis.circle")
             sender.title = ""
             
@@ -266,9 +253,8 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         } else { // want to select cell
             
             // We hide other button ...
-            self.addKeyButton.isEnabled = false
-            self.refreshButton.image =  UIImage(systemName: "trash.circle.fill")
-            self.refreshButton.tintColor = .systemRed
+            self.addKeyButton.image =  UIImage(systemName: "trash.circle.fill")
+            self.addKeyButton.tintColor = .systemRed
             sender.image = nil
             sender.title = "Cancel"
             
@@ -281,12 +267,30 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    @IBAction public func addKeySelected(sender: UIBarButtonItem){
+        if selectModeIsActive {// button is a trash button
+            sender.isEnabled = false
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (_) in
+                sender.isEnabled = true
+            })
+            let A2 = UIAlertAction(title: "Destroy \(self.selectedCellList.count) key(s)", style: UIAlertAction.Style.destructive, handler: { (_) in
+                self.destroyKey()
+            })
+            alert.addAction(A1)
+            alert.addAction(A2)
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            self.performSegue(withIdentifier: "addKey", sender: self)
+        }
+    }
+    
     //
     // objc func
     //
     
     @objc private func notificationReceived(){
-        refreshButtonSelected(sender: self.refreshButton)
+        refreshData()
     }
     
     /// Called by notification when the app is moves to background

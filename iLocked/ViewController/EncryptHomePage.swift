@@ -22,7 +22,7 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBOutlet weak var senderView: UIView!
     @IBOutlet weak var chargement: UIActivityIndicatorView!
     @IBOutlet weak var littleHelpLabel : UILabel!
-    @IBOutlet weak var refreshButton: UIBarButtonItem!
+    @IBOutlet weak var shutDownKeyboard: UIBarButtonItem!
     @IBOutlet weak var lockAppButton: UIBarButtonItem!
     
     var keyArray: [String] = ["Add a key"] // list of all names displayed on UIPIckerView
@@ -31,6 +31,7 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     var titleButtonClean = ""
     var textEncrypted = "error"
     var nameArray: [String] = [] // list of all name saved
+    var dataHasChanged = false // true if a key has been deleted or added
     
     //Data came from ShowKey.swift > encryptMessageSelected()
     var keyNameTransmitted = ""
@@ -73,8 +74,6 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
             self.titleButtonClean = self.keyNameTransmitted
             self.selectKey(sender: self.publicKeyButton) // simulation of user's action
         }
-        
-        self.refreshButton.image = UIImage(systemName: "arrow.clockwise.circle.fill") // default
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -82,7 +81,8 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
         //Call when the user tap once or twice on the home button
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-        
+        //Refresh data
+        refreshData()
     }
 
     func alert(_ title: String, message: String) {
@@ -178,20 +178,8 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
         
     }
     
-    @IBAction public func refreshButtonSelected(sender: UIBarButtonItem){
-        if sender.image == UIImage(systemName: "arrow.clockwise.circle.fill") {
-            //Suppression de anciennes données
-            print("Refresh button selected")
-            self.keyArray = ["Add a key"]
-            self.nameArray = []
-            //On load les nouvelles
-            loadData()
-            
-            print("new nameArray :\(nameArray)")
-            self.keyList.reloadAllComponents()
-        } else { // User ask for shut the keyboard down
-             self.view.endEditing(true)
-        }
+    @IBAction public func shutDownKeyboard(sender: UIBarButtonItem){
+        self.view.endEditing(true)
         
     }
     
@@ -236,7 +224,8 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.translatesAutoresizingMaskIntoConstraints = true
         textView.frame.origin.y = 10
-        self.refreshButton.image = UIImage(systemName: "keyboard.chevron.compact.down")
+        self.shutDownKeyboard.image = UIImage(systemName: "keyboard.chevron.compact.down")
+        self.shutDownKeyboard.isEnabled = true
         self.encryptButton.isHidden = true
         if textView.text == "Text to encrypt"{
             textView.text = ""
@@ -246,7 +235,8 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     
     func textViewDidEndEditing(_ textView: UITextView){
         textView.translatesAutoresizingMaskIntoConstraints = false
-        self.refreshButton.image = UIImage(systemName: "arrow.clockwise.circle.fill")
+        self.shutDownKeyboard.title = ""
+        self.shutDownKeyboard.isEnabled = false
         self.encryptButton.isHidden = false
         if textView.text == "" {
             textView.text = "Text to encrypt"
@@ -271,12 +261,25 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     //
+    // Data func
+    //
+    
+    private func refreshData(){ // Refresh the selector
+        //Delete old data
+        self.keyArray = ["Add a key"]
+        self.nameArray = []
+        //We load the new one
+        loadData()
+        self.keyList.reloadAllComponents()
+    }
+    
+    //
     // Notifications func
     //
     
     @objc private func notificationReceived(notification: Notification){
         print("notifcation : \(String(describing: notification.userInfo))")
-        perform(#selector(refreshButtonSelected), with: nil, afterDelay: 1)
+        refreshData()
     }
     
     @objc private func appMovedToBackground(){
