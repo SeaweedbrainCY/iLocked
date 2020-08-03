@@ -73,6 +73,8 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
             self.titleButtonClean = self.keyNameTransmitted
             self.selectKey(sender: self.publicKeyButton) // simulation of user's action
         }
+        
+        self.refreshButton.image = UIImage(systemName: "arrow.clockwise.circle.fill") // default
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -179,12 +181,15 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBAction public func refreshButtonSelected(sender: UIBarButtonItem){
         if sender.image == UIImage(systemName: "arrow.clockwise.circle.fill") {
             //Suppression de anciennes données
+            print("Refresh button selected")
             self.keyArray = ["Add a key"]
             self.nameArray = []
             //On load les nouvelles
             loadData()
+            
+            print("new nameArray :\(nameArray)")
             self.keyList.reloadAllComponents()
-        } else { // User ask for shut keyboard down
+        } else { // User ask for shut the keyboard down
              self.view.endEditing(true)
         }
         
