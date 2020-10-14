@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14B2AEFC1686986F6CB017C9 /* Pods_iLocked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8414A9AD95C6B62709E26701 /* Pods_iLocked.framework */; };
 		9048E65D23FB017800098C73 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9048E65C23FB017800098C73 /* Dictionary.swift */; };
 		905877422401B171004F1894 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */; };
 		905877432401B18A004F1894 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */; };
@@ -23,8 +24,6 @@
 		90B886FC23F7F31A00035C82 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B886FB23F7F31A00035C82 /* Settings.swift */; };
 		90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */; };
 		90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */; };
-		90D43B5B2401AF2600EFE9BD /* Pods_iLocked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */; };
-		90D43B5C2401AF2600EFE9BD /* Pods_iLocked.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		90DB59A92416B03F001189C5 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB59A82416B03F001189C5 /* SettingsData.swift */; };
 		D820B848235E3559006CEB38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B847235E3559006CEB38 /* UIView.swift */; };
 		D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B849235E359D006CEB38 /* DecryptedResult.swift */; };
@@ -83,22 +82,18 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				90D43B5C2401AF2600EFE9BD /* Pods_iLocked.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLocked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		90045D5523FDD11B00323457 /* SwiftyRSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyRSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		90045D5C23FDD19A00323457 /* SwiftKeychainWrapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftKeychainWrapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8414A9AD95C6B62709E26701 /* Pods_iLocked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLocked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9048E65C23FB017800098C73 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		909655F924F85615001147B3 /* iLocked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iLocked.entitlements; sourceTree = "<group>"; };
 		90B886FB23F7F31A00035C82 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
-		90D43B582401AF1E00EFE9BD /* SwiftyRSA.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyRSA.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Asn1Parser.swift; path = Source/Asn1Parser.swift; sourceTree = "<group>"; };
 		90D43B5E2401AF5A00EFE9BD /* ClearMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClearMessage.swift; path = Source/ClearMessage.swift; sourceTree = "<group>"; };
 		90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EncryptedMessage.swift; path = Source/EncryptedMessage.swift; sourceTree = "<group>"; };
@@ -166,7 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90D43B5B2401AF2600EFE9BD /* Pods_iLocked.framework in Frameworks */,
+				14B2AEFC1686986F6CB017C9 /* Pods_iLocked.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +256,7 @@
 		A2DCCF4BE81058B13C7B2687 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				90D43B582401AF1E00EFE9BD /* SwiftyRSA.framework */,
-				90045D5523FDD11B00323457 /* SwiftyRSA.framework */,
-				90045D5C23FDD19A00323457 /* SwiftKeychainWrapper.framework */,
-				801A4A039A2D6BD13EB5C91C /* Pods_iLocked.framework */,
+				8414A9AD95C6B62709E26701 /* Pods_iLocked.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -411,6 +403,7 @@
 				D8A64AFF2353BC1C000613F3 /* Sources */,
 				D8A64B002353BC1C000613F3 /* Frameworks */,
 				D8A64B012353BC1C000613F3 /* Resources */,
+				E67CAA24A03657E0943C6D61 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -464,7 +457,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Nathan;
 				TargetAttributes = {
 					D8A64B022353BC1C000613F3 = {
@@ -531,6 +524,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		E67CAA24A03657E0943C6D61 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iLocked/Pods-iLocked-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iLocked/Pods-iLocked-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iLocked/Pods-iLocked-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		F604DF3EB66975C51332DE6D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -680,6 +690,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -691,6 +702,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -741,6 +753,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -752,6 +765,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -779,6 +793,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = iLocked/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -802,6 +818,8 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = iLocked/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

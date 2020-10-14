@@ -1,3 +1,22 @@
-PODFILE CHECKSUM: 7d3be4f8f564a65ff2a0720da6857265eef989f5
+PODS:
+  - SwiftKeychainWrapper (3.4.0)
+  - SwiftyRSA (1.5.0):
+    - SwiftyRSA/ObjC (= 1.5.0)
+  - SwiftyRSA/ObjC (1.5.0)
 
-COCOAPODS: 1.8.4
+DEPENDENCIES:
+  - SwiftKeychainWrapper
+  - SwiftyRSA
+
+SPEC REPOS:
+  trunk:
+    - SwiftKeychainWrapper
+    - SwiftyRSA
+
+SPEC CHECKSUMS:
+  SwiftKeychainWrapper: 6fc49fbf7d4a6b0772917acb0e53a1639f6078d6
+  SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
+
+PODFILE CHECKSUM: 7b01c8765cd9d2f85041298eebe7d7cf9d4cb118
+
+COCOAPODS: 1.9.1
