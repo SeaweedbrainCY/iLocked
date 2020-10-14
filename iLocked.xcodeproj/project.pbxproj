@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14B2AEFC1686986F6CB017C9 /* Pods_iLocked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8414A9AD95C6B62709E26701 /* Pods_iLocked.framework */; };
 		9048E65D23FB017800098C73 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9048E65C23FB017800098C73 /* Dictionary.swift */; };
 		905877422401B171004F1894 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */; };
 		905877432401B18A004F1894 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */; };
@@ -88,8 +87,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		8414A9AD95C6B62709E26701 /* Pods_iLocked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLocked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9048E65C23FB017800098C73 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		9074A09525373C1C00983FBC /* iLocked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLocked.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9074A09625373C1C00983FBC /* iLockedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLockedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9074A09725373C1C00983FBC /* iLockedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLockedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		909655F924F85615001147B3 /* iLocked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iLocked.entitlements; sourceTree = "<group>"; };
 		90B886FB23F7F31A00035C82 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		90D43B702401AF5A00EFE9BD /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-prefix.pch"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
 		90D43B712401AF5A00EFE9BD /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-umbrella.h"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
 		90DB59A82416B03F001189C5 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
-		914416024A258447A1A3E632 /* Pods-iLocked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLocked.release.xcconfig"; path = "Target Support Files/Pods-iLocked/Pods-iLocked.release.xcconfig"; sourceTree = "<group>"; };
 		D820B847235E3559006CEB38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D820B849235E359D006CEB38 /* DecryptedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptedResult.swift; sourceTree = "<group>"; };
 		D820B84D235E5EB1006CEB38 /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
@@ -123,7 +123,6 @@
 		D820B8532363909C006CEB38 /* publicPrivateKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publicPrivateKeys.swift; sourceTree = "<group>"; };
 		D8416D352364ED5100A0B038 /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
 		D8416D372364F62700A0B038 /* Decryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decryption.swift; sourceTree = "<group>"; };
-		D8A64B032353BC1C000613F3 /* iLocked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLocked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A64B062353BC1C000613F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8A64B082353BC1C000613F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D8A64B0A2353BC1C000613F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -131,10 +130,8 @@
 		D8A64B0F2353BC23000613F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8A64B122353BC23000613F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8A64B142353BC23000613F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8A64B192353BC24000613F3 /* iLockedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLockedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A64B1D2353BC24000613F3 /* iLockedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLockedTests.swift; sourceTree = "<group>"; };
 		D8A64B1F2353BC24000613F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D8A64B242353BC24000613F3 /* iLockedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLockedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8A64B282353BC24000613F3 /* iLockedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLockedUITests.swift; sourceTree = "<group>"; };
 		D8A64B2A2353BC24000613F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8A64B3B2353BC70000613F3 /* KeyId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyId.swift; sourceTree = "<group>"; };
@@ -153,7 +150,6 @@
 		D8A64B532353BCC1000613F3 /* EncryptHomePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncryptHomePage.swift; sourceTree = "<group>"; };
 		D8A64B542353BCC1000613F3 /* KeyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyList.swift; sourceTree = "<group>"; };
 		D8A64B552353BCC1000613F3 /* ShowKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowKey.swift; sourceTree = "<group>"; };
-		DD8EA1F65A266A5ED9B17F67 /* Pods-iLocked.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLocked.debug.xcconfig"; path = "Target Support Files/Pods-iLocked/Pods-iLocked.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +157,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B2AEFC1686986F6CB017C9 /* Pods_iLocked.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,15 +177,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5C3D937C338D765BAA275AD9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DD8EA1F65A266A5ED9B17F67 /* Pods-iLocked.debug.xcconfig */,
-				914416024A258447A1A3E632 /* Pods-iLocked.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		9058774F2401B483004F1894 /* KeychainWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,34 +239,16 @@
 			path = SwiftyRSA;
 			sourceTree = "<group>";
 		};
-		A2DCCF4BE81058B13C7B2687 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				8414A9AD95C6B62709E26701 /* Pods_iLocked.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D8A64AFA2353BC1C000613F3 = {
 			isa = PBXGroup;
 			children = (
 				D8A64B052353BC1C000613F3 /* iLocked */,
 				D8A64B1C2353BC24000613F3 /* iLockedTests */,
 				D8A64B272353BC24000613F3 /* iLockedUITests */,
-				D8A64B042353BC1C000613F3 /* Products */,
-				5C3D937C338D765BAA275AD9 /* Pods */,
-				A2DCCF4BE81058B13C7B2687 /* Frameworks */,
+				9074A09525373C1C00983FBC /* iLocked.app */,
+				9074A09625373C1C00983FBC /* iLockedTests.xctest */,
+				9074A09725373C1C00983FBC /* iLockedUITests.xctest */,
 			);
-			sourceTree = "<group>";
-		};
-		D8A64B042353BC1C000613F3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				D8A64B032353BC1C000613F3 /* iLocked.app */,
-				D8A64B192353BC24000613F3 /* iLockedTests.xctest */,
-				D8A64B242353BC24000613F3 /* iLockedUITests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		D8A64B052353BC1C000613F3 /* iLocked */ = {
@@ -398,12 +366,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8A64B2D2353BC24000613F3 /* Build configuration list for PBXNativeTarget "iLocked" */;
 			buildPhases = (
-				F604DF3EB66975C51332DE6D /* [CP] Check Pods Manifest.lock */,
 				909D26C423FDD5FA00B5C9CD /* CopyFiles */,
 				D8A64AFF2353BC1C000613F3 /* Sources */,
 				D8A64B002353BC1C000613F3 /* Frameworks */,
 				D8A64B012353BC1C000613F3 /* Resources */,
-				E67CAA24A03657E0943C6D61 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -411,7 +377,7 @@
 			);
 			name = iLocked;
 			productName = iLocked;
-			productReference = D8A64B032353BC1C000613F3 /* iLocked.app */;
+			productReference = 9074A09525373C1C00983FBC /* iLocked.app */;
 			productType = "com.apple.product-type.application";
 		};
 		D8A64B182353BC24000613F3 /* iLockedTests */ = {
@@ -429,7 +395,7 @@
 			);
 			name = iLockedTests;
 			productName = iLockedTests;
-			productReference = D8A64B192353BC24000613F3 /* iLockedTests.xctest */;
+			productReference = 9074A09625373C1C00983FBC /* iLockedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		D8A64B232353BC24000613F3 /* iLockedUITests */ = {
@@ -447,7 +413,7 @@
 			);
 			name = iLockedUITests;
 			productName = iLockedUITests;
-			productReference = D8A64B242353BC24000613F3 /* iLockedUITests.xctest */;
+			productReference = 9074A09725373C1C00983FBC /* iLockedUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -482,7 +448,7 @@
 				Base,
 			);
 			mainGroup = D8A64AFA2353BC1C000613F3;
-			productRefGroup = D8A64B042353BC1C000613F3 /* Products */;
+			productRefGroup = D8A64AFA2353BC1C000613F3;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -522,48 +488,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		E67CAA24A03657E0943C6D61 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iLocked/Pods-iLocked-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-iLocked/Pods-iLocked-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iLocked/Pods-iLocked-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F604DF3EB66975C51332DE6D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-iLocked-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D8A64AFF2353BC1C000613F3 /* Sources */ = {
@@ -702,7 +626,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -765,7 +689,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXCLUDED_ARCHS = arm64;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -786,7 +710,6 @@
 		};
 		D8A64B2E2353BC24000613F3 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DD8EA1F65A266A5ED9B17F67 /* Pods-iLocked.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
@@ -811,7 +734,6 @@
 		};
 		D8A64B2F2353BC24000613F3 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 914416024A258447A1A3E632 /* Pods-iLocked.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;

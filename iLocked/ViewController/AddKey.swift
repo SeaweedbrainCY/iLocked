@@ -386,7 +386,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
                 //get date
             let formatter:DateFormatter = DateFormatter()
                 formatter.dateFormat = "DD/MM/YYY"
-            let todayDate:NSDate = formatter.date(from: Date().description(with: .current))! as NSDate
+            //let todayDate:NSDate = formatter.date(from: Date().description(with: .current))! as NSDate
                 if self.viewOnBack == "ShowKey"{
                     NotificationCenter.default.post(name: ShowKey.notificationOfModificationName, object: nil, userInfo: ["name": self.nameField.text!, "key": self.publicKeyField.text!])
                 }
