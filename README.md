@@ -1,4 +1,4 @@
-# NewNigma
+# iLocked
 ### Encryption
 The purpose is to encrypt a message in the application with a bob's public key.
 
