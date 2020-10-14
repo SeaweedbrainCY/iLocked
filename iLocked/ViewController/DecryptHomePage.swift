@@ -15,9 +15,10 @@ class Decrypt: UIViewController, UITextViewDelegate {
     @IBOutlet weak var helpBarButtonItem: UIBarButtonItem!
     @IBOutlet weak var sharePublicKeyButton: UIButton!
     @IBOutlet weak var helpAboutSharingButton: UIButton!
-    @IBOutlet weak var textToEncryptView: UITextView!
-    @IBOutlet weak var encryptButton: UIButton!
+    @IBOutlet weak var textToDecryptView: UITextView!
+    @IBOutlet weak var decryptButton: UIButton!
     @IBOutlet weak var leftItemButton : UIBarButtonItem!
+    @IBOutlet weak var pasteButton : UIButton!
     
     
     //Help views
@@ -31,7 +32,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         viewConstruction()
-        self.textToEncryptView.delegate = self
+        self.textToDecryptView.delegate = self
         
         //Call when the user tap once or twice on the home button
         let notificationCenter = NotificationCenter.default
@@ -73,11 +74,11 @@ class Decrypt: UIViewController, UITextViewDelegate {
         
         self.sharePublicKeyButton.rondBorder()
         self.sharePublicKeyButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
-        self.textToEncryptView.layer.borderColor = UIColor.lightGray.cgColor
-        self.textToEncryptView.layer.borderWidth = 2
-        self.textToEncryptView.layer.cornerRadius = 20
-        self.textToDecryptViewErrorMessage.center = textToEncryptView.center
-        self.textToDecryptViewErrorMessage.frame.size = self.textToEncryptView.frame.size
+        self.textToDecryptView.layer.borderColor = UIColor.lightGray.cgColor
+        self.textToDecryptView.layer.borderWidth = 2
+        self.textToDecryptView.layer.cornerRadius = 20
+        self.textToDecryptViewErrorMessage.center = textToDecryptView.center
+        self.textToDecryptViewErrorMessage.frame.size = self.textToDecryptView.frame.size
         self.textToDecryptViewErrorMessage.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 18)
         self.textToDecryptViewErrorMessage.setTitleColor(.systemRed, for: .normal)
         self.textToDecryptViewErrorMessage.layer.cornerRadius = 15
@@ -108,6 +109,9 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.helpTextLabel.textAlignment = .justified
         self.helpTextLabel.font = UIFont(name: "American Typewriter", size: 16.0)
         self.helpTextLabel.textColor = .white
+        
+        // paste button
+        self.pasteButton.layer.cornerRadius = 17
     }
     
     
@@ -117,7 +121,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
     
     @IBAction func decryptButton(_ sender: UIButton) {
         var isOk = true
-        if textToEncryptView.text == "" || textToEncryptView.text == "Text to decrypt"{
+        if textToDecryptView.text == "" || textToDecryptView.text == "Text to decrypt"{
             isOk = false
             alert("I don't really think decrypt an empty message is very useful ... 🧐", message: "", quitMessage: "Oh yeah sorry !")
         }
@@ -152,6 +156,19 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.showHelp(text: "Share your public key to your friend. Only this key can encrypt message that you'll be able to decrypt. \n\nUse an other key, including sender public key will return you an error if you try to decrypt the message.")
     }
     
+    @IBAction func pasteButtonSelected(sender: UIButton){
+        let content = UIPasteboard.general.string
+        if content == "" {
+            shakeAnimation(view: self.pasteButton,text: "Nothing to paste")
+        } else {
+            self.textViewDidBeginEditing(self.textToDecryptView)
+            self.textToDecryptView.text = content
+            self.textViewDidEndEditing(self.textToDecryptView)
+            self.decryptButton(self.decryptButton)
+        }
+        
+    }
+    
     
  
     //
@@ -163,7 +180,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.helpBarButtonItem.image = UIImage(systemName: "keyboard.chevron.compact.down")
         self.leftItemButton.image = UIImage(systemName: "info.circle")
         self.leftItemButton.tintColor = .systemOrange
-        
+        self.pasteButton.isHidden = true
         textView.frame.origin.y = 10
         if textView.text == "Text to decrypt" {
             textView.text = ""
@@ -179,6 +196,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
         if textView.text == "" {
             textView.text = "Text to decrypt"
             textView.textColor = .lightGray
+            self.pasteButton.isHidden = false
         }
     }
     
@@ -187,7 +205,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
     //
     
     @objc private func textToDecryptErrorMessageSelected(sender: UIButton){
-        self.flip(firstView: textToDecryptViewErrorMessage, secondView: self.textToEncryptView)
+        self.flip(firstView: textToDecryptViewErrorMessage, secondView: self.textToDecryptView)
     }
     
     /// Called by notification when the app is moves to background
@@ -233,6 +251,21 @@ class Decrypt: UIViewController, UITextViewDelegate {
         animation.startAnimation()
     }
     
+    func shakeAnimation(view: UIButton, text : String){
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: view.center.x - 10, y: view.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: view.center.x + 10, y: view.center.y))
+        
+        let titleChange = UIViewPropertyAnimator(duration: 0.28, dampingRatio: 0.7, animations: {
+            view.setTitle(text, for: .normal)
+        })
+        view.layer.add(animation, forKey: "position")
+        titleChange.startAnimation()
+    }
+    
     
     //
     // segue func
@@ -244,7 +277,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
             lockedView.activityInProgress = true
         } else if segue.identifier == "showDecryptedText"{
             let decryptedResultView = segue.destination as! DecryptedResult
-            decryptedResultView.encryptedText = self.textToEncryptView.text
+            decryptedResultView.encryptedText = self.textToDecryptView.text
         }
     }
 }

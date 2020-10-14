@@ -25,7 +25,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var selectModeIsActive = false // false = normal mode. False = user wants to select some cells.
     var selectedCellList : [Int] = [] // contains index.row of each selected cell
-    var dataHasChanged = false // true if a key has been deleted or added
+    var hasUpdated = false // if the viewed is already load, we update. If not, the view has just loaded
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +42,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         if nameList == ["There is no key saved"] {
             self.selectCellButton.isEnabled = false //no cell to select
         }
+        hasUpdated = true// if the viewed is already load, we update. If not, the view has just loaded
          
         
 
@@ -50,10 +51,14 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //Call when the user tap once or twice on the home button
-        self.loadData()
+        if !hasUpdated{// if the viewed is already load, we update. If not, the view has just loaded
+            self.loadData()
+            refreshData()
+        }
+        hasUpdated = false
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-        refreshData()
+        
     }
     
     

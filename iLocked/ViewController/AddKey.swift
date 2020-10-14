@@ -249,7 +249,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
                 self.publicKeyError.setTitle(nameList[0], for: .normal)
                 flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
             } else if oldName == "" { // we don't have any error
-                if self.nameField.text! == userPublicKeyId || self.nameField.text! == userPrivateKeyId { // Forbidden name
+                if self.nameField.text! == userPublicKeyId || self.nameField.text! == userPrivateKeyId || self.nameField.text! == "My encryption key"{ // Forbidden name
                     testOk = false
                     self.nameError.setTitle("This name are forbidden 🔏", for: .normal)
                     flip(firstView: self.nameField, secondView: self.nameError)

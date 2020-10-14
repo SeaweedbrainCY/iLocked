@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17105.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -215,7 +216,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="  " id="eGS-Iy-0AG">
                         <barButtonItem key="backBarButtonItem" title=" " id="IYN-4d-LIH"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="empreinte" id="fFF-Oo-VMX">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="lock.fill" catalog="system" id="fFF-Oo-VMX">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
                                 <action selector="lockAppSelectedWithSender:" destination="BYZ-38-t0r" id="Hrm-Vs-4HF"/>
@@ -243,6 +244,7 @@
                         <outlet property="lockAppButton" destination="fFF-Oo-VMX" id="dtr-mY-P7z"/>
                         <outlet property="publicKeyButton" destination="qnH-r1-Y92" id="xBF-ce-gOz"/>
                         <outlet property="senderView" destination="y5f-SM-Sl0" id="t2k-Kn-Bxf"/>
+                        <outlet property="showKeyList" destination="sgb-fw-ESs" id="TqA-b2-X3n"/>
                         <outlet property="shutDownKeyboard" destination="TCW-I1-elO" id="Kkg-RJ-nnO"/>
                         <outlet property="textToEncrypt" destination="ac5-qZ-Cvq" id="CLN-lt-T5D"/>
                         <segue destination="tOU-fV-Ibc" kind="presentation" identifier="addKey" id="lMQ-dt-c2G"/>
@@ -454,6 +456,7 @@
                                     <constraint firstAttribute="height" constant="30" id="Emy-d5-LV4"/>
                                     <constraint firstAttribute="width" constant="300" id="J9V-Rh-Smy"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <state key="normal" title="  Share my public encryption key" image="arrowshape.turn.up.left.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -477,7 +480,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8f-5m-Xda">
-                                <rect key="frame" x="67" y="156" width="241" height="3"/>
+                                <rect key="frame" x="67" y="120" width="241" height="3"/>
                                 <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="X5r-E5-R7f"/>
@@ -494,15 +497,27 @@
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="al6-4D-sBN">
+                                <rect key="frame" x="49" y="131" width="276" height="44"/>
+                                <color key="backgroundColor" white="0.071971318493150679" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <state key="normal" title="   Paste and decrypt" image="square.and.arrow.down.on.square.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="pasteButtonSelectedWithSender:" destination="N9l-yk-OqT" eventType="touchUpInside" id="tH3-1k-RbQ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i6Q-Kn-bPO"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6rQ-2h-nZ4" firstAttribute="top" secondItem="i6Q-Kn-bPO" secondAttribute="top" constant="44" id="2Wm-7D-QBX"/>
                             <constraint firstItem="sj2-ux-wxP" firstAttribute="leading" secondItem="i6Q-Kn-bPO" secondAttribute="leading" constant="16" id="2gj-gq-fAQ"/>
+                            <constraint firstItem="sj2-ux-wxP" firstAttribute="top" secondItem="al6-4D-sBN" secondAttribute="bottom" constant="8" id="B0N-Yx-o7r"/>
                             <constraint firstItem="tqz-Jq-k5Z" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="H5v-Jy-J7D"/>
                             <constraint firstItem="sj2-ux-wxP" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="Jra-wK-BWz"/>
                             <constraint firstItem="i6Q-Kn-bPO" firstAttribute="trailing" secondItem="sj2-ux-wxP" secondAttribute="trailing" constant="16" id="Rl3-do-8Y2"/>
+                            <constraint firstItem="al6-4D-sBN" firstAttribute="top" secondItem="D8f-5m-Xda" secondAttribute="bottom" constant="8" id="SRo-4Y-mMH"/>
                             <constraint firstItem="i6Q-Kn-bPO" firstAttribute="trailing" secondItem="6rQ-2h-nZ4" secondAttribute="trailing" constant="16" id="T17-Yb-xOK"/>
                             <constraint firstItem="sj2-ux-wxP" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="U1y-V2-4yS"/>
                             <constraint firstItem="sj2-ux-wxP" firstAttribute="centerY" secondItem="yAG-l8-0Kb" secondAttribute="centerY" id="XPf-1O-ZxZ"/>
@@ -510,7 +525,9 @@
                             <constraint firstItem="D8f-5m-Xda" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="bCp-Zn-f6G"/>
                             <constraint firstItem="ltB-tF-OTZ" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="ekb-1f-bU0"/>
                             <constraint firstItem="tqz-Jq-k5Z" firstAttribute="top" secondItem="i6Q-Kn-bPO" secondAttribute="top" constant="40" id="s3a-IW-Rpz"/>
-                            <constraint firstItem="D8f-5m-Xda" firstAttribute="top" secondItem="tqz-Jq-k5Z" secondAttribute="bottom" constant="86" id="tjZ-M5-R8E"/>
+                            <constraint firstItem="D8f-5m-Xda" firstAttribute="top" secondItem="tqz-Jq-k5Z" secondAttribute="bottom" constant="50" id="tjZ-M5-R8E"/>
+                            <constraint firstItem="al6-4D-sBN" firstAttribute="leading" secondItem="i6Q-Kn-bPO" secondAttribute="leading" constant="49" id="uWp-GH-Zje"/>
+                            <constraint firstItem="i6Q-Kn-bPO" firstAttribute="trailing" secondItem="al6-4D-sBN" secondAttribute="trailing" constant="50" id="y6W-mT-aLK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CZT-Kn-kla">
@@ -528,12 +545,13 @@
                     </navigationItem>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="encryptButton" destination="ltB-tF-OTZ" id="vP0-Dn-qKW"/>
+                        <outlet property="decryptButton" destination="ltB-tF-OTZ" id="vP0-Dn-qKW"/>
                         <outlet property="helpAboutSharingButton" destination="6rQ-2h-nZ4" id="t6k-Et-eao"/>
                         <outlet property="helpBarButtonItem" destination="Uiz-bs-MhO" id="WPv-ie-kyY"/>
                         <outlet property="leftItemButton" destination="WON-mG-2rD" id="LjD-40-m4O"/>
+                        <outlet property="pasteButton" destination="al6-4D-sBN" id="n2i-gl-hSW"/>
                         <outlet property="sharePublicKeyButton" destination="tqz-Jq-k5Z" id="7FZ-bo-NyE"/>
-                        <outlet property="textToEncryptView" destination="sj2-ux-wxP" id="zMZ-N7-AQq"/>
+                        <outlet property="textToDecryptView" destination="sj2-ux-wxP" id="zMZ-N7-AQq"/>
                         <segue destination="xbo-aT-QG9" kind="presentation" identifier="showDecryptedText" id="sqZ-hZ-a1j"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="EQK-VC-Mck"/>
                     </connections>
@@ -710,11 +728,11 @@
             <objects>
                 <viewController id="H5r-il-Mel" customClass="ShowKey" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="9wu-Ia-hPJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMD-1q-5gB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ug-FU-uVE">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1054"/>
@@ -775,7 +793,7 @@
                         <outlet property="trashBarButtonItem" destination="2Ie-P9-434" id="N6v-QI-Gq3"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="j11-r2-z5x"/>
                         <segue destination="tOU-fV-Ibc" kind="presentation" identifier="editKey" id="FyZ-iz-rV4"/>
-                        <segue destination="hHY-cd-32x" kind="presentation" identifier="encryptMessage" modalPresentationStyle="pageSheet" id="XNL-IU-nzq"/>
+                        <segue destination="hHY-cd-32x" kind="presentation" identifier="encryptMessage" id="YdW-06-8TH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80f-07-qES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -822,7 +840,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="Ka6-NT-ubG">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrowshape.turn.up.right" catalog="system" id="oYc-Yu-lKD">
+                        <barButtonItem key="rightBarButtonItem" title="arrowshape.turn.up.right" id="oYc-Yu-lKD">
+                            <imageReference key="image" image="doc.circle" catalog="system" symbolScale="default"/>
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
                                 <action selector="shareButtonSelectedWithSender:" destination="lni-hq-xo9" id="Ma0-UX-Xof"/>
@@ -841,28 +860,30 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ntu-w4-IZM"/>
-        <segue reference="0gR-Ua-Nux"/>
-        <segue reference="XNL-IU-nzq"/>
-        <segue reference="EQK-VC-Mck"/>
+        <segue reference="lMQ-dt-c2G"/>
+        <segue reference="YdW-06-8TH"/>
+        <segue reference="zbJ-fx-8c1"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="104"/>
+        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="coffre" width="345" height="345"/>
+        <image name="doc.circle" catalog="system" width="128" height="121"/>
         <image name="ellipsis.circle" catalog="system" width="128" height="121"/>
         <image name="empreinte" width="24" height="24"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="key" width="345" height="345"/>
+        <image name="lock.fill" catalog="system" width="128" height="128"/>
         <image name="locked" width="24" height="24"/>
         <image name="lockedBackground" width="1280" height="539"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="square.and.arrow.down.on.square.fill" catalog="system" width="122" height="128"/>
         <image name="storage" width="24" height="24"/>
-        <image name="trash" catalog="system" width="118" height="128"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <image name="unlocked" width="24" height="24"/>
         <image name="view_chargement" width="489" height="489"/>
         <systemColor name="darkTextColor">

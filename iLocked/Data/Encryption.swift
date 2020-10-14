@@ -14,10 +14,10 @@ import UIKit
 class Encryption{
     ///This func return the encryption of the text givent
     /// - text : The text to encrypt
-    /// - withKeyId : The name displayed to the user, if it's user's key, its 'userPublicKey'
+    /// - withKeyId : The name displayed to the user, if it's user's key, its "My encryption key"
     public func encryptText(_ text: String, withKeyName keyUsed : String) -> String{
         var publicKeyUsed = ""
-        if keyUsed == "userPublicKey" {
+        if keyUsed == "My encryption key" {
             publicKeyUsed = userPublicKeyId
         } else {
             publicKeyUsed = keyUsed

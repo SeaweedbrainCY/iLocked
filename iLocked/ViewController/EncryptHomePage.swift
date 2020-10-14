@@ -24,14 +24,14 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBOutlet weak var littleHelpLabel : UILabel!
     @IBOutlet weak var shutDownKeyboard: UIBarButtonItem!
     @IBOutlet weak var lockAppButton: UIBarButtonItem!
+    @IBOutlet weak var showKeyList : UIBarButtonItem!
     
-    var keyArray: [String] = ["Add a key"] // list of all names displayed on UIPIckerView
+    var keyArray: [String] = ["Add a key", "My encryption key"] // list of all names displayed on UIPIckerView
     var heightPicker: NSLayoutConstraint?
     var heightSender: NSLayoutConstraint?
     var titleButtonClean = ""
     var textEncrypted = "error"
     var nameArray: [String] = [] // list of all name saved
-    var dataHasChanged = false // true if a key has been deleted or added
     
     //Data came from ShowKey.swift > encryptMessageSelected()
     var keyNameTransmitted = ""
@@ -73,6 +73,10 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
             self.publicKeyButton.setTitle("Use \(self.keyNameTransmitted)'s key", for: .normal)
             self.titleButtonClean = self.keyNameTransmitted
             self.selectKey(sender: self.publicKeyButton) // simulation of user's action
+        }
+        
+        if self.keyNameTransmitted != ""{ // We are encrypting directly with a key, the view is show with 'present modally' so the user has to dismiss this view to return to the real home page
+            self.showKeyList.isEnabled = false
         }
     }
     
@@ -147,11 +151,12 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
             self.publicKeyButton.isEnabled = false
             self.textToEncrypt.isEditable = false
             self.chargement.startAnimating()
-            print(publicKeyButton!)
-            print(self.publicKeyButton.currentTitle!)
-            print("key array = \(self.keyArray)")
-            print(self.keyArray.firstIndex(of: self.publicKeyButton.currentTitle!)!)
-            let keySaved: String? = KeychainWrapper.standard.string(forKey:self.publicKeyButton.currentTitle!)
+            var keySaved: String? = nil
+            if self.publicKeyButton.currentTitle! == "My encryption key"{
+                keySaved = KeychainWrapper.standard.string(forKey: userPublicKeyId)
+            } else {
+                keySaved = KeychainWrapper.standard.string(forKey:self.publicKeyButton.currentTitle!)
+            }
             if keySaved == nil {
                 alert("Impossible to find the public encryption key", message: "We're unable to find this specific key. Please check that you still have it and check is validity")
                 self.encryptButton.isEnabled = true
@@ -161,7 +166,10 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
             } else {
                 var encryptedText = encryptText(text: self.textToEncrypt.text!, publicKey: keySaved!)
                 let encryptionMethod = Encryption()
-                let nameSelected = self.publicKeyButton.currentTitle
+                var nameSelected = self.publicKeyButton.currentTitle
+                if nameSelected == "My encryption key"{
+                    nameSelected = userPublicKeyId
+                }
                 encryptedText = encryptionMethod.encryptText(self.textToEncrypt.text, withKeyName: nameSelected!)
                 if encryptedText != "error" && encryptedText != "" {
                     self.textEncrypted = encryptedText
@@ -266,7 +274,7 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     
     private func refreshData(){ // Refresh the selector
         //Delete old data
-        self.keyArray = ["Add a key"]
+        self.keyArray = ["Add a key", "My encryption key"]
         self.nameArray = []
         //We load the new one
         loadData()

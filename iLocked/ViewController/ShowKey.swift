@@ -24,6 +24,8 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     var shareButton = UIButton()
     var deleteButton = UIButton()
     var editButton = UIBarButtonItem()
+    var copyButton = UIButton(type: .custom)
+    var notificationView = UIButton()
     
     
     
@@ -197,6 +199,28 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
             self.editBarButtonItem.tintColor = .lightGray
         }
         
+        self.backgroundView.addSubview(self.copyButton)
+        self.copyButton.translatesAutoresizingMaskIntoConstraints = false
+        let config = UIImage.SymbolConfiguration(scale: UIImage.SymbolScale.large)
+        self.copyButton.setImage(UIImage(systemName: "doc.circle", withConfiguration: config), for: .normal)
+        self.copyButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.keyTitle.rightAnchor, multiplier: 1).isActive = true
+        self.copyButton.centerYAnchor.constraint(equalToSystemSpacingBelow: self.keyTitle.centerYAnchor, multiplier: 1).isActive = true
+        self.copyButton.clipsToBounds = true
+        self.copyButton.tintColor = .systemOrange
+        self.copyButton.addTarget(self, action: #selector(copyButtonSelected), for: .touchUpInside)
+       
+        self.backgroundView.addSubview(self.notificationView)
+        self.notificationView.translatesAutoresizingMaskIntoConstraints = false
+        self.notificationView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1).isActive = true
+        self.notificationView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.notificationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        self.notificationView.layer.borderWidth = 2
+        self.notificationView.layer.cornerRadius = 20
+        self.notificationView.backgroundColor = .white
+        self.notificationView.setTitleColor(.black, for: .normal)
+        self.notificationView.alpha = 0
+        self.notificationView.setTitle("Copied", for: .normal)
+        self.notificationView.addTarget(self, action: #selector(notificationViewSelected), for: .touchUpInside)
     }
     
     
@@ -283,6 +307,30 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.name = notificationData?["name"] as! String
         self.nameKey.text = (notificationData?["name"] as! String)
         self.key.text = (notificationData?["key"] as! String)
+    }
+    
+    @objc private func backToNormal(){ // reset the button
+        let animation = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7, animations: {
+            self.notificationView.alpha = 0
+       })
+       animation.startAnimation()
+       
+    }
+    @objc private func copyButtonSelected(sender: UIButton){
+        UIPasteboard.general.string = self.key.text
+        let animation = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.5, animations: {
+            self.notificationView.alpha = 1
+       })
+       animation.startAnimation()
+        perform(#selector(backToNormal), with: nil, afterDelay: 1.5)
+        
+        //self.copyButton.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
+        //self.copyButton.tintColor = .systemGreen
+        
+    }
+    
+    @objc private func notificationViewSelected(sender: UIButton){// If the notification is touched, we hide it
+        backToNormal()
     }
     
     //
