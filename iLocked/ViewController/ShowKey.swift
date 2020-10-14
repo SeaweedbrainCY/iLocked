@@ -26,6 +26,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     var editButton = UIBarButtonItem()
     var copyButton = UIButton(type: .custom)
     var notificationView = UIButton()
+    var date = UILabel()
     
     
     
@@ -221,6 +222,14 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.notificationView.alpha = 0
         self.notificationView.setTitle("Copied", for: .normal)
         self.notificationView.addTarget(self, action: #selector(notificationViewSelected), for: .touchUpInside)
+        
+        self.backgroundView.addSubview(self.date)
+        self.date.translatesAutoresizingMaskIntoConstraints = false
+        self.date.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1).isActive = true
+        self.date.topAnchor.constraint(equalToSystemSpacingBelow: self.shareButton.bottomAnchor, multiplier: 2).isActive = true
+        self.date.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+        self.date.textColor = .darkGray
+        self.encryptButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 12)
     }
     
     

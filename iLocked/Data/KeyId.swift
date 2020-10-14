@@ -52,6 +52,7 @@ class KeyId {
     //
     public func stockNewNameIdArray(_ initialArray: [String]) {
         let array = initialArray
+        print(array)
         //on convertie et enregistre
         let jsonArray = json(from: array as Any)
         print("json array = \(String(describing: jsonArray))")
