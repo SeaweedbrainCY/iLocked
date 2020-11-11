@@ -67,7 +67,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0 : return 3
-        case 1 : return 2
+        case 1 : return 4
         default : return 0
             
         }
@@ -108,6 +108,10 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             case 1 :
                 cell.textLabel?.text = "📱 Visit developer website"
                 cell.iconCell.image = UIImage(named: "Site")
+            case 2:
+                cell.textLabel?.text = "🔨 Browse source code"
+            case 3:
+                cell.textLabel?.text = "🔏 Source code licence"
             default : cell.textLabel?.text = "ERROR"
             }
         } else {
@@ -150,9 +154,12 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 })
                 alert.addAction(UIAlertAction(title: "Annuler", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
                 present(alert, animated: true)
-                
             case 1: // developer website
-                UIApplication.shared.open(URL(string: "https://nathanstchepinsky--nathans1.repl.co")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: "https://devnathan.github.io")!, options: [:], completionHandler: nil)
+            case 2:
+                UIApplication.shared.open(URL(string: "https://github.com/DevNathan/iLocked")!, options: [:], completionHandler: nil)
+            case 3:
+                UIApplication.shared.open(URL(string: "https://github.com/DevNathan/iLocked/blob/master/LICENSE")!, options: [:], completionHandler: nil)
             default : break
             }
         }
