@@ -3,7 +3,7 @@
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -587,7 +587,7 @@
                                 <color key="tintColor" systemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="pEy-Df-sd5" firstAttribute="leading" secondItem="I1c-Eh-l0H" secondAttribute="leading" constant="50" id="G3s-OH-KCk"/>
-                                    <constraint firstAttribute="trailing" secondItem="pEy-Df-sd5" secondAttribute="trailing" constant="50" id="IKk-Ba-G4n"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pEy-Df-sd5" secondAttribute="trailing" constant="20" symbolic="YES" id="IKk-Ba-G4n"/>
                                     <constraint firstAttribute="bottom" secondItem="pEy-Df-sd5" secondAttribute="bottom" id="ZI4-Qn-ba0"/>
                                     <constraint firstAttribute="height" constant="37" id="ntu-Qe-Pe4"/>
                                     <constraint firstItem="pEy-Df-sd5" firstAttribute="top" secondItem="I1c-Eh-l0H" secondAttribute="top" constant="4" id="vm7-J1-HsW"/>
@@ -600,15 +600,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" text="Decryption ..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aj7-eM-Sf2">
-                                <rect key="frame" x="0.0" y="90" width="375" height="493"/>
+                                <rect key="frame" x="0.0" y="90" width="375" height="477"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIb-8W-OFr">
-                                <rect key="frame" x="0.0" y="591" width="375" height="48"/>
-                                <string key="text">Please be sure that no one can read the text.                           We certificate that this message is very strongly protected and you are the only one who can decrypt it. </string>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIb-8W-OFr">
+                                <rect key="frame" x="0.0" y="575" width="375" height="64"/>
+                                <string key="text">Please make sure that no one can read this text. This message was encrypted with RSA-2048 which is a highly secure encryption. DO NOT copy the clear text, only keep the encrypted message.</string>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
@@ -862,7 +862,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="lMQ-dt-c2G"/>
         <segue reference="YdW-06-8TH"/>
-        <segue reference="zbJ-fx-8c1"/>
+        <segue reference="kJe-TR-tAr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>

@@ -253,6 +253,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             nameList = ["There is no key saved"]
             //On load les nouvelles
             selectModeIsActive = false
+            self.selectedCellList = []
             loadData()
             self.tableView.reloadData()
         } else { // want to select cell
