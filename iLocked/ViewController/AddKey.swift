@@ -240,38 +240,13 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
             self.publicKeyError.setTitle("Without key, no encryption 🤷‍♂️", for: .normal)
             self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
         } else {
-            let begin = "-----BEGIN RSA PUBLIC KEY-----"
-            let end = "-----END RSA PUBLIC KEY-----"
-            if self.publicKeyField.text.count > begin.count + end.count{
-                for i in 0 ..< begin.count {
-                    if begin[begin.index(begin.startIndex, offsetBy: i)] != self.publicKeyField.text![self.publicKeyField.text!.index(self.publicKeyField.text!.startIndex, offsetBy: i)]{
-                        testOk = false
-                        self.publicKeyError.setTitle("The syntax of your key is incorrect 🔏", for: .normal)
-                        self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
-                        print("Synthax doesn't conrrespond (char in the beginning)")
-                    }
-                }
-                if testOk {
-                    for i in 0 ..< end.count {
-                        if end[end.index(end.startIndex, offsetBy: i)] != self.publicKeyField.text![self.publicKeyField.text!.index(self.publicKeyField.text!.startIndex, offsetBy: self.publicKeyField.text!.count - end.count + i)]{
-                            print(self.publicKeyField.text![self.publicKeyField.text!.index(self.publicKeyField.text!.startIndex, offsetBy: self.publicKeyField.text!.count - end.count + i)])
-                            testOk = false
-                            self.publicKeyError.setTitle("The syntax of your key is incorrect 🔏", for: .normal)
-                            self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
-                            print("Synthax doesn't conrrespond (char at the end)")
-                        }
-                    }
-                }
-            } else{ // No enough caracter
-                testOk = false
-                self.publicKeyError.setTitle("The syntax of your key is incorrect 🔏", for: .normal)
+            // Check if the key is valid :
+            if !checkKeyValidity(self.publicKeyField.text!){
+                self.publicKeyError.setTitle("Key isn't valid 🚧", for: .normal)
                 self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
-                print("Synthax doesn't conrrespond (not enough char)")
             }
             
         }
-        
-        
         let nameList = keyArray.getKeyName()
         print("nameList in addKey = \(nameList)")
         if nameList.count != 0{
@@ -395,6 +370,28 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     //
     // Data func
     //
+    
+    /// Check if a key is valid, ie if there is -----BEGIN RSA PUBLIC KEY----- and -----END RSA PUBLIC KEY-----  in the key
+    /// - key : key to check
+    public func checkKeyValidity(_ key:String) -> Bool{
+        let begin = "-----BEGIN RSA PUBLIC KEY-----"
+        let end = "-----END RSA PUBLIC KEY-----"
+        if key.count >= begin.count + end.count{
+            for i in 0 ..< begin.count {
+                if begin[begin.index(begin.startIndex, offsetBy: i)] != key[key.index(self.publicKeyField.text!.startIndex, offsetBy: i)]{
+                    return false
+                }
+            }
+            for i in 0 ..< end.count {
+                    if end[end.index(end.startIndex, offsetBy: i)] != key[key.index(key.startIndex, offsetBy: key.count - end.count + i)]{
+                        return false
+                    }
+                }
+        } else { // Length doesn't correspond
+            return false
+        }
+        return true
+    }
     
     ///Save a key with an Id
     /// - id : String which correspond to an int

@@ -257,7 +257,6 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             loadData()
             self.tableView.reloadData()
         } else { // want to select cell
-            
             // We hide other button ...
             self.addKeyButton.image =  UIImage(systemName: "trash.circle.fill")
             self.addKeyButton.tintColor = .systemRed

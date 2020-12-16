@@ -24,9 +24,15 @@ class Encryption{
         }
         if let publicKey: String = KeychainWrapper.standard.string(forKey: publicKeyUsed) {
             do {
-                let clear = try ClearMessage(string: text, using: .utf8)
-                let encrypted = try clear.encrypted(with: PublicKey(base64Encoded: publicKey), padding: .PKCS1)
-                return encrypted.base64String
+                if publicKey.contains("-----BEGIN PUBLIC KEY-----") && publicKey.contains("-----END PUBLIC KEY-----"){
+                    var splited = publicKey.split(separator: "-----BEGIN PUBLIC KEY-----")
+                    
+                    let clear = try ClearMessage(string: text, using: .utf8)
+                    let encrypted = try clear.encrypted(with: PublicKey(base64Encoded: publicKey), padding: .PKCS1)
+                    return encrypted.base64String
+                } else {
+                    return "ERROR : Please verify that your public key is correct"
+                }
             } catch {
                 return "ERROR : Please verify that your public key is correct"
             }
