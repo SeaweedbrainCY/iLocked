@@ -34,4 +34,9 @@ extension String {
         }
         return nil
     }
+    
+    /// Enable str[3] to return the 3rd char of a string
+    subscript(offset: Int) -> Character {
+        self[index(startIndex, offsetBy: offset)]
+    }
 }

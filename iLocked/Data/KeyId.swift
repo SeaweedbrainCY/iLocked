@@ -9,6 +9,8 @@
 import Foundation
 
 class KeyId {
+    let  start_key_format = "-----BEGIN RSA PUBLIC KEY-----\n"
+    let end_key_format = "\n-----END RSA PUBLIC KEY-----"
     
     /// Return all key and id associated to saved keys
     /// - Data format = [keyName(String)]
@@ -83,6 +85,41 @@ class KeyId {
             sortedKeys.append(keys[value.firstIndex(of: sortedNames[i])!])
         }
         return [sortedKeys, sortedNames]
+    }
+    
+    /// Check if a key is valid, ie if there is -----BEGIN RSA PUBLIC KEY----- and -----END RSA PUBLIC KEY-----  in the key
+    /// - key : key to check
+    public func checkKeyValidity(_ key:String) -> Bool{
+        let begin = self.start_key_format
+        let end = self.end_key_format
+        if key.count >= begin.count + end.count{
+            for i in 0 ..< begin.count {
+                if begin[begin.index(begin.startIndex, offsetBy: i)] != key[key.index(key.startIndex, offsetBy: i)]{
+                    return false
+                }
+            }
+            for i in 0 ..< end.count {
+                    if end[end.index(end.startIndex, offsetBy: i)] != key[key.index(key.startIndex, offsetBy: key.count - end.count + i)]{
+                        return false
+                    }
+                }
+        } else { // Length doesn't correspond
+            return false
+        }
+        return true
+    }
+    
+    /// Extrcat keys from their wrap
+    public func extract_key(_ key: String) -> String?{
+        if self.checkKeyValidity(key){
+            var extracted = ""
+            for i in self.start_key_format.count ..< (key.count - self.end_key_format.count){
+                extracted += "\(key[i])"
+            }
+            return extracted
+        } else {
+            return nil
+        }
     }
 }
 

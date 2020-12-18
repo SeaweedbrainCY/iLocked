@@ -24,11 +24,10 @@ class Encryption{
         }
         if let publicKey: String = KeychainWrapper.standard.string(forKey: publicKeyUsed) {
             do {
-                if publicKey.contains("-----BEGIN PUBLIC KEY-----") && publicKey.contains("-----END PUBLIC KEY-----"){
-                    var splited = publicKey.split(separator: "-----BEGIN PUBLIC KEY-----")
-                    
+                if let extractedKey = KeyId().extract_key(publicKey){
+                    print("\n\nExtraced key = '\(extractedKey)'")
                     let clear = try ClearMessage(string: text, using: .utf8)
-                    let encrypted = try clear.encrypted(with: PublicKey(base64Encoded: publicKey), padding: .PKCS1)
+                    let encrypted = try clear.encrypted(with: PublicKey(base64Encoded: extractedKey), padding: .PKCS1)
                     return encrypted.base64String
                 } else {
                     return "ERROR : Please verify that your public key is correct"
@@ -40,4 +39,7 @@ class Encryption{
             return "ERROR : Impossible to get the public key associated"
         }
     }
+    
+    
+    
 }
