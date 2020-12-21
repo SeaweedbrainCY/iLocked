@@ -246,7 +246,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         if selectModeIsActive { // User already click on select button and now, want to cancel his action
             self.addKeyButton.image = UIImage(systemName: "plus")
             self.addKeyButton.tintColor = .systemOrange
-            sender.image =  UIImage(systemName: "ellipsis.circle")
+            sender.image =  UIImage(systemName: "rectangle.stack.badge.minus")
             sender.title = ""
             
             // ... and other cell become unselectable

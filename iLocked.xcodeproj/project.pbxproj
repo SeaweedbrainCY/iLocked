@@ -20,6 +20,7 @@
 		9058774C2401B1B5004F1894 /* SwiftyRSAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B692401AF5A00EFE9BD /* SwiftyRSAError.swift */; };
 		9058774D2401B1D4004F1894 /* SwiftyRSA+ObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B6A2401AF5A00EFE9BD /* SwiftyRSA+ObjC.swift */; };
 		9058774E2401B227004F1894 /* ClearMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5E2401AF5A00EFE9BD /* ClearMessage.swift */; };
+		906207D125914ECE00E98F90 /* Revoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906207D025914ECE00E98F90 /* Revoke.swift */; };
 		90B886FC23F7F31A00035C82 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B886FB23F7F31A00035C82 /* Settings.swift */; };
 		90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */; };
 		90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */; };
@@ -88,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		9048E65C23FB017800098C73 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		906207D025914ECE00E98F90 /* Revoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revoke.swift; sourceTree = "<group>"; };
 		9074A09525373C1C00983FBC /* iLocked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLocked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9074A09625373C1C00983FBC /* iLockedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLockedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9074A09725373C1C00983FBC /* iLockedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLockedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,6 +322,7 @@
 				D820B849235E359D006CEB38 /* DecryptedResult.swift */,
 				D820B84D235E5EB1006CEB38 /* LockedView.swift */,
 				90B886FB23F7F31A00035C82 /* Settings.swift */,
+				906207D025914ECE00E98F90 /* Revoke.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */,
 				9058774E2401B227004F1894 /* ClearMessage.swift in Sources */,
 				D8A64B4A2353BCA0000613F3 /* UIButton.swift in Sources */,
+				906207D125914ECE00E98F90 /* Revoke.swift in Sources */,
 				D8A64B482353BCA0000613F3 /* AttributedText.swift in Sources */,
 				9058774C2401B1B5004F1894 /* SwiftyRSAError.swift in Sources */,
 				9058774B2401B1B2004F1894 /* SwiftyRSA.swift in Sources */,

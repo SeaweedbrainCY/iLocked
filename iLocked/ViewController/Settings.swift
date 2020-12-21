@@ -139,7 +139,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             case 1 : // lock app
                 performSegue(withIdentifier: "lockApp", sender: self)
             case 2 : // revoke keys
-                revokeKeys()
+                self.performSegue(withIdentifier: "showRevocationView", sender: self)
             default : break
             }
         } else if indexPath.section == 1  {
@@ -196,21 +196,6 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         }
     }
     
-    //
-    // Actions
-    //
-    
-    private func revokeKeys(){
-        let alert = UIAlertController(title: "CRITICAL ACTION", message: "ATTENTION : Revoke your keys means delete them. NO ONE will NEVER be able to retrieve these keys and all messages encrypted with this public key will be lost. \n\n\nRevocation can not be canceled", preferredStyle: .alert)
-
-        alert.addAction(UIAlertAction(title: "Revoke", style: .destructive){ _ in
-            KeychainWrapper.standard.removeObject(forKey: userPublicKeyId)
-            self.performSegue(withIdentifier: "lockApp", sender: self)
-        })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-
-        self.present(alert, animated: true)
-    }
     
     //
     // Obj C functions

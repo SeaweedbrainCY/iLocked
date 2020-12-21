@@ -104,7 +104,7 @@
                     <navigationItem key="navigationItem" title="Encryption keys list" id="Lg8-Qp-Jbh">
                         <barButtonItem key="backBarButtonItem" title=" " id="Ezs-OQ-DzN"/>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="rectangle.stack.badge.minus.fill" catalog="system" id="dbh-Z3-bvU">
+                            <barButtonItem title="Item" image="rectangle.stack.badge.minus" catalog="system" id="dbh-Z3-bvU">
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="selectCellButtonSelectedWithSender:" destination="Bw4-Uw-PF4" id="MN1-gE-dBg"/>
@@ -223,7 +223,7 @@
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="storage" id="sgb-fw-ESs">
+                            <barButtonItem image="key.icloud" catalog="system" id="sgb-fw-ESs">
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <segue destination="Bw4-Uw-PF4" kind="show" identifier="showList" id="spH-7f-JcM"/>
@@ -402,6 +402,7 @@
                         <outlet property="tableView" destination="IFY-b8-gcj" id="Q9R-VL-HOk"/>
                         <segue destination="SgU-1R-htW" kind="presentation" identifier="viewLog" id="uAE-Q4-tot"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" id="Wbe-do-6Cm"/>
+                        <segue destination="gqQ-4o-g0B" kind="presentation" identifier="showRevocationView" id="xEG-6k-gOt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFH-NZ-OdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -684,6 +685,114 @@
             </objects>
             <point key="canvasLocation" x="1078" y="-711"/>
         </scene>
+        <!--Revoke-->
+        <scene sceneID="yyf-vt-huE">
+            <objects>
+                <viewController id="gqQ-4o-g0B" customClass="Revoke" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRa-fW-v7X">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exclamationmark.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fti-EW-lEB">
+                                <rect key="frame" x="102.5" y="56" width="170" height="128"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="129" id="3Sj-6K-quY"/>
+                                    <constraint firstAttribute="width" constant="170" id="4bn-NZ-e7o"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OMw-F2-QBV">
+                                <rect key="frame" x="320" y="10" width="39" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="E7Y-8g-KTs"/>
+                                    <constraint firstAttribute="height" constant="39" id="YAa-8A-J1C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="multiply.circle" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeViewWithSender:" destination="gqQ-4o-g0B" eventType="touchUpInside" id="FaI-Oa-GCX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WARNING" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZW-eg-dI3">
+                                <rect key="frame" x="122" y="204" width="131" height="31"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="26"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJR-tV-Pjb">
+                                <rect key="frame" x="10" y="262" width="355" height="49"/>
+                                <string key="text">You will revoke your keys. They will be permanently destroyed, and there will be no way to get them back. This includes your private key.</string>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
+                                <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Any and all encryption done with your current RSA public key can never be decrypted again and will be permanently lost." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="arR-U4-Jcr">
+                                <rect key="frame" x="10" y="329" width="355" height="83.5"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
+                                <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u2S-FE-xH9">
+                                <rect key="frame" x="101" y="477" width="173" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
+                                <state key="normal" title="CANCEL">
+                                    <color key="titleColor" systemColor="systemGreenColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeViewWithSender:" destination="gqQ-4o-g0B" eventType="touchUpInside" id="SWP-tt-KTa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-Ym-Cua">
+                                <rect key="frame" x="101" y="554" width="173" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
+                                <state key="normal" title="REVOKE (5s)">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="revokeKeysWithSender:" destination="gqQ-4o-g0B" eventType="touchUpInside" id="fRh-Qz-U2k"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="y00-j6-L18"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
+                        <constraints>
+                            <constraint firstItem="eZW-eg-dI3" firstAttribute="leading" secondItem="y00-j6-L18" secondAttribute="leading" constant="122" id="0o4-03-s46"/>
+                            <constraint firstItem="arR-U4-Jcr" firstAttribute="top" secondItem="XJR-tV-Pjb" secondAttribute="bottom" constant="18" id="1Rv-IU-0xM"/>
+                            <constraint firstItem="OMw-F2-QBV" firstAttribute="top" secondItem="y00-j6-L18" secondAttribute="top" constant="10" id="4ua-8z-NjJ"/>
+                            <constraint firstItem="fti-EW-lEB" firstAttribute="centerX" secondItem="dRa-fW-v7X" secondAttribute="centerX" id="9sN-gZ-fLA"/>
+                            <constraint firstItem="y00-j6-L18" firstAttribute="trailing" secondItem="sYu-Ym-Cua" secondAttribute="trailing" constant="101" id="EN4-wg-aw0"/>
+                            <constraint firstItem="eZW-eg-dI3" firstAttribute="top" secondItem="fti-EW-lEB" secondAttribute="bottom" constant="19.5" id="MZ2-H3-8oL"/>
+                            <constraint firstAttribute="trailing" secondItem="XJR-tV-Pjb" secondAttribute="trailing" constant="10" id="OkK-9t-Ylo"/>
+                            <constraint firstItem="y00-j6-L18" firstAttribute="trailing" secondItem="u2S-FE-xH9" secondAttribute="trailing" constant="101" id="ROx-uf-1nT"/>
+                            <constraint firstItem="y00-j6-L18" firstAttribute="trailing" secondItem="eZW-eg-dI3" secondAttribute="trailing" constant="122" id="WpM-G0-QZs"/>
+                            <constraint firstItem="XJR-tV-Pjb" firstAttribute="leading" secondItem="dRa-fW-v7X" secondAttribute="leading" constant="10" id="YxS-5G-VHi"/>
+                            <constraint firstItem="sYu-Ym-Cua" firstAttribute="top" secondItem="u2S-FE-xH9" secondAttribute="bottom" constant="43" id="bi0-A5-4tJ"/>
+                            <constraint firstItem="arR-U4-Jcr" firstAttribute="leading" secondItem="dRa-fW-v7X" secondAttribute="leading" constant="10" id="fHH-0F-1oh"/>
+                            <constraint firstItem="fti-EW-lEB" firstAttribute="top" secondItem="y00-j6-L18" secondAttribute="top" constant="55.5" id="fNq-n0-dfQ"/>
+                            <constraint firstItem="u2S-FE-xH9" firstAttribute="leading" secondItem="y00-j6-L18" secondAttribute="leading" constant="101" id="go6-WE-jpV"/>
+                            <constraint firstItem="u2S-FE-xH9" firstAttribute="top" secondItem="arR-U4-Jcr" secondAttribute="bottom" constant="64.5" id="mlm-Yp-9gI"/>
+                            <constraint firstItem="XJR-tV-Pjb" firstAttribute="top" secondItem="eZW-eg-dI3" secondAttribute="bottom" constant="27" id="nJL-5B-VHp"/>
+                            <constraint firstItem="sYu-Ym-Cua" firstAttribute="leading" secondItem="y00-j6-L18" secondAttribute="leading" constant="101" id="oSi-fJ-ayn"/>
+                            <constraint firstAttribute="trailing" secondItem="arR-U4-Jcr" secondAttribute="trailing" constant="10" id="pY3-Gw-6r0"/>
+                            <constraint firstItem="y00-j6-L18" firstAttribute="trailing" secondItem="OMw-F2-QBV" secondAttribute="trailing" constant="16" id="vQd-lM-fH0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="u2S-FE-xH9" id="10D-6m-nxC"/>
+                        <outlet property="closeButton" destination="OMw-F2-QBV" id="Za1-T6-I4g"/>
+                        <outlet property="revokeButton" destination="sYu-Ym-Cua" id="Ncn-Ur-k7Y"/>
+                        <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="Qai-0Z-qez"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ug5-dY-Edp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="84" y="992.65367316341838"/>
+        </scene>
         <!--Decrypt-->
         <scene sceneID="zA2-3X-yJh">
             <objects>
@@ -728,11 +837,11 @@
             <objects>
                 <viewController id="H5r-il-Mel" customClass="ShowKey" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="9wu-Ia-hPJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMD-1q-5gB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ug-FU-uVE">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1054"/>
@@ -860,10 +969,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ntu-w4-IZM"/>
         <segue reference="0gR-Ua-Nux"/>
         <segue reference="YdW-06-8TH"/>
-        <segue reference="dDN-fY-neD"/>
+        <segue reference="Qai-0Z-qez"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
@@ -871,19 +979,21 @@
         <image name="coffre" width="345" height="345"/>
         <image name="doc.circle" catalog="system" width="128" height="121"/>
         <image name="empreinte" width="24" height="24"/>
+        <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="info.circle.fill" catalog="system" width="128" height="121"/>
         <image name="key" width="345" height="345"/>
+        <image name="key.icloud" catalog="system" width="128" height="88"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
         <image name="locked" width="24" height="24"/>
         <image name="lockedBackground" width="1280" height="539"/>
+        <image name="multiply.circle" catalog="system" width="128" height="121"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="rectangle.stack.badge.minus.fill" catalog="system" width="128" height="117"/>
+        <image name="rectangle.stack.badge.minus" catalog="system" width="128" height="122"/>
         <image name="square.and.arrow.down.on.square.fill" catalog="system" width="122" height="128"/>
-        <image name="storage" width="24" height="24"/>
         <image name="trash" catalog="system" width="121" height="128"/>
         <image name="unlocked" width="24" height="24"/>
         <image name="view_chargement" width="489" height="489"/>
@@ -899,11 +1009,20 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="viewFlipsideBackgroundColor">
             <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
