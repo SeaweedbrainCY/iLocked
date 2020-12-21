@@ -39,7 +39,4 @@ class Encryption{
             return "ERROR : Impossible to get the public key associated"
         }
     }
-    
-    
-    
 }

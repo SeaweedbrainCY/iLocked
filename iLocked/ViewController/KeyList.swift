@@ -249,7 +249,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             sender.image =  UIImage(systemName: "ellipsis.circle")
             sender.title = ""
             
-            // ... and other well unselectable
+            // ... and other cell become unselectable
             nameList = ["There is no key saved"]
             //On load les nouvelles
             selectModeIsActive = false
@@ -274,17 +274,12 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBAction public func addKeySelected(sender: UIBarButtonItem){
         if selectModeIsActive {// button is a trash button
-            sender.isEnabled = false
-            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (_) in
-                sender.isEnabled = true
-            })
-            let A2 = UIAlertAction(title: "Destroy \(self.selectedCellList.count) key(s)", style: UIAlertAction.Style.destructive, handler: { (_) in
-                self.destroyKey()
-            })
-            alert.addAction(A1)
-            alert.addAction(A2)
-            self.present(alert, animated: true, completion: nil)
+            if selectedCellList.count == 0{
+                alert("Please select some keys", message: "", quitMessage: "Got it !")
+            } else{
+                self.deleteKeys()
+            }
+            
         } else {
             self.performSegue(withIdentifier: "addKey", sender: self)
         }
@@ -304,12 +299,12 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     ///Called by deleteOptionButton when user wants to delete selected key(s)
-    @objc private func deleteKeys(){
+    private func deleteKeys(){
         var message = "Destroy \(self.selectedCellList.count) key"
         if self.selectedCellList.count > 1 {
             message += "s"
         }
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "Destroy selected keys", message: "WARNING : You will not be able to undo this action", preferredStyle: .actionSheet)
         let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler:  {(_) in})
         let A2 = UIAlertAction(title: message, style: UIAlertAction.Style.destructive, handler: { (_) in
             self.destroyKey()
