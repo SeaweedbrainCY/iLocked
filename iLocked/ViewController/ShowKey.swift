@@ -166,7 +166,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.encryptButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.shareButton.rightAnchor, multiplier: 4).isActive = true
         self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
         if #available(iOS 13.0, *) {
-            self.encryptButton.setImage(UIImage(systemName: "paperplane.fill") , for: .normal)
+            self.encryptButton.setImage(UIImage(systemName: "lock.doc") , for: .normal)
         } else {
             self.encryptButton.setImage(UIImage(named: "addKey"), for: .normal)
         }

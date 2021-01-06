@@ -86,7 +86,7 @@
             <objects>
                 <viewController title="Public Key List" modalPresentationStyle="formSheet" id="Bw4-Uw-PF4" customClass="KeyList" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zf9-NJ-i4P">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="insetGrouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Edf-3p-uZG">
@@ -105,13 +105,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Ezs-OQ-DzN"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="rectangle.stack.badge.minus" catalog="system" id="dbh-Z3-bvU">
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <connections>
                                     <action selector="selectCellButtonSelectedWithSender:" destination="Bw4-Uw-PF4" id="MN1-gE-dBg"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="plus" catalog="system" id="Wx0-92-Gn4">
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <connections>
                                     <action selector="addKeySelectedWithSender:" destination="Bw4-Uw-PF4" id="gab-j8-8Wt"/>
                                 </connections>
@@ -129,7 +129,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ShR-ce-3eb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="-711"/>
+            <point key="canvasLocation" x="2012" y="1892"/>
         </scene>
         <!--  -->
         <scene sceneID="tne-QT-ifu">
@@ -216,22 +216,16 @@
                     </view>
                     <navigationItem key="navigationItem" title="  " id="eGS-Iy-0AG">
                         <barButtonItem key="backBarButtonItem" title=" " id="IYN-4d-LIH"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="lock.fill" catalog="system" id="fFF-Oo-VMX">
-                            <color key="tintColor" systemColor="systemOrangeColor"/>
-                            <connections>
-                                <action selector="lockAppSelectedWithSender:" destination="BYZ-38-t0r" id="Hrm-Vs-4HF"/>
-                            </connections>
-                        </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem image="key.icloud" catalog="system" id="sgb-fw-ESs">
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <connections>
-                                    <segue destination="Bw4-Uw-PF4" kind="show" identifier="showList" id="spH-7f-JcM"/>
-                                </connections>
-                            </barButtonItem>
                             <barButtonItem enabled="NO" title=" " id="TCW-I1-elO">
                                 <connections>
                                     <action selector="shutDownKeyboardWithSender:" destination="BYZ-38-t0r" id="Wyz-M0-jyi"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="lock.fill" catalog="system" id="fFF-Oo-VMX">
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <connections>
+                                    <action selector="lockAppSelectedWithSender:" destination="BYZ-38-t0r" id="Hrm-Vs-4HF"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -244,7 +238,6 @@
                         <outlet property="lockAppButton" destination="fFF-Oo-VMX" id="dtr-mY-P7z"/>
                         <outlet property="publicKeyButton" destination="qnH-r1-Y92" id="xBF-ce-gOz"/>
                         <outlet property="senderView" destination="y5f-SM-Sl0" id="t2k-Kn-Bxf"/>
-                        <outlet property="showKeyList" destination="sgb-fw-ESs" id="TqA-b2-X3n"/>
                         <outlet property="shutDownKeyboard" destination="TCW-I1-elO" id="Kkg-RJ-nnO"/>
                         <outlet property="textToEncrypt" destination="ac5-qZ-Cvq" id="CLN-lt-T5D"/>
                         <segue destination="tOU-fV-Ibc" kind="presentation" identifier="addKey" id="lMQ-dt-c2G"/>
@@ -423,6 +416,7 @@
                     <connections>
                         <segue destination="hHY-cd-32x" kind="relationship" relationship="viewControllers" id="71P-2m-G7t"/>
                         <segue destination="nC8-E7-j8A" kind="relationship" relationship="viewControllers" id="LWu-AF-UpF"/>
+                        <segue destination="Okw-ay-HrS" kind="relationship" relationship="viewControllers" id="43S-Bo-H0g"/>
                         <segue destination="RaQ-Vb-8jQ" kind="relationship" relationship="viewControllers" id="2Kd-xP-1cO"/>
                     </connections>
                 </tabBarController>
@@ -538,7 +532,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="Uiz-bs-MhO">
-                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <color key="tintColor" systemColor="linkColor"/>
                             <connections>
                                 <action selector="closeKeyboardWithSender:" destination="N9l-yk-OqT" id="G5c-VO-LLP"/>
                             </connections>
@@ -659,6 +653,23 @@
                 <exit id="p35-8A-eL4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2944.8000000000002" y="980.95952023988013"/>
+        </scene>
+        <!--Keys-->
+        <scene sceneID="Xmr-xK-Ydi">
+            <objects>
+                <navigationController id="Okw-ay-HrS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Keys" image="key.icloud" catalog="system" id="jc1-Ae-O53"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sNR-5C-iQr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Bw4-Uw-PF4" kind="relationship" relationship="rootViewController" id="Kmp-5e-frQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yqe-YJ-i9e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1078" y="1893"/>
         </scene>
         <!--Encrypt-->
         <scene sceneID="DPh-Nb-BpX">
@@ -841,7 +852,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMD-1q-5gB">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Ug-FU-uVE">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1054"/>
@@ -873,20 +884,20 @@
                     </view>
                     <navigationItem key="navigationItem" title=" " id="KDJ-5D-bZe">
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" image="arrowshape.turn.up.right" catalog="system" id="VFf-9K-JYb">
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                            <barButtonItem image="arrowshape.turn.up.right" catalog="system" id="VFf-9K-JYb">
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <connections>
                                     <action selector="shareBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="oqx-FL-iT6"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="trash" catalog="system" id="2Ie-P9-434">
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <connections>
                                     <action selector="trashBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="15X-Pe-31a"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="pencil.and.outline" catalog="system" id="14A-bk-UTI">
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <color key="tintColor" systemColor="linkColor"/>
                                 <connections>
                                     <action selector="editBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="Q8Y-dT-QNU"/>
                                 </connections>
@@ -907,7 +918,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80f-07-qES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3929" y="-711"/>
+            <point key="canvasLocation" x="2838" y="1891"/>
         </scene>
         <!-- -->
         <scene sceneID="nc4-Bc-6PQ">
@@ -949,9 +960,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title=" " id="Ka6-NT-ubG">
-                        <barButtonItem key="rightBarButtonItem" title="arrowshape.turn.up.right" id="oYc-Yu-lKD">
-                            <imageReference key="image" image="doc.circle" catalog="system" symbolScale="default"/>
-                            <color key="tintColor" systemColor="systemOrangeColor"/>
+                        <barButtonItem key="rightBarButtonItem" id="oYc-Yu-lKD">
+                            <color key="tintColor" systemColor="linkColor"/>
                             <connections>
                                 <action selector="shareButtonSelectedWithSender:" destination="lni-hq-xo9" id="Ma0-UX-Xof"/>
                             </connections>
@@ -971,13 +981,12 @@
     <inferredMetricsTieBreakers>
         <segue reference="0gR-Ua-Nux"/>
         <segue reference="YdW-06-8TH"/>
-        <segue reference="Qai-0Z-qez"/>
+        <segue reference="zbJ-fx-8c1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="coffre" width="345" height="345"/>
-        <image name="doc.circle" catalog="system" width="128" height="121"/>
         <image name="empreinte" width="24" height="24"/>
         <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
@@ -1005,6 +1014,9 @@
         </systemColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

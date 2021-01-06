@@ -21,6 +21,8 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
     var encryptedText = UITextView()
     var shareButton = UIButton()
     var infoLabel = UILabel()
+    var copyButton = UIButton()
+    var notificationView = UIButton()
     
     var clearTextTransmitted = ""
     var encryptedTextTransmitted = ""
@@ -71,7 +73,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.encryptedText.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
         self.encryptedText.topAnchor.constraint(equalToSystemSpacingBelow: self.titleLabel.bottomAnchor, multiplier: 4).isActive = true
         self.encryptedText.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 40).isActive = true
-        self.encryptedText.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        self.encryptedText.heightAnchor.constraint(equalToConstant: 250).isActive = true
         self.encryptedText.isEditable = false
         self.encryptedText.rondBorder()
         self.encryptedText.layer.borderWidth = 2
@@ -80,22 +82,34 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.encryptedText.font = UIFont(name: "American Typewriter", size: 19)
         self.encryptedText.text = self.encryptedTextTransmitted
         
+        
         self.background.addSubview(self.shareButton)
         self.shareButton.translatesAutoresizingMaskIntoConstraints = false
-        self.shareButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.encryptedText.bottomAnchor, multiplier: 4).isActive = true
-        self.shareButton.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 40).isActive = true
-        self.shareButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
-        if #available(iOS 13.0, *) {
-            self.shareButton.setImage(UIImage(systemName: "square.and.arrow.up") , for: .normal)
-        }
+        self.shareButton.widthAnchor.constraint(equalToConstant: self.view.frame.width*0.4).isActive = true
+        self.shareButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.shareButton.rightAnchor.constraint(equalTo: self.view.centerXAnchor, constant: -4).isActive=true
+        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.encryptedText.bottomAnchor, multiplier: 5).isActive = true
+        self.shareButton.setImage(UIImage(systemName: "arrowshape.turn.up.right") , for: .normal)
         self.shareButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
         self.shareButton.setTitleColor(.white, for: .normal)
-        self.shareButton.setTitle("Share the encrypted text", for: .normal)
         self.shareButton.tintColor = .systemOrange
         self.shareButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         self.shareButton.rondBorder()
-        self.shareButton.addTarget(self, action: #selector(shareMainButtonSelected), for: .touchUpInside)
+        self.shareButton.addTarget(self, action: #selector(self.shareMainButtonSelected), for: .touchUpInside)
+        
+        self.view.addSubview(self.copyButton)
+        self.copyButton.translatesAutoresizingMaskIntoConstraints = false
+        self.copyButton.widthAnchor.constraint(equalToConstant: self.view.frame.width*0.4).isActive = true
+        self.copyButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.copyButton.leftAnchor.constraint(equalTo: self.view.centerXAnchor, constant: 4).isActive=true
+        self.copyButton.topAnchor.constraint(equalToSystemSpacingBelow: self.encryptedText.bottomAnchor, multiplier: 5).isActive = true
+        self.copyButton.setImage(UIImage(systemName: "doc.on.doc") , for: .normal)
+        self.copyButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
+        self.copyButton.setTitleColor(.white, for: .normal)
+        self.copyButton.tintColor = .systemOrange
+        self.copyButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
+        self.copyButton.rondBorder()
+        self.copyButton.addTarget(self, action: #selector(self.copyButtonSelected), for: .touchUpInside)
         
         self.background.addSubview(self.infoLabel)
         self.infoLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -108,7 +122,18 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.infoLabel.textColor = .lightGray
         self.infoLabel.text = "Your text is now encrypted with your friend's public key. Share this new text with him. Only his own PRIVATE key will be able to decrypt this text. Remember : to encrypt a message for someone, please use his personnal public key ! Not yours....."
         
-        
+        self.background.addSubview(self.notificationView)
+        self.notificationView.translatesAutoresizingMaskIntoConstraints = false
+        self.notificationView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1).isActive = true
+        self.notificationView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.notificationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        self.notificationView.layer.borderWidth = 2
+        self.notificationView.layer.cornerRadius = 20
+        self.notificationView.backgroundColor = .white
+        self.notificationView.setTitleColor(.black, for: .normal)
+        self.notificationView.alpha = 0
+        self.notificationView.setTitle("Copied", for: .normal)
+        self.notificationView.addTarget(self, action: #selector(notificationViewSelected), for: .touchUpInside)
     }
 
     //
@@ -132,6 +157,27 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
     @objc private func shareMainButtonSelected(sender: UIButton){
         let activityViewController = UIActivityViewController(activityItems: ["\(self.encryptedText.text!)" as NSString], applicationActivities: nil)
         present(activityViewController, animated: true, completion: {})
+    }
+    
+    @objc private func copyButtonSelected(){
+        UIPasteboard.general.string = self.encryptedText.text
+        let animation = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 0.5, animations: {
+            self.notificationView.alpha = 1
+       })
+       animation.startAnimation()
+        perform(#selector(backToNormal), with: nil, afterDelay: 1.5)
+    }
+    
+    @objc private func backToNormal(){ // reset the button
+        let animation = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7, animations: {
+            self.notificationView.alpha = 0
+       })
+       animation.startAnimation()
+       
+    }
+    
+    @objc private func notificationViewSelected(sender: UIButton){// If the notification is touched, we hide it
+        backToNormal()
     }
     
     //
