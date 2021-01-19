@@ -1,5 +1,5 @@
 # iLocked
-![Codacy Security Scan](https://github.com/DevNathan/iLocked/workflows/Codacy%20Security%20Scan/badge.svg?branch=master)
+![Codacy Security Scan](https://github.com/DevNathan/iLocked/workflows/Codacy%20Security%20Scan/badge.svg?branch=master)![Swift](https://github.com/DevNathan/iLocked/workflows/Swift/badge.svg)
 ### Encryption
 The purpose is to encrypt a message in the application with a bob's public key.
 
