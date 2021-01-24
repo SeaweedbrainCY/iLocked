@@ -105,13 +105,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="Ezs-OQ-DzN"/>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" image="rectangle.stack.badge.minus" catalog="system" id="dbh-Z3-bvU">
-                                <color key="tintColor" systemColor="linkColor"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="selectCellButtonSelectedWithSender:" destination="Bw4-Uw-PF4" id="MN1-gE-dBg"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="plus" catalog="system" id="Wx0-92-Gn4">
-                                <color key="tintColor" systemColor="linkColor"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="addKeySelectedWithSender:" destination="Bw4-Uw-PF4" id="gab-j8-8Wt"/>
                                 </connections>
@@ -131,7 +131,7 @@
             </objects>
             <point key="canvasLocation" x="2012" y="1892"/>
         </scene>
-        <!--  -->
+        <!--Encyption-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="Encrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
@@ -214,8 +214,9 @@
                             <constraint firstItem="ac5-qZ-Cvq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="ynz-r9-fac"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="  " id="eGS-Iy-0AG">
+                    <navigationItem key="navigationItem" title="Encyption" id="eGS-Iy-0AG">
                         <barButtonItem key="backBarButtonItem" title=" " id="IYN-4d-LIH"/>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="plus.message" catalog="system" id="8k4-Pj-E0e"/>
                         <rightBarButtonItems>
                             <barButtonItem enabled="NO" title=" " id="TCW-I1-elO">
                                 <connections>
@@ -223,7 +224,7 @@
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="lock.fill" catalog="system" id="fFF-Oo-VMX">
-                                <color key="tintColor" systemColor="linkColor"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="lockAppSelectedWithSender:" destination="BYZ-38-t0r" id="Hrm-Vs-4HF"/>
                                 </connections>
@@ -390,7 +391,9 @@
                             <constraint firstItem="IFY-b8-gcj" firstAttribute="trailing" secondItem="E21-Kg-Ohn" secondAttribute="trailing" id="yPs-uz-ZPK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="1K8-zM-xKR"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="1K8-zM-xKR">
+                        <color key="badgeColor" systemColor="systemOrangeColor"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="tableView" destination="IFY-b8-gcj" id="Q9R-VL-HOk"/>
                         <segue destination="SgU-1R-htW" kind="presentation" identifier="viewLog" id="uAE-Q4-tot"/>
@@ -412,6 +415,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemOrangeColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="hHY-cd-32x" kind="relationship" relationship="viewControllers" id="71P-2m-G7t"/>
@@ -424,7 +428,7 @@
             </objects>
             <point key="canvasLocation" x="1078" y="125"/>
         </scene>
-        <!--Decrypt-->
+        <!--Decryption-->
         <scene sceneID="Xr1-2R-EiG">
             <objects>
                 <viewController id="N9l-yk-OqT" customClass="Decrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
@@ -525,14 +529,14 @@
                             <constraint firstItem="i6Q-Kn-bPO" firstAttribute="trailing" secondItem="al6-4D-sBN" secondAttribute="trailing" constant="50" id="y6W-mT-aLK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CZT-Kn-kla">
+                    <navigationItem key="navigationItem" title="Decryption" id="CZT-Kn-kla">
                         <barButtonItem key="leftBarButtonItem" title="  " id="WON-mG-2rD">
                             <connections>
                                 <action selector="closeKeyboardWithSender:" destination="N9l-yk-OqT" id="euw-gm-02j"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="Uiz-bs-MhO">
-                            <color key="tintColor" systemColor="linkColor"/>
+                            <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
                                 <action selector="closeKeyboardWithSender:" destination="N9l-yk-OqT" id="G5c-VO-LLP"/>
                             </connections>
@@ -885,19 +889,19 @@
                     <navigationItem key="navigationItem" title=" " id="KDJ-5D-bZe">
                         <rightBarButtonItems>
                             <barButtonItem image="arrowshape.turn.up.right" catalog="system" id="VFf-9K-JYb">
-                                <color key="tintColor" systemColor="linkColor"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="shareBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="oqx-FL-iT6"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="trash" catalog="system" id="2Ie-P9-434">
-                                <color key="tintColor" systemColor="linkColor"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="trashBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="15X-Pe-31a"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="pencil.and.outline" catalog="system" id="14A-bk-UTI">
-                                <color key="tintColor" systemColor="linkColor"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
                                     <action selector="editBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="Q8Y-dT-QNU"/>
                                 </connections>
@@ -979,9 +983,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="0gR-Ua-Nux"/>
+        <segue reference="lMQ-dt-c2G"/>
         <segue reference="YdW-06-8TH"/>
-        <segue reference="zbJ-fx-8c1"/>
+        <segue reference="1Wa-3S-HsL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
@@ -1001,6 +1005,7 @@
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="plus.message" catalog="system" width="128" height="113"/>
         <image name="rectangle.stack.badge.minus" catalog="system" width="128" height="122"/>
         <image name="square.and.arrow.down.on.square.fill" catalog="system" width="122" height="128"/>
         <image name="trash" catalog="system" width="121" height="128"/>

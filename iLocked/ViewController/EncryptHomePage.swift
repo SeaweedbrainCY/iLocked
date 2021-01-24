@@ -24,7 +24,6 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     @IBOutlet weak var littleHelpLabel : UILabel!
     @IBOutlet weak var shutDownKeyboard: UIBarButtonItem!
     @IBOutlet weak var lockAppButton: UIBarButtonItem!
-    @IBOutlet weak var showKeyList : UIBarButtonItem!
     
     var keyArray: [String] = ["Add a key", "My encryption key"] // list of all names displayed on UIPIckerView
     var heightPicker: NSLayoutConstraint?
@@ -73,10 +72,6 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
             self.publicKeyButton.setTitle("Use \(self.keyNameTransmitted)'s key", for: .normal)
             self.titleButtonClean = self.keyNameTransmitted
             self.selectKey(sender: self.publicKeyButton) // simulation of user's action
-        }
-        
-        if self.keyNameTransmitted != ""{ // We are encrypting directly with a key, the view is show with 'present modally' so the user has to dismiss this view to return to the real home page
-            self.showKeyList.isEnabled = false
         }
     }
     
