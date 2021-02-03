@@ -258,17 +258,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_chargement" translatesAutoresizingMaskIntoConstraints="NO" id="gq8-cG-f3O">
-                                <rect key="frame" x="104" y="226" width="167" height="195"/>
+                                <rect key="frame" x="104" y="236" width="167" height="195"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="167" id="Szc-7d-dRN"/>
                                     <constraint firstAttribute="height" constant="195" id="u11-Gh-5cd"/>
                                 </constraints>
                             </imageView>
                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lockedBackground" translatesAutoresizingMaskIntoConstraints="NO" id="pjE-vj-6J4">
-                                <rect key="frame" x="-42" y="-74" width="636" height="795"/>
+                                <rect key="frame" x="-42" y="-64" width="636" height="795"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version bêta" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Atc-ZZ-hf6">
-                                <rect key="frame" x="131" y="624.5" width="113.5" height="22.5"/>
+                                <rect key="frame" x="131" y="644.5" width="113.5" height="22.5"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="18"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -288,7 +288,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMK-F8-837">
-                                <rect key="frame" x="10" y="500" width="355" height="24"/>
+                                <rect key="frame" x="10" y="510" width="355" height="24"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="  Unlock" image="empreinte">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -396,7 +396,7 @@
                     <connections>
                         <outlet property="tableView" destination="IFY-b8-gcj" id="Q9R-VL-HOk"/>
                         <segue destination="SgU-1R-htW" kind="presentation" identifier="viewLog" id="uAE-Q4-tot"/>
-                        <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" id="Wbe-do-6Cm"/>
+                        <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="Wbe-do-6Cm"/>
                         <segue destination="gqQ-4o-g0B" kind="presentation" identifier="showRevocationView" id="xEG-6k-gOt"/>
                     </connections>
                 </viewController>
