@@ -20,7 +20,7 @@ class SettingsData {
             return ["Error" : "Impossible to get settings' data"]
         }
         if settingData != nil {
-            if let dictionnary : [String: String] = settingData!.JsonToDictionary() {
+            if let dictionnary : [String: String] = settingData!.jsonToDictionary() {
                 return dictionnary
             } else {
                 return ["Error" : "Impossible to get settings' data"]

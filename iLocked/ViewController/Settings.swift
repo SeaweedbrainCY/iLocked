@@ -39,7 +39,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         } catch {
            print("***ATTENTION***\n\n ***ERROR***\n\nImpossible to retrieve data.\n\n***************")
         }
-        let dict = json.JsonToDictionary() ?? ["":""]
+        let dict = json.jsonToDictionary() ?? ["":""]
         return dict
     }
     
@@ -193,6 +193,13 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     })
                 }
             }
+        }
+    }
+    
+    internal override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "lockApp" {
+            let lockedView = segue.destination as! LockedView
+            lockedView.activityInProgress = true
         }
     }
     

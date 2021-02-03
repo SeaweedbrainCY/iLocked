@@ -192,8 +192,6 @@ class LockedView: UIViewController{
                 descriptionLabel.text = "Error occured while creating keys. Please restart the application"
             }
         }
-        
-        
     }
     
     //
@@ -210,7 +208,7 @@ class LockedView: UIViewController{
        
     }
     
-    @objc private func appMovedToForeground(){
+    @objc private func appMovedToForeground() {
         if password {
             askForAuthentification()
         } else {
@@ -226,8 +224,8 @@ class LockedView: UIViewController{
     //
     // TO DO : tester les différentes erreurs pour laisser uniquement si aucun code n'a JAMAIS été activé
     //
-    
-    ///Func who ask to the user is Touch ID / Face ID / password and manages the response by call an internal function if success
+    ///Func who ask to the user is Touch ID / Face ID /
+    ///password and manages the response by call an internal function if success
     private func askForAuthentification() {
         
         var policy: LAPolicy!
@@ -259,11 +257,9 @@ class LockedView: UIViewController{
                     case LAError.authenticationFailed:
                         self.descriptionLabel.textColor = .systemRed
                             self.descriptionLabel.text = "There was a problem verifying your identity 🧬"
-                        
                     case LAError.userCancel:
                         self.descriptionLabel.textColor = .systemRed
                         self.descriptionLabel.text = "authentication canceled 🔒"
-                        
                     // Fallback button was pressed and an extra login step should be implemented for iOS 8 users.
                     // By the other hand, iOS 9+ users will use the pasccode verification implemented by the own system.
                     case LAError.userFallback:
@@ -277,11 +273,9 @@ class LockedView: UIViewController{
                     case LAError.passcodeNotSet:
                         self.descriptionLabel.textColor = .systemRed
                         self.descriptionLabel.text = "You didn't set any password on for device. 🔒"
-                       
                     case LAError.biometryNotAvailable:
                         self.descriptionLabel.textColor = .systemRed
                         self.descriptionLabel.text = "Touch ID or Face ID is not available on your device. 🚧"
-                        
                     case LAError.biometryNotEnrolled:
                         self.descriptionLabel.textColor = .systemRed
                         self.descriptionLabel.text = "Touch ID or Face ID has no saved data 🔒"
@@ -307,22 +301,15 @@ class LockedView: UIViewController{
                         return
                 }
                 }
-                
             })
-            
         } else {
             policy = .deviceOwnerAuthenticationWithBiometrics
-            
         }
-     
-        
     }
-    
     
     //
     // Data
     //
-    
     private func getSetting(){
         var json = ""
         do {
@@ -330,13 +317,11 @@ class LockedView: UIViewController{
         } catch {
             print("***ATTENTION***\n\n ***ERROR***\n\nImpossible to retrieve data.\n\n***************")
         }
-        let dict = json.JsonToDictionary() ?? ["":""]
+        let dict = json.jsonToDictionary() ?? ["":""]
         if dict["password"] == "false" {
             self.password = false
         } else {
             self.password = true
         }
     }
-    
-   
 }
