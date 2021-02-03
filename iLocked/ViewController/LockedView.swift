@@ -227,84 +227,29 @@ class LockedView: UIViewController{
     ///Func who ask to the user is Touch ID / Face ID /
     ///password and manages the response by call an internal function if success
     private func askForAuthentification() {
-        
-        var policy: LAPolicy!
-        let context: LAContext!
-        if #available(iOS 9.0, *) {
-            policy = .deviceOwnerAuthentication
-            context = .init()
-            let error: NSErrorPointer! = NSErrorPointer.none
-            guard context?.canEvaluatePolicy(policy, error: error) ?? false else {
-            self.titleLabel.textColor = .systemRed
-            self.titleLabel.text = "Your touchId or FaceId is not activated !"
-                self.actionButton.setTitle("Continue without locked the app ? (dangerous)", for: .normal)
-                return
+        let context = LAContext()
+            var error: NSError?
+            if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
+                let reason = "Identify yourself is required to use iLocked!"
+
+                context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) {
+                    [weak self] success, authenticationError in
+                    DispatchQueue.main.async {
+                        if success {
+                            print("Authentification succeed")
+                            self?.perform(#selector(self?.dismissCurrentView))
+                        } else {
+                            // error
+                            print("Error : Authentifcation failed")
+                            self?.descriptionLabel.textColor = .systemRed
+                            self?.descriptionLabel.text = "Authentication failed. 🔒"
+                        }
+                    }
+                }
+            } else {
+                // no biometry
+                print("No indentification enabled : \(String(describing: error))")
             }
-            
-            let message = "Touch ID is required to use iLocked"
-            context?.evaluatePolicy(policy!, localizedReason: message, reply: { (success, error) in
-                DispatchQueue.main.async {
-                    if success {
-                        self.perform(#selector(self.dismissCurrentView))
-                    }
-                    guard success else {
-                    guard let error = error else {
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "I'm very sorry but an unexpected error just occur 🔒"
-                        return
-                    }
-                    switch(error) {
-                    case LAError.authenticationFailed:
-                        self.descriptionLabel.textColor = .systemRed
-                            self.descriptionLabel.text = "There was a problem verifying your identity 🧬"
-                    case LAError.userCancel:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "authentication canceled 🔒"
-                    // Fallback button was pressed and an extra login step should be implemented for iOS 8 users.
-                    // By the other hand, iOS 9+ users will use the pasccode verification implemented by the own system.
-                    case LAError.userFallback:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "You tapped the fallback button 🔒"
-                        
-                    case LAError.systemCancel:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "Authentication was canceled by your device. 🔒"
-                        
-                    case LAError.passcodeNotSet:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "You didn't set any password on for device. 🔒"
-                    case LAError.biometryNotAvailable:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "Touch ID or Face ID is not available on your device. 🚧"
-                    case LAError.biometryNotEnrolled:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "Touch ID or Face ID has no saved data 🔒"
-                        
-                    // iOS 9+ functions
-                    case LAError.biometryLockout:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "There were too many failed  attempts and biometric sensor is now locked. 🔐"
-                        
-                    case LAError.appCancel:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "Authentication was canceled by application. 🔒"
-                        
-                    case LAError.invalidContext:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "LAContext passed to this call has been previously invalidated."
-                        
-                    default:
-                        self.descriptionLabel.textColor = .systemRed
-                        self.descriptionLabel.text = "Touch ID or Face ID may not be configured. 🔒"
-                        break
-                    }
-                        return
-                }
-                }
-            })
-        } else {
-            policy = .deviceOwnerAuthenticationWithBiometrics
-        }
     }
     
     //
