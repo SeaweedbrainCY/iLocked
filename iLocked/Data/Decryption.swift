@@ -58,7 +58,6 @@ class Decryption {
                         // Start test for the beginning
                         //
                         if start[start.index(start.startIndex, offsetBy: i)] != encrypted[encrypted.index(encrypted.startIndex, offsetBy: i)]{ // If there is a different char
-                            print("1e test error")
                             return (false,"")
                         }
                     } else if encrypted.count - i <= end.count{
@@ -66,7 +65,6 @@ class Decryption {
                         // Start test for the end
                         //
                         if end[end.index(end.startIndex, offsetBy: i_2sd_test)] != encrypted[encrypted.index(encrypted.startIndex, offsetBy: i)]{// If there is a different char
-                            print("2e test error \(i)")
                             return (false,"")
                         }
                         i_2sd_test += 1
@@ -75,11 +73,10 @@ class Decryption {
                         // We are considering the key, so we save it
                         //
                         extracted += String(encrypted[encrypted.index(encrypted.startIndex, offsetBy: i)])
-                        print("exctrated \(extracted)")
                     }
                 }
         //The two tests are passed
-        return (true, "")
+        return (true, extracted)
     }
     
 }
