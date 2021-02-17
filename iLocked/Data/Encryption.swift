@@ -12,6 +12,10 @@ import UIKit
 
 
 class Encryption{
+    
+    let  start_encrypted_format = "-----BEGIN RSA ILOCKED ENCRYPTED MESSAGE-----\n"
+    let end_encrypted_format = "\n-----END RSA ILOCKED ENCRYPTED MESSAGE-----"
+    
     ///This func return the encryption of the text givent
     /// - text : The text to encrypt
     /// - withKeyId : The name displayed to the user, if it's user's key, its "My encryption key"
@@ -28,7 +32,7 @@ class Encryption{
                     print("\n\nExtraced key = '\(extractedKey)'")
                     let clear = try ClearMessage(string: text, using: .utf8)
                     let encrypted = try clear.encrypted(with: PublicKey(base64Encoded: extractedKey), padding: .PKCS1)
-                    return encrypted.base64String
+                    return self.start_encrypted_format + encrypted.base64String + self.end_encrypted_format
                 } else {
                     return "ERROR : Please verify that your public key is correct"
                 }
