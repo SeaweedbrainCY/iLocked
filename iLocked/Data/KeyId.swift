@@ -9,8 +9,8 @@
 import Foundation
 
 class KeyId {
-    let  start_key_format = "-----BEGIN RSA PUBLIC KEY-----\n"
-    let end_key_format = "\n-----END RSA PUBLIC KEY-----"
+    let  start_key_format = "-----BEGIN RSA 4096 PUBLIC KEY-----\n"
+    let end_key_format = "\n-----END RSA 4096 PUBLIC KEY-----"
     
     /// Return all key and id associated to saved keys
     /// - Data format = [keyName(String)]

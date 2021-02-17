@@ -606,7 +606,7 @@
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DIb-8W-OFr">
                                 <rect key="frame" x="0.0" y="575" width="375" height="64"/>
-                                <string key="text">Please make sure that no one can read this text. This message was encrypted with RSA-2048 which is a highly secure encryption. DO NOT copy the clear text, only keep the encrypted message.</string>
+                                <string key="text">Please make sure that no one can read this text. This message was encrypted with RSA-4096 which is a highly secure encryption. DO NOT copy the clear text, only keep the encrypted message.</string>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="13"/>
                                 <color key="textColor" systemColor="systemOrangeColor"/>
                                 <nil key="highlightedColor"/>
@@ -984,7 +984,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="lMQ-dt-c2G"/>
         <segue reference="YdW-06-8TH"/>
-        <segue reference="Wbe-do-6Cm"/>
+        <segue reference="kJe-TR-tAr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>

@@ -16,7 +16,7 @@ class PublicPrivateKeys {
     
     public func generateAndStockKeyUser() -> Bool{
         do {
-            let keyPair = try SwiftyRSA.generateRSAKeyPair(sizeInBits: 2048)
+            let keyPair = try SwiftyRSA.generateRSAKeyPair(sizeInBits: 4096)
             let privateKeyString = keyPair.privateKey
             let publicKeyString = keyPair.publicKey
             let privateKey64 = try keyPair.privateKey.base64String()
