@@ -24,7 +24,10 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         self.tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell") //on associe la tableView au custom de Style/customeCelleTableView.swift
         protectionSwitch.addTarget(self, action: #selector(protectionSwitchChanged), for: .valueChanged)
+        
+        // Set up the setting label :
     }
+    
     //
     // View construction
     //
@@ -39,6 +42,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         } catch {
            print("***ATTENTION***\n\n ***ERROR***\n\nImpossible to retrieve data.\n\n***************")
         }
+        print("getSetting = \(json)")
         let dict = json.jsonToDictionary() ?? ["":""]
         return dict
     }
@@ -60,7 +64,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
 
     ///number of section
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     /// Cells for each section
@@ -68,6 +72,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         switch section {
         case 0 : return 3
         case 1 : return 4
+        case 2 : return 1
         default : return 0
             
         }
@@ -96,7 +101,6 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             case 2 :
                 cell.textLabel?.text = "❌ Revoke your keys"
                 cell.backgroundColor = .systemRed
-                
             default :
                 cell.textLabel?.text = "ERROR"
             }
@@ -114,6 +118,14 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 cell.textLabel?.text = "🔏 Source code licence"
             default : cell.textLabel?.text = "ERROR"
             }
+        } else if indexPath.section == 2{
+            switch indexPath.row {
+            case 0 :
+                cell.textLabel?.text = "⚙️ Advanced settings"
+                cell.accessoryView = UIImageView(image: UIImage(systemName: "greaterThan"))
+            default :
+                break
+            }
         } else {
             switch indexPath.row {
             default : cell.textLabel?.text = "ERROR"
@@ -128,6 +140,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         switch section {
         case 0 : return "Security 🔐"
         case 1 : return "Developement 🔨"
+        case 2 : return ""
         default : return "ERROR"
         }
     }
@@ -161,6 +174,13 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             case 3:
                 UIApplication.shared.open(URL(string: "https://github.com/DevNathan/iLocked/blob/master/LICENSE")!, options: [:], completionHandler: nil)
             default : break
+            }
+        } else if indexPath.section == 2{
+            switch indexPath.row {
+            case 0:
+                self.performSegue(withIdentifier: "advancedSettings", sender: self)
+            default:
+                break
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)

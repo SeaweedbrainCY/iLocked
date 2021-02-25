@@ -134,7 +134,7 @@ class LockedView: UIViewController{
         //Instanciation des differents textes
         self.titleLabel.text = "" // No title for now 
         self.descriptionLabel.text = ""
-        self.actionButton.setImage(UIImage(named: "empreinte"), for: .normal)
+        self.actionButton.setImage(UIImage(systemName: "lock.shield.fill"), for: .normal)
         //self.actionButton.layer.cornerRadius = self.actionButton.frame.size.width / 2
         self.actionButton.clipsToBounds = true
             self.logoImageView.layer.cornerRadius = self.logoImageView.frame.size.width / 2;

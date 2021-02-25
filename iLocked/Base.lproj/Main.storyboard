@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QiX-9o-pKS">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -288,9 +288,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMK-F8-837">
-                                <rect key="frame" x="10" y="510" width="355" height="24"/>
+                                <rect key="frame" x="10" y="510" width="355" height="22"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="  Unlock" image="empreinte">
+                                <state key="normal" title="  Unlock" image="lock.shield.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -376,7 +376,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="IFY-b8-gcj">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -390,19 +390,52 @@
                             <constraint firstItem="IFY-b8-gcj" firstAttribute="trailing" secondItem="E21-Kg-Ohn" secondAttribute="trailing" id="yPs-uz-ZPK"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="1K8-zM-xKR">
-                        <color key="badgeColor" systemColor="systemOrangeColor"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Settings" id="HK9-uN-NVr">
+                        <barButtonItem key="backBarButtonItem" title=" " id="cUz-8T-xrI"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="IFY-b8-gcj" id="Q9R-VL-HOk"/>
                         <segue destination="SgU-1R-htW" kind="presentation" identifier="viewLog" id="uAE-Q4-tot"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="Wbe-do-6Cm"/>
                         <segue destination="gqQ-4o-g0B" kind="presentation" identifier="showRevocationView" id="xEG-6k-gOt"/>
+                        <segue destination="vWh-6x-5A5" kind="show" identifier="advancedSettings" id="1rX-tx-FgI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zFH-NZ-OdA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-18.399999999999999" y="124.58770614692655"/>
+            <point key="canvasLocation" x="2016.8" y="2683.8080959520244"/>
+        </scene>
+        <!--Advanced Settings-->
+        <scene sceneID="guU-ON-fPU">
+            <objects>
+                <viewController id="vWh-6x-5A5" customClass="AdvancedSettings" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YY8-bV-8vL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="6Xu-UC-H7w">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="separatorColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4sS-jb-0w8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Xu-UC-H7w" firstAttribute="bottom" secondItem="4sS-jb-0w8" secondAttribute="bottom" id="1dE-Kj-x3Q"/>
+                            <constraint firstItem="6Xu-UC-H7w" firstAttribute="trailing" secondItem="4sS-jb-0w8" secondAttribute="trailing" id="EIA-xl-myK"/>
+                            <constraint firstItem="6Xu-UC-H7w" firstAttribute="top" secondItem="4sS-jb-0w8" secondAttribute="top" id="R1N-dH-4pp"/>
+                            <constraint firstItem="6Xu-UC-H7w" firstAttribute="leading" secondItem="4sS-jb-0w8" secondAttribute="leading" id="k3s-1h-rQ7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Advanced Settings" id="n3k-Mb-YAC"/>
+                    <connections>
+                        <outlet property="tableView" destination="6Xu-UC-H7w" id="2sU-wg-yBh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cws-Ua-pcv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2837.5999999999999" y="2683.8080959520244"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="y6A-YD-e9k">
@@ -420,7 +453,7 @@
                         <segue destination="hHY-cd-32x" kind="relationship" relationship="viewControllers" id="71P-2m-G7t"/>
                         <segue destination="nC8-E7-j8A" kind="relationship" relationship="viewControllers" id="LWu-AF-UpF"/>
                         <segue destination="Okw-ay-HrS" kind="relationship" relationship="viewControllers" id="43S-Bo-H0g"/>
-                        <segue destination="RaQ-Vb-8jQ" kind="relationship" relationship="viewControllers" id="2Kd-xP-1cO"/>
+                        <segue destination="8rU-3f-eUY" kind="relationship" relationship="viewControllers" id="2Kd-xP-1cO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9t6-ac-LhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -980,17 +1013,37 @@
             </objects>
             <point key="canvasLocation" x="2945" y="126"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="hJv-so-Cu4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8rU-3f-eUY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="1K8-zM-xKR">
+                        <color key="badgeColor" systemColor="systemOrangeColor"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="19d-SO-oPw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RaQ-Vb-8jQ" kind="relationship" relationship="rootViewController" id="goF-vj-SRI"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W3G-8U-9a1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1077.5999999999999" y="2683.8080959520244"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="lMQ-dt-c2G"/>
+        <segue reference="0gR-Ua-Nux"/>
         <segue reference="YdW-06-8TH"/>
-        <segue reference="kJe-TR-tAr"/>
+        <segue reference="Wbe-do-6Cm"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="coffre" width="345" height="345"/>
-        <image name="empreinte" width="24" height="24"/>
         <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
@@ -998,6 +1051,7 @@
         <image name="key" width="345" height="345"/>
         <image name="key.icloud" catalog="system" width="128" height="88"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
+        <image name="lock.shield.fill" catalog="system" width="128" height="118"/>
         <image name="locked" width="24" height="24"/>
         <image name="lockedBackground" width="1280" height="539"/>
         <image name="multiply.circle" catalog="system" width="128" height="121"/>
@@ -1023,6 +1077,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
