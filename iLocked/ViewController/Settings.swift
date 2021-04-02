@@ -16,6 +16,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     
     @IBOutlet weak var tableView: UITableView!
     let protectionSwitch = UISwitch()
+    let autoPasteSwitch = UISwitch()
      
     
     override func viewDidLoad() {
@@ -24,6 +25,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         self.tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell") //on associe la tableView au custom de Style/customeCelleTableView.swift
         protectionSwitch.addTarget(self, action: #selector(protectionSwitchChanged), for: .valueChanged)
+        autoPasteSwitch.addTarget(self, action: #selector(autoPasteSwitchChanged), for: .valueChanged)
+        
         
         // Set up the setting label :
     }
@@ -64,15 +67,16 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
 
     ///number of section
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
     
     /// Cells for each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0 : return 3
-        case 1 : return 4
-        case 2 : return 1
+        case 0 : return 1
+        case 1 : return 3
+        case 2 : return 4
+        case 3 : return 1
         default : return 0
             
         }
@@ -83,16 +87,45 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
         cell.textLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
-        cell.backgroundColor = .black
+        cell.backgroundColor = .systemGray5
         cell.textLabel?.textColor = .white
         if indexPath.section == 0 {
             switch indexPath.row {
+            case 0:
+                cell.textLabel?.text = "🔍 Auto-paste encrypted text"
+                var setting = getSetting()
+                if (setting.keys).contains("auto_paste"){ // Check if the setting is already init
+                    if setting["auto_paste"] == "true"{
+                        self.autoPasteSwitch.isOn = true
+                    } else{
+                        self.autoPasteSwitch.isOn = false
+                    }
+                }else { // Not init. Se we do it
+                    // default value
+                    self.autoPasteSwitch.isOn = false
+                    setting.updateValue("false", forKey: "auto_paste")
+                    saveSetting(dict: setting)
+                }
+                cell.accessoryView = self.autoPasteSwitch
+                
+            default:
+                cell.textLabel?.text = "ERROR"
+            }
+        } else if indexPath.section == 1 {
+            switch indexPath.row {
             case 0 :
-                let setting = getSetting()
-                if setting["password"] == "false"{
-                    self.protectionSwitch.isOn = false
-                } else {
-                    self.protectionSwitch.isOn = true
+                var setting = getSetting()
+                if (setting.keys).contains("password"){ // Check if the setting is already init
+                    if setting["password"] == "false"{
+                        self.protectionSwitch.isOn = false
+                    } else {
+                        self.protectionSwitch.isOn = true
+                    }
+                }else { // Not init. Se we do it
+                    // default value
+                    self.autoPasteSwitch.isOn = false
+                    setting.updateValue("false", forKey: "password")
+                    saveSetting(dict: setting)
                 }
                 cell.textLabel?.text = "🔑 Protect with a password"
                 cell.accessoryView = self.protectionSwitch
@@ -104,7 +137,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             default :
                 cell.textLabel?.text = "ERROR"
             }
-        } else if indexPath.section == 1 {
+        } else if indexPath.section == 2 {
             switch indexPath.row {
             case 0:
                 cell.textLabel?.text = "🔎 Report a bug"
@@ -118,7 +151,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 cell.textLabel?.text = "🔏 Source code licence"
             default : cell.textLabel?.text = "ERROR"
             }
-        } else if indexPath.section == 2{
+        } else if indexPath.section == 3{
             switch indexPath.row {
             case 0 :
                 cell.textLabel?.text = "⚙️ Advanced settings"
@@ -138,16 +171,24 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     /// Sections' name
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0 : return "Security 🔐"
-        case 1 : return "Developement 🔨"
-        case 2 : return ""
+        case 0 : return "Preferences ⚙️"
+        case 1 : return "Security 🔐"
+        case 2 : return "Developement 🔨"
+        case 3 : return ""
         default : return "ERROR"
         }
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // cellule selctionnée
-        if indexPath.section == 0 {
+        if indexPath.section == 0{
+            switch indexPath.row {
+            case 0:
+                break
+            default:
+                break
+            }
+        } else if indexPath.section == 1 {
             switch indexPath.row {
             case 1 : // lock app
                 performSegue(withIdentifier: "lockApp", sender: self)
@@ -155,7 +196,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 self.performSegue(withIdentifier: "showRevocationView", sender: self)
             default : break
             }
-        } else if indexPath.section == 1  {
+        } else if indexPath.section == 2  {
             switch indexPath.row {
             case 0 : // report a bug
                 let alert = UIAlertController(title: "Report a bug", message: "Report a bug help the developer to upgrade this application and improve your experience", preferredStyle: .actionSheet)
@@ -175,7 +216,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 UIApplication.shared.open(URL(string: "https://github.com/DevNathan/iLocked/blob/master/LICENSE")!, options: [:], completionHandler: nil)
             default : break
             }
-        } else if indexPath.section == 2{
+        } else if indexPath.section == 3{
             switch indexPath.row {
             case 0:
                 self.performSegue(withIdentifier: "advancedSettings", sender: self)
@@ -234,6 +275,17 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             settingDict.updateValue("true", forKey: "password")
         } else {
             settingDict.updateValue("false", forKey: "password")
+        }
+        saveSetting(dict: settingDict)
+    }
+    
+    
+    @objc private func autoPasteSwitchChanged(){
+        var settingDict = getSetting()
+        if self.autoPasteSwitch.isOn {
+            settingDict.updateValue("true", forKey: "auto_paste")
+        } else {
+            settingDict.updateValue("false", forKey: "auto_paste")
         }
         saveSetting(dict: settingDict)
     }

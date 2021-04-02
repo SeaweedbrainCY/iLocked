@@ -22,7 +22,7 @@ extension String {
         }
     /// Convert a json string to a dictionnary [*String*:*String*]
     func jsonToDictionary() -> [String: String]? {
-        print("TEXT = \(self)")
+        print("[*] jsonToDictionnary : text given = \(self)")
         if let data = self.data(using: .utf8) {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: String]

@@ -102,9 +102,8 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { // titre
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-        cell.backgroundColor = .black
+        cell.backgroundColor = .systemGray5
         cell.textLabel?.textColor = .white
-        cell.textLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         if indexPath.section == 0 {
             cell.textLabel!.text = self.nameList[indexPath.row]
         } else {
@@ -120,7 +119,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     //Sections name
        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
            switch section {
-           case 0 : return "Saved public encryption keys"
+           case 0 : return "Encryption keys"
            case 1 : if !selectModeIsActive { return "MY public encryption key"} else { return ""}
            default : return "ERROR"
            }

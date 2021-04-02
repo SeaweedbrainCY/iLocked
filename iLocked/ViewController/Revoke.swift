@@ -50,7 +50,7 @@ class Revoke: UIViewController {
             timer.invalidate()
             self.revokeButton.setTitle("REVOKE", for: .normal)
             self.revokeButton.isEnabled = true
-            self.revokeButton.setTitleColor(.systemRed, for: .normal)
+            self.revokeButton.backgroundColor = .systemRed
         }else if self.second < 0 {
             timer.invalidate()
             second = 0

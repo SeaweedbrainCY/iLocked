@@ -84,7 +84,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
         cell.textLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
-        cell.backgroundColor = .black
+        cell.backgroundColor = .systemGray5
         cell.textLabel?.textColor = .white
         if indexPath.section == 0 {
             switch indexPath.row {
@@ -97,7 +97,6 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
                 cell.textLabel?.text = "📲 Open external links in app"
                 cell.accessoryView = self.inAppBrowserSwitch
-                
             default :
                 cell.textLabel?.text = "ERROR"
             }
