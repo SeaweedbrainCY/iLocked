@@ -6,7 +6,7 @@ iLocked is an iOS application. It purpose is to give to anyone an easy and effic
 
 ## Security contribution 
 
-Email : nathanstcheinsky@protonmail.com
+Email : nathanstchepinsky@protonmail.com
 
 PGP Key : https://keybase.io/devnath/pgp_keys.asc?fingerprint=8c7bae7de486c1b4441ed2e197881b1f87e35cf5
 
