@@ -254,7 +254,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     
     /// Called by notification when the app is moves to background
     @objc private func appMovedToBackground(){
-        print("notification recived")
+        //print("notification recived")
         performSegue(withIdentifier: "lockApp", sender: self)
     }
     
@@ -264,7 +264,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     
     @IBAction func cancelSelected(sender: UIBarButtonItem){
         print("cancel button selected")
-        NotificationCenter.default.post(name: Encrypt.notificationName, object: nil, userInfo:["addKey dismissed" : true])
+        NotificationCenter.default.post(name: Encrypt.notificationOfNewKey, object: nil, userInfo:["addKey dismissed" : true])
         
         perform(#selector(dismissView), with: nil)
         
@@ -339,7 +339,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
                 //SUCCÈS ::
                 //
                 print("button = \(self.nextButton.state)")
-                NotificationCenter.default.post(name: Encrypt.notificationName, object: nil, userInfo:["addKey success" : true])
+                NotificationCenter.default.post(name: Encrypt.notificationOfNewKey, object: nil, userInfo:["addKey success" : true])
                 //get date
             let formatter:DateFormatter = DateFormatter()
                 formatter.dateFormat = "DD/MM/YYY"

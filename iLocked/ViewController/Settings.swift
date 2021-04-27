@@ -84,7 +84,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     
     ///Cells' name
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
         cell.textLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         cell.backgroundColor = .systemGray5
@@ -156,6 +156,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             case 0 :
                 cell.textLabel?.text = "⚙️ Advanced settings"
                 cell.accessoryView = UIImageView(image: UIImage(systemName: "greaterThan"))
+                cell.imageAtEnd = UIImageView(image: UIImage(systemName: "greaterThan"))
             default :
                 break
             }

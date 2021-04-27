@@ -133,7 +133,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         } else if indexPath.section == 1{
             switch indexPath.row {
             case 0:
-                UIApplication.shared.open(URL(string: "https://github.com/DevNathan/iLocked/blob/master/OpenSourceLibrary.md")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: "https://github.com/DevNathan/iLocked/blob/master/OpenSourceLibrary.md#open-source-libraries")!, options: [:], completionHandler: nil)
             default:
                 break 
             }

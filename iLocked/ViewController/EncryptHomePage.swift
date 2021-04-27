@@ -12,18 +12,14 @@ import UIKit
 
 
 
-class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextViewDelegate{
+class Encrypt: UIViewController, UITextViewDelegate{
     
-    
-    @IBOutlet weak var publicKeyButton: UIButton!
     @IBOutlet weak var textToEncrypt: UITextView!
-    @IBOutlet weak var keyList: UIPickerView!
-    @IBOutlet weak var encryptButton: UIButton!
     @IBOutlet weak var senderView: UIView!
-    @IBOutlet weak var chargement: UIActivityIndicatorView!
-    @IBOutlet weak var littleHelpLabel : UILabel!
-    @IBOutlet weak var shutDownKeyboard: UIBarButtonItem!
     @IBOutlet weak var lockAppButton: UIBarButtonItem!
+    @IBOutlet weak var keyNameButton: UIButton!
+    @IBOutlet weak var encryptButton: UIButton!
+    @IBOutlet weak var dismissKeyboardButton: UIButton!
     
     var keyArray: [String] = ["Add a key", "My encryption key"] // list of all names displayed on UIPIckerView
     var heightPicker: NSLayoutConstraint?
@@ -35,10 +31,18 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     //Data came from ShowKey.swift > encryptMessageSelected()
     var keyNameTransmitted = ""
     
+    //Default value : stock the default value of color and text, to check if they have been modified
+    let defaultKeyNameButtonTextColor: UIColor = UIColor.lightGray // updated in viewDidLoad
+    var defaultKeyNameButtonText:String = "Select a key"
+    var defaultTextToEncryptColor: UIColor = UIColor.darkGray // updated in viewDidLoad
+    var defaultTextToEncryptText:String = "Text to encrypt"
+    
+    
     
     
     //Notification
-    static let notificationName = Notification.Name("AddKeyDismissed")
+    static let notificationOfNewKey = Notification.Name("AddKeyDismissed")
+    static let notificationOfSelectionName = Notification.Name("notificationOfSelectionFromKeyListToEncryptView")
     
     
     
@@ -51,37 +55,62 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     override func viewDidLoad() {
         super.viewDidLoad()
         //Observation des notiifcations
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Encrypt.notificationName, object: nil)
         
         //Récuperation des infos :
         loadData()
         
-        self.publicKeyButton.rondBorder()
-        self.textToEncrypt.rondBorder()
-        self.keyList.delegate = self
-        self.keyList.dataSource = self
         self.textToEncrypt.delegate = self
         
+        //Set up some button
+        self.encryptButton.setTitleColor(.gray, for: .selected)
+        
         self.senderView.translatesAutoresizingMaskIntoConstraints = false
-        self.senderView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.keyList.centerXAnchor, multiplier: 1).isActive = true
-        self.senderView.centerYAnchor.constraint(equalToSystemSpacingBelow: self.keyList.centerYAnchor, multiplier: 1).isActive = true
+       // self.senderView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.keyList.centerXAnchor, multiplier: 1).isActive = true
+        //self.senderView.centerYAnchor.constraint(equalToSystemSpacingBelow: self.keyList.centerYAnchor, multiplier: 1).isActive = true
         self.heightSender = self.senderView.heightAnchor.constraint(equalToConstant: 0)
         self.heightSender?.isActive = true
         
         if keyNameTransmitted != "" { //User already choose the key in ShowKey.swift's view
-            self.publicKeyButton.setTitle("Use \(self.keyNameTransmitted)'s key", for: .normal)
-            self.titleButtonClean = self.keyNameTransmitted
-            self.selectKey(sender: self.publicKeyButton) // simulation of user's action
+            self.keyNameButton.setTitleColor(.black, for: .normal)
+            self.keyNameButton.setTitle("\(self.keyNameTransmitted)", for: .normal)
+            self.titleButtonClean = self.keyNameTransmitted// simulation of user's action
         }
+        
+        // Set up the default values
+        if keyNameTransmitted == "" {// If not, the user has already chosen the key in ShowKey.swift's view
+            self.keyNameButton.setTitle(self.defaultKeyNameButtonText, for: .normal)
+            self.keyNameButton.setTitleColor(self.defaultKeyNameButtonTextColor, for: .normal)
+            self.keyNameButton.setTitleColor(.lightGray, for: .selected)
+        }
+        self.textToEncrypt.textColor = self.defaultTextToEncryptColor
+        self.textToEncrypt.text = self.defaultTextToEncryptText
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        //Call when the user tap once or twice on the home button
+        
+        //Is called when the app move to background
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-        //Refresh data
-        refreshData()
+        
+        //Is called when user has selected a key in order to encrypt with it
+        notificationCenter.addObserver(self, selector: #selector(keySelected), name: Encrypt.notificationOfSelectionName, object: nil)
+        // Is called when the keyboard will show
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        // round some button :
+        self.dismissKeyboardButton.layer.cornerRadius = 10
+        self.encryptButton.layer.cornerRadius = 10
+        
+        
+        
     }
 
     func alert(_ title: String, message: String) {
@@ -91,30 +120,6 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction private func selectKey(sender: UIButton){
-        if sender.currentTitle == "Add a key" && self.textToEncrypt.isHidden { // The second part of this condition solve a bug
-                performSegue(withIdentifier: "addKey", sender: nil)
-        } else if (sender.currentTitle != "Select a public key" && !self.keyList.isHidden) || self.keyNameTransmitted != ""{ // if we choose our key or if the key has already been choosen
-            self.keyList.isHidden = true
-            self.littleHelpLabel.isHidden = true
-            sender.setTitle(self.titleButtonClean, for: .normal)
-            self.textToEncrypt.isHidden = false
-            self.encryptButton.isEnabled = true
-        } else if sender.currentTitle != "Select a public key" && self.keyList.isHidden{
-            self.keyList.isHidden = false
-            self.littleHelpLabel.isHidden = false
-            sender.setTitle("Use \(self.titleButtonClean)", for: .normal)
-            self.textToEncrypt.isHidden = true
-            self.encryptButton.isEnabled = false
-        } else {
-            if self.keyList.isHidden {
-                self.keyList.isHidden = false
-                self.littleHelpLabel.isHidden = false
-                sender.setTitle("Add a key", for: .normal)
-            }
-        }
-        
-    }
     
     public func loadData(){
         let data = KeyId()
@@ -138,30 +143,21 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
     //
     
     @IBAction private func encryptSelected(sender:UIButton){
-        self.encryptButton.isEnabled = false
-        if self.textToEncrypt.text == "" {
-            self.textToEncrypt.layer.borderColor = UIColor.red.cgColor
-        } else {
-            sender.isEnabled = false
-            self.publicKeyButton.isEnabled = false
-            self.textToEncrypt.isEditable = false
-            self.chargement.startAnimating()
+        let is_correct = checkForEncryption()
+        print("[*] Check for encryption : \(is_correct)")
+        if is_correct {
             var keySaved: String? = nil
-            if self.publicKeyButton.currentTitle! == "My encryption key"{
+            if self.keyNameButton.currentTitle! == "My encryption key"{
                 keySaved = KeychainWrapper.standard.string(forKey: userPublicKeyId)
             } else {
-                keySaved = KeychainWrapper.standard.string(forKey:self.publicKeyButton.currentTitle!)
+                keySaved = KeychainWrapper.standard.string(forKey:self.keyNameButton.currentTitle!)
             }
             if keySaved == nil {
-                alert("Impossible to find the public encryption key", message: "We're unable to find this specific key. Please check that you still have it and check is validity")
-                self.encryptButton.isEnabled = true
-                self.publicKeyButton.isEnabled = true
-                self.textToEncrypt.isEditable = true
-                self.chargement.stopAnimating()
+                alert("Impossible to find the encryption key", message: "Please verify that a key is selected. If all the fields are filled, try to relaunch the app.")
             } else {
                 var encryptedText = encryptText(text: self.textToEncrypt.text!, publicKey: keySaved!)
                 let encryptionMethod = Encryption()
-                var nameSelected = self.publicKeyButton.currentTitle
+                var nameSelected = self.keyNameButton.currentTitle
                 if nameSelected == "My encryption key"{
                     nameSelected = userPublicKeyId
                 }
@@ -172,78 +168,38 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
                 } else {
                     alert("Oups ... encryption error message", message: "Impossible to encrypt this message. Please try again")
                 }
-                self.encryptButton.isEnabled = true
-                self.publicKeyButton.isEnabled = true
-                self.textToEncrypt.isEditable = true
-                self.chargement.stopAnimating()
             }
         }
         
     }
     
-    @IBAction public func shutDownKeyboard(sender: UIBarButtonItem){
-        self.view.endEditing(true)
-        
-    }
     
     @IBAction func lockAppSelected(sender: UIBarButtonItem){
         performSegue(withIdentifier: "lockApp", sender: self)
     }
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    @IBAction func selectKeySelected(_ sender: Any) {
+        performSegue(withIdentifier: "keyList", sender: self)
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return keyArray.count
-    }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let animation = UIViewPropertyAnimator(duration: 0.3, curve: .linear, animations: {
-            self.heightSender?.isActive = false
-            self.heightSender?.constant = -200
-            self.heightSender?.isActive = true
-            })
-        animation.startAnimation()
-        if keyArray[row] != "Add a key" {
-            self.publicKeyButton.setTitle("Use \(keyArray[row])'s key", for: .normal)
-            titleButtonClean = keyArray[row]
-        } else {
-            self.publicKeyButton.setTitle("Add a key", for: .normal)
-        }
-        
-        
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let label = (view as? UILabel) ?? UILabel()
-        label.textColor = .white
-        label.textAlignment = .center
-        label.font = UIFont(name: "Futura", size: 30)
-        label.text = keyArray[row]
-        return label
-    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.translatesAutoresizingMaskIntoConstraints = true
-        textView.frame.origin.y = 10
-        self.shutDownKeyboard.image = UIImage(systemName: "keyboard.chevron.compact.down")
-        self.shutDownKeyboard.isEnabled = true
-        self.encryptButton.isHidden = true
         if textView.text == "Text to encrypt"{
             textView.text = ""
             textView.textColor = UIColor.white
         }
     }
+    @IBAction func dismissButtonSelected(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     
     func textViewDidEndEditing(_ textView: UITextView){
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        self.shutDownKeyboard.title = ""
-        self.shutDownKeyboard.isEnabled = false
-        self.encryptButton.isHidden = false
+        self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
         if textView.text == "" {
             textView.text = "Text to encrypt"
-            textView.textColor = .lightGray
+            textView.textColor = .darkGray
         }
     }
     
@@ -263,31 +219,69 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
         }
     }
     
-    //
-    // Data func
-    //
-    
-    private func refreshData(){ // Refresh the selector
-        //Delete old data
-        self.keyArray = ["Add a key", "My encryption key"]
-        self.nameArray = []
-        //We load the new one
-        loadData()
-        self.keyList.reloadAllComponents()
-    }
     
     //
     // Notifications func
     //
     
-    @objc private func notificationReceived(notification: Notification){
-        print("notifcation : \(String(describing: notification.userInfo))")
-        refreshData()
+    @objc private func appMovedToBackground(){
+        //print("notification recieved")
+        performSegue(withIdentifier: "lockApp", sender: self)
     }
     
-    @objc private func appMovedToBackground(){
-        print("notification recieved")
-        performSegue(withIdentifier: "lockApp", sender: self)
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = true
+            self.encryptButton.translatesAutoresizingMaskIntoConstraints = true
+            self.dismissKeyboardButton.frame.origin.y = self.view.frame.height - keyboardHeight - self.dismissKeyboardButton.frame.height - 10
+            self.encryptButton.frame.origin.y =  self.view.frame.height - keyboardHeight - self.encryptButton.frame.height - 10
+            
+        }
+    }
+    
+    @objc func keyboardWillHide(_ notification : Notification){
+        self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    /// Get the key selected in order to encrypt with it
+    @objc private func keySelected(notification: Notification){
+        self.keyNameButton.setTitleColor(.black, for: .normal)
+        let notificationData = notification.userInfo
+        self.keyNameButton.setTitle((notificationData?["name"] as! String), for: .normal)
+    }
+    
+    //
+    // Data func
+    //
+    
+    /// Check if the encryption text is correct and a key is selected
+    private func checkForEncryption() -> Bool{
+        if self.keyNameButton.titleLabel?.textColor == self.defaultKeyNameButtonTextColor && self.keyNameButton.titleLabel?.text == self.defaultKeyNameButtonText{ // Check if a key is selected
+            shakeView(self.keyNameButton)
+            return false
+        } else if textToEncrypt.textColor == self.defaultTextToEncryptColor && self.textToEncrypt.text == self.defaultTextToEncryptText{
+            shakeView(self.textToEncrypt)
+            return false
+        }
+        return true
+    }
+    
+    //
+    // Animation func
+    //
+    
+    func shakeView(_ view:UIView){
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.07
+        animation.repeatCount = 4
+        animation.autoreverses = true
+        animation.fromValue = NSValue(cgPoint: CGPoint(x: view.center.x - 10, y: view.center.y))
+        animation.toValue = NSValue(cgPoint: CGPoint(x: view.center.x + 10, y: view.center.y))
+        
+        view.layer.add(animation, forKey: "position")
     }
     
     //
@@ -299,7 +293,7 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
             let encryptionView = segue.destination as! EncryptedResult
             encryptionView.encryptedTextTransmitted = self.textEncrypted
             encryptionView.clearTextTransmitted = self.textToEncrypt.text!
-            encryptionView.keyNameTransmitted = self.publicKeyButton.currentTitle!
+            encryptionView.keyNameTransmitted = self.keyNameButton.currentTitle!
         } else if segue.identifier == "addKey"{
             let nv = segue.destination as? UINavigationController
             if let addView = nv?.viewControllers.first as? AddKey {
@@ -310,6 +304,14 @@ class Encrypt: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, U
         } else if segue.identifier == "lockApp"{
             let lockedView = segue.destination as! LockedView
             lockedView.activityInProgress = true
+        } else if segue.identifier == "keyList"{
+            let nv = segue.destination as? UINavigationController
+            if let keyList = nv?.viewControllers.first as? KeyList {
+                keyList.isKeySelection = true
+            } else {
+                print("[*] Error : Wrong segue destination ->   \(segue.destination)")
+            }
+            
         }
     }
     

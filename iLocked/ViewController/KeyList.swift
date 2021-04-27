@@ -26,11 +26,12 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     var selectModeIsActive = false // false = normal mode. False = user wants to select some cells.
     var selectedCellList : [Int] = [] // contains index.row of each selected cell
     var hasUpdated = false // if the viewed is already load, we update. If not, the view has just loaded
+    var isKeySelection = false // default : false. True if it's called by homePageEncryption and the user wants to select a key. In that case, cell must not be lead to showKey
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //Notifications :
-        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Encrypt.notificationName, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(notificationReceived), name: Encrypt.notificationOfNewKey, object: nil)
         
         // We get saved keys  :
         loadData()
@@ -43,8 +44,13 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             self.selectCellButton.isEnabled = false //no cell to select
         }
         hasUpdated = true// if the viewed is already load, we update. If not, the view has just loaded
-         
         
+        if self.isKeySelection{ // User wants to select a key in order to encrypt with it
+            self.selectCellButton.isEnabled = false
+        }
+        if isKeySelection {
+            navigationItem.title = "Select a key"
+        }
 
     }
     
@@ -130,7 +136,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //selected cell
-        if !selectModeIsActive { // if user is not selecting cells
+        if !selectModeIsActive && !self.isKeySelection { // if user is not selecting cells
             if indexPath.section == 0 {
                 self.userKeySelected = false
                  if nameList[0] != "There is no key saved" {
@@ -144,9 +150,8 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
              }
             tableView.deselectRow(at: indexPath, animated: true)
             
-        } else { // if user wants to select cells
+        } else if selectModeIsActive{ // if user wants to select cells
             if indexPath.section == 0 {
-                
                 if selectedCellList.contains(indexPath.row){ // deselect this cell
                     selectedCellList.remove(at: self.selectedCellList.firstIndex(of: indexPath.row)!)
                     let cell : UITableViewCell = tableView.cellForRow(at: indexPath)!
@@ -157,10 +162,21 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
                     cell.backgroundColor = .systemBlue
                 }
                 
+             } else { // User wants to
+                self.dismissViewFunc(keyName: nameList[indexPath.row])
+             }
+            tableView.deselectRow(at: indexPath, animated: true)
+        } else { // user wants to select a key
+            if indexPath.section == 0 {
+                self.userKeySelected = false
+                 if nameList[0] != "There is no key saved" {
+                     self.nameSelected = nameList[indexPath.row]
+                    dismissViewFunc(keyName: self.nameSelected)
+                 }
              } else {
-                
+                self.userKeySelected = true
                  self.nameSelected = "My encryption key"
-                 performSegue(withIdentifier: "showKey", sender: nil)
+                dismissViewFunc(keyName: self.nameSelected)
              }
             tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -225,6 +241,12 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             
         }
         self.selectCellButtonSelected(sender: self.selectCellButton)
+    }
+    
+    /// Dismiss view when a key is selected, in selection key mode
+    public func dismissViewFunc(keyName:String){
+        NotificationCenter.default.post(name: Encrypt.notificationOfSelectionName, object: nil, userInfo: ["name": keyName])
+        self.dismiss(animated: true, completion: nil)
     }
     
     

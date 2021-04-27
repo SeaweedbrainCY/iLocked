@@ -134,6 +134,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.notificationView.alpha = 0
         self.notificationView.setTitle("Copied", for: .normal)
         self.notificationView.addTarget(self, action: #selector(notificationViewSelected), for: .touchUpInside)
+        
     }
 
     //
