@@ -86,6 +86,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         cell.textLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         cell.backgroundColor = .systemGray5
         cell.textLabel?.textColor = .white
+        var accessoryView = UIView()
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0 :
@@ -96,7 +97,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
                     self.inAppBrowserSwitch.isOn = true
                 }
                 cell.textLabel?.text = "📲 Open external links in app"
-                cell.accessoryView = self.inAppBrowserSwitch
+                accessoryView = self.inAppBrowserSwitch
             default :
                 cell.textLabel?.text = "ERROR"
             }
@@ -104,6 +105,8 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
             switch indexPath.row {
             case 0:
                 cell.textLabel?.text = "📚 Open Source Libraries"
+                accessoryView = UIImageView(image:Settings().externalLinkView)
+                accessoryView.tintColor = .darkGray
             default:
                 cell.textLabel?.text = "ERROR"
             }
@@ -112,6 +115,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
             default : cell.textLabel?.text = "ERROR"
             }
         }
+        cell.accessoryView = accessoryView
         return cell
     }
     

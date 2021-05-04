@@ -85,6 +85,9 @@ class Encrypt: UIViewController, UITextViewDelegate{
         self.textToEncrypt.textColor = self.defaultTextToEncryptColor
         self.textToEncrypt.text = self.defaultTextToEncryptText
         
+        // round some button :
+        self.dismissKeyboardButton.layer.cornerRadius = 10
+        self.encryptButton.layer.cornerRadius = 10
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -105,9 +108,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
         )
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        // round some button :
-        self.dismissKeyboardButton.layer.cornerRadius = 10
-        self.encryptButton.layer.cornerRadius = 10
+        
         
         
         

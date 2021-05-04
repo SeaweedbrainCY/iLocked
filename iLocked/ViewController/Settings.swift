@@ -17,6 +17,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     @IBOutlet weak var tableView: UITableView!
     let protectionSwitch = UISwitch()
     let autoPasteSwitch = UISwitch()
+    let externalLinkView = UIImage(systemName: "arrow.up.right.square")
+    let nextViewSettingImageView = UIImage(systemName: "chevron.forward")
      
     
     override func viewDidLoad() {
@@ -28,7 +30,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         autoPasteSwitch.addTarget(self, action: #selector(autoPasteSwitchChanged), for: .valueChanged)
         
         
-        // Set up the setting label :
+        // Set up the setting icon:
+        //self.externalLinkView.tintColor = .darkGray
     }
     
     //
@@ -84,11 +87,14 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     
     ///Cells' name
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
         cell.textLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
         cell.backgroundColor = .systemGray5
         cell.textLabel?.textColor = .white
+        
+        var accessoryView = UIView()
+        
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
@@ -106,7 +112,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     setting.updateValue("false", forKey: "auto_paste")
                     saveSetting(dict: setting)
                 }
-                cell.accessoryView = self.autoPasteSwitch
+                accessoryView = self.autoPasteSwitch
                 
             default:
                 cell.textLabel?.text = "ERROR"
@@ -128,7 +134,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     saveSetting(dict: setting)
                 }
                 cell.textLabel?.text = "🔑 Protect with a password"
-                cell.accessoryView = self.protectionSwitch
+                accessoryView = self.protectionSwitch
             case 1 :
                 cell.textLabel?.text = "🔒 Lock application "
             case 2 :
@@ -141,22 +147,29 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             switch indexPath.row {
             case 0:
                 cell.textLabel?.text = "🔎 Report a bug"
-                cell.iconCell.image = UIImage(named: "Alerter")
             case 1 :
                 cell.textLabel?.text = "📱 Visit developer website"
-                cell.iconCell.image = UIImage(named: "Site")
+                accessoryView = UIImageView(image: self.externalLinkView)
+                accessoryView.tintColor = .darkGray
             case 2:
                 cell.textLabel?.text = "🔨 Browse source code"
+                //cell.imageAtEnd.image =  self.externalLinkView
+                //cell.accessoryView = self.externalLinkView
+                accessoryView = UIImageView(image: self.externalLinkView)
+                accessoryView.tintColor = .darkGray
             case 3:
                 cell.textLabel?.text = "🔏 Source code licence"
+                accessoryView = UIImageView(image: self.externalLinkView)
+                accessoryView.tintColor = .darkGray
+                
             default : cell.textLabel?.text = "ERROR"
             }
         } else if indexPath.section == 3{
             switch indexPath.row {
             case 0 :
                 cell.textLabel?.text = "⚙️ Advanced settings"
-                cell.accessoryView = UIImageView(image: UIImage(systemName: "greaterThan"))
-                cell.imageAtEnd = UIImageView(image: UIImage(systemName: "greaterThan"))
+                accessoryView = UIImageView(image: self.nextViewSettingImageView)
+                accessoryView.tintColor = .darkGray
             default :
                 break
             }
@@ -166,6 +179,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             }
             
         }
+        cell.accessoryView = accessoryView
         return cell
     }
     
