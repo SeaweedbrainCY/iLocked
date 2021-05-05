@@ -20,9 +20,6 @@ class Encrypt: UIViewController, UITextViewDelegate{
     @IBOutlet weak var keyNameButton: UIButton!
     @IBOutlet weak var encryptButton: UIButton!
     @IBOutlet weak var dismissKeyboardButton: UIButton!
-    @IBOutlet weak var signSwitchButton: UISwitch!
-    @IBOutlet weak var warningSignatureLabel: UILabel!
-    @IBOutlet weak var warningSignatureIcon: UIImageView!
     
     var keyArray: [String] = ["Add a key", "My encryption key"] // list of all names displayed on UIPIckerView
     var heightPicker: NSLayoutConstraint?
@@ -30,7 +27,6 @@ class Encrypt: UIViewController, UITextViewDelegate{
     var titleButtonClean = ""
     var textEncrypted = "error"
     var nameArray: [String] = [] // list of all name saved
-    let signatureSwitchSettingKey = "Signature" // Name of the key in settings dictionnary associated to the boolean of signSwicthButton
     
     //Data came from ShowKey.swift > encryptMessageSelected()
     var keyNameTransmitted = ""
@@ -93,19 +89,6 @@ class Encrypt: UIViewController, UITextViewDelegate{
         self.dismissKeyboardButton.layer.cornerRadius = 10
         self.encryptButton.layer.cornerRadius = 10
         
-        
-        // Retrieve setting data for signature switch button
-        let settingsData = SettingsData()
-        var settingsDict = settingsData.getSetting()
-        if (settingsDict.keys).contains(self.signatureSwitchSettingKey){
-            let swicthIsOnText = settingsDict[self.signatureSwitchSettingKey]
-            if swicthIsOnText == "false"{
-                self.signSwitchButton.isOn = false
-            }
-        } else { // Set a value by default
-            settingsDict.updateValue("true", forKey: self.signatureSwitchSettingKey)
-        }
-        self.switchButtonSignature(self.signSwitchButton) // To display the warning if isOn = false
         
     }
     
@@ -212,14 +195,6 @@ class Encrypt: UIViewController, UITextViewDelegate{
     }
     @IBAction func dismissButtonSelected(_ sender: Any) {
         self.view.endEditing(true)
-    }
-    @IBAction func switchButtonSignature(_ sender: UISwitch) {
-        self.warningSignatureIcon.isHidden = sender.isOn
-        self.warningSignatureLabel.isHidden = sender.isOn
-        let settings = SettingsData()
-        var settings_dict = settings.getSetting()
-        settings_dict.updateValue("\(sender.isOn)", forKey: self.signatureSwitchSettingKey)
-        settings.saveSetting(dict: settings_dict)
     }
     
     func textViewDidEndEditing(_ textView: UITextView){
