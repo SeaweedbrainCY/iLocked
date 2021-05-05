@@ -12,22 +12,24 @@ class SettingsData {
     
     /// Return all settings data saved in an array
     /// - Return : [*String:String*]
-    public func extractData() -> [String: String]{
-        var settingData :String? = nil
+    func getSetting() -> [String: String]{
+        var json = ""
         do {
-            settingData = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath), encoding: .utf8)
+            json = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath), encoding: .utf8)
+            
         } catch {
-            return ["Error" : "Impossible to get settings' data"]
+           print("***ATTENTION***\n\n ***ERROR***\n\nImpossible to retrieve data.\n\n***************")
         }
-        if settingData != nil {
-            if let dictionnary : [String: String] = settingData!.jsonToDictionary() {
-                return dictionnary
-            } else {
-                return ["Error" : "Impossible to get settings' data"]
-            }
-        } else {
-            return ["Error" : "Impossible to get settings' data"]
-        }
+        print("getSetting = \(json)")
+        let dict = json.jsonToDictionary() ?? ["":""]
+        return dict
+    }
+    
+    ///**Give the model of saved dict**
+    func saveSetting(dict: [String:String]){
+        let dictExtension = DictionnaryExtension()
+        let jsonString = dictExtension.dictionaryToJson(dict: dict)
+        _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath).path, contents: "\(jsonString!)".data(using: String.Encoding.utf8), attributes: nil)
     }
     
    

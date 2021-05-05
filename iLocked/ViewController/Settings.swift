@@ -40,25 +40,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     
     
     
-    func getSetting() -> [String: String]{
-        var json = ""
-        do {
-            json = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath), encoding: .utf8)
-            
-        } catch {
-           print("***ATTENTION***\n\n ***ERROR***\n\nImpossible to retrieve data.\n\n***************")
-        }
-        print("getSetting = \(json)")
-        let dict = json.jsonToDictionary() ?? ["":""]
-        return dict
-    }
     
-    ///**Give the model of saved dict**
-    func saveSetting(dict: [String:String]){
-        let dictExtension = DictionnaryExtension()
-        let jsonString = dictExtension.dictionaryToJson(dict: dict)
-        _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath).path, contents: "\(jsonString!)".data(using: String.Encoding.utf8), attributes: nil)
-    }
     
     /// Simple pop-up with one cancel button
     func alert(_ title: String, message: String) {
@@ -99,7 +81,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             switch indexPath.row {
             case 0:
                 cell.textLabel?.text = "🔍 Auto-paste encrypted text"
-                var setting = getSetting()
+                let settingData = SettingsData()
+                var setting = settingData.getSetting()
                 if (setting.keys).contains("auto_paste"){ // Check if the setting is already init
                     if setting["auto_paste"] == "true"{
                         self.autoPasteSwitch.isOn = true
@@ -110,7 +93,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     // default value
                     self.autoPasteSwitch.isOn = false
                     setting.updateValue("false", forKey: "auto_paste")
-                    saveSetting(dict: setting)
+                    settingData.saveSetting(dict: setting)
                 }
                 accessoryView = self.autoPasteSwitch
                 
@@ -120,7 +103,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         } else if indexPath.section == 1 {
             switch indexPath.row {
             case 0 :
-                var setting = getSetting()
+                let settingData = SettingsData()
+                var setting = settingData.getSetting()
                 if (setting.keys).contains("password"){ // Check if the setting is already init
                     if setting["password"] == "false"{
                         self.protectionSwitch.isOn = false
@@ -131,7 +115,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     // default value
                     self.autoPasteSwitch.isOn = false
                     setting.updateValue("false", forKey: "password")
-                    saveSetting(dict: setting)
+                    settingData.saveSetting(dict: setting)
                 }
                 cell.textLabel?.text = "🔑 Protect with a password"
                 accessoryView = self.protectionSwitch
@@ -285,24 +269,26 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     //
     
     @objc private func protectionSwitchChanged(){
-        var settingDict = getSetting()
+        let settingData = SettingsData()
+        var settingDict = settingData.getSetting()
         if self.protectionSwitch.isOn {
             settingDict.updateValue("true", forKey: "password")
         } else {
             settingDict.updateValue("false", forKey: "password")
         }
-        saveSetting(dict: settingDict)
+        settingData.saveSetting(dict: settingDict)
     }
     
     
     @objc private func autoPasteSwitchChanged(){
-        var settingDict = getSetting()
+        let settingData = SettingsData()
+        var settingDict = settingData.getSetting()
         if self.autoPasteSwitch.isOn {
             settingDict.updateValue("true", forKey: "auto_paste")
         } else {
             settingDict.updateValue("false", forKey: "auto_paste")
         }
-        saveSetting(dict: settingDict)
+        settingData.saveSetting(dict: settingDict)
     }
     
     /**

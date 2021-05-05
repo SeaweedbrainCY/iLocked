@@ -24,7 +24,8 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         //
         // Charge settings
         //
-        let settingDict = getSetting()
+        let settingsData = SettingsData()
+        let settingDict = settingsData.getSetting()
         if let value = settingDict["inAppBrowser"] {
             if value == "true" {
                 inAppBrowserSwitch.setOn(true, animated: true)
@@ -50,13 +51,14 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
     //
     
     @objc private func inAppBrowserSwitchChanged(){
-        var settingDict = getSetting()
+        let settingsData = SettingsData()
+        var settingDict = settingsData.getSetting()
         if self.inAppBrowserSwitch.isOn {
             settingDict.updateValue("true", forKey: "inAppBrowser")
         } else {
             settingDict.updateValue("false", forKey: "inAppBrowser")
         }
-        saveSetting(dict: settingDict)
+        settingsData.saveSetting(dict: settingDict)
         alert("🔨 Feature coming soon !", message: "The iLocked application is still in development ! You will soon be able to open external links directly in app !\nYour choice is still saved and you will be notified when it becomes available.", quitMessage: "Ok")
     }
     
@@ -90,7 +92,8 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0 :
-                let setting = getSetting()
+                let settingsData = SettingsData()
+                let setting = settingsData.getSetting()
                 if setting["inAppBrowser"] == "false"{
                     self.inAppBrowserSwitch.isOn = false
                 } else {
@@ -143,30 +146,6 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
-    }
-    
-    //
-    // Settings data
-    //
-    
-    func getSetting() -> [String: String]{
-        var json = ""
-        do {
-            json = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath), encoding: .utf8)
-            
-        } catch {
-           print("***ATTENTION***\n\n ***ERROR***\n\nImpossible to retrieve data.\n\n***************")
-        }
-        let dict = json.jsonToDictionary() ?? ["":""]
-        return dict
-    }
-    
-    
-    ///**Give the model of saved dict**
-    func saveSetting(dict: [String:String]){
-        let dictExtension = DictionnaryExtension()
-        let jsonString = dictExtension.dictionaryToJson(dict: dict)
-        _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath).path, contents: "\(jsonString!)".data(using: String.Encoding.utf8), attributes: nil)
     }
     
     
