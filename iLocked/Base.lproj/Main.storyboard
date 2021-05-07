@@ -139,7 +139,7 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="Encrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-SM-Sl0">
@@ -216,6 +216,12 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="IYN-4d-LIH"/>
                         <rightBarButtonItems>
                             <barButtonItem enabled="NO" title=" " id="TCW-I1-elO"/>
+                            <barButtonItem systemItem="add" id="HHU-vV-S52">
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <connections>
+                                    <action selector="addNewKeySelectedWithSender:" destination="BYZ-38-t0r" id="3zg-S8-PVC"/>
+                                </connections>
+                            </barButtonItem>
                             <barButtonItem title="Item" image="lock.fill" catalog="system" id="fFF-Oo-VMX">
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
@@ -225,6 +231,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addNewKeyButton" destination="HHU-vV-S52" id="39z-Zb-87K"/>
                         <outlet property="dismissKeyboardButton" destination="W5O-G1-fht" id="a5R-yo-YYc"/>
                         <outlet property="encryptButton" destination="AYy-4A-M5e" id="LbD-2R-SBb"/>
                         <outlet property="keyNameButton" destination="vCo-dJ-S93" id="C7J-1a-zac"/>
@@ -333,7 +340,7 @@
                                 <rect key="frame" x="16" y="20" width="396" height="798"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Cochin-Bold" family="Cochin" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Baskerville-Bold" family="Baskerville" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7z-Ac-82f">
@@ -991,10 +998,10 @@
             </objects>
             <point key="canvasLocation" x="2838" y="1891"/>
         </scene>
-        <!-- -->
+        <!--Encrypted message-->
         <scene sceneID="nc4-Bc-6PQ">
             <objects>
-                <viewController id="lni-hq-xo9" customClass="EncryptedResult" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Encrypted message" id="lni-hq-xo9" customClass="EncryptedResult" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="ur2-5E-dqe">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1003,26 +1010,27 @@
                                 <rect key="frame" x="0.0" y="108" width="428" height="730"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c30-kj-W9B">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="800"/>
-                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="0.0" y="-85" width="428" height="885"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="800" id="6kj-2X-UdZ"/>
+                                            <constraint firstAttribute="height" constant="885" id="6kj-2X-UdZ"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="c30-kj-W9B" secondAttribute="bottom" id="0IZ-C4-4VS"/>
+                                    <constraint firstAttribute="bottom" secondItem="c30-kj-W9B" secondAttribute="bottom" constant="-70" id="0IZ-C4-4VS"/>
                                     <constraint firstAttribute="trailing" secondItem="c30-kj-W9B" secondAttribute="trailing" id="FrB-Tk-8nM"/>
                                     <constraint firstItem="c30-kj-W9B" firstAttribute="trailing" secondItem="sc0-RJ-pVe" secondAttribute="trailing" id="LGf-37-TaP"/>
                                     <constraint firstItem="c30-kj-W9B" firstAttribute="leading" secondItem="sc0-RJ-pVe" secondAttribute="leading" id="k05-CR-OYy"/>
-                                    <constraint firstItem="c30-kj-W9B" firstAttribute="top" secondItem="jV8-Jq-hgB" secondAttribute="top" id="mnu-uF-SAN"/>
+                                    <constraint firstItem="c30-kj-W9B" firstAttribute="top" secondItem="jV8-Jq-hgB" secondAttribute="top" constant="-85" id="mnu-uF-SAN"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="jV8-Jq-hgB"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="sc0-RJ-pVe"/>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pY4-zy-Vtu"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <color key="tintColor" systemColor="systemOrangeColor"/>
                         <constraints>
                             <constraint firstItem="uyQ-tL-Niz" firstAttribute="leading" secondItem="pY4-zy-Vtu" secondAttribute="leading" id="RJ7-4J-BNT"/>
                             <constraint firstItem="uyQ-tL-Niz" firstAttribute="top" secondItem="pY4-zy-Vtu" secondAttribute="top" id="abZ-dX-g7k"/>
@@ -1030,14 +1038,6 @@
                             <constraint firstItem="uyQ-tL-Niz" firstAttribute="bottom" secondItem="pY4-zy-Vtu" secondAttribute="bottom" id="hZ2-OP-dmL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title=" " id="Ka6-NT-ubG">
-                        <barButtonItem key="rightBarButtonItem" id="oYc-Yu-lKD">
-                            <color key="tintColor" systemColor="linkColor"/>
-                            <connections>
-                                <action selector="shareButtonSelectedWithSender:" destination="lni-hq-xo9" id="Ma0-UX-Xof"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <connections>
                         <outlet property="background" destination="c30-kj-W9B" id="Tyr-cO-2TW"/>
                         <outlet property="scrollView" destination="uyQ-tL-Niz" id="d5p-iW-bNG"/>
@@ -1046,7 +1046,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTU-ZX-Nvf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2945" y="126"/>
+            <point key="canvasLocation" x="2943.9252336448594" y="125.70194384449245"/>
         </scene>
         <!--Settings-->
         <scene sceneID="hJv-so-Cu4">
@@ -1075,7 +1075,7 @@
         <segue reference="lMQ-dt-c2G"/>
         <segue reference="YdW-06-8TH"/>
         <segue reference="2z8-fZ-KqH"/>
-        <segue reference="1Wa-3S-HsL"/>
+        <segue reference="kJe-TR-tAr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
@@ -1106,9 +1106,6 @@
         </systemColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

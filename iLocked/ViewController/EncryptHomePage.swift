@@ -20,6 +20,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     @IBOutlet weak var keyNameButton: UIButton!
     @IBOutlet weak var encryptButton: UIButton!
     @IBOutlet weak var dismissKeyboardButton: UIButton!
+    @IBOutlet weak var addNewKeyButton: UIBarButtonItem!
     
     var keyArray: [String] = ["Add a key", "My encryption key"] // list of all names displayed on UIPIckerView
     var heightPicker: NSLayoutConstraint?
@@ -206,6 +207,9 @@ class Encrypt: UIViewController, UITextViewDelegate{
         }
     }
     
+    @IBAction func addNewKeySelected(sender: UIBarButtonItem){
+        self.performSegue(withIdentifier: "addKey", sender: self)
+    }
     
 
     //Encryption method :
@@ -294,6 +298,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "Encryption" && textEncrypted != "error" && textEncrypted != ""{
             let encryptionView = segue.destination as! EncryptedResult
+            print("[*] Text encrypted = \(self.textEncrypted)")
             encryptionView.encryptedTextTransmitted = self.textEncrypted
             encryptionView.clearTextTransmitted = self.textToEncrypt.text!
             encryptionView.keyNameTransmitted = self.keyNameButton.currentTitle!
