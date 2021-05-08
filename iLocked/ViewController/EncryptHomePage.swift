@@ -39,8 +39,6 @@ class Encrypt: UIViewController, UITextViewDelegate{
     var defaultTextToEncryptText:String = "Text to encrypt"
     
     
-    
-    
     //Notification
     static let notificationOfNewKey = Notification.Name("AddKeyDismissed")
     static let notificationOfSelectionName = Notification.Name("notificationOfSelectionFromKeyListToEncryptView")
@@ -244,13 +242,14 @@ class Encrypt: UIViewController, UITextViewDelegate{
             self.encryptButton.translatesAutoresizingMaskIntoConstraints = true
             self.dismissKeyboardButton.frame.origin.y = self.view.frame.height - keyboardHeight - self.dismissKeyboardButton.frame.height - 10
             self.encryptButton.frame.origin.y =  self.view.frame.height - keyboardHeight - self.encryptButton.frame.height - 10
-            
+            reduceTextView(keyboardHeight: keyboardHeight)
         }
     }
     
     @objc func keyboardWillHide(_ notification : Notification){
         self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
+        expandTextView()
     }
     
     /// Get the key selected in order to encrypt with it
@@ -258,6 +257,18 @@ class Encrypt: UIViewController, UITextViewDelegate{
         self.keyNameButton.setTitleColor(.black, for: .normal)
         let notificationData = notification.userInfo
         self.keyNameButton.setTitle((notificationData?["name"] as! String), for: .normal)
+    }
+    
+    /// Reduce the height of textToEncrypt view, to fit with the keyboard height
+    func reduceTextView(keyboardHeight:CGFloat){
+        self.textToEncrypt.translatesAutoresizingMaskIntoConstraints = true
+        let height = self.view.frame.height - keyboardHeight - self.encryptButton.frame.height - self.textToEncrypt.frame.origin.y - 20
+        self.textToEncrypt.frame = CGRect(x: self.textToEncrypt.frame.origin.x, y: self.textToEncrypt.frame.origin.y, width: self.textToEncrypt.frame.width, height: height)
+    }
+    
+    /// Expand the height of textToEncrypt view, it was reduced to fit with the keyboard heigth
+    func expandTextView(){
+        self.textToEncrypt.translatesAutoresizingMaskIntoConstraints = false
     }
     
     //
