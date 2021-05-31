@@ -13,9 +13,21 @@ import UIKit
 
 
 
-class CustomTableViewCell: UITableViewCell {
+public class CustomTableViewCell: UITableViewCell {
+    let textField = UITextField()
     
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var imageAtEnd: UIImage!
+    public func configure(text: String?, placeholder :String?){
+        self.addSubview(self.textField)
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.textField.heightAnchor.constraint(equalToConstant: self.frame.height).isActive = true
+        self.textField.widthAnchor.constraint(equalToConstant: self.frame.width).isActive = true
+        self.centerYAnchor.constraint(equalToSystemSpacingBelow: self.centerYAnchor, multiplier: 1).isActive = true
+        self.centerXAnchor.constraint(equalToSystemSpacingAfter: self.centerXAnchor, multiplier: 1).isActive = true
+        self.textField.backgroundColor = UIColor.systemGray5
+        textField.text = text
+        textField.placeholder = placeholder
+        textField.accessibilityValue = text
+        textField.accessibilityLabel = placeholder
+    }
     
 }

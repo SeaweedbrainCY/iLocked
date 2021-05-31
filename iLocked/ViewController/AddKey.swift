@@ -8,30 +8,29 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
-class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
+class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextFieldDelegate  {
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var backgroundView: UIView!
+
     @IBOutlet weak var cancelButton: UIBarButtonItem!
+    @IBOutlet weak var nameKeyField: UITextField!
+    @IBOutlet weak var keyTextView: UITextView!
+    @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var nameError: UIButton!
+    @IBOutlet weak var publicKeyError: UIButton!
     
-    var nameLabel = UILabel()
-    var nameField = UITextField()
-    var nameError = UIButton()
-    var publicKeyLabel = UILabel()
-    var publicKeyField = UITextView()
-    var publicKeyError = UIButton()
-    var nextButton = UIButton()
-    var chargement = UIActivityIndicatorView()
-    var tikImage = UIImageView()
+
     var currentColorButton = UIButton()
     var chooseColorControl = UISegmentedControl()
+    //var segmentView = UIView()
+    var allCellsText = [String]() // Store data from the textField in table View
     
     var viewOnBack: String = ""
     var oldName:String = ""
     var oldKey : String = ""
     
-    let keyTextViewPlaceholder = "If it's not ugly it can't be that ..."
+    let keyTextViewPlaceholder = "Aa"
     
     let forbiddenKeyName = [userPublicKeyId, userPrivateKeyId, "My encryption key"] // List of forbidden keyName
     
@@ -47,17 +46,15 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View on back = \(self.viewOnBack)")
-        self.scrollView.delegate = self
-        self.scrollView.keyboardDismissMode = .onDrag
-        self.backgroundView.layer.cornerRadius = 40
-        addViews()
+        self.constructView()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(true)
+        super.viewDidAppear(true)
             //Call when the user tap once or twice on the home button
-            let notificationCenter = NotificationCenter.default
-            notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        
             
         }
     
@@ -68,39 +65,25 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     // View constructions func
     //
     
-    private func addViews(){
-        backgroundView.addSubview(nameLabel)
-        self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.nameLabel.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.leftAnchor, multiplier: 2).isActive = true
-        self.nameLabel.topAnchor.constraint(equalToSystemSpacingBelow: self.scrollView.topAnchor, multiplier: 2).isActive = true
-        self.nameLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 30)
-        self.nameLabel.textColor = .white
-        self.nameLabel.text = "Name of this key :"
+    
+    private func constructView(){
+        self.keyTextView.delegate = self
+        self.keyTextView.layer.cornerRadius = 10
+        self.keyTextView.layer.borderWidth = 0.1
+        self.keyTextView.layer.borderColor = UIColor.white.cgColor
+        self.keyTextView.textColor = .lightGray
+        self.keyTextView.text = self.keyTextViewPlaceholder
         
-        backgroundView.addSubview(nameField)
-        self.nameField.translatesAutoresizingMaskIntoConstraints = false
-        self.nameField.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.nameField.topAnchor.constraint(equalToSystemSpacingBelow: self.nameLabel.bottomAnchor, multiplier: 2).isActive = true
-        self.nameField.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width -  20).isActive = true
-        self.nameField.font = UIFont(name: "Arial Rounded MT Bold", size: 20)
-        self.nameField.textColor = .systemOrange
-        self.nameField.placeholder = "Aa"
-        self.nameField.keyboardAppearance = .dark
-        self.nameField.textContentType = .name
-        self.nameField.borderStyle = .roundedRect
-        self.nameField.layer.cornerRadius = 15
-        self.nameField.layer.borderWidth = 5
-        self.nameField.layer.borderColor = .none
-        self.nameField.backgroundColor = .black
-        if self.oldName != ""{ // Name is given by ShowKey.swift in case of modification
-            self.nameField.text = oldName
+        if oldName != ""{ // We are editing an existant key
+            self.nameKeyField.text = oldName
+            self.textViewDidBeginEditing(self.keyTextView) // As a user do
+            self.keyTextView.text = oldKey
         }
         
-        backgroundView.addSubview(nameError)
-        self.nameError.translatesAutoresizingMaskIntoConstraints = false
-        self.nameError.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.nameError.topAnchor.constraint(equalToSystemSpacingBelow: self.nameLabel.bottomAnchor, multiplier: 2).isActive = true
-        self.nameError.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width -  20).isActive = true
+        
+        self.saveButton.layer.cornerRadius = 10
+        
+        self.nameError.frame = self.nameKeyField.frame
         self.nameError.titleLabel!.font = UIFont(name: "Arial Rounded MT Bold", size: 18)
         self.nameError.setTitleColor(.systemRed, for: .normal)
         self.nameError.layer.cornerRadius = 15
@@ -108,107 +91,23 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         self.nameError.layer.borderColor = UIColor.white.cgColor
         self.nameError.backgroundColor = .white
         self.nameError.isHidden = true
-        self.nameError.addTarget(self, action: #selector(nameErrorSelected), for: .touchUpInside)
         
-        backgroundView.addSubview(publicKeyLabel)
-        self.publicKeyLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.publicKeyLabel.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.leftAnchor, multiplier: 2).isActive = true
-        self.publicKeyLabel.topAnchor.constraint(equalToSystemSpacingBelow: self.nameField.topAnchor, multiplier: 5).isActive = true
-        self.publicKeyLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 25)
-        self.publicKeyLabel.textColor = .white
-        self.publicKeyLabel.text = "Public (encryption) key :"
         
-        backgroundView.addSubview(publicKeyField)
-        self.publicKeyField.translatesAutoresizingMaskIntoConstraints = false
-        self.publicKeyField.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.publicKeyField.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyLabel.bottomAnchor, multiplier: 1.5).isActive = true
-        self.publicKeyField.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 20).isActive = true
-        self.publicKeyField.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        self.publicKeyField.font = UIFont(name: "American Typewriter", size: 20)
-        self.publicKeyField.textColor = .lightGray
-        self.publicKeyField.text = self.keyTextViewPlaceholder
-        self.publicKeyField.keyboardAppearance = .dark
-        self.publicKeyField.textContentType = .name
-        self.publicKeyField.rondBorder()
-        self.publicKeyField.layer.borderColor = UIColor.black.cgColor
-        self.publicKeyField.backgroundColor = .black
-        self.publicKeyField.delegate = self
-        if self.oldKey != ""{ //Given by ShowKey.swift's class in case of modification
-            self.publicKeyField.text = self.oldKey
-            self.publicKeyField.textColor = .systemOrange
-        }
-        
-        backgroundView.addSubview(publicKeyError)
-        self.publicKeyError.translatesAutoresizingMaskIntoConstraints = false
-        self.publicKeyError.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.publicKeyError.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyLabel.bottomAnchor, multiplier: 1.5).isActive = true
-        self.publicKeyError.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 20).isActive = true
-        self.publicKeyError.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        self.publicKeyError.frame = self.keyTextView.frame
         self.publicKeyError.titleLabel!.font = UIFont(name: "Arial Rounded MT Bold", size: 18)
         self.publicKeyError.setTitleColor(.systemRed, for: .normal)
         self.publicKeyError.layer.cornerRadius = 15
-        self.publicKeyError.layer.borderWidth = 1
+        self.publicKeyError.layer.borderWidth = 5
         self.publicKeyError.titleLabel?.numberOfLines = 20
         self.publicKeyError.layer.borderColor = UIColor.white.cgColor
         self.publicKeyError.backgroundColor = .white
         self.publicKeyError.isHidden = true
-        self.publicKeyError.addTarget(self, action: #selector(publicKeyErrorSelected), for: .touchUpInside)
-        
-        //##################################################################################
-        //##################################################################################
-        //ATTENTION : CETTE PARTIE DE CODE EST NON OPTIMISÉE ET NON TERMINÉE.
-        //CE CODE EST EN PRÉVSISION D'UNE FUTUR MISE À JOUR MAIS N'EST ABSOLUMENT PAS AU POINT
-        //LE RÉTABLISSEMENT DE CE CODE SANS SÉRIEUX COMPLÉMENT MET EN PÉRIL LE CHARGEMENT DE LA VIEW
-        /*self.backgroundView.addSubview(self.currentColorButton)
-        self.currentColorButton.translatesAutoresizingMaskIntoConstraints = false
-        self.currentColorButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.currentColorButton.topAnchor.constraint(lessThanOrEqualToSystemSpacingBelow: self.publicKeyField.bottomAnchor, multiplier: 4).isActive = true
-        self.currentColorButton.widthAnchor.constraint(equalToConstant: 50).isActive = true
-        self.currentColorButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        self.currentColorButton.titleLabel?.backgroundColor = .blue
-        self.currentColorButton.addTarget(self, action: #selector(colorButtonSelected), for: .touchUpInside)
-        
-        self.backgroundView.addSubview(self.chooseColorControl)
-        self.chooseColorControl.translatesAutoresizingMaskIntoConstraints = false
-        self.chooseColorControl.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.rightAnchor, multiplier: 2).isActive = true
-        self.chooseColorControl.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyField.bottomAnchor, multiplier: 4).isActive = true
-        self.chooseColorControl.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - self.currentColorButton.frame.size.width - 40).isActive = true
-        for i in 0 ..< listeImageColor.count {
-            self.chooseColorControl.setImage(listeImageColor[i], forSegmentAt: i)
-        }
-        self.chooseColorControl.isHidden = true*/
-        //##################################################################################
-        //##################################################################################
-        
-        self.backgroundView.addSubview(self.nextButton)
-        self.nextButton.translatesAutoresizingMaskIntoConstraints = false
-        self.nextButton.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.nextButton.topAnchor.constraint(equalToSystemSpacingBelow: self.publicKeyField.bottomAnchor, multiplier: 3).isActive = true
-        self.nextButton.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        self.nextButton.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        self.nextButton.setImage(UIImage(named: "next"), for: .normal)
-        self.nextButton.addTarget(self, action: #selector(nextButtonSelected), for: .touchUpInside)
-        
-        self.backgroundView.addSubview(self.chargement)
-        self.chargement.translatesAutoresizingMaskIntoConstraints = false
-        self.chargement.centerXAnchor.constraint(equalToSystemSpacingAfter: self.nextButton.centerXAnchor, multiplier: 1).isActive = true
-        self.chargement.centerYAnchor.constraint(equalToSystemSpacingBelow: self.nextButton.centerYAnchor, multiplier: 1).isActive = true
-        self.chargement.hidesWhenStopped = true
-        
     }
     
     
     //
     // Objective C func
     //
-    
-    @objc private func nameErrorSelected(sender: UIButton){
-        flip(firstView: self.nameError, secondView: self.nameField)
-    }
-    
-    @objc private func publicKeyErrorSelected(sender: UIButton){
-        flip(firstView: self.publicKeyError, secondView: self.publicKeyField)
-    }
     
     //##################################################################################
     //##################################################################################
@@ -228,27 +127,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     //##################################################################################
     //##################################################################################
     
-    @objc private func nextButtonSelected(sender: UIButton){
-        //We can try to save data
-        
-        if self.verify(name : self.nameField.text,key: self.publicKeyField.text) {
-            ///we save new data
-            if oldName == "" {
-                self.saveKeyWithName(nameString: self.nameField.text!)
-            } else { /// we edit new data :
-                let keyId = KeyId()
-                let nameList = keyId.getKeyName()
-                print("old name = \(self.oldName)")
-                if !nameList.contains(oldName) { // Impossible to find the name. Fatal error
-                    self.publicKeyError.setTitle("Impossible to identify this key. Please, try to save again this key. If you see this error several times please report the bug with the id : ##DATA/AK.SWIFT 0003 🛠", for: .normal)
-                    self.flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
-                    self.flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
-                } else { // id found
-                    self.saveKeyWithName(nameString: nameField.text!)
-                }
-            }
-        }
-    }
+    
     
     @objc func dismissView(){
         self.dismiss(animated: true, completion: nil)
@@ -270,6 +149,39 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         
         perform(#selector(dismissView), with: nil)
         
+    }
+    @IBAction func saveItemButtonSelected(_ sender: Any) {
+        self.saveButtonSelected(sender:self.saveButton)
+    }
+    
+    @IBAction func saveButtonSelected(sender: UIButton){
+        //We can try to save data
+        print("[*] Save button selected")
+        if self.verify(name : self.nameKeyField.text,key: self.keyTextView.text) {
+            ///we save new data
+            if oldName == "" {
+                self.saveKeyWithName(nameString: self.nameKeyField.text!)
+            } else { /// we edit new data :
+                let keyId = KeyId()
+                let nameList = keyId.getKeyName()
+                print("old name = \(self.oldName)")
+                if !nameList.contains(oldName) { // Impossible to find the name. Fatal error
+                    self.publicKeyError.setTitle("Impossible to identify this key. Please, try to save again this key. If you see this error several times please report the bug with the id : ##DATA/AK.SWIFT 0003 🛠", for: .normal)
+                    self.flip(firstView: self.keyTextView, secondView: self.publicKeyError)
+                } else { // id found
+                    self.saveKeyWithName(nameString: nameKeyField.text!)
+                }
+            }
+        }
+        print("[*] Save button func ended")
+    }
+    
+    @IBAction func nameKeyErrorSelected(_ sender: Any) {
+        flip(firstView : self.nameError, secondView: self.nameKeyField)
+    }
+    
+    @IBAction func keyErrorSelected(_ sender: Any) {
+        flip(firstView: self.publicKeyError, secondView: self.keyTextView)
     }
     
     //
@@ -309,14 +221,14 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.text == self.keyTextViewPlaceholder{
             textView.text = ""
-            textView.textColor = .systemOrange
+            textView.textColor = .white
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView){
         if textView.text == "" {
             textView.text = self.keyTextViewPlaceholder
-            textView.textColor = .lightGray
+            textView.textColor = .darkGray
         }
     }
     
@@ -335,39 +247,39 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         nameList.append(name)
         keyArray.stockNewNameIdArray(nameList)
         //enregsitrement dans la keyChain:
-        let successfulSave:Bool = KeychainWrapper.standard.set("\(self.publicKeyField.text!)", forKey: name)
+        let successfulSave:Bool = KeychainWrapper.standard.set("\(self.keyTextView.text!)", forKey: name)
         if successfulSave {
                 //
                 //SUCCÈS ::
                 //
-                print("button = \(self.nextButton.state)")
                 NotificationCenter.default.post(name: Encrypt.notificationOfNewKey, object: nil, userInfo:["addKey success" : true])
                 //get date
             let formatter:DateFormatter = DateFormatter()
                 formatter.dateFormat = "DD/MM/YYY"
             //let todayDate:NSDate = formatter.date(from: Date().description(with: .current))! as NSDate
                 if self.viewOnBack == "ShowKey"{
-                    NotificationCenter.default.post(name: ShowKey.notificationOfModificationName, object: nil, userInfo: ["name": self.nameField.text!, "key": self.publicKeyField.text!])
+                    NotificationCenter.default.post(name: ShowKey.notificationOfModificationName, object: nil, userInfo: ["name": self.nameKeyField.text!, "key": self.keyTextView.text!])
                 }
                 dismissView()
         }
     }
     
     public func verify(name:String?,key:String?) -> Bool{
+        print("[*] Verify func called")
         let keyArray = KeyId()
         if name == ""{
-            self.nameError.setTitle("This key needs a little name 🥺", for: .normal)
-            flip(firstView: self.nameField, secondView: self.nameError)
+            self.nameError.setTitle("A key needs a name", for: .normal)
+            flip(firstView: self.nameKeyField, secondView: self.nameError)
             return false
         } else if key == "" || key == self.keyTextViewPlaceholder{
-            self.publicKeyError.setTitle("Without key, no encryption 🤷‍♂️", for: .normal)
-            self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
+            self.publicKeyError.setTitle("Please, enter a key", for: .normal)
+            self.flip(firstView: keyTextView, secondView: self.publicKeyError)
             return false
         } else {
             // Check if the key is valid :
             if !KeyId().checkKeyValidity(key!){
-                self.publicKeyError.setTitle("Key isn't valid 🚧\nIt must be generated by the iLocked app and must not be modified", for: .normal)
-                self.flip(firstView: publicKeyField, secondView: self.publicKeyError)
+                self.publicKeyError.setTitle("Key isn't valid ! \nIt must be generated by the iLocked app and must not be modified", for: .normal)
+                self.flip(firstView: keyTextView, secondView: self.publicKeyError)
                 return false
             }
         }
@@ -376,22 +288,22 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         if nameList.count != 0{
             if nameList.contains("##ERROR##"){
                 self.publicKeyError.setTitle(nameList[0], for: .normal)
-                flip(firstView: self.publicKeyField, secondView: self.publicKeyError)
+                flip(firstView: self.keyTextView, secondView: self.publicKeyError)
                 return false
             } else if oldName == "" { // we don't have any error
                 for forbiddenName in self.forbiddenKeyName{
                     if key == forbiddenName{ // Forbidden name
-                        self.nameError.setTitle("This name are forbidden 🔏", for: .normal)
-                        flip(firstView: self.nameField, secondView: self.nameError)
+                        self.nameError.setTitle("This name are forbidden. Try another one", for: .normal)
+                        flip(firstView: self.nameKeyField, secondView: self.nameError)
                         return false
                     }
                 }
                 print("nameList in addKey = \(nameList)")
                 for name in nameList { // we verify if the name already exist
                     print("name already stored = \(name)\n")
-                    if name == name {
-                        self.nameError.setTitle("This name is already taken 💩", for: .normal)
-                        flip(firstView: self.nameField, secondView: self.nameError)
+                    if name == self.nameKeyField.text! {
+                        self.nameError.setTitle("This name is already taken !", for: .normal)
+                        flip(firstView: self.nameKeyField, secondView: self.nameError)
                         return false
                     }
                 }
@@ -399,5 +311,7 @@ class AddKey: UIViewController, UITextViewDelegate, UIScrollViewDelegate {
         }
         return true // If we haven't already returned false, it must be true
     }
+    
+    
 }
 
