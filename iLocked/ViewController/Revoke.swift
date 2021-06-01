@@ -15,11 +15,16 @@ class Revoke: UIViewController {
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var revokeButton: UIButton!
+    @IBOutlet weak var warningLabel: UILabel!
+    
+    @IBOutlet var warningImage: UIView!
     
     static let notificationOfAuthenticationName = Notification.Name("notificationOfAuthenticationResult")
     
     var timer: Timer!
+    var timerWarning :Timer!
     var second = 0 //Count the number of seconds passed
+    var secondWarning = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cancelButton.layer.cornerRadius = 10
@@ -32,6 +37,7 @@ class Revoke: UIViewController {
         super.viewDidAppear(true)
         //Start the timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        timerWarning = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimeWarning), userInfo: nil, repeats: true)
     }
     
     /// Simple pop-up with one cancel button
@@ -58,6 +64,15 @@ class Revoke: UIViewController {
         } else{
             self.revokeButton.setTitle("REVOKE (\(5 - self.second)s)", for: .normal)
         }
+    }
+    
+    @objc private func updateTimeWarning(){
+        print("[*] Timer warning")
+        self.warningImage.isHidden = !self.warningImage.isHidden
+        if self.secondWarning > 120 {
+            self.timerWarning.invalidate()
+        }
+        self.secondWarning += 1
     }
     
     @IBAction func closeView(sender: UIButton){

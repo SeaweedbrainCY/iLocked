@@ -97,11 +97,12 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
         self.publicKeyError.titleLabel!.font = UIFont(name: "Arial Rounded MT Bold", size: 18)
         self.publicKeyError.setTitleColor(.systemRed, for: .normal)
         self.publicKeyError.layer.cornerRadius = 15
-        self.publicKeyError.layer.borderWidth = 5
+        self.publicKeyError.layer.borderWidth = 1
         self.publicKeyError.titleLabel?.numberOfLines = 20
         self.publicKeyError.layer.borderColor = UIColor.white.cgColor
         self.publicKeyError.backgroundColor = .white
         self.publicKeyError.isHidden = true
+        self.publicKeyError.titleLabel?.textAlignment = .center
     }
     
     
