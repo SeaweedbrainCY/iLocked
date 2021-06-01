@@ -239,9 +239,17 @@ class Encrypt: UIViewController, UITextViewDelegate{
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardHeight = keyboardRectangle.height
             self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = true
+            
             self.encryptButton.translatesAutoresizingMaskIntoConstraints = true
+            let encryptButton_x = self.dismissKeyboardButton.frame.origin.x + self.dismissKeyboardButton.frame.width + 20
+            let encryptButton_y = self.view.frame.height - keyboardHeight - self.encryptButton.frame.height - 10
+            let encryptButton_width = self.encryptButton.frame.width - self.dismissKeyboardButton.frame.width - 20
+            self.encryptButton.frame = CGRect(x: encryptButton_x, y: encryptButton_y, width: encryptButton_width, height: self.encryptButton.frame.height)
+            
             self.dismissKeyboardButton.frame.origin.y = self.view.frame.height - keyboardHeight - self.dismissKeyboardButton.frame.height - 10
-            self.encryptButton.frame.origin.y =  self.view.frame.height - keyboardHeight - self.encryptButton.frame.height - 10
+            self.dismissKeyboardButton.isHidden = false
+            
+            
             reduceTextView(keyboardHeight: keyboardHeight)
         }
     }
@@ -249,6 +257,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     @objc func keyboardWillHide(_ notification : Notification){
         self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
+        self.dismissKeyboardButton.isHidden = true
         expandTextView()
     }
     

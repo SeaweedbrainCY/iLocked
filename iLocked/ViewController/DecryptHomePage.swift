@@ -13,12 +13,10 @@ import UIKit
 class Decrypt: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var helpBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var sharePublicKeyButton: UIButton!
-    @IBOutlet weak var helpAboutSharingButton: UIButton!
     @IBOutlet weak var textToDecryptView: UITextView!
     @IBOutlet weak var decryptButton: UIButton!
-    @IBOutlet weak var leftItemButton : UIBarButtonItem!
     @IBOutlet weak var pasteButton : UIButton!
+    @IBOutlet weak var dismissKeyboardButton : UIButton!
     
     
     //Help views
@@ -37,10 +35,16 @@ class Decrypt: UIViewController, UITextViewDelegate {
         //Call when the user tap once or twice on the home button
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-        
+        // Is called when the keyboard will show
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
        
     }
-    
     
     
     
@@ -72,11 +76,6 @@ class Decrypt: UIViewController, UITextViewDelegate {
         
         
         
-        self.sharePublicKeyButton.rondBorder()
-        self.sharePublicKeyButton.backgroundColor = UIColor(red: 0.121, green: 0.13, blue: 0.142, alpha: 1)
-        self.textToDecryptView.layer.borderColor = UIColor.lightGray.cgColor
-        self.textToDecryptView.layer.borderWidth = 2
-        self.textToDecryptView.layer.cornerRadius = 20
         self.textToDecryptViewErrorMessage.center = textToDecryptView.center
         self.textToDecryptViewErrorMessage.frame.size = self.textToDecryptView.frame.size
         self.textToDecryptViewErrorMessage.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 18)
@@ -111,7 +110,10 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.helpTextLabel.textColor = .white
         
         // paste button
-        self.pasteButton.layer.cornerRadius = 17
+        self.pasteButton.layer.cornerRadius = 15
+        // round some button :
+        self.dismissKeyboardButton.layer.cornerRadius = 10
+        self.decryptButton.layer.cornerRadius = 10
     }
     
     
@@ -132,29 +134,10 @@ class Decrypt: UIViewController, UITextViewDelegate {
         }
     }
     
-    @IBAction func shareButtonSelected(sender: UIButton){
-        if let publicKey: String = KeychainWrapper.standard.string(forKey: userPublicKeyId) {
-            let activityViewController = UIActivityViewController(activityItems: ["\(publicKey)" as NSString], applicationActivities: nil)
-            present(activityViewController, animated: true, completion: {})
-        } else {
-            alert("Impossible to access to your public key", message: "An error occur when trying to get the access to your public key", quitMessage: "Let's try again !")
-        }
-        
-    }
-    
-    @IBAction func closeKeyboard(sender: UIBarButtonItem){ // left bar button item selected
-        if sender.image == UIImage(systemName: "keyboard.chevron.compact.down"){ //down keyboard button
+    @IBAction func closeKeyboard(sender: UIButton){ //down keyboard button
             self.view.endEditing(true)
-        } else if sender.image == UIImage(systemName: "multiply.circle.fill"){ //close help button
-            self.closeHelp()
-        } else {//help asked
-            self.showHelp(text: "To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the green key.\n\n A new window will be opened and will show the decrypted message. \n\n IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . .")
-        }
     }
     
-    @IBAction func shareButtonHelp(sender: UIButton){
-        self.showHelp(text: "Share your public key to your friend. Only this key can encrypt message that you'll be able to decrypt. \n\nUse an other key, including sender public key will return you an error if you try to decrypt the message.")
-    }
     
     @IBAction func pasteButtonSelected(sender: UIButton){
         let content = UIPasteboard.general.string
@@ -176,27 +159,18 @@ class Decrypt: UIViewController, UITextViewDelegate {
     //
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        textView.translatesAutoresizingMaskIntoConstraints = true
-        self.helpBarButtonItem.image = UIImage(systemName: "keyboard.chevron.compact.down")
-        self.leftItemButton.image = UIImage(systemName: "info.circle")
-        self.leftItemButton.tintColor = .systemOrange
-        self.pasteButton.isHidden = true
-        textView.frame.origin.y = 10
-        if textView.text == "Text to decrypt" {
+        if textView.text == "Text to decrypt"{
             textView.text = ""
             textView.textColor = UIColor.white
         }
     }
     
     func textViewDidEndEditing(_ textView: UITextView){
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        self.helpBarButtonItem.image = UIImage(systemName: "info.circle")
-        self.leftItemButton.image = nil
-        
+        self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        self.decryptButton.translatesAutoresizingMaskIntoConstraints = false
         if textView.text == "" {
             textView.text = "Text to decrypt"
-            textView.textColor = .lightGray
-            self.pasteButton.isHidden = false
+            textView.textColor = .darkGray
         }
     }
     
@@ -213,6 +187,43 @@ class Decrypt: UIViewController, UITextViewDelegate {
         performSegue(withIdentifier: "lockApp", sender: self)
     }
     
+    @objc func keyboardWillHide(_ notification : Notification){
+        self.dismissKeyboardButton.isHidden = true
+        self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
+        self.decryptButton.translatesAutoresizingMaskIntoConstraints = false
+        expandTextView()
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.height
+            self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = true
+            
+            self.decryptButton.translatesAutoresizingMaskIntoConstraints = true
+            let decryptButton_x = self.dismissKeyboardButton.frame.origin.x + self.dismissKeyboardButton.frame.width + 20
+            let decryptButton_y = self.view.frame.height - keyboardHeight - self.decryptButton.frame.height - 10
+            let decryptButton_width = self.decryptButton.frame.width - self.dismissKeyboardButton.frame.width - 20
+            self.decryptButton.frame = CGRect(x: decryptButton_x, y: decryptButton_y, width: decryptButton_width, height: self.decryptButton.frame.height)
+            
+            self.dismissKeyboardButton.frame.origin.y = self.view.frame.height - keyboardHeight - self.dismissKeyboardButton.frame.height - 10
+            self.dismissKeyboardButton.isHidden = false
+            
+            
+            reduceTextView(keyboardHeight: keyboardHeight)
+        }
+    }
+    
+    
+    @IBAction func infoButtonSelected(_ sender: Any) {
+        if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
+            let helpText = "To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the green key.\n\n A new window will be opened and will show the decrypted message. \n\n IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . ."
+            self.showHelp(text: helpText)
+        } else {
+            closeHelp()
+        }
+    }
     
     
     //
@@ -264,6 +275,18 @@ class Decrypt: UIViewController, UITextViewDelegate {
         })
         view.layer.add(animation, forKey: "position")
         titleChange.startAnimation()
+    }
+    
+    /// Expand the height of textToEncrypt view, it was reduced to fit with the keyboard heigth
+    func expandTextView(){
+        self.textToDecryptView.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    /// Reduce the height of textToEncrypt view, to fit with the keyboard height
+    func reduceTextView(keyboardHeight:CGFloat){
+        self.textToDecryptView.translatesAutoresizingMaskIntoConstraints = true
+        let height = self.view.frame.height - keyboardHeight - self.decryptButton.frame.height - self.textToDecryptView.frame.origin.y - 20
+        self.textToDecryptView.frame = CGRect(x: self.textToDecryptView.frame.origin.x, y: self.textToDecryptView.frame.origin.y, width: self.textToDecryptView.frame.width, height: height)
     }
     
     

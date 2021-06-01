@@ -217,7 +217,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYy-4A-M5e">
-                                <rect key="frame" x="105" y="743" width="303" height="42"/>
+                                <rect key="frame" x="20" y="743" width="388" height="42"/>
                                 <color key="backgroundColor" red="0.13032735094390804" green="0.34928066109618361" blue="0.78764666150314633" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="WT9-0Q-8ZP"/>
@@ -231,7 +231,7 @@
                                     <action selector="encryptSelectedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bxF-mB-FH7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5O-G1-fht">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5O-G1-fht">
                                 <rect key="frame" x="20" y="742" width="65" height="42"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -256,8 +256,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ac5-qZ-Cvq" secondAttribute="trailing" id="cgE-aX-Lsh"/>
                             <constraint firstItem="vCo-dJ-S93" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="ewr-MX-TtM"/>
                             <constraint firstItem="vCo-dJ-S93" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="fPp-Od-rVH"/>
-                            <constraint firstItem="AYy-4A-M5e" firstAttribute="leading" secondItem="W5O-G1-fht" secondAttribute="trailing" constant="20" id="oJz-fn-d6f"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ac5-qZ-Cvq" secondAttribute="bottom" constant="50" id="qMf-Ap-03t"/>
+                            <constraint firstItem="AYy-4A-M5e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ryI-cp-iBw"/>
                             <constraint firstItem="W5O-G1-fht" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="sMZ-Ms-edx"/>
                             <constraint firstItem="ac5-qZ-Cvq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ynz-r9-fac"/>
                         </constraints>
@@ -430,20 +430,20 @@
                                 <color key="separatorColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Asc-LZ-kCa">
-                                        <rect key="frame" x="20" y="49" width="388" height="21"/>
+                                        <rect key="frame" x="20" y="49" width="388" height="20.666666030883789"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Asc-LZ-kCa" id="D1u-PI-Ook">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="21"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="20.666666030883789"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9o-Rm-f6L">
-                                                    <rect key="frame" x="20" y="0.0" width="325" height="21"/>
+                                                    <rect key="frame" x="20" y="0.0" width="325" height="20.666666666666668"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-X5-TjQ">
-                                                    <rect key="frame" x="357" y="0.0" width="21" height="21"/>
+                                                    <rect key="frame" x="357" y="0.0" width="21" height="20.666666666666668"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="Bdr-Yt-CH8"/>
                                                     </constraints>
@@ -548,131 +548,102 @@
         <scene sceneID="Xr1-2R-EiG">
             <objects>
                 <viewController id="N9l-yk-OqT" customClass="Decrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="yAG-l8-0Kb">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" id="yAG-l8-0Kb">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltB-tF-OTZ">
-                                <rect key="frame" x="150" y="568.33333333333337" width="75" height="75"/>
+                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" text="Text to decrypt" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dCg-KE-PVI">
+                                <rect key="frame" x="0.0" y="163" width="428" height="623"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUq-Tt-F72">
+                                <rect key="frame" x="315" y="108" width="105" height="36"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="4g0-Gy-TEU"/>
-                                    <constraint firstAttribute="width" constant="75" id="xr5-x0-F4i"/>
+                                    <constraint firstAttribute="height" constant="36" id="4rp-oa-Xaf"/>
+                                    <constraint firstAttribute="width" constant="105" id="bAj-DR-0Fg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <state key="normal" image="key"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="18"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="  Paste" image="square.and.arrow.down.on.square.fill" catalog="system">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="decryptButton:" destination="N9l-yk-OqT" eventType="touchUpInside" id="00K-4M-S1n"/>
+                                    <action selector="pasteButtonSelectedWithSender:" destination="N9l-yk-OqT" eventType="touchUpInside" id="RCb-hB-ohN"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqz-Jq-k5Z">
-                                <rect key="frame" x="37.666666666666657" y="180" width="300" height="30"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ccQ-AW-hnG">
+                                <rect key="frame" x="20" y="723" width="65" height="42"/>
+                                <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Emy-d5-LV4"/>
-                                    <constraint firstAttribute="width" constant="300" id="J9V-Rh-Smy"/>
+                                    <constraint firstAttribute="width" constant="65" id="K37-PY-8ad"/>
+                                    <constraint firstAttribute="height" constant="42" id="udX-Lc-NDF"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="  Share my public encryption key" image="arrowshape.turn.up.left.fill" catalog="system">
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="keyboard.chevron.compact.down" catalog="system"/>
+                                <connections>
+                                    <action selector="closeKeyboardWithSender:" destination="N9l-yk-OqT" eventType="touchUpInside" id="p7P-8j-snA"/>
+                                    <action selector="dismissButtonSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H2b-PW-Im5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piq-Hx-Ehf">
+                                <rect key="frame" x="20" y="723" width="388" height="42"/>
+                                <color key="backgroundColor" red="0.51551400046751139" green="0.78019636688810401" blue="0.22161101378861595" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="KKT-bz-Mbc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="22"/>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="  Decrypt" image="lock.open.fill" catalog="system">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="shareButtonSelectedWithSender:" destination="N9l-yk-OqT" eventType="touchUpInside" id="1dc-91-XtV"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rQ-2h-nZ4">
-                                <rect key="frame" x="339" y="184" width="20" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="He0-lu-ZdL"/>
-                                    <constraint firstAttribute="width" constant="20" id="Hsj-Q4-2Cq"/>
-                                </constraints>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" image="info.circle.fill" catalog="system">
-                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="shareButtonHelpWithSender:" destination="N9l-yk-OqT" eventType="touchUpInside" id="KaH-CR-0nU"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D8f-5m-Xda">
-                                <rect key="frame" x="67" y="260" width="241" height="3"/>
-                                <color key="backgroundColor" systemColor="viewFlipsideBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="3" id="X5r-E5-R7f"/>
-                                    <constraint firstAttribute="width" constant="241" id="gum-lw-zo3"/>
-                                </constraints>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text to decrypt" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sj2-ux-wxP">
-                                <rect key="frame" x="16" y="303.33333333333331" width="343" height="256.99999999999994"/>
-                                <color key="backgroundColor" systemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="257" id="SZf-CZ-ref"/>
-                                </constraints>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="al6-4D-sBN">
-                                <rect key="frame" x="49" y="271" width="276" height="24.333333333333314"/>
-                                <color key="backgroundColor" white="0.071971318493150679" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="19"/>
-                                <color key="tintColor" systemColor="systemOrangeColor"/>
-                                <state key="normal" title="   Paste and decrypt" image="square.and.arrow.down.on.square.fill" catalog="system"/>
-                                <connections>
-                                    <action selector="pasteButtonSelectedWithSender:" destination="N9l-yk-OqT" eventType="touchUpInside" id="tH3-1k-RbQ"/>
+                                    <action selector="decryptButton:" destination="N9l-yk-OqT" eventType="touchUpInside" id="Nd5-Jn-LEr"/>
+                                    <action selector="encryptSelectedWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ToA-35-fzH"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="i6Q-Kn-bPO"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
                         <constraints>
-                            <constraint firstItem="6rQ-2h-nZ4" firstAttribute="top" secondItem="i6Q-Kn-bPO" secondAttribute="top" constant="44" id="2Wm-7D-QBX"/>
-                            <constraint firstItem="sj2-ux-wxP" firstAttribute="leading" secondItem="i6Q-Kn-bPO" secondAttribute="leading" constant="16" id="2gj-gq-fAQ"/>
-                            <constraint firstItem="sj2-ux-wxP" firstAttribute="top" secondItem="al6-4D-sBN" secondAttribute="bottom" constant="8" id="B0N-Yx-o7r"/>
-                            <constraint firstItem="tqz-Jq-k5Z" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="H5v-Jy-J7D"/>
-                            <constraint firstItem="sj2-ux-wxP" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="Jra-wK-BWz"/>
-                            <constraint firstItem="i6Q-Kn-bPO" firstAttribute="trailing" secondItem="sj2-ux-wxP" secondAttribute="trailing" constant="16" id="Rl3-do-8Y2"/>
-                            <constraint firstItem="al6-4D-sBN" firstAttribute="top" secondItem="D8f-5m-Xda" secondAttribute="bottom" constant="8" id="SRo-4Y-mMH"/>
-                            <constraint firstItem="i6Q-Kn-bPO" firstAttribute="trailing" secondItem="6rQ-2h-nZ4" secondAttribute="trailing" constant="16" id="T17-Yb-xOK"/>
-                            <constraint firstItem="sj2-ux-wxP" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="U1y-V2-4yS"/>
-                            <constraint firstItem="sj2-ux-wxP" firstAttribute="centerY" secondItem="yAG-l8-0Kb" secondAttribute="centerY" id="XPf-1O-ZxZ"/>
-                            <constraint firstItem="ltB-tF-OTZ" firstAttribute="top" secondItem="sj2-ux-wxP" secondAttribute="bottom" constant="8" id="b3w-S8-osV"/>
-                            <constraint firstItem="D8f-5m-Xda" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="bCp-Zn-f6G"/>
-                            <constraint firstItem="ltB-tF-OTZ" firstAttribute="centerX" secondItem="yAG-l8-0Kb" secondAttribute="centerX" id="ekb-1f-bU0"/>
-                            <constraint firstItem="tqz-Jq-k5Z" firstAttribute="top" secondItem="i6Q-Kn-bPO" secondAttribute="top" constant="40" id="s3a-IW-Rpz"/>
-                            <constraint firstItem="D8f-5m-Xda" firstAttribute="top" secondItem="tqz-Jq-k5Z" secondAttribute="bottom" constant="50" id="tjZ-M5-R8E"/>
-                            <constraint firstItem="al6-4D-sBN" firstAttribute="leading" secondItem="i6Q-Kn-bPO" secondAttribute="leading" constant="49" id="uWp-GH-Zje"/>
-                            <constraint firstItem="i6Q-Kn-bPO" firstAttribute="trailing" secondItem="al6-4D-sBN" secondAttribute="trailing" constant="50" id="y6W-mT-aLK"/>
+                            <constraint firstItem="i6Q-Kn-bPO" firstAttribute="bottom" secondItem="dCg-KE-PVI" secondAttribute="bottom" constant="57" id="8aC-R1-X6U"/>
+                            <constraint firstItem="dCg-KE-PVI" firstAttribute="top" secondItem="i6Q-Kn-bPO" secondAttribute="top" constant="75" id="8ab-LY-olV"/>
+                            <constraint firstItem="i6Q-Kn-bPO" firstAttribute="trailing" secondItem="piq-Hx-Ehf" secondAttribute="trailing" constant="20" id="Bw7-Yo-4Xq"/>
+                            <constraint firstItem="i6Q-Kn-bPO" firstAttribute="bottom" secondItem="ccQ-AW-hnG" secondAttribute="bottom" constant="78" id="NbQ-VZ-pIb"/>
+                            <constraint firstItem="dCg-KE-PVI" firstAttribute="leading" secondItem="i6Q-Kn-bPO" secondAttribute="leading" id="Sc4-Qo-5gx"/>
+                            <constraint firstItem="ccQ-AW-hnG" firstAttribute="leading" secondItem="i6Q-Kn-bPO" secondAttribute="leading" constant="20" id="Uwj-lL-Xlh"/>
+                            <constraint firstItem="iUq-Tt-F72" firstAttribute="top" secondItem="i6Q-Kn-bPO" secondAttribute="top" constant="20" id="f3X-MI-xbw"/>
+                            <constraint firstItem="i6Q-Kn-bPO" firstAttribute="trailing" secondItem="iUq-Tt-F72" secondAttribute="trailing" constant="8" id="k0Z-iO-Nfv"/>
+                            <constraint firstItem="i6Q-Kn-bPO" firstAttribute="bottom" secondItem="piq-Hx-Ehf" secondAttribute="bottom" constant="78" id="ls7-3a-Y9i"/>
+                            <constraint firstItem="piq-Hx-Ehf" firstAttribute="leading" secondItem="i6Q-Kn-bPO" secondAttribute="leading" constant="20" id="nvL-uP-Zi6"/>
+                            <constraint firstItem="dCg-KE-PVI" firstAttribute="trailing" secondItem="i6Q-Kn-bPO" secondAttribute="trailing" id="xvz-9B-3ar"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Decryption" id="CZT-Kn-kla">
-                        <barButtonItem key="leftBarButtonItem" title="  " id="WON-mG-2rD">
-                            <connections>
-                                <action selector="closeKeyboardWithSender:" destination="N9l-yk-OqT" id="euw-gm-02j"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="Uiz-bs-MhO">
+                    <navigationItem key="navigationItem" title="Decryption" id="PoT-1Q-yWT">
+                        <barButtonItem key="leftBarButtonItem" title="  " id="uS5-aM-wNL"/>
+                        <barButtonItem key="rightBarButtonItem" image="info.circle" catalog="system" id="3CK-J3-Awp">
                             <color key="tintColor" systemColor="systemOrangeColor"/>
                             <connections>
-                                <action selector="closeKeyboardWithSender:" destination="N9l-yk-OqT" id="G5c-VO-LLP"/>
+                                <action selector="infoButtonSelected:" destination="N9l-yk-OqT" id="9JM-wW-JOJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="decryptButton" destination="ltB-tF-OTZ" id="vP0-Dn-qKW"/>
-                        <outlet property="helpAboutSharingButton" destination="6rQ-2h-nZ4" id="t6k-Et-eao"/>
-                        <outlet property="helpBarButtonItem" destination="Uiz-bs-MhO" id="WPv-ie-kyY"/>
-                        <outlet property="leftItemButton" destination="WON-mG-2rD" id="LjD-40-m4O"/>
-                        <outlet property="pasteButton" destination="al6-4D-sBN" id="n2i-gl-hSW"/>
-                        <outlet property="sharePublicKeyButton" destination="tqz-Jq-k5Z" id="7FZ-bo-NyE"/>
-                        <outlet property="textToDecryptView" destination="sj2-ux-wxP" id="zMZ-N7-AQq"/>
+                        <outlet property="decryptButton" destination="piq-Hx-Ehf" id="WTC-FG-VNF"/>
+                        <outlet property="dismissKeyboardButton" destination="ccQ-AW-hnG" id="Rxj-15-AjP"/>
+                        <outlet property="helpBarButtonItem" destination="3CK-J3-Awp" id="b8Y-TU-nyc"/>
+                        <outlet property="pasteButton" destination="iUq-Tt-F72" id="ukE-qy-AsA"/>
+                        <outlet property="textToDecryptView" destination="dCg-KE-PVI" id="3Fu-P2-xsj"/>
                         <segue destination="xbo-aT-QG9" kind="presentation" identifier="showDecryptedText" id="sqZ-hZ-a1j"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="EQK-VC-Mck"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZP-hb-m2c" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="980.95952023988013"/>
+            <point key="canvasLocation" x="2011.682242990654" y="980.34557235421175"/>
         </scene>
         <!--Decrypted Result-->
         <scene sceneID="dzA-Rp-XQ5">
@@ -1127,21 +1098,19 @@
         <segue reference="lMQ-dt-c2G"/>
         <segue reference="YdW-06-8TH"/>
         <segue reference="2z8-fZ-KqH"/>
-        <segue reference="Qai-0Z-qez"/>
+        <segue reference="1Wa-3S-HsL"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="arrowshape.turn.up.left.fill" catalog="system" width="128" height="106"/>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="exclamationmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="gear" catalog="system" width="128" height="119"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
-        <image name="info.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="key" width="345" height="345"/>
         <image name="key.icloud" catalog="system" width="128" height="88"/>
         <image name="keyboard.chevron.compact.down" catalog="system" width="128" height="102"/>
         <image name="lock.doc.fill" catalog="system" width="115" height="128"/>
         <image name="lock.fill" catalog="system" width="128" height="128"/>
+        <image name="lock.open.fill" catalog="system" width="128" height="112"/>
         <image name="lock.shield.fill" catalog="system" width="128" height="118"/>
         <image name="locked" width="24" height="24"/>
         <image name="lockedBackground" width="1280" height="539"/>
@@ -1153,9 +1122,6 @@
         <image name="trash" catalog="system" width="121" height="128"/>
         <image name="unlocked" width="24" height="24"/>
         <image name="view_chargement" width="489" height="489"/>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="groupTableViewBackgroundColor">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -1173,9 +1139,6 @@
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="viewFlipsideBackgroundColor">
-            <color red="0.1215686274509804" green="0.12941176470588239" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
