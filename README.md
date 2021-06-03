@@ -1,5 +1,7 @@
 # iLocked
-![Codacy Security Scan](https://github.com/DevNathan/iLocked/workflows/Codacy%20Security%20Scan/badge.svg?branch=master) ![Swift](https://github.com/DevNathan/iLocked/workflows/Swift/badge.svg)  [![GitHub issues](https://img.shields.io/github/issues/DevNathan/iLocked.svg)](https://GitHub.com/DevNathan/iLocked/issues/) [![GitHub issues-closed](https://img.shields.io/github/issues-closed/DevNathan/iLocked.svg)](https://GitHub.com/DevNathan/iLocked/issues?q=is%3Aissue+is%3Aclosed)  [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+![GitHub Contributors Image](https://contrib.rocks/image?repo=devnathan/ilocked)
+
+![Codacy Security Scan](https://github.com/DevNathan/iLocked/workflows/Codacy%20Security%20Scan/badge.svg?branch=master) ![Swift](https://github.com/DevNathan/iLocked/workflows/Swift/badge.svg) [![GitHub tag](https://img.shields.io/github/tag/DevNathan/iLocked.svg)](https://GitHub.com/DevNathan/iLocked/tags/) [![GitHub issues](https://img.shields.io/github/issues/DevNathan/iLocked.svg)](https://GitHub.com/DevNathan/iLocked/issues?q=is%3Aissue+is%3Aclosed)  [![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
 iLocked is an iOS application. It purpose is to give to anyone an easy and efficient way to encrypt or decrypt any and all text message and send it via usuals messaging app (like Messenger, WhatsApp etc...).
 
