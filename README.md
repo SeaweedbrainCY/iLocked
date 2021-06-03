@@ -13,13 +13,13 @@ PGP Key : https://keybase.io/devnath/pgp_keys.asc?fingerprint=8c7bae7de486c1b444
 
 iLocked allows anyone to encrypt, with a highly secure cryptographic function, any message, in order to send it through any messaging application, without any security issue. 
 ### Encrypt for anyone, with their public key
-![alt text](https://github.com/devnathan/ilocked/blob/master/presentation_images/encryption_exemple.png?raw=true) ![alt text](https://github.com/devnathan/ilocked/blob/master/presentation_images/encrypted_exemple.png?raw=true)
+<img src="https://github.com/DevNathan/iLocked/blob/8e0aa637dcac0b9a2b7876bad317ad19722eb7fa/presentation_images/encryption_exemple.png" width=40% height=40%> <img src="https://github.com/DevNathan/iLocked/blob/8e0aa637dcac0b9a2b7876bad317ad19722eb7fa/presentation_images/encrypted_exemple.png" width=40% height=40%> 
 
 ### Or decrypt what has been encrypted for you, by others 
-![alt text](https://github.com/devnathan/ilocked/blob/master/presentation_images/decrypt_homePage.png?raw=true) ![alt text](https://github.com/devnathan/ilocked/blob/master/presentation_images/decrypted_exemple.png?raw=true)
+<img src="https://github.com/DevNathan/iLocked/blob/8e0aa637dcac0b9a2b7876bad317ad19722eb7fa/presentation_images/decrypt_homePage.png" width=40% height=40%>  <img src="https://github.com/DevNathan/iLocked/blob/8e0aa637dcac0b9a2b7876bad317ad19722eb7fa/presentation_images/decrypted_exemple.png" width=40% height=40%> 
 
 ### Even add and store your friends' public key 
-![alt text](https://github.com/DevNathan/iLocked/blob/master/presentation_images/keyList_homePage.png?raw=true) ![alt text](https://github.com/DevNathan/iLocked/blob/master/presentation_images/Key_page.png?raw=true)
+<img src="https://github.com/DevNathan/iLocked/blob/8e0aa637dcac0b9a2b7876bad317ad19722eb7fa/presentation_images/keyList_homePage.png" width=40% height=40%>  <img src="https://github.com/DevNathan/iLocked/blob/8e0aa637dcac0b9a2b7876bad317ad19722eb7fa/presentation_images/Key_page.png" width=40% height=40%> 
 
 ### All of that in a full open source application, released very soon
 
