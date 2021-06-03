@@ -24,6 +24,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
     let helpView = UIView()
     let quitButton = UIButton()
     let backgroundInfo = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
+    var closeHelpButtonView = UIButton() // cover the background info view, and close help if touched
     
     var textToDecryptViewErrorMessage = UIButton()
     
@@ -109,6 +110,15 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.helpTextLabel.font = UIFont(name: "American Typewriter", size: 16.0)
         self.helpTextLabel.textColor = .white
         
+        self.helpView.addSubview(closeHelpButtonView)
+        self.closeHelpButtonView.translatesAutoresizingMaskIntoConstraints = false
+        self.closeHelpButtonView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
+        self.closeHelpButtonView.centerYAnchor.constraint(equalToSystemSpacingBelow: self.helpView.centerYAnchor, multiplier: 1).isActive = true
+        self.closeHelpButtonView.heightAnchor.constraint(equalToConstant: self.helpView.frame.height).isActive = true
+        self.closeHelpButtonView.widthAnchor.constraint(equalToConstant: self.helpView.frame.width).isActive = true
+        self.closeHelpButtonView.backgroundColor = .none
+        self.closeHelpButtonView.addTarget(self, action: #selector(closeHelpSelected), for: .touchUpInside)
+        
         // paste button
         self.pasteButton.layer.cornerRadius = 15
         // round some button :
@@ -125,7 +135,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
         var isOk = true
         if textToDecryptView.text == "" || textToDecryptView.text == "Text to decrypt"{
             isOk = false
-            alert("I don't really think decrypt an empty message is very useful ... 🧐", message: "", quitMessage: "Oh yeah sorry !")
+            alert("Please, enter an encrypted text", message: "", quitMessage: "Ok")
         }
         
         if isOk {
@@ -152,6 +162,14 @@ class Decrypt: UIViewController, UITextViewDelegate {
         
     }
     
+    @IBAction func infoButtonSelected(_ sender: Any) {
+        if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
+            let helpText = "To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the green key.\n\n A new window will be opened and will show the decrypted message. \n\n IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . ."
+            self.showHelp(text: helpText)
+        } else {
+            closeHelp()
+        }
+    }
     
  
     //
@@ -204,7 +222,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
             self.decryptButton.translatesAutoresizingMaskIntoConstraints = true
             let decryptButton_x = self.dismissKeyboardButton.frame.origin.x + self.dismissKeyboardButton.frame.width + 20
             let decryptButton_y = self.view.frame.height - keyboardHeight - self.decryptButton.frame.height - 10
-            let decryptButton_width = self.decryptButton.frame.width - self.dismissKeyboardButton.frame.width - 20
+            let decryptButton_width = self.view.frame.width - self.dismissKeyboardButton.frame.width - 60 // 60 because the button is at 20 pt from the right border, 20 pt from the dismissKeyboard button, which is at 20 pt from the left border
             self.decryptButton.frame = CGRect(x: decryptButton_x, y: decryptButton_y, width: decryptButton_width, height: self.decryptButton.frame.height)
             
             self.dismissKeyboardButton.frame.origin.y = self.view.frame.height - keyboardHeight - self.dismissKeyboardButton.frame.height - 10
@@ -215,15 +233,10 @@ class Decrypt: UIViewController, UITextViewDelegate {
         }
     }
     
-    
-    @IBAction func infoButtonSelected(_ sender: Any) {
-        if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
-            let helpText = "To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the green key.\n\n A new window will be opened and will show the decrypted message. \n\n IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . ."
-            self.showHelp(text: helpText)
-        } else {
-            closeHelp()
-        }
+    @objc func closeHelpSelected(sender: UIButton){
+        closeHelp()
     }
+    
     
     
     //

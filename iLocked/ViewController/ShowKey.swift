@@ -19,7 +19,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     //var nameKeyTitle = UILabel()
     //var nameKey = UILabel()
     var keyTitle = UILabel()
-    var key = UITextView()
+    var key = UILabel()
     var encryptButton = UIButton()
     var shareButton = UIButton()
     var deleteButton = UIButton()
@@ -27,6 +27,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     var copyButton = UIButton(type: .custom)
     var notificationView = UIButton()
     var date = UILabel()
+    var tips = UILabel()
     
     
     
@@ -114,14 +115,6 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.keyTitle.font = UIFont(name: "American Typewriter Bold", size: 20)
         
         self.backgroundView.addSubview(self.key)
-        self.key.translatesAutoresizingMaskIntoConstraints = false
-        self.key.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
-        self.key.topAnchor.constraint(equalToSystemSpacingBelow: self.keyTitle.bottomAnchor , multiplier: 2).isActive = true
-        self.key.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 20).isActive = true
-        self.key.heightAnchor.constraint(equalToConstant: 2*self.scrollView.frame.size.height / 3).isActive = true
-        self.key.isEditable = false
-        self.key.isSelectable = false
-        self.key.textColor = .white
         if let retrievedString: String = KeychainWrapper.standard.string(forKey: name){
             self.key.text = "\(retrievedString)"
         } else if isUserKey{
@@ -135,6 +128,19 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
             self.key.text = "Impossible to find this key. Please check you didn't make any mistake, install the last version of this application and be sure you have enough space on your iDevice."
             self.key.textColor = .systemRed
         }
+        self.key.numberOfLines = 0
+        self.key.translatesAutoresizingMaskIntoConstraints = false
+        self.key.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 5).isActive = true
+        let size = key.sizeThatFits(key.bounds.size)
+        print("[*]  Size = \(size)")
+        //self.key.heightAnchor.constraint(equalToConstant: size.height).isActive = true
+        //self.key.heightAnchor.constraint(equalToConstant: 2*self.scrollView.frame.size.height / 3).isActive = true
+        self.key.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
+        self.key.topAnchor.constraint(equalToSystemSpacingBelow: self.keyTitle.bottomAnchor , multiplier: 2).isActive = true
+        print("view width = \(self.view.frame.width)")
+        print("scroll view width = \(self.scrollView.frame.width)")
+        self.key.textColor = .white
+        
         
         self.key.font = UIFont(name: "American Typewriter", size: 15)
         
@@ -157,7 +163,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.encryptButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         self.encryptButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
         self.encryptButton.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor).isActive = true
-        self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
+        self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
         if #available(iOS 13.0, *) {
             self.encryptButton.setImage(UIImage(systemName: "lock.doc") , for: .normal)
         } else {
@@ -175,7 +181,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.shareButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         self.shareButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
         self.shareButton.rightAnchor.constraint(equalTo: self.encryptButton.leftAnchor, constant: -20).isActive = true
-        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
+        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
         
         if #available(iOS 13.0, *) {
             self.shareButton.setImage(UIImage(systemName: "square.and.arrow.up") , for: .normal)
@@ -189,7 +195,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.deleteButton.translatesAutoresizingMaskIntoConstraints = false
         self.deleteButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
         self.deleteButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        self.deleteButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 5).isActive = true
+        self.deleteButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
         self.deleteButton.leftAnchor.constraint(equalTo: self.encryptButton.rightAnchor, constant: 20).isActive = true
         if #available(iOS 13.0, *) {
             self.deleteButton.setImage(UIImage(systemName: "trash") , for: .normal)
@@ -230,13 +236,24 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.notificationView.setTitle("Copied", for: .normal)
         self.notificationView.addTarget(self, action: #selector(notificationViewSelected), for: .touchUpInside)
         
-        self.backgroundView.addSubview(self.date)
+        /*self.backgroundView.addSubview(self.date)
         self.date.translatesAutoresizingMaskIntoConstraints = false
         self.date.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1).isActive = true
         self.date.topAnchor.constraint(equalToSystemSpacingBelow: self.shareButton.bottomAnchor, multiplier: 2).isActive = true
         self.date.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        self.date.textColor = .darkGray
-        self.encryptButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 13)
+        self.date.textColor = .lightGray
+        self.date.font = UIFont(name: "Baskerville Bold", size: 15)
+        self.date.text = "Added on "*/
+        
+        self.backgroundView.addSubview(self.tips)
+        self.tips.translatesAutoresizingMaskIntoConstraints = false
+        self.tips.widthAnchor.constraint(equalToConstant: self.view.frame.width - 20).isActive = true
+        self.tips.leftAnchor.constraint(equalTo: self.scrollView.leftAnchor, constant: 10).isActive = true
+        self.tips.topAnchor.constraint(equalToSystemSpacingBelow: self.deleteButton.bottomAnchor, multiplier: 2).isActive = true
+        self.tips.numberOfLines = 1
+        self.tips.textColor = .lightGray
+        self.tips.font = UIFont(name: "Baskerville SemiBold", size: 15)
+        self.tips.text = "Tips : double tap on the key-text to copy it !"
     }
     
     
@@ -367,6 +384,8 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
             self.deleteButton.alpha = 0
             self.shareButton.alpha = 0
             self.encryptButton.alpha = 0
+            self.date.alpha = 0
+            self.tips.alpha = 0
         })
         self.perform(#selector(dismissView), with: nil, afterDelay: 1.6)
     }

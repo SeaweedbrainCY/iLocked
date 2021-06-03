@@ -12,24 +12,32 @@ import UIKit
 
 
 class Decryption {
+    
+    // Code error corresponding to the differents possible error
+    // Code 0 is reserved to state = true
+    let noCodeError = 0
+    let codeErrorFormatInvalid = 1 // if the key format in invalid
+    let codeErrorNoPrivateKey = 2 // if we are unable to access to the user private key
+    let codeErrorKeyIncorrect = 3 // if the key ins't the rigth key to decrypt the given text
+    
     ///This function return the decrypted text of a String given
     /// - return : A dictionnary containing ONLY two keys : "state" : Bool (True if success, False if not) and "message" : String(The message according to the error or the result asked for)
     public func decryptText(_ text:String) -> [String: Any]{
         let (test,extracted_text) = extractEncryptedMessageFormat(text)
         if !test{
-            return ["state" : false, "message" : "The format of this encrypted text isn't correct. Please try only to decrypt message previoulsy encrypted with the iLocked app."]
+            return ["state" : false, "codeError" : self.codeErrorFormatInvalid, "message" : "The format of this encrypted text isn't correct. Please try only to decrypt message previoulsy encrypted with the iLocked app."]
         }
         do {
             let decrypted = try EncryptedMessage(base64Encoded: extracted_text)
             if let privateKey: String = KeychainWrapper.standard.string(forKey: userPrivateKeyId) {
                 let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)
-                return ["state" : true, "message" : try clear.string(encoding: .utf8)]
+                return ["state" : true,"codeError" : self.noCodeError, "message" : try clear.string(encoding: .utf8)]
             } else {
-                return ["state" : false, "message" : "iLocked can't access to your private Key"]
+                return ["state" : false, "codeError" : self.codeErrorNoPrivateKey, "message" : "iLocked can't access to your private Key"]
             }
             
         } catch {
-            return ["state" : false, "message": "Your cannot decrypt this text. You don't have the right key. Please ensure this message has been encrypted with YOUR public key"]
+            return ["state" : false, "codeError" : self.codeErrorKeyIncorrect, "message": "Your cannot decrypt this text. You don't have the right key. Please ensure this message has been encrypted with YOUR public key"]
         }
     }
     

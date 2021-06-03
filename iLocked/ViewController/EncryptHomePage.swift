@@ -21,6 +21,14 @@ class Encrypt: UIViewController, UITextViewDelegate{
     @IBOutlet weak var encryptButton: UIButton!
     @IBOutlet weak var dismissKeyboardButton: UIButton!
     @IBOutlet weak var addNewKeyButton: UIBarButtonItem!
+    @IBOutlet weak var helpBarButtonItem : UIBarButtonItem!
+    
+    //Help views
+    let helpTextLabel = UILabel()
+    let helpView = UIView()
+    let quitButton = UIButton()
+    let backgroundInfo = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
+    var closeHelpButtonView = UIButton() // cover the background info view, and close help if touched
     
     var keyArray: [String] = ["Add a key", "My encryption key"] // list of all names displayed on UIPIckerView
     var heightPicker: NSLayoutConstraint?
@@ -58,6 +66,55 @@ class Encrypt: UIViewController, UITextViewDelegate{
         //Récuperation des infos :
         loadData()
         
+        // construct view
+        self.constructView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        //Is called when the app move to background
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        
+        //Is called when user has selected a key in order to encrypt with it
+        notificationCenter.addObserver(self, selector: #selector(keySelected), name: Encrypt.notificationOfSelectionName, object: nil)
+        // Is called when the keyboard will show
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+
+    func alert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
+    public func loadData(){
+        let data = KeyId()
+        let keyName = data.getKeyName()
+        print("key name recieved = \(keyName)")
+        if keyName.count != 0{
+            if keyName[0].contains("##ERROR##"){
+                alert("Oups ! We got an error ! ", message: keyName[0])
+            } else { // we don't have any error
+                self.nameArray = keyName
+                print("name array : \(nameArray)")
+                for name in nameArray{
+                    self.keyArray.append(name)
+                }
+            }
+        } 
+    }
+    
+    private func constructView(){// construct the current view
         self.textToEncrypt.delegate = self
         
         //Set up some button
@@ -88,56 +145,43 @@ class Encrypt: UIViewController, UITextViewDelegate{
         self.dismissKeyboardButton.layer.cornerRadius = 10
         self.encryptButton.layer.cornerRadius = 10
         
+        // Help views
+        self.view.addSubview(self.backgroundInfo)
+        self.backgroundInfo.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundInfo.heightAnchor.constraint(equalToConstant: self.view.frame.size.height).isActive = true
+        self.backgroundInfo.widthAnchor.constraint(equalToConstant: self.view.frame.size.width).isActive = true
+        self.backgroundInfo.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1).isActive = true
+        self.backgroundInfo.centerYAnchor.constraint(equalToSystemSpacingBelow: self.view.centerYAnchor, multiplier: 1).isActive = true
+        self.backgroundInfo.alpha = 0
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        //Is called when the app move to background
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-        
-        //Is called when user has selected a key in order to encrypt with it
-        notificationCenter.addObserver(self, selector: #selector(keySelected), name: Encrypt.notificationOfSelectionName, object: nil)
-        // Is called when the keyboard will show
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardWillShow),
-            name: UIResponder.keyboardWillShowNotification,
-            object: nil
-        )
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        self.view.addSubview(self.helpView)
+        self.helpView.frame.size.height = self.view.frame.size.height / 2
+        self.helpView.frame.size.width = self.view.frame.size.width - 20
+        self.helpView.center = self.view.center
+        self.helpView.backgroundColor = .none
+        self.helpView.alpha = 0
         
         
+        self.helpView.addSubview(self.helpTextLabel)
+        self.helpTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.helpTextLabel.widthAnchor.constraint(equalToConstant: self.helpView.frame.size.width - 20).isActive = true
+        self.helpTextLabel.heightAnchor.constraint(equalToConstant: self.helpView.frame.size.height
+             - 10).isActive = true
+        self.helpTextLabel.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
+        self.helpTextLabel.centerYAnchor.constraint(equalToSystemSpacingBelow: self.helpView.centerYAnchor, multiplier: 1).isActive = true
+        self.helpTextLabel.numberOfLines = 20
+        self.helpTextLabel.textAlignment = .justified
+        self.helpTextLabel.font = UIFont(name: "American Typewriter", size: 16.0)
+        self.helpTextLabel.textColor = .white
         
-        
-        
-    }
-
-    func alert(_ title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil)
-        alert.addAction(ok)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    
-    public func loadData(){
-        let data = KeyId()
-        let keyName = data.getKeyName()
-        print("key name recieved = \(keyName)")
-        if keyName.count != 0{
-            if keyName[0].contains("##ERROR##"){
-                alert("Oups ! We got an error ! ", message: keyName[0])
-            } else { // we don't have any error
-                self.nameArray = keyName
-                print("name array : \(nameArray)")
-                for name in nameArray{
-                    self.keyArray.append(name)
-                }
-            }
-        } 
+        self.helpView.addSubview(closeHelpButtonView)
+        self.closeHelpButtonView.translatesAutoresizingMaskIntoConstraints = false
+        self.closeHelpButtonView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
+        self.closeHelpButtonView.centerYAnchor.constraint(equalToSystemSpacingBelow: self.helpView.centerYAnchor, multiplier: 1).isActive = true
+        self.closeHelpButtonView.heightAnchor.constraint(equalToConstant: self.helpView.frame.height).isActive = true
+        self.closeHelpButtonView.widthAnchor.constraint(equalToConstant: self.helpView.frame.width).isActive = true
+        self.closeHelpButtonView.backgroundColor = .none
+        self.closeHelpButtonView.addTarget(self, action: #selector(closeHelpSelected), for: .touchUpInside)
     }
     
     //
@@ -209,6 +253,14 @@ class Encrypt: UIViewController, UITextViewDelegate{
         self.performSegue(withIdentifier: "addKey", sender: self)
     }
     
+    @IBAction func infoButtonSelected(_ sender: Any) {
+        if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
+            let helpText = "iLocked uses the RSA-4096 encryption method, a highly secure protection, to encrypt your messages. \n\n Nobody but the owner of the private key corresponding to the public key you are going to use to encrypt, can decrypt it. Even you. \n\n IMPORTANT : Make sure to encrypt your message with the public key of the person you want to send it to. Be careful to copy the whole encrypted text before sending it. No more no less. Or it won't work  . . ."
+            self.showHelp(text: helpText)
+        } else {
+            closeHelp()
+        }
+    }
 
     //Encryption method :
     private func encryptText(text: String, publicKey: String) -> String{
@@ -224,6 +276,13 @@ class Encrypt: UIViewController, UITextViewDelegate{
         }
     }
     
+    //
+    // objc func
+    //
+    
+    @objc func closeHelpSelected(sender: UIButton){
+        closeHelp()
+    }
     
     //
     // Notifications func
@@ -240,10 +299,11 @@ class Encrypt: UIViewController, UITextViewDelegate{
             let keyboardHeight = keyboardRectangle.height
             self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = true
             
+            
             self.encryptButton.translatesAutoresizingMaskIntoConstraints = true
             let encryptButton_x = self.dismissKeyboardButton.frame.origin.x + self.dismissKeyboardButton.frame.width + 20
             let encryptButton_y = self.view.frame.height - keyboardHeight - self.encryptButton.frame.height - 10
-            let encryptButton_width = self.encryptButton.frame.width - self.dismissKeyboardButton.frame.width - 20
+            let encryptButton_width = self.view.frame.width - self.dismissKeyboardButton.frame.width - 60 // 60 because the button is at 20 pt from the right border, 20 pt from the dismissKeyboard button, which is at 20 pt from the left border
             self.encryptButton.frame = CGRect(x: encryptButton_x, y: encryptButton_y, width: encryptButton_width, height: self.encryptButton.frame.height)
             
             self.dismissKeyboardButton.frame.origin.y = self.view.frame.height - keyboardHeight - self.dismissKeyboardButton.frame.height - 10
@@ -309,6 +369,26 @@ class Encrypt: UIViewController, UITextViewDelegate{
         animation.toValue = NSValue(cgPoint: CGPoint(x: view.center.x + 10, y: view.center.y))
         
         view.layer.add(animation, forKey: "position")
+    }
+    
+    func showHelp(text: String){
+        self.helpBarButtonItem.image = UIImage(systemName: "multiply.circle.fill")
+        self.helpView.layer.borderColor = UIColor.white.cgColor
+        self.helpTextLabel.text = text
+        let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7, animations: {
+            self.helpView.alpha = 1
+            self.backgroundInfo.alpha = 1
+        })
+        animator.startAnimation()
+    }
+    
+    func closeHelp(){
+        self.helpBarButtonItem.image = UIImage(systemName: "info.circle")
+         let animation = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7, animations: {
+            self.helpView.alpha = 0
+            self.backgroundInfo.alpha = 0
+        })
+        animation.startAnimation()
     }
     
     //

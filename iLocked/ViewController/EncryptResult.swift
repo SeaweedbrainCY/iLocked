@@ -65,7 +65,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.encryptedText.translatesAutoresizingMaskIntoConstraints = false
         self.encryptedText.centerXAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.centerXAnchor, multiplier: 1).isActive = true
         self.encryptedText.topAnchor.constraint(equalToSystemSpacingBelow: self.scrollView.topAnchor , multiplier: 2).isActive = true
-        self.encryptedText.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 20).isActive = true
+        self.encryptedText.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 5).isActive = true
         self.encryptedText.heightAnchor.constraint(equalToConstant: 3*self.scrollView.frame.size.height / 5).isActive = true
         self.encryptedText.isEditable = false
         self.encryptedText.isSelectable = false
