@@ -36,6 +36,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     var titleButtonClean = ""
     var textEncrypted = "error"
     var nameArray: [String] = [] // list of all name saved
+    var lockAppButtonIsHit = false // True if the user voluntarily hit the lockApp button. More explanations in LockedView.swift code.
     
     //Data came from ShowKey.swift > encryptMessageSelected()
     var keyNameTransmitted = ""
@@ -221,6 +222,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     
     
     @IBAction func lockAppSelected(sender: UIBarButtonItem){
+        self.lockAppButtonIsHit = true
         performSegue(withIdentifier: "lockApp", sender: self)
     }
     
@@ -412,6 +414,10 @@ class Encrypt: UIViewController, UITextViewDelegate{
         } else if segue.identifier == "lockApp"{
             let lockedView = segue.destination as! LockedView
             lockedView.activityInProgress = true
+            if lockAppButtonIsHit {
+                lockedView.voluntarilyLocked = true // Explanations in LockedView.swift code
+                lockAppButtonIsHit = false // disable the tap
+            }
         } else if segue.identifier == "keyList"{
             let nv = segue.destination as? UINavigationController
             if let keyList = nv?.viewControllers.first as? KeyList {

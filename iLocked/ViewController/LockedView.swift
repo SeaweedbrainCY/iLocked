@@ -28,21 +28,16 @@ class LockedView: UIViewController{
     var activityInProgress = false // if it's true, this view is dismissed and don't use a segue
     var firstTime = false
     var password = true // password protection activated
-    
-    override func viewDidLoad(){
-        print("viewDidLoad called")
-        super.viewDidLoad()
-        getSetting()
-    }
+    var voluntarilyLocked = false // If it's true, the user tap on a button in order to voluntarily lock the application. So the password/Face id/Touch id isn't automatically asked
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        getSetting()
         checkForKeys()
-        
-        //Call when the user re-open the app
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        if !voluntarilyLocked {
+            appMovedToForeground()
+        }
     }
     ///This function check if their is already a key created
     func checkForKeys(){
@@ -146,7 +141,7 @@ class LockedView: UIViewController{
             self.backFingerprint.isHidden = false
         
         //animation pour faire venir les View
-        let animationLabel = UIViewPropertyAnimator(duration: 2, dampingRatio: 3, animations: {
+        let animationLabel = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 3, animations: {
             self.titleLabel.center = CGPoint(x: self.view.center.x, y: self.view.frame.origin.y + 100)
             self.descriptionLabel.center = CGPoint(x: self.view.center.x, y: self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + 50)
             self.actionButton.center = CGPoint(x: self.view.center.x, y: self.view.frame.size.height - self.actionButton.frame.size.height - 20)
@@ -161,6 +156,15 @@ class LockedView: UIViewController{
             }
             
         }
+    }
+    
+    private func appMovedToForeground() {
+        if password {
+            askForAuthentification()
+        } else {
+            self.perform(#selector(self.dismissCurrentView))
+        }
+        
     }
     
     
@@ -208,15 +212,6 @@ class LockedView: UIViewController{
        
     }
     
-    @objc private func appMovedToForeground() {
-        if password {
-            askForAuthentification()
-        } else {
-            self.perform(#selector(self.dismissCurrentView))
-        }
-        
-    }
-    
     //
     // User interaction func :
     //
@@ -230,17 +225,17 @@ class LockedView: UIViewController{
         let context = LAContext()
             var error: NSError?
             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-                let reason = "Identify yourself is required to use iLocked!"
+                let reason = "Your data are protected by a password."
 
                 context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) {
                     [weak self] success, authenticationError in
                     DispatchQueue.main.async {
                         if success {
-                            print("Authentification succeed")
+                            print("[*] Authentification succeed")
                             self?.perform(#selector(self?.dismissCurrentView))
                         } else {
                             // error
-                            print("Error : Authentifcation failed")
+                            print("[*] Error : Authentifcation failed")
                             self?.descriptionLabel.textColor = .systemRed
                             self?.descriptionLabel.text = "Authentication failed. 🔒"
                         }
@@ -248,7 +243,7 @@ class LockedView: UIViewController{
                 }
             } else {
                 // no biometry
-                print("No indentification enabled : \(String(describing: error))")
+                print("[*] No indentification enabled : \(String(describing: error))")
             }
     }
     

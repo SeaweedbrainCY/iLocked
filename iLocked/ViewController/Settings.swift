@@ -19,7 +19,9 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     let autoPasteSwitch = UISwitch()
     let externalLinkView = UIImage(systemName: "arrow.up.right.square")
     let nextViewSettingImageView = UIImage(systemName: "chevron.forward")
-     
+    
+    
+    var lockAppButtonIsHit = false // True if the user tap on lockApp button
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,23 +82,10 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "🔍 Auto-paste encrypted text"
-                let settingData = SettingsData()
-                var setting = settingData.getSetting()
-                if (setting.keys).contains("auto_paste"){ // Check if the setting is already init
-                    if setting["auto_paste"] == "true"{
-                        self.autoPasteSwitch.isOn = true
-                    } else{
-                        self.autoPasteSwitch.isOn = false
-                    }
-                }else { // Not init. Se we do it
-                    // default value
-                    self.autoPasteSwitch.isOn = false
-                    setting.updateValue("false", forKey: "auto_paste")
-                    settingData.saveSetting(dict: setting)
-                }
-                accessoryView = self.autoPasteSwitch
-                
+                cell.textLabel?.text = "👨‍💻 Support the developer"
+                cell.backgroundColor = .systemBlue
+                accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
+                accessoryView.tintColor = .white
             default:
                 cell.textLabel?.text = "ERROR"
             }
@@ -170,7 +159,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     /// Sections' name
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0 : return "Preferences ⚙️"
+        case 0 : return "Developer 👨‍💻"
         case 1 : return "Security 🔐"
         case 2 : return "Developement 🔨"
         case 3 : return ""
@@ -183,13 +172,14 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         if indexPath.section == 0{
             switch indexPath.row {
             case 0:
-                break
+                performSegue(withIdentifier: "showDeveloper", sender: self)
             default:
                 break
             }
         } else if indexPath.section == 1 {
             switch indexPath.row {
             case 1 : // lock app
+                lockAppButtonIsHit = true
                 performSegue(withIdentifier: "lockApp", sender: self)
             case 2 : // revoke keys
                 self.performSegue(withIdentifier: "showRevocationView", sender: self)
@@ -260,6 +250,10 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         if segue.identifier == "lockApp" {
             let lockedView = segue.destination as! LockedView
             lockedView.activityInProgress = true
+            if lockAppButtonIsHit{
+                lockedView.voluntarilyLocked = true // Explanations in LockedView.swift code 
+                lockAppButtonIsHit = false // disable the tap
+            }
         }
     }
     
