@@ -121,7 +121,7 @@
 		90D43B702401AF5A00EFE9BD /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-prefix.pch"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
 		90D43B712401AF5A00EFE9BD /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-umbrella.h"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
 		90DB59A82416B03F001189C5 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
-		90EEEAFC266E7D0C00A158DA /* donationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = donationView.swift; path = ViewController/donationView.swift; sourceTree = "<group>"; };
+		90EEEAFC266E7D0C00A158DA /* donationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donationView.swift; sourceTree = "<group>"; };
 		D820B847235E3559006CEB38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D820B849235E359D006CEB38 /* DecryptedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptedResult.swift; sourceTree = "<group>"; };
 		D820B84D235E5EB1006CEB38 /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
@@ -271,7 +271,6 @@
 				D8A64B082353BC1C000613F3 /* SceneDelegate.swift */,
 				D8A64B0A2353BC1C000613F3 /* ViewController.swift */,
 				D8A64B0C2353BC1C000613F3 /* Main.storyboard */,
-				90EEEAFC266E7D0C00A158DA /* donationView.swift */,
 				D8A64B0F2353BC23000613F3 /* Assets.xcassets */,
 				D8A64B112353BC23000613F3 /* LaunchScreen.storyboard */,
 				D8A64B142353BC23000613F3 /* Info.plist */,
@@ -328,6 +327,7 @@
 				D820B84D235E5EB1006CEB38 /* LockedView.swift */,
 				90B886FB23F7F31A00035C82 /* Settings.swift */,
 				906207D025914ECE00E98F90 /* Revoke.swift */,
+				90EEEAFC266E7D0C00A158DA /* donationView.swift */,
 				906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */,
 			);
 			path = ViewController;

@@ -29,7 +29,6 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         self.tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell") //on associe la tableView au custom de Style/customeCelleTableView.swift
         protectionSwitch.addTarget(self, action: #selector(protectionSwitchChanged), for: .valueChanged)
-        autoPasteSwitch.addTarget(self, action: #selector(autoPasteSwitchChanged), for: .valueChanged)
         
         
         // Set up the setting icon:
@@ -273,17 +272,6 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         settingData.saveSetting(dict: settingDict)
     }
     
-    
-    @objc private func autoPasteSwitchChanged(){
-        let settingData = SettingsData()
-        var settingDict = settingData.getSetting()
-        if self.autoPasteSwitch.isOn {
-            settingDict.updateValue("true", forKey: "auto_paste")
-        } else {
-            settingDict.updateValue("false", forKey: "auto_paste")
-        }
-        settingData.saveSetting(dict: settingDict)
-    }
     
     /**
      Function called by **Delegate** when user ask for contact the developer
