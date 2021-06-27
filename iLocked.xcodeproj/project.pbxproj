@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		902624022688BD3400489B07 /* X509Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902624012688BD3400489B07 /* X509Certificate.swift */; };
 		9048E65D23FB017800098C73 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9048E65C23FB017800098C73 /* Dictionary.swift */; };
 		905877422401B171004F1894 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */; };
 		905877432401B18A004F1894 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */; };
@@ -26,6 +27,7 @@
 		90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */; };
 		90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */; };
 		90DB59A92416B03F001189C5 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB59A82416B03F001189C5 /* SettingsData.swift */; };
+		90EE52B2267675FB00C506AA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EE52B1267675FB00C506AA /* WebView.swift */; };
 		90EEEAFD266E7D0C00A158DA /* donationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EEEAFC266E7D0C00A158DA /* donationView.swift */; };
 		D820B848235E3559006CEB38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B847235E3559006CEB38 /* UIView.swift */; };
 		D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B849235E359D006CEB38 /* DecryptedResult.swift */; };
@@ -90,6 +92,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		902624012688BD3400489B07 /* X509Certificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X509Certificate.swift; sourceTree = "<group>"; };
 		9048E65C23FB017800098C73 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		906207D025914ECE00E98F90 /* Revoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revoke.swift; sourceTree = "<group>"; };
 		906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettings.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		90D43B702401AF5A00EFE9BD /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-prefix.pch"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
 		90D43B712401AF5A00EFE9BD /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-umbrella.h"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
 		90DB59A82416B03F001189C5 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
+		90EE52B1267675FB00C506AA /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		90EEEAFC266E7D0C00A158DA /* donationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donationView.swift; sourceTree = "<group>"; };
 		D820B847235E3559006CEB38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D820B849235E359D006CEB38 /* DecryptedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptedResult.swift; sourceTree = "<group>"; };
@@ -238,6 +242,7 @@
 				90D43B662401AF5A00EFE9BD /* Signature.swift */,
 				90D43B672401AF5A00EFE9BD /* SwiftyRSA.h */,
 				90D43B682401AF5A00EFE9BD /* SwiftyRSA.swift */,
+				902624012688BD3400489B07 /* X509Certificate.swift */,
 				90D43B692401AF5A00EFE9BD /* SwiftyRSAError.swift */,
 				90D43B6B2401AF5A00EFE9BD /* ObjC */,
 				90D43B722401AF5A00EFE9BD /* Support Files */,
@@ -329,6 +334,7 @@
 				906207D025914ECE00E98F90 /* Revoke.swift */,
 				90EEEAFC266E7D0C00A158DA /* donationView.swift */,
 				906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */,
+				90EE52B1267675FB00C506AA /* WebView.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -545,7 +551,9 @@
 				D8A64B4A2353BCA0000613F3 /* UIButton.swift in Sources */,
 				906207D125914ECE00E98F90 /* Revoke.swift in Sources */,
 				D8A64B482353BCA0000613F3 /* AttributedText.swift in Sources */,
+				90EE52B2267675FB00C506AA /* WebView.swift in Sources */,
 				9058774C2401B1B5004F1894 /* SwiftyRSAError.swift in Sources */,
+				902624022688BD3400489B07 /* X509Certificate.swift in Sources */,
 				9058774B2401B1B2004F1894 /* SwiftyRSA.swift in Sources */,
 				D8A64B592353BCC1000613F3 /* EncryptHomePage.swift in Sources */,
 				9048E65D23FB017800098C73 /* Dictionary.swift in Sources */,

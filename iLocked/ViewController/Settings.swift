@@ -16,7 +16,6 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     
     @IBOutlet weak var tableView: UITableView!
     let protectionSwitch = UISwitch()
-    let autoPasteSwitch = UISwitch()
     let externalLinkView = UIImage(systemName: "arrow.up.right.square")
     let nextViewSettingImageView = UIImage(systemName: "chevron.forward")
     
@@ -29,7 +28,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         self.tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell") //on associe la tableView au custom de Style/customeCelleTableView.swift
         protectionSwitch.addTarget(self, action: #selector(protectionSwitchChanged), for: .valueChanged)
-        
+        protectionSwitch.tintColor = .systemRed
         
         // Set up the setting icon:
         //self.externalLinkView.tintColor = .darkGray
@@ -101,7 +100,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     }
                 }else { // Not init. Se we do it
                     // default value
-                    self.autoPasteSwitch.isOn = false
+                    self.protectionSwitch.isOn = false
                     setting.updateValue("false", forKey: "password")
                     settingData.saveSetting(dict: setting)
                 }

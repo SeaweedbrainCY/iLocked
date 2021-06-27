@@ -118,7 +118,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         if let retrievedString: String = KeychainWrapper.standard.string(forKey: name){
             self.key.text = "\(retrievedString)"
         } else if isUserKey{
-            if let retrievedString: String = KeychainWrapper.standard.string(forKey: userPublicKeyId){
+            if let retrievedString: String = KeychainWrapper.standard.string(forKey: UserKeys.publicKey.tag){
             self.key.text = "\(retrievedString)"
             } else {
                 self.key.text = "Impossible to find this key. Please check you didn't make any mistake, install the last version of this application and be sure you have enough space on your iDevice."

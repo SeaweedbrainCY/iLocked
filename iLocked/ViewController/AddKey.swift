@@ -32,7 +32,7 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
     
     let keyTextViewPlaceholder = "Aa"
     
-    let forbiddenKeyName = [userPublicKeyId, userPrivateKeyId, "My encryption key"] // List of forbidden keyName
+    let forbiddenKeyName = [ UserKeys.publicKey.tag,  UserKeys.privateKey.tag, "My encryption key"] // List of forbidden keyName
     
     //##################################################################################
     //##################################################################################

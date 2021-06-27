@@ -31,7 +31,22 @@ class SettingsData {
         let jsonString = dictExtension.dictionaryToJson(dict: dict)
         _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath).path, contents: "\(jsonString!)".data(using: String.Encoding.utf8), attributes: nil)
     }
-    
-   
-    
 }
+    
+public enum SettingsName : String { // List all key's name according to the corresponding setting
+        case inAppBrowser
+        case isPasswordActivated
+        case X509Certificate
+        
+        var key : String {
+            switch self {
+            case .inAppBrowser:
+                return "inAppBrowser"
+            case .isPasswordActivated:
+                return "password"
+            case .X509Certificate:
+                return "X509Certificate"
+            }
+        }
+        
+    }

@@ -22,20 +22,17 @@ class Encryption{
     public func encryptText(_ text: String, withKeyName keyUsed : String) -> String{
         var publicKeyUsed = ""
         if keyUsed == "My encryption key" {
-            publicKeyUsed = userPublicKeyId
+            publicKeyUsed =  UserKeys.publicKey.tag
         } else {
             publicKeyUsed = keyUsed
         }
         if let publicKey: String = KeychainWrapper.standard.string(forKey: publicKeyUsed) {
             do {
-                if let extractedKey = KeyId().extract_key(publicKey){
+                let extractedKey: String = KeyId().extract_key(publicKey)
                     print("\n\nExtraced key = '\(extractedKey)'")
                     let clear = try ClearMessage(string: text, using: .utf8)
                     let encrypted = try clear.encrypted(with: PublicKey(base64Encoded: extractedKey), padding: .PKCS1)
                     return self.start_encrypted_format + encrypted.base64String + self.end_encrypted_format
-                } else {
-                    return "ERROR : Please verify that your public key is correct"
-                }
             } catch {
                 return "ERROR : Please verify that your public key is correct"
             }

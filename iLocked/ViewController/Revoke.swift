@@ -132,8 +132,8 @@ class Revoke: UIViewController {
     
     /// Called if authentication after revocation demand succeed
     private func destroyKey(){
-        KeychainWrapper.standard.removeObject(forKey: userPublicKeyId)
-        KeychainWrapper.standard.removeObject(forKey: userPrivateKeyId)
+        KeychainWrapper.standard.removeObject(forKey:  UserKeys.publicKey.tag)
+        KeychainWrapper.standard.removeObject(forKey:  UserKeys.privateKey.tag)
         self.performSegue(withIdentifier: "lockApp", sender: self)
     }
     

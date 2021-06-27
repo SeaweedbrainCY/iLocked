@@ -11,6 +11,7 @@ import Foundation
 class KeyId {
     let  start_key_format = "-----BEGIN RSA 4096 PUBLIC KEY-----\n"
     let end_key_format = "\n-----END RSA 4096 PUBLIC KEY-----"
+    let pem_format = "RSA 4096 PUBLIC"
     
     /// Return all key and id associated to saved keys
     /// - Data format = [keyName(String)]
@@ -50,7 +51,7 @@ class KeyId {
     
     //
     ///Stock and remplace old data
-    ///array de la forme [id: nom]
+    ///array looks like [id: nom]
     //
     public func stockNewNameIdArray(_ initialArray: [String]) {
         let array = initialArray
@@ -110,16 +111,20 @@ class KeyId {
     }
     
     /// Extrcat keys from their wrap
-    public func extract_key(_ key: String) -> String?{
-        if self.checkKeyValidity(key){
+    public func extract_key(_ key: String) -> String{
+        if checkKeyValidity(key){
             var extracted = ""
             for i in self.start_key_format.count ..< (key.count - self.end_key_format.count){
                 extracted += "\(key[i])"
             }
             return extracted
         } else {
-            return nil
+            return key // No pem, so returned as is
         }
+    }
+    
+    public func key_format(_ key : String) -> String{
+        return self.start_key_format + key + self.end_key_format
     }
 }
 

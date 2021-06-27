@@ -195,7 +195,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
         if is_correct {
             var keySaved: String? = nil
             if self.keyNameButton.currentTitle! == "My encryption key"{
-                keySaved = KeychainWrapper.standard.string(forKey: userPublicKeyId)
+                keySaved = KeychainWrapper.standard.string(forKey:  UserKeys.publicKey.tag)
             } else {
                 keySaved = KeychainWrapper.standard.string(forKey:self.keyNameButton.currentTitle!)
             }
@@ -206,7 +206,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
                 let encryptionMethod = Encryption()
                 var nameSelected = self.keyNameButton.currentTitle
                 if nameSelected == "My encryption key"{
-                    nameSelected = userPublicKeyId
+                    nameSelected =  UserKeys.publicKey.tag
                 }
                 encryptedText = encryptionMethod.encryptText(self.textToEncrypt.text, withKeyName: nameSelected!)
                 if encryptedText != "error" && encryptedText != "" {

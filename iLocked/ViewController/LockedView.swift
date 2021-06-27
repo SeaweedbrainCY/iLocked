@@ -36,12 +36,14 @@ class LockedView: UIViewController{
         getSetting()
         checkForKeys()
         if !voluntarilyLocked {
-            appMovedToForeground()
+            //Call when the user re-open the app
+            let notificationCenter = NotificationCenter.default
+            notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         }
     }
     ///This function check if their is already a key created
     func checkForKeys(){
-        let retrievedString: String? = KeychainWrapper.standard.string(forKey: userPublicKeyId)
+        let retrievedString: String? = KeychainWrapper.standard.string(forKey:  UserKeys.publicKey.tag)
         print("view loaded")
         if retrievedString == nil || retrievedString == ""{
             firstTime = true
@@ -158,7 +160,8 @@ class LockedView: UIViewController{
         }
     }
     
-    private func appMovedToForeground() {
+    @objc private func appMovedToForeground() {
+        print("[*] App moved to foreground")
         if password {
             askForAuthentification()
         } else {

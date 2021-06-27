@@ -29,7 +29,7 @@ class Decryption {
         }
         do {
             let decrypted = try EncryptedMessage(base64Encoded: extracted_text)
-            if let privateKey: String = KeychainWrapper.standard.string(forKey: userPrivateKeyId) {
+            if let privateKey: String = KeychainWrapper.standard.string(forKey:  UserKeys.privateKey.tag) {
                 let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)
                 return ["state" : true,"codeError" : self.noCodeError, "message" : try clear.string(encoding: .utf8)]
             } else {
