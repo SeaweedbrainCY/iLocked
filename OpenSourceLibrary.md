@@ -4,7 +4,7 @@ All open source libraries used are referenced in this document.
 
 Their source code, license and creator can also be found in the open source code of iLocked.
 
-## ![SwiftyRSA](https://github.com/TakeScoop/SwiftyRSA)
+## ![SwiftyRSA](https://github.com/DevNathan/SwiftyRSA)
 ### The MIT License (MIT)
 
 Copyright (c) 2015 Scoop Technologies, Inc.
