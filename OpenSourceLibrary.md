@@ -4,7 +4,9 @@ All open source libraries used are referenced in this document.
 
 Their source code, license and creator can also be found in the open source code of iLocked.
 
-## ![SwiftyRSA](https://github.com/DevNathan/SwiftyRSA)
+## [SwiftyRSA](https://github.com/DevNathan/SwiftyRSA)
+Forked by [DevNathan](https://github.com/DevNathan/) from [TakeScoop's project](https://github.com/TakeScoop/SwiftyRSA), waiting for DevNathan's pull request to be merged.
+
 ### The MIT License (MIT)
 
 Copyright (c) 2015 Scoop Technologies, Inc.
@@ -27,7 +29,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-## ![SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
+## [SwiftKeychainWrapper](https://github.com/jrendel/SwiftKeychainWrapper)
 ### The MIT License (MIT)
 
 Copyright (c) 2014 Jason Rendel
