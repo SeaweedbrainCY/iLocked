@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
         // Override point for customization after application launch.
         return true
     }
@@ -32,8 +33,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
     
-    func applicationWillResignActive(_ application: UIApplication) {
-        
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        // Save the time when the app is closed to deal with auto-locking
+        // For iOS < iOS13 
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let dateString  = dateFormatter.string(from: date)
+        print("[*] App delegate called, date = \(date)")
+        let settingsData = SettingsData()
+        settingsData.saveLastTimeAppIsClosed(timesInfo: [DateInfosName.dateOfClose.key : dateString, DateInfosName.hasBeenUnlocked.key : "false"])
     }
 
 }

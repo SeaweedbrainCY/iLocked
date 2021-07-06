@@ -69,16 +69,14 @@ class Encrypt: UIViewController, UITextViewDelegate{
         
         // construct view
         self.constructView()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        //Is called when the app move to background
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
         
-        //Is called when user has selected a key in order to encrypt with it
+        let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(keySelected), name: Encrypt.notificationOfSelectionName, object: nil)
         // Is called when the keyboard will show
         NotificationCenter.default.addObserver(
@@ -88,6 +86,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
             object: nil
         )
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
     }
 
     func alert(_ title: String, message: String) {
@@ -257,7 +256,13 @@ class Encrypt: UIViewController, UITextViewDelegate{
     
     @IBAction func infoButtonSelected(_ sender: Any) {
         if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
-            let helpText = "iLocked uses the RSA-4096 encryption method, a highly secure protection, to encrypt your messages. \n\n Nobody but the owner of the private key corresponding to the public key you are going to use to encrypt, can decrypt it. Even you. \n\n IMPORTANT : Make sure to encrypt your message with the public key of the person you want to send it to. Be careful to copy the whole encrypted text before sending it. No more no less. Or it won't work  . . ."
+            let helpText = """
+                iLocked uses the RSA-4096 encryption method, a highly secure protection, to encrypt your messages.
+                
+                Nobody but the owner of the private key corresponding to the public key you are going to use to encrypt, can decrypt it. Even you.
+                
+                IMPORTANT : Make sure to encrypt your message with the public key of the person you want to send it to. Be careful to copy the whole encrypted text before sending it. No more no less. Or it won't work  . . .
+                """
             self.showHelp(text: helpText)
         } else {
             closeHelp()
@@ -290,10 +295,6 @@ class Encrypt: UIViewController, UITextViewDelegate{
     // Notifications func
     //
     
-    @objc private func appMovedToBackground(){
-        //print("notification recieved")
-        performSegue(withIdentifier: "lockApp", sender: self)
-    }
     
     @objc func keyboardWillShow(_ notification: Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {

@@ -27,15 +27,17 @@ class Encryption{
             publicKeyUsed = keyUsed
         }
         if let publicKey: String = KeychainWrapper.standard.string(forKey: publicKeyUsed) {
-            do {
                 let extractedKey: String = KeyId().extract_key(publicKey)
                     print("\n\nExtraced key = '\(extractedKey)'")
+                do {
+                    let keyData = try SwiftyRSA.stripKeyHeader(keyData:  PublicKey(base64Encoded: extractedKey).data()) // get rid of X509 certificate
+                    print("stripped key = \(try PublicKey(data: keyData).base64String())")
                     let clear = try ClearMessage(string: text, using: .utf8)
-                    let encrypted = try clear.encrypted(with: PublicKey(base64Encoded: extractedKey), padding: .PKCS1)
+                    let encrypted = try clear.encrypted(with: PublicKey(data: keyData), padding: .PKCS1)
                     return self.start_encrypted_format + encrypted.base64String + self.end_encrypted_format
-            } catch {
-                return "ERROR : Please verify that your public key is correct"
-            }
+                }catch {
+                    return "ERROR : Please verify that your public key is correct"
+                }
         } else {
             return "ERROR : Impossible to get the public key associated"
         }

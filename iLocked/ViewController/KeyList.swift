@@ -62,8 +62,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             refreshData()
         }
         hasUpdated = false
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        
         
     }
     
@@ -314,10 +313,6 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         refreshData()
     }
     
-    /// Called by notification when the app is moves to background
-    @objc private func appMovedToBackground(){
-        performSegue(withIdentifier: "lockApp", sender: self)
-    }
     
     ///Called by deleteOptionButton when user wants to delete selected key(s)
     private func deleteKeys(){

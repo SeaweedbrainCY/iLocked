@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add an encryption key-->
+        <!--AddKeyCrtl-->
         <scene sceneID="FEF-7T-4X7">
             <objects>
-                <viewController title="Add an encryption key" id="nVe-hc-Wct" customClass="AddKey" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="AddKeyCrtl" id="nVe-hc-Wct" customClass="AddKey" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="wqN-sq-iWz">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="4244.8598130841119" y="-1483.1533477321816"/>
         </scene>
-        <!--Public Key List-->
+        <!--PublicKeyList-->
         <scene sceneID="6us-pM-h6T">
             <objects>
-                <viewController title="Public Key List" modalPresentationStyle="formSheet" id="Bw4-Uw-PF4" customClass="KeyList" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PublicKeyList" modalPresentationStyle="formSheet" id="Bw4-Uw-PF4" customClass="KeyList" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zf9-NJ-i4P">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,12 +184,12 @@
             </objects>
             <point key="canvasLocation" x="2011.682242990654" y="1890.7127429805616"/>
         </scene>
-        <!--Encyption-->
+        <!--EncryptHomePage-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="Encrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="EncryptHomePage" id="BYZ-38-t0r" customClass="Encrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-SM-Sl0">
@@ -305,10 +305,10 @@
             </objects>
             <point key="canvasLocation" x="2011.682242990654" y="-711.44708423326142"/>
         </scene>
-        <!--Locked View-->
+        <!--LockedView-->
         <scene sceneID="OV3-dR-2pf">
             <objects>
-                <viewController id="QiX-9o-pKS" customClass="LockedView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="lockedView" storyboardIdentifier="LockedView" title="LockedView" id="QiX-9o-pKS" customClass="LockedView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="keN-bl-jwx">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -423,10 +423,10 @@
             </objects>
             <point key="canvasLocation" x="-1114.4000000000001" y="124.58770614692655"/>
         </scene>
-        <!--Settings-->
+        <!--SettingsView-->
         <scene sceneID="5yE-9v-pra">
             <objects>
-                <viewController id="RaQ-Vb-8jQ" customClass="Settings" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="SettingsView" id="RaQ-Vb-8jQ" customClass="Settings" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="epq-hH-oz2">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -495,10 +495,10 @@
             </objects>
             <point key="canvasLocation" x="2015.8878504672896" y="2683.8012958963286"/>
         </scene>
-        <!--Donation-->
+        <!--developerView-->
         <scene sceneID="PmU-GN-YtJ">
             <objects>
-                <viewController id="6A1-HS-Rdl" customClass="Donation" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="developerView" id="6A1-HS-Rdl" customClass="Donation" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SF2-qP-Egv">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -736,10 +736,10 @@ Thanks a lot !</string>
             </objects>
             <point key="canvasLocation" x="3527.1028037383176" y="3488.5529157667388"/>
         </scene>
-        <!--Advanced Settings-->
+        <!--AdvancedSettingsView-->
         <scene sceneID="guU-ON-fPU">
             <objects>
-                <viewController id="vWh-6x-5A5" customClass="AdvancedSettings" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="AdvancedSettingsView" id="vWh-6x-5A5" customClass="AdvancedSettings" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YY8-bV-8vL">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -770,10 +770,10 @@ Thanks a lot !</string>
             </objects>
             <point key="canvasLocation" x="2837.5999999999999" y="2683.8080959520244"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--MainTabBarController-->
         <scene sceneID="y6A-YD-e9k">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="2EE-iT-cBD" sceneMemberID="viewController">
+                <tabBarController title="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="2EE-iT-cBD" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4gB-mf-lEJ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="BnG-RD-Amf">
@@ -787,16 +787,17 @@ Thanks a lot !</string>
                         <segue destination="nC8-E7-j8A" kind="relationship" relationship="viewControllers" id="LWu-AF-UpF"/>
                         <segue destination="Okw-ay-HrS" kind="relationship" relationship="viewControllers" id="43S-Bo-H0g"/>
                         <segue destination="8rU-3f-eUY" kind="relationship" relationship="viewControllers" id="2Kd-xP-1cO"/>
+                        <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="Dub-W1-isz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9t6-ac-LhK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1078" y="125"/>
         </scene>
-        <!--Decryption-->
+        <!--DecryptHomePage-->
         <scene sceneID="Xr1-2R-EiG">
             <objects>
-                <viewController id="N9l-yk-OqT" customClass="Decrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="DecryptHomePage" id="N9l-yk-OqT" customClass="Decrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yAG-l8-0Kb">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -894,10 +895,10 @@ Thanks a lot !</string>
             </objects>
             <point key="canvasLocation" x="2011.682242990654" y="980.34557235421175"/>
         </scene>
-        <!--Decrypted Result-->
+        <!--DecryptResult-->
         <scene sceneID="dzA-Rp-XQ5">
             <objects>
-                <viewController id="xbo-aT-QG9" customClass="DecryptedResult" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="DecryptResult" id="xbo-aT-QG9" customClass="DecryptedResult" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UY3-OY-5Iq">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1023,10 +1024,10 @@ Thanks a lot !</string>
             </objects>
             <point key="canvasLocation" x="1078" y="1893"/>
         </scene>
-        <!--Encrypt-->
+        <!--EncryptNavigationController-->
         <scene sceneID="DPh-Nb-BpX">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hHY-cd-32x" sceneMemberID="viewController">
+                <navigationController title="EncryptNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hHY-cd-32x" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Encrypt" image="locked" id="UXU-4H-GMV">
                         <color key="badgeColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
@@ -1050,10 +1051,10 @@ Thanks a lot !</string>
             </objects>
             <point key="canvasLocation" x="1078" y="-711"/>
         </scene>
-        <!--Revoke-->
+        <!--revokeView-->
         <scene sceneID="yyf-vt-huE">
             <objects>
-                <viewController id="gqQ-4o-g0B" customClass="Revoke" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="revokeView" id="gqQ-4o-g0B" customClass="Revoke" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRa-fW-v7X">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1184,10 +1185,10 @@ Thanks a lot !</string>
             </objects>
             <point key="canvasLocation" x="1078" y="981"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--addKeyNavCrtl-->
         <scene sceneID="7cN-su-u73">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tOU-fV-Ibc" sceneMemberID="viewController">
+                <navigationController title="addKeyNavCrtl" automaticallyAdjustsScrollViewInsets="NO" id="tOU-fV-Ibc" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="qLi-aw-YgC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="108"/>
@@ -1198,18 +1199,19 @@ Thanks a lot !</string>
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="nVe-hc-Wct" kind="relationship" relationship="rootViewController" id="hXU-1E-RYM"/>
+                        <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="89D-7x-PXv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cqe-6z-QkB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2945" y="-1482"/>
         </scene>
-        <!--Public Key-->
+        <!--PublicKeyView-->
         <scene sceneID="FKp-gC-l7G">
             <objects>
-                <viewController id="H5r-il-Mel" customClass="ShowKey" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="PublicKeyView" id="H5r-il-Mel" customClass="ShowKey" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="9wu-Ia-hPJ">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HMD-1q-5gB">
@@ -1282,16 +1284,16 @@ Thanks a lot !</string>
             </objects>
             <point key="canvasLocation" x="2838" y="1891"/>
         </scene>
-        <!--Encrypted message-->
+        <!--EncryptedResult-->
         <scene sceneID="nc4-Bc-6PQ">
             <objects>
-                <viewController title="Encrypted message" id="lni-hq-xo9" customClass="EncryptedResult" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="EncryptedResult" id="lni-hq-xo9" customClass="EncryptedResult" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="ur2-5E-dqe">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyQ-tL-Niz">
-                                <rect key="frame" x="0.0" y="0.0" width="428" height="838"/>
+                                <rect key="frame" x="0.0" y="108" width="428" height="730"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c30-kj-W9B">
                                         <rect key="frame" x="0.0" y="-85" width="428" height="885"/>
@@ -1323,7 +1325,7 @@ Thanks a lot !</string>
                             <constraint firstItem="uyQ-tL-Niz" firstAttribute="bottom" secondItem="pY4-zy-Vtu" secondAttribute="bottom" id="hZ2-OP-dmL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="UOj-dx-2R6"/>
+                    <navigationItem key="navigationItem" title="Encrypted text" id="UOj-dx-2R6"/>
                     <connections>
                         <outlet property="background" destination="c30-kj-W9B" id="Tyr-cO-2TW"/>
                         <outlet property="scrollView" destination="uyQ-tL-Niz" id="d5p-iW-bNG"/>
@@ -1361,7 +1363,7 @@ Thanks a lot !</string>
         <segue reference="FyZ-iz-rV4"/>
         <segue reference="YdW-06-8TH"/>
         <segue reference="2z8-fZ-KqH"/>
-        <segue reference="kS3-Ti-jHR"/>
+        <segue reference="Qai-0Z-qez"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>

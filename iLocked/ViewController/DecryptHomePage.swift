@@ -33,9 +33,6 @@ class Decrypt: UIViewController, UITextViewDelegate {
         viewConstruction()
         self.textToDecryptView.delegate = self
         
-        //Call when the user tap once or twice on the home button
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
         // Is called when the keyboard will show
         NotificationCenter.default.addObserver(
             self,
@@ -164,7 +161,13 @@ class Decrypt: UIViewController, UITextViewDelegate {
     
     @IBAction func infoButtonSelected(_ sender: Any) {
         if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
-            let helpText = "To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the green key.\n\n A new window will be opened and will show the decrypted message. \n\n IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . ."
+            let helpText = """
+                To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the green key.
+                
+                A new window will be opened and will show the decrypted message.
+                
+                IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . .
+                """
             self.showHelp(text: helpText)
         } else {
             closeHelp()
@@ -198,11 +201,6 @@ class Decrypt: UIViewController, UITextViewDelegate {
     
     @objc private func textToDecryptErrorMessageSelected(sender: UIButton){
         self.flip(firstView: textToDecryptViewErrorMessage, secondView: self.textToDecryptView)
-    }
-    
-    /// Called by notification when the app is moves to background
-    @objc private func appMovedToBackground(){
-        performSegue(withIdentifier: "lockApp", sender: self)
     }
     
     @objc func keyboardWillHide(_ notification : Notification){

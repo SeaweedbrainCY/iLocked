@@ -49,15 +49,6 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
         self.constructView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-            //Call when the user tap once or twice on the home button
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
-        
-            
-        }
-    
     
     
     
@@ -134,11 +125,6 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
         self.dismiss(animated: true, completion: nil)
     }
     
-    /// Called by notification when the app is moves to background
-    @objc private func appMovedToBackground(){
-        //print("notification recived")
-        performSegue(withIdentifier: "lockApp", sender: self)
-    }
     
     //
     // @IBOutlet func

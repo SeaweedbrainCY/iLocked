@@ -18,15 +18,14 @@ class PublicPrivateKeys {
             let keyPair = try SwiftyRSA.generateRSAKeyPair(sizeInBits: 4096)
             let privateKey = keyPair.privateKey
             let publicKey = keyPair.publicKey
-            let privateKey64 = try privateKey.pemString()
+            let privateKey64 = try privateKey.base64String()
             let public_key_x509 : Data = try publicKey.data().prependx509Header()
             let x509key64 = public_key_x509.base64EncodedString() // x509 certificate
             print("[*] X509 : \(x509key64)")
             let publicKeyFormat = KeyId().key_format(x509key64)
-            let privateKeyFormat = KeyId().key_format(privateKey64)
             
             if verifyIfKeysWork(privateKey: privateKey, publicKey: try PublicKey(base64Encoded: x509key64)){ // verify if key works
-                let saveSuccessfulPrivateKey = KeychainWrapper.standard.set(privateKeyFormat, forKey: UserKeys.privateKey.tag)
+                let saveSuccessfulPrivateKey = KeychainWrapper.standard.set(privateKey64, forKey: UserKeys.privateKey.tag)
                 let saveSuccessfulPublicKey = KeychainWrapper.standard.set(publicKeyFormat, forKey: UserKeys.publicKey.tag)
                 if saveSuccessfulPublicKey && saveSuccessfulPrivateKey {
                     return true

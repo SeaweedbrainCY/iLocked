@@ -260,7 +260,11 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 2{
-            return "If you are having difficulty using your public key with other RSA encryptor try to turn off the X509 certificate. You will be able to share your public key headerless.\n Note : Turning off this option won't affect your public key as a RSA key. It will only change the encoding format of your key.\n By default, the X509 certificate is used for your public key."
+            return """
+                If you are having difficulty using your public key with other RSA encryptor try to turn off the X509 certificate. You will be able to share your public key headerless.
+                Note : Turning off this option won't affect your public key as a RSA key. It will only change the encoding format of your key.
+                By default, the X509 certificate is used for your public key.
+                """
         }
         return nil
     }

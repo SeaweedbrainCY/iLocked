@@ -25,23 +25,44 @@ class LockedView: UIViewController{
     @IBOutlet weak var betaLaunchText: UILabel!
     @IBOutlet weak var backFingerprint: UIImageView!
     
-    var activityInProgress = false // if it's true, this view is dismissed and don't use a segue
+    var activityInProgress = false // if it's true, this view is dismissed and doesn't use a segue
     var firstTime = false
     var password = true // password protection activated
     var voluntarilyLocked = false // If it's true, the user tap on a button in order to voluntarily lock the application. So the password/Face id/Touch id isn't automatically asked
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if !voluntarilyLocked{
+            //Call when the user re-open the app
+                let notificationCenter = NotificationCenter.default
+                notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        }
         getSetting()
         checkForKeys()
-        if !voluntarilyLocked {
-            //Call when the user re-open the app
-            let notificationCenter = NotificationCenter.default
-            notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        if password {
+            askForAuthentification()
         }
     }
-    ///This function check if their is already a key created
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        // for some reasons, observers aren't removed when the view is dismissed (??)
+        print("[*] Observers removed")
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
+    
+    deinit {
+         print("Remove NotificationCenter Deinit")
+        //NotificationCenter.default.removeObserver(self, name: UIApplication.willEnterForegroundNotification, object: nil)
+     }
+    
+    ///This function checks if there is already a key created
     func checkForKeys(){
         let retrievedString: String? = KeychainWrapper.standard.string(forKey:  UserKeys.publicKey.tag)
         print("view loaded")
@@ -98,7 +119,9 @@ class LockedView: UIViewController{
         //Changement de la couleur de fond
         
         //animation pour faire venir les View
-        let animationLabel = UIViewPropertyAnimator(duration: 3, curve: .easeInOut, animations: {
+        let durationAnimation : Double = 3
+        
+        let animationLabel = UIViewPropertyAnimator(duration: durationAnimation, curve: .easeInOut, animations: {
             self.titleLabel.center = CGPoint(x: self.view.center.x, y: self.view.frame.origin.y + 100)
             self.descriptionLabel.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
             self.actionButton.center = CGPoint(x: self.view.center.x, y: self.descriptionLabel.frame.origin.y + self.descriptionLabel.frame.size.height + 50)
@@ -142,34 +165,33 @@ class LockedView: UIViewController{
             self.backFingerprint.alpha = 0.5
             self.backFingerprint.isHidden = false
         
+        
         //animation pour faire venir les View
-        let animationLabel = UIViewPropertyAnimator(duration: 0.5, dampingRatio: 3, animations: {
+        var durationAnimation = 0.5
+        if !voluntarilyLocked{ // No time to wait
+            durationAnimation = 0
+        }
+        let animationLabel = UIViewPropertyAnimator(duration: durationAnimation, dampingRatio: 3, animations: {
             self.titleLabel.center = CGPoint(x: self.view.center.x, y: self.view.frame.origin.y + 100)
             self.descriptionLabel.center = CGPoint(x: self.view.center.x, y: self.titleLabel.frame.origin.y + self.titleLabel.frame.size.height + 50)
             self.actionButton.center = CGPoint(x: self.view.center.x, y: self.view.frame.size.height - self.actionButton.frame.size.height - 20)
             
         })
         animationLabel.startAnimation()
-        if !activityInProgress {
+    }
+    
+    @objc private func appMovedToForeground() {
+        if !self.isBeingDismissed {
+            print("[*] App moved to foreground")
             if password {
                 askForAuthentification()
             } else {
                 self.perform(#selector(self.dismissCurrentView))
             }
-            
-        }
-    }
-    
-    @objc private func appMovedToForeground() {
-        print("[*] App moved to foreground")
-        if password {
-            askForAuthentification()
         } else {
-            self.perform(#selector(self.dismissCurrentView))
+            print("[*] App moved to foreground but is not presented")
         }
-        
     }
-    
     
     
     //
@@ -208,6 +230,7 @@ class LockedView: UIViewController{
     ///This func is called to send or dismiss the current view controller
     @objc private func dismissCurrentView(){
         if !activityInProgress {
+            print("Activity wasn't in progress")
             performSegue(withIdentifier: "HomePage", sender: self)
         } else {
             dismiss(animated: true, completion: nil)
@@ -234,8 +257,7 @@ class LockedView: UIViewController{
                     [weak self] success, authenticationError in
                     DispatchQueue.main.async {
                         if success {
-                            print("[*] Authentification succeed")
-                            self?.perform(#selector(self?.dismissCurrentView))
+                            self?.authenfiticationSucceed()
                         } else {
                             // error
                             print("[*] Error : Authentifcation failed")
@@ -256,15 +278,30 @@ class LockedView: UIViewController{
     private func getSetting(){
         var json = ""
         do {
-            json = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingPath), encoding: .utf8)
+            json = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingsPath.appSettings.path), encoding: .utf8)
         } catch {
             print("***ATTENTION***\n\n ***ERROR***\n\nImpossible to retrieve data.\n\n***************")
         }
         let dict = json.jsonToDictionary() ?? ["":""]
-        if dict["password"] == "false" {
+        if dict[SettingsName.isPasswordActivated.key] == "false" {
             self.password = false
         } else {
             self.password = true
         }
     }
+    
+    private func authenfiticationSucceed(){
+        print("[*] Authentification succeed")
+        let settingsData = SettingsData()
+        var dateInfos = settingsData.getLastTimeAppIsClosed()
+        if dateInfos != nil{
+            if dateInfos!.keys.contains(DateInfosName.hasBeenUnlocked.key){ // if not, no update needed
+                dateInfos!.updateValue("true", forKey: DateInfosName.hasBeenUnlocked.key) // Update unlocked status
+                settingsData.saveLastTimeAppIsClosed(timesInfo: dateInfos!)
+            }
+        }
+        self.perform(#selector(self.dismissCurrentView))
+    }
+    
+    
 }

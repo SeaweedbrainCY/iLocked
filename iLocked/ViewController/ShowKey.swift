@@ -57,9 +57,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        //Call when the user tap once or twice on the home button
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(editKeyResult), name: ShowKey.notificationOfModificationName, object: nil)
                     
     }
@@ -330,10 +328,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         _ = navigationController?.popViewController(animated: true)
     }
     
-    /// Called by notification when the app is moves to background
-    @objc private func appMovedToBackground(){
-        performSegue(withIdentifier: "lockApp", sender: self)
-    }
+    
     
     @objc private func editKeyResult(notification: Notification){
         let notificationData = notification.userInfo

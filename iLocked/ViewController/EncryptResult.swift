@@ -36,9 +36,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+
         //Call when the user tap once or twice on the home button
         let tap = UITapGestureRecognizer(target: self, action: #selector(copyButtonSelected))
             tap.numberOfTapsRequired = 2
@@ -142,10 +140,6 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
     // Objective C func
     //
     
-    /// Called by notification when the app is moves to background
-    @objc private func appMovedToBackground(){
-        performSegue(withIdentifier: "lockApp", sender: self)
-    }
     
     @objc private func shareMainButtonSelected(sender: UIButton){
         let activityViewController = UIActivityViewController(activityItems: ["\(self.encryptedText.text!)" as NSString], applicationActivities: nil)

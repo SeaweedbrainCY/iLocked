@@ -26,8 +26,6 @@ class Donation: UIViewController{
         // Round button
         self.donationButton.layer.cornerRadius = 20
         hideViews()
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -75,15 +73,7 @@ class Donation: UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     
-    //
-    // Objective C func
-    //
-    
-    /// Called by notification when the app is moves to background
-    @objc private func appMovedToBackground(){
-        performSegue(withIdentifier: "lockApp", sender: self)
-    }
-    
+   
     //
     //segue
     //

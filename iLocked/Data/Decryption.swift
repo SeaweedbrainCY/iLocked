@@ -24,12 +24,14 @@ class Decryption {
     /// - return : A dictionnary containing ONLY two keys : "state" : Bool (True if success, False if not) and "message" : String(The message according to the error or the result asked for)
     public func decryptText(_ text:String) -> [String: Any]{
         let (test,extracted_text) = extractEncryptedMessageFormat(text)
+        print("Extracted text : \(extracted_text)")
         if !test{
             return ["state" : false, "codeError" : self.codeErrorFormatInvalid, "message" : "The format of this encrypted text isn't correct. Please try only to decrypt message previoulsy encrypted with the iLocked app."]
         }
         do {
             let decrypted = try EncryptedMessage(base64Encoded: extracted_text)
             if let privateKey: String = KeychainWrapper.standard.string(forKey:  UserKeys.privateKey.tag) {
+                print(privateKey)
                 let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)
                 return ["state" : true,"codeError" : self.noCodeError, "message" : try clear.string(encoding: .utf8)]
             } else {

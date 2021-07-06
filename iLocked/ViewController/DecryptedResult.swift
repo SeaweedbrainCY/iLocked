@@ -32,9 +32,6 @@ class DecryptedResult : UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        //Call when the user tap once or twice on the home button
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.willResignActiveNotification, object: nil)
         decryption()
         
     }
@@ -49,14 +46,6 @@ class DecryptedResult : UIViewController{
         self.dismiss(animated: true, completion: nil)
     }
     
-    //
-    // Objective C func
-    //
-    
-    /// Called by notification when the app is moves to background
-    @objc private func appMovedToBackground(){
-        performSegue(withIdentifier: "lockApp", sender: self)
-    }
     
     //
     //segue

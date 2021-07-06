@@ -24,7 +24,6 @@ class Revoke: UIViewController {
     var timer: Timer!
     var timerWarning :Timer!
     var second = 0 //Count the number of seconds passed
-    var secondWarning = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.cancelButton.layer.cornerRadius = 10
@@ -38,6 +37,11 @@ class Revoke: UIViewController {
         //Start the timer
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
         timerWarning = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimeWarning), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        timerWarning.invalidate()
     }
     
     /// Simple pop-up with one cancel button
@@ -69,10 +73,6 @@ class Revoke: UIViewController {
     @objc private func updateTimeWarning(){
         print("[*] Timer warning")
         self.warningImage.isHidden = !self.warningImage.isHidden
-        if self.secondWarning > 120 {
-            self.timerWarning.invalidate()
-        }
-        self.secondWarning += 1
     }
     
     @IBAction func closeView(sender: UIButton){

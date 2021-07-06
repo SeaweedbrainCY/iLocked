@@ -19,7 +19,7 @@ class KeyId {
         //Récupération des données enregistrées
         var arrayEncoded: String! = "nil"
         do {
-            arrayEncoded = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath), encoding: .utf8)
+            arrayEncoded = try String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingsPath.arrayNameId.path), encoding: .utf8)
         } catch {
             print("Fichier introuvable. ERREUR GRAVE line 211")
             arrayEncoded = "not found"
@@ -59,7 +59,7 @@ class KeyId {
         //on convertie et enregistre
         let jsonArray = json(from: array as Any)
         print("json array = \(String(describing: jsonArray))")
-        _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(arrayNameIdPath).path, contents: "\(jsonArray!)".data(using: String.Encoding.utf8), attributes: nil)
+        _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingsPath.arrayNameId.path).path, contents: "\(jsonArray!)".data(using: String.Encoding.utf8), attributes: nil)
     }
     
     
