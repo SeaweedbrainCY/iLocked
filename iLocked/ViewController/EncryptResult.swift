@@ -70,7 +70,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.encryptedText.textColor = .white
         self.encryptedText.text = self.encryptedTextTransmitted
         self.encryptedText.font = UIFont(name: "American Typewriter", size: 15)
-        self.encryptedText.backgroundColor = .systemGray6
+        self.encryptedText.backgroundColor = Colors.darkGray6.color
         
         
         self.background.addSubview(self.shareButton)

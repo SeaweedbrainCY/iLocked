@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		902624022688BD3400489B07 /* X509Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902624012688BD3400489B07 /* X509Certificate.swift */; };
 		904063AA26949B1600946518 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063A926949B1600946518 /* UIWindow.swift */; };
+		904063AC26971CCD00946518 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063AB26971CCD00946518 /* Colors.swift */; };
 		9048E65D23FB017800098C73 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9048E65C23FB017800098C73 /* Dictionary.swift */; };
 		905877422401B171004F1894 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */; };
 		905877432401B18A004F1894 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */; };
@@ -94,6 +95,7 @@
 /* Begin PBXFileReference section */
 		902624012688BD3400489B07 /* X509Certificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X509Certificate.swift; sourceTree = "<group>"; };
 		904063A926949B1600946518 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
+		904063AB26971CCD00946518 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9048E65C23FB017800098C73 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		906207D025914ECE00E98F90 /* Revoke.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revoke.swift; sourceTree = "<group>"; };
 		906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedSettings.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				D8A64B372353BC38000613F3 /* Gif */,
+				904063AB26971CCD00946518 /* Colors.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -547,6 +550,7 @@
 				90EE52B2267675FB00C506AA /* WebView.swift in Sources */,
 				9058774C2401B1B5004F1894 /* SwiftyRSAError.swift in Sources */,
 				902624022688BD3400489B07 /* X509Certificate.swift in Sources */,
+				904063AC26971CCD00946518 /* Colors.swift in Sources */,
 				9058774B2401B1B2004F1894 /* SwiftyRSA.swift in Sources */,
 				D8A64B592353BCC1000613F3 /* EncryptHomePage.swift in Sources */,
 				9048E65D23FB017800098C73 /* Dictionary.swift in Sources */,

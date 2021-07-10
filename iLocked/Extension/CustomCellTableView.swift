@@ -23,7 +23,7 @@ public class CustomTableViewCell: UITableViewCell {
         self.textField.widthAnchor.constraint(equalToConstant: self.frame.width).isActive = true
         self.centerYAnchor.constraint(equalToSystemSpacingBelow: self.centerYAnchor, multiplier: 1).isActive = true
         self.centerXAnchor.constraint(equalToSystemSpacingAfter: self.centerXAnchor, multiplier: 1).isActive = true
-        self.textField.backgroundColor = UIColor.systemGray5
+        self.textField.backgroundColor = Colors.darkGray5.color
         textField.text = text
         textField.placeholder = placeholder
         textField.accessibilityValue = text

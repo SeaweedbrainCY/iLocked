@@ -27,7 +27,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     let helpTextLabel = UILabel()
     let helpView = UIView()
     let quitButton = UIButton()
-    let backgroundInfo = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
+    var backgroundInfo = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
     var closeHelpButtonView = UIButton() // cover the background info view, and close help if touched
     
     var keyArray: [String] = ["Add a key", "My encryption key"] // list of all names displayed on UIPIckerView
@@ -116,6 +116,8 @@ class Encrypt: UIViewController, UITextViewDelegate{
     
     private func constructView(){// construct the current view
         self.textToEncrypt.delegate = self
+        
+        self.view.backgroundColor = Colors.darkGray6.color
         
         //Set up some button
         self.encryptButton.setTitleColor(.gray, for: .selected)

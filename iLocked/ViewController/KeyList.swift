@@ -107,7 +107,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell { // titre
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
-        cell.backgroundColor = .systemGray5
+        cell.backgroundColor = Colors.darkGray5.color
         cell.textLabel?.textColor = .white
         if indexPath.section == 0 {
             cell.textLabel!.text = self.nameList[indexPath.row]

@@ -181,7 +181,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomTableViewCell
         
         cell.textLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
-        cell.backgroundColor = .systemGray5
+        cell.backgroundColor = Colors.darkGray5.color
         cell.textLabel?.textColor = .white
         let settingsData = SettingsData()
         let setting = settingsData.getSetting()

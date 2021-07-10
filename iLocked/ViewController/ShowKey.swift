@@ -47,7 +47,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = .clear
-        self.backgroundView.backgroundColor = .systemGray6
+        self.backgroundView.backgroundColor = Colors.darkGray6.color
         self.scrollView.delegate = self
         constructView()
         print("isUser key = \(isUserKey)")
@@ -142,7 +142,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         
         self.key.font = UIFont(name: "American Typewriter", size: 15)
         
-        self.key.backgroundColor = .systemGray6
+        self.key.backgroundColor = Colors.darkGray6.color
         //self.key.layer.borderWidth = 0.5
         //self.key.layer.borderColor = UIColor.white.cgColor
        // self.key.layer.cornerRadius = 20
@@ -167,7 +167,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         } else {
             self.encryptButton.setImage(UIImage(named: "addKey"), for: .normal)
         }
-        self.encryptButton.backgroundColor = .systemGray5
+        self.encryptButton.backgroundColor = Colors.darkGray5.color
         self.encryptButton.setTitleColor(.white, for: .normal)
         self.encryptButton.tintColor = .systemOrange
         self.encryptButton.titleLabel?.font = UIFont(name: "Arial Rounded MT Bold", size: 17)
@@ -185,7 +185,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
             self.shareButton.setImage(UIImage(systemName: "square.and.arrow.up") , for: .normal)
         }
         self.shareButton.tintColor = .systemOrange
-        self.shareButton.backgroundColor = .systemGray5
+        self.shareButton.backgroundColor = Colors.darkGray5.color
         self.shareButton.rondBorder()
         self.shareButton.addTarget(self, action: #selector(shareButtonSelected), for: .touchUpInside)
         

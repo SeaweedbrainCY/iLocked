@@ -58,6 +58,10 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
     
     
     private func constructView(){
+        self.nameKeyField.delegate = self 
+        self.nameKeyField.attributedPlaceholder = NSAttributedString(string: "Aa",
+                                                                     attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
         self.keyTextView.delegate = self
         self.keyTextView.layer.cornerRadius = 10
         self.keyTextView.layer.borderWidth = 0.1
@@ -202,7 +206,7 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
    
 
     //
-    //Text view delegate
+    //Text view/text field delegate
     //
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -218,6 +222,12 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
             textView.textColor = .darkGray
         }
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+
     
     //
     // Data func
