@@ -248,6 +248,9 @@ class LockedView: UIViewController{
     ///Func who ask to the user is Touch ID / Face ID /
     ///password and manages the response by call an internal function if success
     private func askForAuthentification() {
+        
+        // first verify if a time before locking is set, and if yes, if it's necessary to ask password
+        if isTimeBeforeLockingExceeded() {
         let context = LAContext()
             var error: NSError?
             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
@@ -270,6 +273,9 @@ class LockedView: UIViewController{
                 // no biometry
                 print("[*] No indentification enabled : \(String(describing: error))")
             }
+        } else { // Time didn't exceeded
+            self.dismissCurrentView()
+        }
     }
     
     //
@@ -301,6 +307,36 @@ class LockedView: UIViewController{
             }
         }
         self.perform(#selector(self.dismissCurrentView))
+    }
+    
+    
+    public func isTimeBeforeLockingExceeded()-> Bool{
+        let settingsData = SettingsData()
+        let (_, (_, timeBeforeLocking)) = settingsData.checkIfHideScreenAndPassword()
+        let lastDate = SettingsData().getLastTimeAppIsClosed()
+        if lastDate != nil { // else do nothing
+            if lastDate!.keys.contains(DateInfosName.dateOfClose.key) && lastDate!.keys.contains(DateInfosName.hasBeenUnlocked.key) { // else, an error occured so we do noting. It will be corrected the next time user quit app
+                if lastDate![DateInfosName.hasBeenUnlocked.key] == "false"{ // else, no need to ask authentification again
+                    let date = Date()
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd hh:mm:ss"
+                    
+                    let lastDateString = lastDate![DateInfosName.dateOfClose.key]
+                    let dateString  = dateFormatter.string(from: date)
+                    print("date = \(dateString), lastDate = \(String(describing: lastDateString))")
+                    let newDate = (dateFormatter.date(from: dateString))
+                    let lastDate = dateFormatter.date(from: lastDateString!)
+                    if newDate != nil && lastDate != nil {
+                        let diffInMins = Calendar.current.dateComponents([.minute], from: lastDate!, to: newDate!).minute
+                        print("[*] Distance = \(String(describing: diffInMins))")
+                        if diffInMins ?? 0 >= timeBeforeLocking { // time exceeded
+                            return true
+                        }
+                    }
+                }
+            }
+        }
+        return false
     }
     
     
