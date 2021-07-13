@@ -12,12 +12,13 @@ import UIKit
 class Donation: UIViewController{
     
     @IBOutlet weak var donationButton: UIButton!
-    @IBOutlet weak var donationScale: UISegmentedControl!
+    @IBOutlet weak var tipeeButton: UIButton!
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var developerStickerImage: UIImageView!
     @IBOutlet weak var helloLabel: UILabel!
     @IBOutlet weak var infosLabel: UILabel!
+    @IBOutlet weak var supportLabel : UILabel!
     
     var initialViewsPosition: [UIView : CGRect] = [:] // Stock the initial position of each view before hiding them and show then with an animation
     override func viewDidLoad() {
@@ -37,7 +38,7 @@ class Donation: UIViewController{
     //
     
     func hideViews(){ // Hide view below the content view
-        let viewList: [UIView] = [donationScale,donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel]
+        let viewList: [UIView] = [donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel,tipeeButton,supportLabel]
         
         for i  in 0 ..< viewList.count {
             self.initialViewsPosition.updateValue(viewList[i].frame , forKey: viewList[i])
@@ -47,7 +48,7 @@ class Donation: UIViewController{
     }
     
     func showViews(){
-        let viewList: [UIView] = [donationScale,donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel]
+        let viewList: [UIView] = [donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel,tipeeButton,supportLabel]
         let animation = UIViewPropertyAnimator(duration: 1, dampingRatio: 2, animations: {
             for i  in 0 ..< viewList.count {
                 viewList[i].frame = self.initialViewsPosition[viewList[i]]!
@@ -58,7 +59,7 @@ class Donation: UIViewController{
     }
     
     func stickView(){ // when the view is loaded, the views came with an animation, we fix with the determined constraints
-        let viewList: [UIView] = [donationScale,donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel]
+        let viewList: [UIView] = [donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel,tipeeButton,supportLabel]
         
         for i  in 0 ..< viewList.count {
             viewList[i].translatesAutoresizingMaskIntoConstraints = false
@@ -71,6 +72,10 @@ class Donation: UIViewController{
     
     @IBAction func closeButtonSelected(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func donationButtonSelected(sender: UIButton){
+        UIApplication.shared.open(URL(string: "https://fr.tipeee.com/devnathan")!, options: [:], completionHandler: nil)
     }
     
    
