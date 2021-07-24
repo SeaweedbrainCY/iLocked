@@ -643,20 +643,20 @@
                                 <color key="sectionIndexBackgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Asc-LZ-kCa">
-                                        <rect key="frame" x="20" y="49" width="388" height="21.333333969116211"/>
+                                        <rect key="frame" x="20" y="49" width="388" height="20.666666030883789"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Asc-LZ-kCa" id="D1u-PI-Ook">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="21.333333969116211"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="20.666666030883789"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9o-Rm-f6L">
-                                                    <rect key="frame" x="20" y="0.0" width="325" height="21.333333333333332"/>
+                                                    <rect key="frame" x="20" y="0.0" width="325" height="20.666666666666668"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-X5-TjQ">
-                                                    <rect key="frame" x="357" y="0.0" width="21" height="21.333333333333332"/>
+                                                    <rect key="frame" x="357" y="0.0" width="21" height="20.666666666666668"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="Bdr-Yt-CH8"/>
                                                     </constraints>
@@ -994,7 +994,7 @@ Thanks a lot !</string>
         <!--MainTabBarController-->
         <scene sceneID="y6A-YD-e9k">
             <objects>
-                <tabBarController title="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="2EE-iT-cBD" sceneMemberID="viewController">
+                <tabBarController title="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="2EE-iT-cBD" customClass="TabBarController" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4gB-mf-lEJ"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="BnG-RD-Amf">
@@ -1228,7 +1228,7 @@ Thanks a lot !</string>
         <!--Keys-->
         <scene sceneID="Xmr-xK-Ydi">
             <objects>
-                <navigationController id="Okw-ay-HrS" sceneMemberID="viewController">
+                <navigationController id="Okw-ay-HrS" customClass="NavigationController" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Keys" image="key.icloud" catalog="system" id="jc1-Ae-O53"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="sNR-5C-iQr">
                         <rect key="frame" x="0.0" y="44" width="428" height="96"/>
@@ -1248,7 +1248,7 @@ Thanks a lot !</string>
         <!--EncryptNavigationController-->
         <scene sceneID="DPh-Nb-BpX">
             <objects>
-                <navigationController title="EncryptNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hHY-cd-32x" sceneMemberID="viewController">
+                <navigationController title="EncryptNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="hHY-cd-32x" customClass="NavigationController" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Encrypt" image="locked" id="UXU-4H-GMV">
                         <color key="badgeColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
                     </tabBarItem>
@@ -1385,7 +1385,7 @@ Thanks a lot !</string>
         <!--Decrypt-->
         <scene sceneID="zA2-3X-yJh">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nC8-E7-j8A" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nC8-E7-j8A" customClass="NavigationController" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Decrypt" image="unlocked" id="X9m-wT-whJ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="Yoo-yZ-Rqi">
@@ -1406,7 +1406,7 @@ Thanks a lot !</string>
         <!--addKeyNavCrtl-->
         <scene sceneID="7cN-su-u73">
             <objects>
-                <navigationController title="addKeyNavCrtl" automaticallyAdjustsScrollViewInsets="NO" id="tOU-fV-Ibc" sceneMemberID="viewController">
+                <navigationController title="addKeyNavCrtl" automaticallyAdjustsScrollViewInsets="NO" id="tOU-fV-Ibc" customClass="NavigationController" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="qLi-aw-YgC">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="108"/>
@@ -1557,7 +1557,7 @@ Thanks a lot !</string>
         <!--Settings-->
         <scene sceneID="hJv-so-Cu4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8rU-3f-eUY" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8rU-3f-eUY" customClass="NavigationController" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="1K8-zM-xKR">
                         <color key="badgeColor" systemColor="systemOrangeColor"/>
                     </tabBarItem>
@@ -2324,7 +2324,7 @@ Public and private key</string>
         <segue reference="71P-2m-G7t"/>
         <segue reference="43S-Bo-H0g"/>
         <segue reference="QV3-YS-SAc"/>
-        <segue reference="Wbe-do-6Cm"/>
+        <segue reference="89D-7x-PXv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>

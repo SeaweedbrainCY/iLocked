@@ -57,3 +57,15 @@ class DictionnaryExtension {
         return nil
     }
 }
+
+extension Dictionary {
+    func toJson() -> String? {
+        if let theJSONData = try? JSONSerialization.data(
+            withJSONObject: self,
+            options: []) {
+            let JSONText = String(data: theJSONData, encoding: .ascii)
+            return JSONText
+        }
+        return nil
+    }
+}

@@ -47,20 +47,25 @@ class LockedView: UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        print("[*] Lockedview - View did appear [BEGIN]")
+        print("ActivityIsInPogress = \(activityInProgress)")
         if firstTime {
             performSegue(withIdentifier: "welcome", sender: self)
-        }
-        if  password && !firstTime {
+        }// If activity is in progress, the view will appear and we don't want it disable
+        if  password && !firstTime && !activityInProgress{
             askForAuthentification()
         }
+        print("[*] Lockedview - View did appear [END]")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+        print("[*] Lockedview - View will disapear appear [BEGIN]")
         // for some reasons, observers aren't removed when the view is dismissed (??)
         print("[*] Observers removed")
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
+        print("[*] Lockedview - View will disapear appear [END]")
     }
     
     deinit {
@@ -70,6 +75,7 @@ class LockedView: UIViewController{
     
     ///This function checks if there is already a key created
     func checkForKeys(){
+        print("[*] Lockedview - Check for keys [BEGIN]")
         let retrievedString: String? = KeychainWrapper.standard.string(forKey:  UserKeys.publicKey.tag)
         print("view loaded, retrievedString = \(String(describing: retrievedString))")
         if retrievedString == nil || retrievedString == ""{
@@ -77,6 +83,7 @@ class LockedView: UIViewController{
         } else{
             lockView()
         }
+        print("[*] Lockedview - Check for keys [end]")
     }
     
     //
@@ -133,9 +140,10 @@ class LockedView: UIViewController{
     }
     
     @objc private func appMovedToForeground() {
+        print("[*] Lockedview - App moved to foreground [BEGIN]")
         if !firstTime {
             if !self.isBeingDismissed {
-                print("[*] App moved to foreground")
+                print("[*] App moved to foreground - catched")
                 if password {
                     askForAuthentification()
                 } else {
@@ -145,6 +153,7 @@ class LockedView: UIViewController{
                 print("[*] App moved to foreground but is not presented")
             }
         } // else app will deal with it alone
+        print("[*] Lockedview - App moved to foreground [END]")
     }
     
     
@@ -153,12 +162,13 @@ class LockedView: UIViewController{
     //
     
     @IBAction func actionButtonSelected(sender: UIButton){
+        print("[*] Lockedview - Action button selected [BEGIN]")
             if password {
                 askForAuthentification()
             } else {
                 self.perform(#selector(self.dismissCurrentView))
             }
-            
+        print("[*] Lockedview - Action button selected [END]")
     }
     
     //
@@ -167,6 +177,7 @@ class LockedView: UIViewController{
     
     ///This func is called to send or dismiss the current view controller
     @objc private func dismissCurrentView(){
+        print("[*] Lockedview - dismiss current view [BEGIN]")
         if !activityInProgress {
             print("Activity wasn't in progress")
             performSegue(withIdentifier: "HomePage", sender: self)
@@ -186,7 +197,7 @@ class LockedView: UIViewController{
     ///Func who ask to the user is Touch ID / Face ID /
     ///password and manages the response by call an internal function if success
     private func askForAuthentification() {
-        
+        print("[*] Lockedview - Ask for authentification [BEGIN]")
         // first verify if a time before locking is set, and if yes, if it's necessary to ask password
         if isTimeBeforeLockingExceeded() {
         let context = LAContext()
@@ -214,6 +225,7 @@ class LockedView: UIViewController{
         } else { // Time didn't exceeded
             self.dismissCurrentView()
         }
+        print("[*] Lockedview - Ask for authentification [END]")
     }
     
     //
