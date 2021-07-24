@@ -16,6 +16,8 @@ class SecondWelcomeView: UIViewController{
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var orLabel: UILabel!
+    @IBOutlet weak var loadingView: UIActivityIndicatorView!
+    @IBOutlet weak var progressView: UIProgressView!
     
     
     override func viewDidLoad() {
@@ -41,21 +43,30 @@ class SecondWelcomeView: UIViewController{
         for viewToMove in viewToMoveArray {
             //viewToMove!.translatesAutoresizingMaskIntoConstraints = false
             //viewToMove!.frame = CGRect(x: -500, y: viewToMove!.frame.origin.y, width: viewToMove!.frame.width, height: viewToMove!.frame.height)
-            viewToMove!.alpha = 0
+            viewToMove!.alpha = 1
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         let viewToMoveArray = [self.titleLabel, self.tutoButton, self.startButton, self.orLabel, self.backButton]
-        let delay : Double = 2
+        let delay : Double = 1
         let animation = UIViewPropertyAnimator(duration: delay, dampingRatio: 0.7, animations: {
             for viewToMove in viewToMoveArray {
                 viewToMove!.alpha = 1
             }
         })
-        animation.startAnimation()
+        //animation.startAnimation()
+        let progressViewAnimation = UIViewPropertyAnimator(duration: 2, dampingRatio: 0.7, animations: {
+            self.progressView.progress = 0.5
+        })
+        //progressViewAnimation.startAnimation()
     }
     
+    @IBAction func startButtonSelected(_ sender: Any) {
+        self.startButton.isHidden = true
+        self.loadingView.startAnimating()
+        performSegue(withIdentifier: "homePage", sender: self)
+    }
     
 }

@@ -50,7 +50,7 @@ class FirstWelcomeView: UIViewController{
     
     @IBAction func startButtonSelected(sender: UIButton){
         let viewToMoveArray = [self.encryptedTextLabel,self.startButton,self.welcomeLabel,self.mainDescriptionLabel,self.logoImage, self.secondDescriptionLabel, self.clearLabel, self.unsafeImage, self.unsafeImage, self.safeLabel, self.unsafeLabel, self.safeImage]
-        let delay : Double = 2
+        let delay : Double = 1
         let animation = UIViewPropertyAnimator(duration: delay, dampingRatio: 0.7, animations: {
             for viewToMove in viewToMoveArray {
                 //viewToMove!.translatesAutoresizingMaskIntoConstraints = true
@@ -59,17 +59,16 @@ class FirstWelcomeView: UIViewController{
             }
             self.progressBar.progress = 0.5
         })
-        animation.startAnimation()
+        //animation.startAnimation()
         
         //let timer = Timer(timeInterval: delay, target: self, selector: #selector(performSegueWithDelay), userInfo: nil, repeats: false)
         //timer.fire()
-        self.perform(#selector(performSegueWithDelay), with: nil, afterDelay: 1)
-        print("timer fired")
+        performSegue(withIdentifier: "secondWelcomeView", sender: self)
         
     }
     
     // performed after a delay
-    @objc private func performSegueWithDelay(){
+     private func performSegueWithDelay(){
         print("func call")
         performSegue(withIdentifier: "secondWelcomeView", sender: self)
     }

@@ -27,10 +27,14 @@
 		906CE59325DDA53D007B8E08 /* AdvancedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */; };
 		90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */; };
 		90B69BE426A08FA800451DFC /* SecondWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */; };
+		90B69BE626A1D74100451DFC /* TutorialControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE526A1D74100451DFC /* TutorialControllerView.swift */; };
+		90B69BE826A2BFB700451DFC /* TutorialPageContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE726A2BFB700451DFC /* TutorialPageContainerView.swift */; };
+		90B69BEB26A2C5B700451DFC /* FirstTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */; };
 		90B886FC23F7F31A00035C82 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B886FB23F7F31A00035C82 /* Settings.swift */; };
 		90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */; };
 		90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */; };
 		90DB59A92416B03F001189C5 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB59A82416B03F001189C5 /* SettingsData.swift */; };
+		90EBFC8226A4D069002B30E9 /* SecondTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EBFC8126A4D069002B30E9 /* SecondTutoView.swift */; };
 		90EE52B2267675FB00C506AA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EE52B1267675FB00C506AA /* WebView.swift */; };
 		90EEEAFD266E7D0C00A158DA /* donationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EEEAFC266E7D0C00A158DA /* donationView.swift */; };
 		D820B848235E3559006CEB38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B847235E3559006CEB38 /* UIView.swift */; };
@@ -107,6 +111,9 @@
 		909655F924F85615001147B3 /* iLocked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iLocked.entitlements; sourceTree = "<group>"; };
 		90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstWelcomeView.swift; sourceTree = "<group>"; };
 		90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWelcomeView.swift; sourceTree = "<group>"; };
+		90B69BE526A1D74100451DFC /* TutorialControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialControllerView.swift; sourceTree = "<group>"; };
+		90B69BE726A2BFB700451DFC /* TutorialPageContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialPageContainerView.swift; sourceTree = "<group>"; };
+		90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTutoView.swift; sourceTree = "<group>"; };
 		90B886FB23F7F31A00035C82 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
@@ -131,6 +138,7 @@
 		90D43B702401AF5A00EFE9BD /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-prefix.pch"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
 		90D43B712401AF5A00EFE9BD /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-umbrella.h"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
 		90DB59A82416B03F001189C5 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
+		90EBFC8126A4D069002B30E9 /* SecondTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTutoView.swift; sourceTree = "<group>"; };
 		90EE52B1267675FB00C506AA /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		90EEEAFC266E7D0C00A158DA /* donationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donationView.swift; sourceTree = "<group>"; };
 		D820B847235E3559006CEB38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -200,6 +208,17 @@
 				90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */,
 			);
 			path = KeychainWrapper;
+			sourceTree = "<group>";
+		};
+		90B69BE926A2C54F00451DFC /* Tutorial */ = {
+			isa = PBXGroup;
+			children = (
+				90B69BE726A2BFB700451DFC /* TutorialPageContainerView.swift */,
+				90B69BE526A1D74100451DFC /* TutorialControllerView.swift */,
+				90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */,
+				90EBFC8126A4D069002B30E9 /* SecondTutoView.swift */,
+			);
+			path = Tutorial;
 			sourceTree = "<group>";
 		};
 		90D43B5323FDDB1900EFE9BD /* Frameworks */ = {
@@ -328,6 +347,7 @@
 		D8A64B382353BC3D000613F3 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				90B69BE926A2C54F00451DFC /* Tutorial */,
 				D8A64B502353BCC0000613F3 /* AddKey.swift */,
 				D8A64B512353BCC0000613F3 /* DecryptHomePage.swift */,
 				D8A64B532353BCC1000613F3 /* EncryptHomePage.swift */,
@@ -551,6 +571,7 @@
 				9058774E2401B227004F1894 /* ClearMessage.swift in Sources */,
 				904063AA26949B1600946518 /* UIWindow.swift in Sources */,
 				D8A64B4A2353BCA0000613F3 /* UIButton.swift in Sources */,
+				90B69BE626A1D74100451DFC /* TutorialControllerView.swift in Sources */,
 				906207D125914ECE00E98F90 /* Revoke.swift in Sources */,
 				90B69BE426A08FA800451DFC /* SecondWelcomeView.swift in Sources */,
 				D8A64B482353BCA0000613F3 /* AttributedText.swift in Sources */,
@@ -563,10 +584,12 @@
 				90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */,
 				9048E65D23FB017800098C73 /* Dictionary.swift in Sources */,
 				D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */,
+				90B69BE826A2BFB700451DFC /* TutorialPageContainerView.swift in Sources */,
 				D8416D382364F62700A0B038 /* Decryption.swift in Sources */,
 				D8A64B5A2353BCC1000613F3 /* KeyList.swift in Sources */,
 				90B886FC23F7F31A00035C82 /* Settings.swift in Sources */,
 				90EEEAFD266E7D0C00A158DA /* donationView.swift in Sources */,
+				90EBFC8226A4D069002B30E9 /* SecondTutoView.swift in Sources */,
 				906CE59325DDA53D007B8E08 /* AdvancedSettings.swift in Sources */,
 				D820B8542363909C006CEB38 /* publicPrivateKeys.swift in Sources */,
 				D820B84E235E5EB1006CEB38 /* LockedView.swift in Sources */,
@@ -578,6 +601,7 @@
 				9058774D2401B1D4004F1894 /* SwiftyRSA+ObjC.swift in Sources */,
 				905877452401B197004F1894 /* Key.swift in Sources */,
 				905877472401B1A3004F1894 /* NSData+SHA.m in Sources */,
+				90B69BEB26A2C5B700451DFC /* FirstTutoView.swift in Sources */,
 				905877482401B1A9004F1894 /* PrivateKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
