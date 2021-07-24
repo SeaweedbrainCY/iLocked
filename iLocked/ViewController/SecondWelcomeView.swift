@@ -29,7 +29,7 @@ class SecondWelcomeView: UIViewController{
         gradientLayer.frame = view.bounds
         // Set an array of Core Graphics colors (.cgColor) to create the gradient.
         // This example uses a Color Literal and a UIColor from RGB values.
-        gradientLayer.colors = [UIColor.black.cgColor, UIColor(red: 6/255, green: 15/255, blue: 71/255, alpha: 1).cgColor]
+        gradientLayer.colors = [UIColor.black.cgColor, Colors.darkGray5.color.cgColor]
                 // Rasterize this static layer to improve app performance.
         gradientLayer.shouldRasterize = true
                 // Apply the gradient to the backgroundGradientView.
@@ -63,10 +63,5 @@ class SecondWelcomeView: UIViewController{
         //progressViewAnimation.startAnimation()
     }
     
-    @IBAction func startButtonSelected(_ sender: Any) {
-        self.startButton.isHidden = true
-        self.loadingView.startAnimating()
-        performSegue(withIdentifier: "homePage", sender: self)
-    }
     
 }

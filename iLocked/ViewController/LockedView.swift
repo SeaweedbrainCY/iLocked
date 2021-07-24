@@ -38,13 +38,19 @@ class LockedView: UIViewController{
                 let notificationCenter = NotificationCenter.default
                 notificationCenter.addObserver(self, selector: #selector(appMovedToForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
         }
-        getSetting()
         checkForKeys()
+        getSetting()
+        if !firstTime{
+            lockView()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if password {
+        if firstTime {
+            performSegue(withIdentifier: "welcome", sender: self)
+        }
+        if  password && !firstTime {
             askForAuthentification()
         }
     }
@@ -65,10 +71,9 @@ class LockedView: UIViewController{
     ///This function checks if there is already a key created
     func checkForKeys(){
         let retrievedString: String? = KeychainWrapper.standard.string(forKey:  UserKeys.publicKey.tag)
-        print("view loaded")
+        print("view loaded, retrievedString = \(String(describing: retrievedString))")
         if retrievedString == nil || retrievedString == ""{
             firstTime = true
-            loadWelcomeView()
         } else{
             lockView()
         }
@@ -77,59 +82,6 @@ class LockedView: UIViewController{
     //
     // Construction func :
     //
-    
-    //
-    //TO DO : make a tutorial
-    //
-    ///This function load the welcome view that ask to create a public key
-    func loadWelcomeView(){
-        //On place les boutons assez loins pour l'animation
-        self.titleLabel.frame.size.width = self.view.frame.size.width
-        self.titleLabel.frame.origin = CGPoint(x: -500, y: self.view.frame.origin.y + 100)
-        
-        self.descriptionLabel.frame.size.width = self.view.frame.size.width - 70
-        self.descriptionLabel.numberOfLines = 20
-        self.descriptionLabel.frame.size.height = 300
-        self.descriptionLabel.center = CGPoint(x: -500, y: self.view.center.y)
-        self.actionButton.frame.size.width = self.view.frame.size.width
-        self.actionButton.center = CGPoint(x: -500, y: self.descriptionLabel.frame.origin.y + self.descriptionLabel.frame.size.height + 50)
-        //Affichage des views
-        self.titleLabel.isHidden = false
-        self.actionButton.isHidden = false
-        self.descriptionLabel.isHidden = false
-        
-        
-        //Instanciation des differents textes
-        self.titleLabel.text = "Welcome !"
-        self.descriptionLabel.text = "iLocked is a high secure app wich enable everyone to use strong encryption on any text, to send it and be sure that only you and the reciver can read it. \nThis app is 100% free and open source ! \n\nIf you enjoy this project, please be free of make any donation to the young and independent developer. Enjoy ;)"
-        
-        self.actionButton.setTitle("Generate my keys and start !", for: .normal)
-        
-        //Animation pour le chagement de couleur
-        let animation = UIViewPropertyAnimator(duration: 5, dampingRatio: 0.7, animations: {
-            self.logoImageView.layer.cornerRadius = self.logoImageView.frame.size.width / 2;
-            self.logoImageView.clipsToBounds = true
-            self.logoImageView.alpha = 0
-            self.betaLaunchText.alpha = 0
-            self.view.backgroundColor = .systemTeal //UIColor.init(red: 0.017, green: 0.579, blue: 0.961, alpha: 1)
-            self.backFingerprint.alpha = 0.5
-            self.backFingerprint.isHidden = false
-            })
-        animation.startAnimation()
-        //Changement de la couleur de fond
-        
-        //animation pour faire venir les View
-        let durationAnimation : Double = 3
-        
-        let animationLabel = UIViewPropertyAnimator(duration: durationAnimation, curve: .easeInOut, animations: {
-            self.titleLabel.center = CGPoint(x: self.view.center.x, y: self.view.frame.origin.y + 100)
-            self.descriptionLabel.center = CGPoint(x: self.view.center.x, y: self.view.center.y)
-            self.actionButton.center = CGPoint(x: self.view.center.x, y: self.descriptionLabel.frame.origin.y + self.descriptionLabel.frame.size.height + 50)
-            
-        })
-        animationLabel.startAnimation()
-        
-    }
     
     ///This function  appear every times that the app is closed or when the user do anything else that using the app
     func lockView(){
@@ -181,16 +133,18 @@ class LockedView: UIViewController{
     }
     
     @objc private func appMovedToForeground() {
-        if !self.isBeingDismissed {
-            print("[*] App moved to foreground")
-            if password {
-                askForAuthentification()
-            } else {
-                self.perform(#selector(self.dismissCurrentView))
-            }
+        if !firstTime {
+            if !self.isBeingDismissed {
+                print("[*] App moved to foreground")
+                if password {
+                    askForAuthentification()
+                } else {
+                    self.perform(#selector(self.dismissCurrentView))
+                }
         } else {
-            print("[*] App moved to foreground but is not presented")
-        }
+                print("[*] App moved to foreground but is not presented")
+            }
+        } // else app will deal with it alone
     }
     
     
@@ -199,28 +153,12 @@ class LockedView: UIViewController{
     //
     
     @IBAction func actionButtonSelected(sender: UIButton){
-        if !firstTime {
             if password {
                 askForAuthentification()
             } else {
                 self.perform(#selector(self.dismissCurrentView))
             }
             
-        } else { // This is the button "start and go" when the app is open for the first time
-            let animation = UIViewPropertyAnimator(duration: 5, dampingRatio: 0.7, animations: {
-                self.view.backgroundColor = .black
-                self.titleLabel.text = "Generating of your keys ..."
-                self.descriptionLabel.text = "iLocked is generating your private and public keys...\n\nThat a crucial moment 😵"
-            })
-            animation.startAnimation()
-            let keys = PublicPrivateKeys()
-            if keys.generateAndStockKeyUser() {
-                descriptionLabel.text = "Welcome ... "
-                self.performSegue(withIdentifier: "HomePage", sender: self)
-            } else {
-                descriptionLabel.text = "Error occured while creating keys. Please restart the application"
-            }
-        }
     }
     
     //

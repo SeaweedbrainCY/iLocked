@@ -72,7 +72,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             } else {
                 return 3
             }
-        case 3 : return 4
+        case 3 : return 3
         case 4 : return 1
         default : return 0
             
@@ -172,20 +172,12 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             }
         } else if indexPath.section == 3 {
             switch indexPath.row {
-            case 0:
+            case 0 :
+                cell.textLabel?.text = "🕹 Show tutorial again"
+            case 1:
                 cell.textLabel?.text = "🔎 Report a bug"
-            case 1 :
+            case 2 :
                 cell.textLabel?.text = "📱 Visit developer website"
-                accessoryView = UIImageView(image: self.externalLinkView)
-                accessoryView.tintColor = .darkGray
-            case 2:
-                cell.textLabel?.text = "🔨 Browse source code"
-                //cell.imageAtEnd.image =  self.externalLinkView
-                //cell.accessoryView = self.externalLinkView
-                accessoryView = UIImageView(image: self.externalLinkView)
-                accessoryView.tintColor = .darkGray
-            case 3:
-                cell.textLabel?.text = "🔏 Source code licence"
                 accessoryView = UIImageView(image: self.externalLinkView)
                 accessoryView.tintColor = .darkGray
                 
@@ -216,7 +208,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         case 0 : return "Developer 👨‍💻"
         case 1 : return "Keys 🔑"
         case 2 : return "Security 🔐"
-        case 3 : return "Developement 🔨"
+        case 3 : return "Application 📱"
         case 4 : return ""
         default : return "ERROR"
         }
@@ -273,7 +265,9 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             }
         } else if indexPath.section == 3  {
             switch indexPath.row {
-            case 0 : // report a bug
+            case 0: // tuto
+                performSegue(withIdentifier: "tuto", sender: self)
+            case 1 : // report a bug
                 let alert = UIAlertController(title: "Report a bug", message: "Report a bug help the developer to upgrade this application and improve your experience", preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Report a bug", style: .default) { _ in
                     self.mailReport(subject: "I found a bug in iLocked app !!", body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n")
@@ -283,12 +277,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 })
                 alert.addAction(UIAlertAction(title: "Annuler", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
                 present(alert, animated: true)
-            case 1: // developer website
+            case 2: // developer website
                 UIApplication.shared.open(URL(string: "https://devnathan.github.io")!, options: [:], completionHandler: nil)
-            case 2:
-                UIApplication.shared.open(URL(string: "https://github.com/DevNathan/iLocked")!, options: [:], completionHandler: nil)
-            case 3:
-                UIApplication.shared.open(URL(string: "https://github.com/DevNathan/iLocked/blob/master/LICENSE")!, options: [:], completionHandler: nil)
             default : break
             }
         } else if indexPath.section == 4{

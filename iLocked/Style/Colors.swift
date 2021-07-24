@@ -41,6 +41,9 @@ extension UIColor {
 public enum Colors {
     case darkGray6
     case darkGray5
+    case disabledBlueButton
+    case disabledWhiteButton
+    case disabledOrangeButton
     
     var color : UIColor {
         switch self {
@@ -48,6 +51,12 @@ public enum Colors {
             return UIColor(red: 28/255.0, green: 28/255.0, blue: 30/255.0, alpha: 1)
         case .darkGray5:
             return UIColor(red: 44/255.0, green: 44/255.0, blue: 46/255.0, alpha: 1)
+        case .disabledBlueButton: // used for disabled blue button
+            return UIColor(red: 4/255.0, green: 60/255.0, blue: 128/255.0, alpha: 1)
+        case .disabledWhiteButton :// used for disabled white button
+            return UIColor(red: 128/255.0, green: 128/255.0, blue: 128/255.0, alpha: 1)
+        case .disabledOrangeButton :// used for disabled orange button
+                return UIColor(red: 128/255.0, green: 76/255.0, blue: 0, alpha: 1)
         }
     }
 }
