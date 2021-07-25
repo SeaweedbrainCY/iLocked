@@ -30,7 +30,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     var backgroundInfo = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
     var closeHelpButtonView = UIButton() // cover the background info view, and close help if touched
     
-    var keyArray: [String] = ["Add a key", "My encryption key"] // list of all names displayed on UIPIckerView
+    var keyArray: [String] = ["Add a key".localized(), "My encryption key".localized()] // list of all names displayed on UIPIckerView
     var heightPicker: NSLayoutConstraint?
     var heightSender: NSLayoutConstraint?
     var titleButtonClean = ""
@@ -43,7 +43,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     
     //Default value : stock the default value of color and text, to check if they have been modified
     let defaultKeyNameButtonTextColor: UIColor = UIColor.lightGray // updated in viewDidLoad
-    var defaultKeyNameButtonText:String = "Select a key"
+    var defaultKeyNameButtonText:String = "Select a key".localized()
     var defaultTextToEncryptColor: UIColor = UIColor.darkGray // updated in viewDidLoad
     var defaultTextToEncryptText:String = "Text to encrypt"
     
@@ -103,7 +103,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
         print("key name recieved = \(keyName)")
         if keyName.count != 0{
             if keyName[0].contains("##ERROR##"){
-                alert("Oups ! We got an error ! ", message: keyName[0])
+                alert("Oups ! We got an error ! ".localized(), message: keyName[0])
             } else { // we don't have any error
                 self.nameArray = keyName
                 print("name array : \(nameArray)")
@@ -195,18 +195,18 @@ class Encrypt: UIViewController, UITextViewDelegate{
         print("[*] Check for encryption : \(is_correct)")
         if is_correct {
             var keySaved: String? = nil
-            if self.keyNameButton.currentTitle! == "My encryption key"{
+            if self.keyNameButton.currentTitle! == "My encryption key".localized(){
                 keySaved = KeychainWrapper.standard.string(forKey:  UserKeys.publicKey.tag)
             } else {
                 keySaved = KeychainWrapper.standard.string(forKey:self.keyNameButton.currentTitle!)
             }
             if keySaved == nil {
-                alert("Impossible to find the encryption key", message: "Please verify that a key is selected. If all the fields are filled, try to relaunch the app.")
+                alert("Impossible to find the public key".localized(), message: "Please verify that a key is selected. If all the fields are filled, try to relaunch the app.".localized(withKey: "alertKeyErrorMessage"))
             } else {
                 var encryptedText = encryptText(text: self.textToEncrypt.text!, publicKey: keySaved!)
                 let encryptionMethod = Encryption()
                 var nameSelected = self.keyNameButton.currentTitle
-                if nameSelected == "My encryption key"{
+                if nameSelected == "My encryption key".localized(){
                     nameSelected =  UserKeys.publicKey.tag
                 }
                 encryptedText = encryptionMethod.encryptText(self.textToEncrypt.text, withKeyName: nameSelected!)
@@ -214,7 +214,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
                     self.textEncrypted = encryptedText
                     performSegue(withIdentifier: "Encryption", sender: nil)
                 } else {
-                    alert("Oups ... encryption error message", message: "Impossible to encrypt this message. Please try again")
+                    alert("Oups ...", message: "Impossible to encrypt this message. Please try again".localized(withKey: "ErrorEncryption"))
                 }
             }
         }
@@ -234,7 +234,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Text to encrypt"{
+        if textView.text == "Text to encrypt".localized(){
             textView.text = ""
             textView.textColor = UIColor.white
         }
@@ -247,7 +247,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
         self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
         if textView.text == "" {
-            textView.text = "Text to encrypt"
+            textView.text = "Text to encrypt".localized()
             textView.textColor = .darkGray
         }
     }
@@ -264,7 +264,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
                 Nobody but the owner of the private key corresponding to the public key you are going to use to encrypt, can decrypt it. Even you.
                 
                 IMPORTANT : Make sure to encrypt your message with the public key of the person you want to send it to. Be careful to copy the whole encrypted text before sending it. No more no less. Or it won't work  . . .
-                """
+                """.localized(withKey: "helpTextEncryption")
             self.showHelp(text: helpText)
         } else {
             closeHelp()

@@ -75,7 +75,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
     //
     
     @objc private func inAppBrowserSwitchChanged(){
-        alert("🔨 Feature coming soon !", message: "The iLocked application is still in development ! You will soon be able to open external links directly in app !\nYour choice is still saved and you will be notified when it becomes available.", quitMessage: "Ok")
+        alert("🔨 Feature coming soon !".localized(), message: "The iLocked application is still in development ! You will soon be able to open external links directly in app !\nYour choice is still saved and you will be notified when it becomes available.".localized(withKey: "featureComingSoonMessage"), quitMessage: "Ok")
         let settingsData = SettingsData()
         var settingDict = settingsData.getSetting()
         if self.inAppBrowserSwitch.isOn {
@@ -195,7 +195,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
                 } else {
                     self.inAppBrowserSwitch.isOn = true
                 }
-                cell.textLabel?.text = "📲 Open external links in app"
+                cell.textLabel?.text = "📲 Open external links in app".localized()
                 accessoryView = self.inAppBrowserSwitch
             default :
                 cell.textLabel?.text = "ERROR"
@@ -203,7 +203,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         } else if indexPath.section == 1{
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "📚 Open Source Libraries"
+                cell.textLabel?.text = "📚 Open Source Libraries".localized()
                 accessoryView = UIImageView(image:Settings().externalLinkView)
                 accessoryView.tintColor = .darkGray
             default:
@@ -212,7 +212,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         } else if indexPath.section == 2{
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "🛂 Use X509 certificate"
+                cell.textLabel?.text = "🛂 Use X.509 certificate".localized()
                 if setting[SettingsName.X509Certificate.key] == "false"{
                     self.inAppBrowserSwitch.isOn = false
                 } else {
@@ -235,8 +235,8 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
         case 0 : return "Application 📱"
-        case 1 : return "Informations 📌"
-        case 2 : return "Keys 🔑"
+        case 1 : return "Information 📌".localized()
+        case 2 : return "Keys 🔑".localized()
         default : return "ERROR"
         }
     }
@@ -260,11 +260,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 2{
-            return """
-                If you are having difficulty using your public key with other RSA encryptor try to turn off the X509 certificate. You will be able to share your public key headerless.
-                Note : Turning off this option won't affect your public key as a RSA key. It will only change the encoding format of your key.
-                By default, the X509 certificate is used for your public key.
-                """
+            return "If you are having difficulty using your public key with other RSA encryptor try to turn off the X.509 certificate. You will be able to share your public key without certification header.\nNote : Turning off this option won't affect your public key as a RSA key. It will only change the encoding format of your key.\nBy default, the X509 certificate is used for your public key.".localized(withKey: "X509Description")
         }
         return nil
     }

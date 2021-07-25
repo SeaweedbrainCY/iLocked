@@ -71,7 +71,7 @@ class GenerateKeysView: UIViewController {
     }
     
     func crashApp(){
-        alert("Please re-start iLocked !", message: "Error occured while creating keys. Please restart the application", quitMessage: "Quit app")
+        alert("Please re-start iLocked !".localized(), message: "An error occured while creating keys. Please restart the application".localized(withKey: "crashAppMessageError"), quitMessage: "Quit app".localized())
     }
     
     func setUpWaitingViews(){

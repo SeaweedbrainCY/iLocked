@@ -130,9 +130,9 @@ class Decrypt: UIViewController, UITextViewDelegate {
     
     @IBAction func decryptButton(_ sender: UIButton) {
         var isOk = true
-        if textToDecryptView.text == "" || textToDecryptView.text == "Text to decrypt"{
+        if textToDecryptView.text == "" || textToDecryptView.text == "Text to decrypt".localized(){
             isOk = false
-            alert("Please, enter an encrypted text", message: "", quitMessage: "Ok")
+            alert("Please, enter an encrypted text".localized(), message: "", quitMessage: "Ok")
         }
         
         if isOk {
@@ -149,7 +149,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
     @IBAction func pasteButtonSelected(sender: UIButton){
         let content = UIPasteboard.general.string
         if content == "" {
-            shakeAnimation(view: self.pasteButton,text: "Nothing to paste")
+            shakeAnimation(view: self.pasteButton,text: "Nothing to paste".localized())
         } else {
             self.textViewDidBeginEditing(self.textToDecryptView)
             self.textToDecryptView.text = content
@@ -162,12 +162,12 @@ class Decrypt: UIViewController, UITextViewDelegate {
     @IBAction func infoButtonSelected(_ sender: Any) {
         if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
             let helpText = """
-                To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the green key.
+                To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the decryot button.
                 
                 A new window will be opened and will show the decrypted message.
                 
                 IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . .
-                """
+                """.localized(withKey: "helpText")
             self.showHelp(text: helpText)
         } else {
             closeHelp()
@@ -180,7 +180,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
     //
     
     func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.text == "Text to decrypt"{
+        if textView.text == "Text to decrypt".localized(){
             textView.text = ""
             textView.textColor = UIColor.white
         }
@@ -190,7 +190,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.dismissKeyboardButton.translatesAutoresizingMaskIntoConstraints = false
         self.decryptButton.translatesAutoresizingMaskIntoConstraints = false
         if textView.text == "" {
-            textView.text = "Text to decrypt"
+            textView.text = "Text to decrypt".localized()
             textView.textColor = .darkGray
         }
     }

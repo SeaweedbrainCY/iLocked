@@ -36,4 +36,13 @@ extension String {
     subscript(offset: Int) -> Character {
         self[index(startIndex, offsetBy: offset)]
     }
+    
+    func localized() -> String {
+        return NSLocalizedString(self, tableName: "Localizable", bundle: .main, value: self, comment: self)
+    }
+    
+    func localized(withKey key :String) -> String {
+        return NSLocalizedString(key, tableName: "Localizable", bundle: .main, value: self, comment: self)
+        
+    }
 }

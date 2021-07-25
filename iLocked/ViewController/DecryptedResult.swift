@@ -90,7 +90,7 @@ class DecryptedResult : UIViewController{
             self.decryptedTextView.layer.borderColor = UIColor.red.cgColor
             self.view.backgroundColor = .red
             self.decryptedTextView.layer.borderWidth = 2
-            self.bottomMessageLabel.text = "The message must be encrypted with your own public key and will be decrypted only with your private key."
+            self.bottomMessageLabel.text = "The message must be encrypted with your own public key and will be decrypted only with your private key.".localized(withKey: "infoEncryption")
             self.titleLabel.isHidden = true
             self.topBarView.isHidden = true
             

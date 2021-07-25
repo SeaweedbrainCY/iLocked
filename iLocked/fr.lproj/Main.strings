@@ -1,0 +1,363 @@
+
+/* Class = "UIBarButtonItem"; title = "Ad. Settings"; ObjectID = "0JU-4t-hri"; */
+"0JU-4t-hri.title" = "Ad. Settings";
+
+/* Class = "UIBarButtonItem"; title = "Edit key"; ObjectID = "14A-bk-UTI"; */
+"14A-bk-UTI.title" = "Modifier la clé";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "1K8-zM-xKR"; */
+"1K8-zM-xKR.title" = "Réglages";
+
+/* Class = "UITabBarController"; title = "MainTabBarController"; ObjectID = "2EE-iT-cBD"; */
+"2EE-iT-cBD.title" = "MainTabBarController";
+
+/* Class = "UIBarButtonItem"; title = "Delete key"; ObjectID = "2Ie-P9-434"; */
+"2Ie-P9-434.title" = "Supprimer la clé";
+
+/* Class = "UIBarButtonItem"; title = "Website name"; ObjectID = "2Of-MV-L2o"; */
+"2Of-MV-L2o.title" = "Nom du site web";
+
+/* Class = "UILabel"; text = "Decrypt it"; ObjectID = "2fJ-qu-5WW"; */
+"2fJ-qu-5WW.text" = "Déchiffrez-le";
+
+/* Class = "UILabel"; text = "People use it to encrypt message for you"; ObjectID = "2j6-8v-Uex"; */
+"2j6-8v-Uex.text" = "Elle est utilisée pour chiffrer des messages pour vous";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2rq-pl-Hmh"; */
+"2rq-pl-Hmh.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "PUBLIC KEY"; ObjectID = "38S-H1-IJu"; */
+"38S-H1-IJu.text" = "LA CLÉ PUBLIQUE";
+
+/* Class = "UIBarButtonItem"; title = "Information"; ObjectID = "3CK-J3-Awp"; */
+"3CK-J3-Awp.title" = "Information";
+
+/* Class = "UILabel"; text = "Ask for your friend's public key and store it in iLocked"; ObjectID = "3Pd-ZD-nlZ"; */
+"3Pd-ZD-nlZ.text" = "Demandez la clé publique de votre correspondant et stockez la dans iLocked";
+
+/* Class = "UILabel"; text = "PRIVATE KEY"; ObjectID = "53f-4R-G6c"; */
+"53f-4R-G6c.text" = "LA CLÉ PRIVÉE";
+
+/* Class = "UIBarButtonItem"; title = "Information"; ObjectID = "5WJ-U0-LFf"; */
+"5WJ-U0-LFf.title" = "Information";
+
+/* Class = "UIViewController"; title = "developerView"; ObjectID = "6A1-HS-Rdl"; */
+"6A1-HS-Rdl.title" = "developerView";
+
+/* Class = "UILabel"; text = "Send confidential message"; ObjectID = "6Zt-GF-ED8"; */
+"6Zt-GF-ED8.text" = "Envoyer des messages confidentiels";
+
+/* Class = "UIButton"; normalTitle = "  Encrypt"; ObjectID = "AYy-4A-M5e"; */
+"AYy-4A-M5e.normalTitle" = "  Chiffrer";
+
+/* Class = "UILabel"; text = "Version bêta"; ObjectID = "Atc-ZZ-hf6"; */
+"Atc-ZZ-hf6.text" = "Version bêta";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "B7m-kL-5A1"; */
+"B7m-kL-5A1.normalTitle" = "Enregistrer";
+
+/* Class = "UIViewController"; title = "EncryptHomePage"; ObjectID = "BYZ-38-t0r"; */
+"BYZ-38-t0r.title" = "EncryptHomePage";
+
+/* Class = "UIViewController"; title = "PublicKeyList"; ObjectID = "Bw4-Uw-PF4"; */
+"Bw4-Uw-PF4.title" = "PublicKeyList";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "C3r-HB-irf"; */
+"C3r-HB-irf.title" = "Fermer";
+
+/* Class = "UIButton"; normalTitle = "📲 Import your iLocked keys"; ObjectID = "Chu-Up-A6c"; */
+"Chu-Up-A6c.normalTitle" = "📲 Importer vos clé iLocked";
+
+/* Class = "UILabel"; text = "Please make sure that no one can read this text. This message was encrypted with RSA-4096 which is a highly secure encryption. DO NOT copy the clear text, only keep the encrypted message."; ObjectID = "DIb-8W-OFr"; */
+"DIb-8W-OFr.text" = "Assurez-vous que personnes d'autre ne peut lire ce texte. Ce message a été chiffré avec RSA-4096 une méthode de chiffrement hautement robuste. Ne copiez pas le message en clair, gardez uniquement le chiffré.";
+
+/* Class = "UIButton"; normalTitle = "  Unlock"; ObjectID = "EMK-F8-837"; */
+"EMK-F8-837.normalTitle" = "  Déverouiller";
+
+/* Class = "UILabel"; text = "Enter your confidential message"; ObjectID = "EbL-y7-hce"; */
+"EbL-y7-hce.text" = "Entrer votre message confidentiel";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Ezs-OQ-DzN"; */
+"Ezs-OQ-DzN.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "keyError"; ObjectID = "Faa-cG-HKw"; */
+"Faa-cG-HKw.normalTitle" = "keyError";
+
+/* Class = "UIViewController"; title = "PublicKeyView"; ObjectID = "H5r-il-Mel"; */
+"H5r-il-Mel.title" = "PublicKeyView";
+
+/* Class = "UIBarButtonItem"; title = "Add a key"; ObjectID = "HHU-vV-S52"; */
+"HHU-vV-S52.title" = "Ajouter une clé";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "HK9-uN-NVr"; */
+"HK9-uN-NVr.title" = "Réglages";
+
+/* Class = "UILabel"; text = "CANNOT decrypt"; ObjectID = "HfN-yE-mEi"; */
+"HfN-yE-mEi.text" = "NE PAS PAS déchiffrer";
+
+/* Class = "UILabel"; text = "Before starting"; ObjectID = "IP6-LX-IzC"; */
+"IP6-LX-IzC.text" = "Avant de commencer";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "IYN-4d-LIH"; */
+"IYN-4d-LIH.title" = " ";
+
+/* Class = "UILabel"; text = "Can be shared everywhere, to everyone"; ObjectID = "Iud-VM-IiP"; */
+"Iud-VM-IiP.text" = "Elle est faite pour être partagée partout et à quiconque";
+
+/* Class = "UILabel"; text = "KEY"; ObjectID = "JYE-Xh-LeX"; */
+"JYE-Xh-LeX.text" = "CLÉ PUBLIQUE";
+
+/* Class = "UILabel"; text = "Send the encrypted message to your friend"; ObjectID = "Jit-4h-AME"; */
+"Jit-4h-AME.text" = "Vous pouvez envoyer le message chiffré.";
+
+/* Class = "UINavigationItem"; title = "Public Key"; ObjectID = "KDJ-5D-bZe"; */
+"KDJ-5D-bZe.title" = "Clé publique";
+
+/* Class = "UINavigationItem"; title = "Encryption keys list"; ObjectID = "Lg8-Qp-Jbh"; */
+"Lg8-Qp-Jbh.title" = "Liste des clés publiques";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "MFe-je-W8q"; */
+"MFe-je-W8q.title" = "Item";
+
+/* Class = "UIViewController"; title = "DecryptHomePage"; ObjectID = "N9l-yk-OqT"; */
+"N9l-yk-OqT.title" = "DecryptHomePage";
+
+/* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "NEN-xC-HBO"; */
+"NEN-xC-HBO.title" = "Enregistrer";
+
+/* Class = "UILabel"; text = "You use it to decrypt message encrypted by your public key"; ObjectID = "NRj-4y-EgD"; */
+"NRj-4y-EgD.text" = "Elle sert à dechiffrer tout message chiffré avec votre clé publique";
+
+/* Class = "UINavigationItem"; title = "Decryption"; ObjectID = "PoT-1Q-yWT"; */
+"PoT-1Q-yWT.title" = "Dechiffrement";
+
+/* Class = "UILabel"; text = "Be sure you are the only one watching your screen"; ObjectID = "Q8y-CS-z4f"; */
+"Q8y-CS-z4f.text" = "Assurez-vous que personne d'autre ne peut lire le message";
+
+/* Class = "UIViewController"; title = "LockedView"; ObjectID = "QiX-9o-pKS"; */
+"QiX-9o-pKS.title" = "LockedView";
+
+/* Class = "UILabel"; text = "✓ iLocked never keep your messages"; ObjectID = "REP-vq-z8Q"; */
+"REP-vq-z8Q.text" = "✓ iLocked ne garde jamais vos messages";
+
+/* Class = "UIButton"; normalTitle = "< Back"; ObjectID = "RY8-k8-2ag"; */
+"RY8-k8-2ag.normalTitle" = "< Retour";
+
+/* Class = "UIViewController"; title = "SettingsView"; ObjectID = "RaQ-Vb-8jQ"; */
+"RaQ-Vb-8jQ.title" = "SettingsView";
+
+/* Class = "UILabel"; text = "HELLO 👋"; ObjectID = "SM6-Lv-vpk"; */
+"SM6-Lv-vpk.text" = "Hey 👋";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "TCW-I1-elO"; */
+"TCW-I1-elO.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "🔑 Generate your keys"; ObjectID = "TH2-DB-BLv"; */
+"TH2-DB-BLv.normalTitle" = "🔑 Générer mes clés";
+
+/* Class = "UILabel"; text = "Copy the encrypted message in iLocked"; ObjectID = "TJh-Kh-ItB"; */
+"TJh-Kh-ItB.text" = "Copiez le message chiffré dans iLocked";
+
+/* Class = "UILabel"; text = "✓ iLocked never keep your messages"; ObjectID = "TQV-HW-pzz"; */
+"TQV-HW-pzz.text" = "✓ iLocked iLocked ne garde jamais vos messages";
+
+/* Class = "UIButton"; normalTitle = "Tutorial"; ObjectID = "Tx1-Ma-0W4"; */
+"Tx1-Ma-0W4.normalTitle" = "Tutoriel";
+
+/* Class = "UILabel"; text = "CANNOT be shared. Must remain secret"; ObjectID = "U9o-0y-yG5"; */
+"U9o-0y-yG5.text" = "NE PEUT PAS être partagée. Elle doit rester secrète";
+
+/* Class = "UINavigationItem"; title = "Encrypted text"; ObjectID = "UOj-dx-2R6"; */
+"UOj-dx-2R6.title" = "Message chiffré";
+
+/* Class = "UITabBarItem"; title = "Encrypt"; ObjectID = "UXU-4H-GMV"; */
+"UXU-4H-GMV.title" = "Chiffrer";
+
+/* Class = "UIBarButtonItem"; title = "Share key"; ObjectID = "VFf-9K-JYb"; */
+"VFf-9K-JYb.title" = "Partager la clé";
+
+/* Class = "UIBarButtonItem"; title = "Add a key"; ObjectID = "Wx0-92-Gn4"; */
+"Wx0-92-Gn4.title" = "Ajouter une clé";
+
+/* Class = "UITextView"; text = "No log ..."; ObjectID = "WyO-SO-C2L"; */
+"WyO-SO-C2L.text" = "Pas de log ...";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "X0t-73-21W"; */
+"X0t-73-21W.normalTitle" = "Continuer";
+
+/* Class = "UITabBarItem"; title = "Decrypt"; ObjectID = "X9m-wT-whJ"; */
+"X9m-wT-whJ.title" = "Dechiffrer";
+
+/* Class = "UILabel"; text = "You will revoke your keys. They will be permanently destroyed, and there will be no way to get them back. This includes your private key."; ObjectID = "XJR-tV-Pjb"; */
+"XJR-tV-Pjb.text" = "Vous allez révoquer vos clés publique et privée. Elles vont être à jamais détruites, et il n'y aura plus aucun moyen de les récupérer. Cela inclu votre clé privée.";
+
+/* Class = "UINavigationItem"; title = "Add an encryption key"; ObjectID = "YYc-gE-kow"; */
+"YYc-gE-kow.title" = "Ajouter une clé de chiffrement";
+
+/* Class = "UILabel"; text = "Description label"; ObjectID = "YyK-7i-xxh"; */
+"YyK-7i-xxh.text" = "Description label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Z9o-Rm-f6L"; */
+"Z9o-Rm-f6L.text" = "Label";
+
+/* Class = "UILabel"; text = "iLocked is powered by people like you ❤️"; ObjectID = "Zvp-Lt-urR"; */
+"Zvp-Lt-urR.text" = "iLocked est maintenu par des personnes comme toi ❤️";
+
+/* Class = "UITextView"; text = "Text to encrypt"; ObjectID = "ac5-qZ-Cvq"; */
+"ac5-qZ-Cvq.text" = "Texte à chiffrer";
+
+/* Class = "UITextView"; text = "Decryption ..."; ObjectID = "aj7-eM-Sf2"; */
+"aj7-eM-Sf2.text" = "Dechiffrement ...";
+
+/* Class = "UILabel"; text = "Any and all encryption done with your current RSA public key can never be decrypted again and will be permanently lost."; ObjectID = "arR-U4-Jcr"; */
+"arR-U4-Jcr.text" = "Tous les chiffrement effectués avec votre actuelle clé publique RSA ne pourront plus jamais être dechiffrer et seront définitivement perdus.";
+
+/* Class = "UIButton"; normalTitle = "I already know asymetric encryption"; ObjectID = "bfb-XE-oTO"; */
+"bfb-XE-oTO.normalTitle" = "Je connais déjà le ciffrement asymétrique";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "c74-Lg-rfd"; */
+"c74-Lg-rfd.title" = "Item";
+
+/* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "cUz-8T-xrI"; */
+"cUz-8T-xrI.title" = "Réglages";
+
+/* Class = "UILabel"; text = "Encrypt it with your friend public key"; ObjectID = "cmo-bK-81a"; */
+"cmo-bK-81a.text" = "Chiffrer avec la clé publique de votre ami";
+
+/* Class = "UITextView"; text = "Text to decrypt"; ObjectID = "dCg-KE-PVI"; */
+"dCg-KE-PVI.text" = "Texte à déchiffrer";
+
+/* Class = "UIBarButtonItem"; title = "Select some keys to delete them"; ObjectID = "dbh-Z3-bvU"; */
+"dbh-Z3-bvU.title" = "Selectionner des clés à supprimer.";
+
+/* Class = "UINavigationItem"; title = "Encyption"; ObjectID = "eGS-Iy-0AG"; */
+"eGS-Iy-0AG.title" = "Chiffrement";
+
+/* Class = "UILabel"; text = "WARNING"; ObjectID = "eZW-eg-dI3"; */
+"eZW-eg-dI3.text" = "ATTENTION";
+
+/* Class = "UIButton"; normalTitle = "Get started"; ObjectID = "f1n-h1-WmP"; */
+"f1n-h1-WmP.normalTitle" = "Commencer";
+
+/* Class = "UIBarButtonItem"; title = "Lock the app"; ObjectID = "fFF-Oo-VMX"; */
+"fFF-Oo-VMX.title" = "Verrouiller l'application";
+
+/* Class = "UILabel"; text = "NAME"; ObjectID = "fJK-Su-Pay"; */
+"fJK-Su-Pay.text" = "NOM";
+
+/* Class = "UILabel"; text = "DEVELOPER"; ObjectID = "fQu-Og-kxA"; */
+"fQu-Og-kxA.text" = "DEVELOPPEUR";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ftf-Te-pdR"; */
+"ftf-Te-pdR.text" = "Label";
+
+/* Class = "UIViewController"; title = "revokeView"; ObjectID = "gqQ-4o-g0B"; */
+"gqQ-4o-g0B.title" = "revokeView";
+
+/* Class = "UINavigationController"; title = "EncryptNavigationController"; ObjectID = "hHY-cd-32x"; */
+"hHY-cd-32x.title" = "EncryptNavigationController";
+
+/* Class = "UILabel"; text = "✓ DO NOT use your own public key"; ObjectID = "huX-W7-x6D"; */
+"huX-W7-x6D.text" = "✓ N'utilisez PAS votre propre clé publique";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "i9k-t6-CW5"; */
+"i9k-t6-CW5.normalTitle" = "Retour";
+
+/* Class = "UIButton"; normalTitle = "  Paste"; ObjectID = "iUq-Tt-F72"; */
+"iUq-Tt-F72.normalTitle" = "  Coller";
+
+/* Class = "UITextField"; placeholder = "Aa"; ObjectID = "jPO-t3-KSo"; */
+"jPO-t3-KSo.placeholder" = "Aa";
+
+/* Class = "UITabBarItem"; title = "Keys"; ObjectID = "jc1-Ae-O53"; */
+"jc1-Ae-O53.title" = "Clés";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "kag-9M-ckw"; */
+"kag-9M-ckw.normalTitle" = "Continuer";
+
+/* Class = "UILabel"; text = "Decrypted message :"; ObjectID = "kna-az-4RE"; */
+"kna-az-4RE.text" = "Message dechiffré :";
+
+/* Class = "UIViewController"; title = "EncryptedResult"; ObjectID = "lni-hq-xo9"; */
+"lni-hq-xo9.title" = "EncryptedResult";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "m17-Ti-fxk"; */
+"m17-Ti-fxk.title" = "Item";
+
+/* Class = "UILabel"; text = "Recieve confidential message"; ObjectID = "mII-BL-Rgu"; */
+"mII-BL-Rgu.text" = "Recevoir un message confidentiel";
+
+/* Class = "UIButton"; normalTitle = "   Support me on "; ObjectID = "mWV-E8-dDn"; */
+"mWV-E8-dDn.normalTitle" = "   Soutiens moi sur ";
+
+/* Class = "UINavigationItem"; title = "Advanced Settings"; ObjectID = "n3k-Mb-YAC"; */
+"n3k-Mb-YAC.title" = "Réglages avancés";
+
+/* Class = "UIViewController"; title = "AddKeyCrtl"; ObjectID = "nVe-hc-Wct"; */
+"nVe-hc-Wct.title" = "AddKeyCrtl";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "ncv-rd-jca"; */
+"ncv-rd-jca.normalTitle" = "Continuer";
+
+/* Class = "UILabel"; text = "Title label"; ObjectID = "oDB-ym-ZNu"; */
+"oDB-ym-ZNu.text" = "Title label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "p7z-Ac-82f"; */
+"p7z-Ac-82f.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "Close the decryption program"; ObjectID = "pEy-Df-sd5"; */
+"pEy-Df-sd5.normalTitle" = "Fermer le programme de déchiffrement";
+
+/* Class = "UILabel"; text = "Welcome ! 👋"; ObjectID = "pJp-Bv-DwV"; */
+"pJp-Bv-DwV.text" = "Bienvenue ! 👋";
+
+/* Class = "UIButton"; normalTitle = "  Decrypt"; ObjectID = "piq-Hx-Ehf"; */
+"piq-Hx-Ehf.normalTitle" = "  Déchiffrer";
+
+/* Class = "UILabel"; text = "I'm Nathan, a young french developer studying in a french \"Grande École d'Ingénieur\" (Great Engineering School). \n\nI developed this whole open source project with heart and live on donations.\n\nIf you like this open source application and want to support a freelance student, you can make a donation right below. \n\nThanks a lot !"; ObjectID = "qu5-eh-nO6"; */
+"qu5-eh-nO6.text" = "Je suis Nathan, un jeune développeur Français étudiant à Télécom SudParis, une grand école d'ingénieur Française. \n\nJ'ai développé seul tout ce projet open source avec le coeur et je vis grâce aux donations.\n\nSi vous aimez cette application open-source et voulez supporter un étudiant en freelance, vous pouvez faire un don juste au-dessus. \n\nMerci beaucoup !";
+
+/* Class = "UIButton"; normalTitle = "nameError"; ObjectID = "rYj-v7-E9g"; */
+"rYj-v7-E9g.normalTitle" = "nameError";
+
+/* Class = "UIButton"; normalTitle = "REVOKE (5s)"; ObjectID = "sYu-Ym-Cua"; */
+"sYu-Ym-Cua.normalTitle" = "REVOKER (5s)";
+
+/* Class = "UITextView"; text = "Aa"; ObjectID = "sfC-Z1-Yjk"; */
+"sfC-Z1-Yjk.text" = "Aa";
+
+/* Class = "UINavigationController"; title = "addKeyNavCrtl"; ObjectID = "tOU-fV-Ibc"; */
+"tOU-fV-Ibc.title" = "addKeyNavCrtl";
+
+/* Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "u2S-FE-xH9"; */
+"u2S-FE-xH9.normalTitle" = "ANNULER";
+
+/* Class = "UIBarButtonItem"; title = "  "; ObjectID = "uS5-aM-wNL"; */
+"uS5-aM-wNL.title" = "  ";
+
+/* Class = "UILabel"; text = "The only one able to decryt"; ObjectID = "uYY-4c-6FW"; */
+"uYY-4c-6FW.text" = "La seule capable de déchiffrer";
+
+/* Class = "UILabel"; text = "OR"; ObjectID = "uZw-em-S5c"; */
+"uZw-em-S5c.text" = "OU";
+
+/* Class = "UILabel"; text = "- or -"; ObjectID = "uiL-tw-T3H"; */
+"uiL-tw-T3H.text" = "- ou -";
+
+/* Class = "UIButton"; normalTitle = "Select a key"; ObjectID = "vCo-dJ-S93"; */
+"vCo-dJ-S93.normalTitle" = "Selectionner une clé";
+
+/* Class = "UIViewController"; title = "AdvancedSettingsView"; ObjectID = "vWh-6x-5A5"; */
+"vWh-6x-5A5.title" = "AdvancedSettingsView";
+
+/* Class = "UILabel"; text = "Your keys : \nPublic and private key"; ObjectID = "wH8-Qy-L9g"; */
+"wH8-Qy-L9g.text" = "Vos clés : \nUne clé publique et une clé privée";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "wwH-PE-v0R"; */
+"wwH-PE-v0R.normalTitle" = "Retour";
+
+/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "xDW-fc-kt1"; */
+"xDW-fc-kt1.title" = "Fermer";
+
+/* Class = "UIViewController"; title = "DecryptResult"; ObjectID = "xbo-aT-QG9"; */
+"xbo-aT-QG9.title" = "DecryptResult";

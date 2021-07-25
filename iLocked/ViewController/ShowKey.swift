@@ -119,11 +119,11 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
             if let retrievedString: String = KeychainWrapper.standard.string(forKey: UserKeys.publicKey.tag){
             self.key.text = "\(retrievedString)"
             } else {
-                self.key.text = "Impossible to find this key. Please check you didn't make any mistake, install the last version of this application and be sure you have enough space on your iDevice."
+                self.key.text = "Impossible to find this key. Please check you have installed the last version of this application and be sure you have enough space on your iDevice.".localized(withKey: "ImpossibleFindKey")
                 self.key.textColor = .systemRed
             }
         } else {
-            self.key.text = "Impossible to find this key. Please check you didn't make any mistake, install the last version of this application and be sure you have enough space on your iDevice."
+            self.key.text = "Impossible to find this key. Please check you have installed the last version of this application and be sure you have enough space on your iDevice.".localized(withKey: "ImpossibleFindKey")
             self.key.textColor = .systemRed
         }
         self.key.numberOfLines = 0
@@ -231,7 +231,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.notificationView.backgroundColor = .white
         self.notificationView.setTitleColor(.black, for: .normal)
         self.notificationView.alpha = 0
-        self.notificationView.setTitle("Copied", for: .normal)
+        self.notificationView.setTitle("Copied".localized(), for: .normal)
         self.notificationView.addTarget(self, action: #selector(notificationViewSelected), for: .touchUpInside)
         
         /*self.backgroundView.addSubview(self.date)
@@ -249,9 +249,9 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.tips.leftAnchor.constraint(equalTo: self.scrollView.leftAnchor, constant: 10).isActive = true
         self.tips.topAnchor.constraint(equalToSystemSpacingBelow: self.deleteButton.bottomAnchor, multiplier: 2).isActive = true
         self.tips.numberOfLines = 1
-        self.tips.textColor = .lightGray
-        self.tips.font = UIFont(name: "Baskerville SemiBold", size: 15)
-        self.tips.text = "Tips : double tap on the key-text to copy it !"
+        self.tips.textColor = .darkGray
+        self.tips.font = UIFont(name: "Arial Rounded MT Bold", size: 13)
+        self.tips.text = "Tips : double tap on the key-text to copy it !".localized()
     }
     
     
@@ -267,11 +267,11 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     
     @IBAction private func trashBarButtonItemSelected(sender: UIBarButtonItem){
         if  isUserKey{ // cannot delete user key
-            alert("That's your own public key !" , message: "You cannot delete your own public key. To revoke your keys, go to settings")
+            alert("That's your own public key !".localized() , message: "You cannot delete your own public key. To revoke your keys, go to settings.".localized(withKey: "ownKeyErrorMessage"))
         } else {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)
-            let A2 = UIAlertAction(title: "Destroy this key", style: UIAlertAction.Style.destructive, handler: { (_) in
+            let A1 = UIAlertAction(title: "Cancel".localized(), style: UIAlertAction.Style.cancel, handler: nil)
+            let A2 = UIAlertAction(title: "Destroy this key".localized(), style: UIAlertAction.Style.destructive, handler: { (_) in
                 self.destroyKey()
             })
             alert.addAction(A1)
@@ -282,7 +282,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     
     @IBAction private func editBarButtonItemSelected(sender: UIBarButtonItem){
         if isUserKey { //cannot edit user key
-            alert("That's your own public key !" , message: "You cannot edit your own public key. To revoke your keys, go to settings")
+            alert("That's your own public key !".localized() , message: "You cannot edit your own public key. To revoke your keys, go to settings".localized(withKey: "ownKeyErrorEdit"))
         } else {
             performSegue(withIdentifier: "editKey", sender: self)
         }
@@ -301,14 +301,14 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     
     @objc private func trashButtonSelected(sender: UIButton){
         if  isUserKey{ // cannot delete user key
-            alert("That's your own public key !" , message: "You cannot delete your own public key. To revoke your keys, go to settings")
+            alert("That's your own public key !".localized() , message: "You cannot delete your own public key. To revoke your keys, go to settings".localized(withKey: "ownKeyErrorMessage"))
         } else {
             sender.isEnabled = false
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (_) in
+            let A1 = UIAlertAction(title: "Cancel".localized(), style: UIAlertAction.Style.cancel, handler: { (_) in
             sender.isEnabled = true
             })
-            let A2 = UIAlertAction(title: "Destroy this key", style: UIAlertAction.Style.destructive, handler: { (_) in
+            let A2 = UIAlertAction(title: "Destroy this key".localized(), style: UIAlertAction.Style.destructive, handler: { (_) in
             self.destroyKey()
             })
             alert.addAction(A1)

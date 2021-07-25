@@ -106,9 +106,9 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.infoLabel.widthAnchor.constraint(equalToConstant: self.scrollView.frame.size.width - 60).isActive = true
         self.infoLabel.textAlignment = .center
         self.infoLabel.numberOfLines = 6
-        self.infoLabel.textColor = .lightGray
-        self.infoLabel.font = UIFont(name: "Baskerville Bold", size: 17)
-        self.infoLabel.text = "Your message is now encrypted with RSA-4096, a highly secure encryption."
+        self.infoLabel.textColor = .darkGray
+        self.infoLabel.font = UIFont(name: "Baskerville", size: 17)
+        self.infoLabel.text = "Your message is now encrypted with RSA-4096, a highly secure encryption.".localized()
         //self.infoLabel.text = "Your text is now encrypted with your friend's public key. Share this new text with him. Only his own PRIVATE key will be able to decrypt this text. Remember : to encrypt a message for someone, please use his personnal public key ! Not yours....."
         
         self.background.addSubview(self.notificationView)
@@ -122,7 +122,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.notificationView.backgroundColor = .white
         self.notificationView.setTitleColor(.black, for: .normal)
         self.notificationView.alpha = 0
-        self.notificationView.setTitle("Copied", for: .normal)
+        self.notificationView.setTitle("Copied".localized(), for: .normal)
         self.notificationView.addTarget(self, action: #selector(notificationViewSelected), for: .touchUpInside)
         
     }

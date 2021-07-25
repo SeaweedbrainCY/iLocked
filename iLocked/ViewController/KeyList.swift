@@ -19,7 +19,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var addKeyButton : UIBarButtonItem!
     
     
-    var nameList: [String] = ["There is no key saved"]
+    var nameList: [String] = ["There is no key saved".localized()]
     var nameSelected = "nil"
     var userKeySelected = false // We can inform ShowKey.swift, if the key selected, is the user key or not
     
@@ -40,7 +40,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         self.tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell")
         
-        if nameList == ["There is no key saved"] {
+        if nameList == ["There is no key saved".localized()] {
             self.selectCellButton.isEnabled = false //no cell to select
         }
         hasUpdated = true// if the viewed is already load, we update. If not, the view has just loaded
@@ -49,7 +49,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             self.selectCellButton.isEnabled = false
         }
         if isKeySelection {
-            navigationItem.title = "Select a key"
+            navigationItem.title = "Select a key".localized()
         }
 
     }
@@ -113,7 +113,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             cell.textLabel!.text = self.nameList[indexPath.row]
         } else {
             if !selectModeIsActive { // only if user isn't selecting cells
-                cell.textLabel!.text = "My public encryption key"
+                cell.textLabel!.text = "My public encryption key".localized()
             } else {
                 cell.textLabel!.text = ""
             }
@@ -124,8 +124,8 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     //Sections name
        func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
            switch section {
-           case 0 : return "Encryption keys"
-           case 1 : if !selectModeIsActive { return "MY public encryption key"} else { return ""}
+           case 0 : return "Public keys".localized()
+           case 1 : if !selectModeIsActive { return "My public encryption key".localized()} else { return ""}
            default : return "ERROR"
            }
        }
@@ -138,13 +138,13 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         if !selectModeIsActive && !self.isKeySelection { // if user is not selecting cells
             if indexPath.section == 0 {
                 self.userKeySelected = false
-                 if nameList[0] != "There is no key saved" {
+                if nameList[0] != "There is no key saved".localized() {
                      self.nameSelected = nameList[indexPath.row]
                      performSegue(withIdentifier: "showKey", sender: nil)
                  }
              } else {
                 self.userKeySelected = true
-                 self.nameSelected = "My encryption key"
+                self.nameSelected = "My encryption key".localized()
                  performSegue(withIdentifier: "showKey", sender: nil)
              }
             tableView.deselectRow(at: indexPath, animated: true)
@@ -168,13 +168,13 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         } else { // user wants to select a key
             if indexPath.section == 0 {
                 self.userKeySelected = false
-                 if nameList[0] != "There is no key saved" {
+                if nameList[0] != "There is no key saved".localized() {
                      self.nameSelected = nameList[indexPath.row]
                     dismissViewFunc(keyName: self.nameSelected)
                  }
              } else {
                 self.userKeySelected = true
-                 self.nameSelected = "My encryption key"
+                self.nameSelected = "My encryption key".localized()
                 dismissViewFunc(keyName: self.nameSelected)
              }
             tableView.deselectRow(at: indexPath, animated: true)
@@ -222,20 +222,20 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
                         //
                         // ERROR #0004# : SERIOUS
                         //
-                        alert("Data wrong saved", message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0004#", quitMessage: "Close")
+                        alert("Impossible to recognize this data".localized(), message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0004#".localized(withKey: "messageError0004"), quitMessage: "Close".localized())
                         break
                     }
                 } else { // No title
                     //
                     // ERROR #0005# : SERIOUS
                     //
-                    alert("Data wrong displayed", message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0005#", quitMessage: "Close")
+                    alert("Wrong data displayed".localized(), message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0005#".localized(withKey: "messageError0005"), quitMessage: "Close".localized())
                 }
             } else { // No cell correponding to the selection
                 //
                 // ERROR #0006# : SERIOUS
                 //
-                alert("No link between selection and saved data", message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0006#", quitMessage: "Close")
+                alert("No link between selection and saved data".localized(), message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0006#".localized(withKey: "messageError0006"), quitMessage: "Close".localized())
             }
             
         }
@@ -256,7 +256,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     private func refreshData(){
         //We delete old data
-        nameList = ["There is no key saved"]
+        nameList = ["There is no key saved".localized()]
         //We load the new one
         loadData()
         self.tableView.reloadData()
@@ -270,7 +270,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             sender.title = ""
             
             // ... and other cell become unselectable
-            nameList = ["There is no key saved"]
+            nameList = ["There is no key saved".localized()]
             //On load les nouvelles
             selectModeIsActive = false
             self.selectedCellList = []
@@ -281,10 +281,10 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             self.addKeyButton.image =  UIImage(systemName: "trash.circle.fill")
             self.addKeyButton.tintColor = .systemRed
             sender.image = nil
-            sender.title = "Cancel"
+            sender.title = "Cancel".localized()
             
             // ... and other well unselectable
-            nameList = ["There is no key saved"]
+            nameList = ["There is no key saved".localized()]
             //On load les nouvelles
             selectModeIsActive = true
             loadData()
@@ -295,7 +295,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBAction public func addKeySelected(sender: UIBarButtonItem){
         if selectModeIsActive {// button is a trash button
             if selectedCellList.count == 0{
-                alert("Please select some keys", message: "", quitMessage: "Got it !")
+                alert("Please select some keys".localized(), message: "", quitMessage: "Got it !".localized())
             } else{
                 self.deleteKeys()
             }
@@ -316,12 +316,12 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     ///Called by deleteOptionButton when user wants to delete selected key(s)
     private func deleteKeys(){
-        var message = "Destroy \(self.selectedCellList.count) key"
+        var message = "Destroy".localized() + String(self.selectedCellList.count) + "key".localized()
         if self.selectedCellList.count > 1 {
             message += "s"
         }
-        let alert = UIAlertController(title: "Destroy selected keys", message: "WARNING : You will not be able to undo this action", preferredStyle: .actionSheet)
-        let A1 = UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler:  {(_) in})
+        let alert = UIAlertController(title: "Destroy selected keys".localized(), message: "WARNING : You will not be able to undo this action".localized(), preferredStyle: .actionSheet)
+        let A1 = UIAlertAction(title: "Cancel".localized(), style: UIAlertAction.Style.cancel, handler:  {(_) in})
         let A2 = UIAlertAction(title: message, style: UIAlertAction.Style.destructive, handler: { (_) in
             self.destroyKey()
         })

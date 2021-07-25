@@ -203,7 +203,7 @@ class LockedView: UIViewController{
         let context = LAContext()
             var error: NSError?
             if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
-                let reason = "Your data are protected by a password."
+                let reason = "Your data are protected by a password.".localized()
 
                 context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: reason) {
                     [weak self] success, authenticationError in
@@ -214,7 +214,7 @@ class LockedView: UIViewController{
                             // error
                             print("[*] Error : Authentifcation failed")
                             self?.descriptionLabel.textColor = .systemRed
-                            self?.descriptionLabel.text = "Authentication failed. 🔒"
+                            self?.descriptionLabel.text = "Authentication failed. 🔒".localized()
                         }
                     }
                 }

@@ -93,7 +93,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         if indexPath.section == 0 {
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "👨‍💻 Support the developer"
+                cell.textLabel?.text = "👨‍💻 Support the developer".localized()
                 cell.backgroundColor = .systemBlue
                 accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
                 accessoryView.tintColor = .white
@@ -103,7 +103,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         } else if indexPath.section == 1{
             switch indexPath.row {
             case 0:
-                cell.textLabel?.text = "❌ Revoke your keys"
+                cell.textLabel?.text = "❌ Revoke your keys".localized()
                 cell.backgroundColor = .systemRed
             default:
                 cell.textLabel?.text = "ERROR"
@@ -123,7 +123,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     setting.updateValue("false", forKey: SettingsName.isPasswordActivated.key)
                     settingData.saveSetting(dict: setting)
                 }
-                cell.textLabel?.text = "🔑 Protect with a password"
+                cell.textLabel?.text = "🔑 Protect with a password".localized()
                 accessoryView = self.protectionSwitch
             case 1 :
                 if (setting.keys).contains(SettingsName.hideScreen.key){ // Check if the setting is already init
@@ -138,13 +138,13 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     setting.updateValue("true", forKey: SettingsName.hideScreen.key)
                     settingData.saveSetting(dict: setting)
                 }
-                cell.textLabel?.text = "📲 Hide screen in App Switcher"
+                cell.textLabel?.text = "📲 Hide screen in App Switcher".localized()
                 accessoryView = self.hideScreenSwitcher
             case 2 :
                 if (setting.keys).contains(SettingsName.timeBeforeLocking.key){ // Check if the setting is already init
                     if let time = Int(setting[SettingsName.timeBeforeLocking.key]!){
                         if time == 0{
-                            self.timeBeforeLockingLabel.text = "Immediatly"
+                            self.timeBeforeLockingLabel.text = "Immediatly".localized()
                         } else {
                             self.timeBeforeLockingLabel.text = "\(time) min"
                         }
@@ -159,7 +159,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     setting.updateValue("0", forKey: SettingsName.timeBeforeLocking.key)
                     settingData.saveSetting(dict: setting)
                 }
-                cell.textLabel?.text = "🕐 Lock app"
+                cell.textLabel?.text = "🕐 Lock app".localized()
                 self.timeBeforeLockingLabel.textColor = .lightGray
                 self.timeBeforeLockingLabel.textAlignment = .right
                 accessoryView = self.timeBeforeLockingLabel
@@ -173,11 +173,11 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         } else if indexPath.section == 3 {
             switch indexPath.row {
             case 0 :
-                cell.textLabel?.text = "🕹 Show tutorial again"
+                cell.textLabel?.text = "🕹 Show tutorial again".localized()
             case 1:
-                cell.textLabel?.text = "🔎 Report a bug"
+                cell.textLabel?.text = "🔎 Report a bug".localized()
             case 2 :
-                cell.textLabel?.text = "📱 Visit developer website"
+                cell.textLabel?.text = "📱 Visit developer website".localized()
                 accessoryView = UIImageView(image: self.externalLinkView)
                 accessoryView.tintColor = .darkGray
                 
@@ -186,7 +186,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         } else if indexPath.section == 4{
             switch indexPath.row {
             case 0 :
-                cell.textLabel?.text = "⚙️ Advanced settings"
+                cell.textLabel?.text = "⚙️ Advanced settings".localized()
                 accessoryView = UIImageView(image: self.nextViewSettingImageView)
                 accessoryView.tintColor = .darkGray
             default :
@@ -205,9 +205,9 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     /// Sections' name
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0 : return "Developer 👨‍💻"
-        case 1 : return "Keys 🔑"
-        case 2 : return "Security 🔐"
+        case 0 : return "Developer 👨‍💻".localized()
+        case 1 : return "Keys 🔑".localized()
+        case 2 : return "Security 🔐".localized()
         case 3 : return "Application 📱"
         case 4 : return ""
         default : return "ERROR"
@@ -232,7 +232,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         } else if indexPath.section == 2{
             switch indexPath.row {
             case 2 : // time before locking
-                let alert = UIAlertController(title: "Timer before locking the app with your password", message: "", preferredStyle: .actionSheet)
+                let alert = UIAlertController(title: "Time before locking the app with your password".localized(), message: "", preferredStyle: .actionSheet)
                 let settingsData = SettingsData()
                 var settings = settingsData.getSetting()
                 alert.addAction(UIAlertAction(title: "1 minute", style: .default) { _ in
@@ -250,12 +250,12 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     settingsData.saveSetting(dict: settings)
                     self.tableView.reloadData()
                 })
-                alert.addAction(UIAlertAction(title: "Immediatly", style: .default) { _ in
+                alert.addAction(UIAlertAction(title: "Immediatly".localized(), style: .default) { _ in
                     settings.updateValue("0", forKey: SettingsName.timeBeforeLocking.key)
                     settingsData.saveSetting(dict: settings)
                     self.tableView.reloadData()
                 })
-                alert.addAction(UIAlertAction(title: "Annuler", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
+                alert.addAction(UIAlertAction(title: "Cancel".localized(), style: UIAlertAction.Style.cancel, handler: nil)) // Retour
                 present(alert, animated: true)
             case 3://lock app
                 lockAppButtonIsHit = true
@@ -268,14 +268,14 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             case 0: // tuto
                 performSegue(withIdentifier: "tuto", sender: self)
             case 1 : // report a bug
-                let alert = UIAlertController(title: "Report a bug", message: "Report a bug help the developer to upgrade this application and improve your experience", preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Report a bug", style: .default) { _ in
-                    self.mailReport(subject: "I found a bug in iLocked app !!", body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n")
+                let alert = UIAlertController(title: "Report a bug".localized(), message: "Report a bug help the developer to upgrade this application and improve your experience".localized(withKey: "ReportBugMessage"), preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Report a bug".localized(), style: .default) { _ in
+                    self.mailReport(subject: "I found a bug in iLocked app !!".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "reportBugEmail"))
                 })
-                alert.addAction(UIAlertAction(title: "Contact the developer", style: .default) { _ in
-                    self.mailReport(subject: "Can I tell you something ?", body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n")
+                alert.addAction(UIAlertAction(title: "Contact the developer".localized(), style: .default) { _ in
+                    self.mailReport(subject: "Request of an iLocked user".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "contactEmail"))
                 })
-                alert.addAction(UIAlertAction(title: "Annuler", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
                 present(alert, animated: true)
             case 2: // developer website
                 UIApplication.shared.open(URL(string: "https://devnathan.github.io")!, options: [:], completionHandler: nil)
@@ -314,7 +314,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 if UIApplication.shared.canOpenURL(emailURL){
                     UIApplication.shared.open(emailURL, options: [:], completionHandler: { (result) in
                         if !result {
-                            self.alert("Error ! 🔨", message: "Impossible to use mail services")
+                            self.alert("Error ! 🔨".localized(), message: "Impossible to use mail services".localized(withKey: "errorMail"))
                         }
                     })
                 }
@@ -376,7 +376,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         // Dismiss the mail compose view controller.
         controller.dismiss(animated: true, completion: nil)
         if error != nil { // S'il y a une erreur
-            alert("An error occured", message: "\(String(describing: error)). Please try again")
+            alert("An error occured".localized(), message: String(describing: error) + ". " + "Please try again".localized())
         }
     }
 }

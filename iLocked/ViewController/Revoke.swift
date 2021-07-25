@@ -58,7 +58,7 @@ class Revoke: UIViewController {
         self.second += 1
         if self.second >= 5{ // Button is now enabled
             timer.invalidate()
-            self.revokeButton.setTitle("REVOKE", for: .normal)
+            self.revokeButton.setTitle("REVOKE".localized(), for: .normal)
             self.revokeButton.isEnabled = true
             self.revokeButton.backgroundColor = .systemRed
         }else if self.second < 0 {
@@ -66,7 +66,7 @@ class Revoke: UIViewController {
             second = 0
             self.dismiss(animated: true, completion: nil)
         } else{
-            self.revokeButton.setTitle("REVOKE (\(5 - self.second)s)", for: .normal)
+            self.revokeButton.setTitle("REVOKE".localized() + "(\(5 - self.second)s)", for: .normal)
         }
     }
     
@@ -102,7 +102,7 @@ class Revoke: UIViewController {
                 print("No authentication needed. authentication succeed")
                 NotificationCenter.default.post(name: ShowKey.notificationOfModificationName, object: nil, userInfo: ["Result" : true])
             } else {
-            let message = "confirm keys revocation"
+                let message = "confirm keys revocation".localized()
             context?.evaluatePolicy(policy!, localizedReason: message, reply: { (success, error) in
                 DispatchQueue.main.async {
                     if success {
@@ -139,7 +139,7 @@ class Revoke: UIViewController {
     
     /// Called if authentication succeed after revocation demand failed
     private func fail(){
-        alert("Authentication failed", message: "You must authenticate yourself to revoke your keys. Please, try Again")
+        alert("Authentication failed".localized(), message: "You must authenticate yourself to revoke your keys. Please, try Again".localized(withKey: "authErrorRevoke"))
     }
 
     
