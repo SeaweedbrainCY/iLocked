@@ -23,6 +23,7 @@ class FirstWelcomeView: UIViewController{
     @IBOutlet weak var unsafeLabel: UILabel!
     @IBOutlet weak var safeImage: UIImageView!
     @IBOutlet weak var safeLabel: UILabel!
+    @IBOutlet weak var background: UIView!
     
    
     

@@ -26,7 +26,7 @@ class Decryption {
         let (test,extracted_text) = extractEncryptedMessageFormat(text)
         print("Extracted text : \(extracted_text)")
         if !test{
-            return ["state" : false, "codeError" : self.codeErrorFormatInvalid, "message" : "The format of this encrypted text isn't correct. Please try only to decrypt message previoulsy encrypted with the iLocked app."]
+            return ["state" : false, "codeError" : self.codeErrorFormatInvalid, "message" : "The format of this encrypted text isn't correct. Please try only to decrypt message previoulsy encrypted with the iLocked app.".localized(withKey: "formatKeyDecryptionMessage")]
         }
         do {
             let decrypted = try EncryptedMessage(base64Encoded: extracted_text)
@@ -35,11 +35,11 @@ class Decryption {
                 let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)
                 return ["state" : true,"codeError" : self.noCodeError, "message" : try clear.string(encoding: .utf8)]
             } else {
-                return ["state" : false, "codeError" : self.codeErrorNoPrivateKey, "message" : "iLocked can't access to your private Key"]
+                return ["state" : false, "codeError" : self.codeErrorNoPrivateKey, "message" : "iLocked can't access to your private Key".localized(withKey: "can'tAccessErrorMessage")]
             }
             
         } catch {
-            return ["state" : false, "codeError" : self.codeErrorKeyIncorrect, "message": "Your cannot decrypt this text. You don't have the right key. Please ensure this message has been encrypted with YOUR public key"]
+            return ["state" : false, "codeError" : self.codeErrorKeyIncorrect, "message": "Your cannot decrypt this text. You don't have the right key. Please ensure this message has been encrypted with YOUR public key".localized(withKey: "can'tDecryptErrorMessage")]
         }
     }
     

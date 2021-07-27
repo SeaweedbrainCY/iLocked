@@ -15,6 +15,7 @@ class GenerateKeysView: UIViewController {
     @IBOutlet weak var importButton: UIButton!
     @IBOutlet weak var waitingView: UIActivityIndicatorView!
     @IBOutlet weak var orLabel: UILabel!
+    @IBOutlet weak var littleInfo : UILabel!
     
     var retrievedString:String? = nil
     
@@ -43,6 +44,7 @@ class GenerateKeysView: UIViewController {
             self.generateButton.isHidden = true
             self.importButton.isHidden = true
             self.orLabel.isHidden = true
+            self.littleInfo.isHidden = true
             self.waitingView.startAnimating()
         }
     }
@@ -83,6 +85,7 @@ class GenerateKeysView: UIViewController {
         self.generateButton.isEnabled = false
         self.orLabel.isHidden = true
         self.importButton.isEnabled = false
+        self.littleInfo.isHidden = true
         
     }
     

@@ -1,15 +1,3 @@
-/* 
-  Localizable.strings
-  iLocked
-
-  Created by Stchepinsky Nathan on 25/07/2021.
-  Copyright © 2021 Nathan. All rights reserved.
-*/
-
-//********************
-//*** AddKey.swift ***
-//********************
-
 "My encryption key" = "Ma clé de chiffrement";
 
 "Error0003" = "Impossible d'identifier cette clé. Essayez de la sauvegarder à nouveau. Si cette erreur apparait plusieurs fois, veuillez reporter ce bug avec le code erreur #DATA/AK.SWIFT 0003 🛠. Merci.";
@@ -24,11 +12,6 @@
 
 "takenError" = "Ce nom est déjà pris";
 
-
-//*****************************
-//*** DecryptHomePage.swift ***
-//*****************************
-
 "Please, enter an encrypted text" = "Veuillez entrer un message chiffré";
 
 "Nothing to paste" = "Rien à coller";
@@ -37,13 +20,7 @@
 
 "Text to decrypt" = "Texte à déchiffrer";
 
-//*****************************
-//*** EncryptHomePage.swift ***
-//*****************************
-
 "Add a key" = "Ajouter une clé";
-
-// "My encryption key" already translated
 
 "Select a key" = "Sélectionner une clé";
 
@@ -59,24 +36,13 @@
 
 "helpTextEncryption" = "iLocked utilise le chiffrement RSA-4096, une protection hautement sécurisée, pour chiffre vos messages.\n\nPersonnes à part le détenteur de la clé privée, associée à la clé publique que vous allez utiliser, ne pourra le déchiffrer. Même vous !\n\nIMPORTANT : Assurez vous de chiffrer votre message avec la clé plublique de la personne à qui vous voulez envoyer le message. Faites attention à bien copier l'intégralité du message chiffré avant de l'envoyer. Ni plus, ni moins. Sinon, cela ne marchera pas ...";
 
-//*****************************
-//*** EncryptResult.swift ****
-//*****************************
-
 "Your message is now encrypted with RSA-4096, a highly secure encryption." = "Votre messsage est désomrais chiffré avec RSA-4096, un chiffrement hautement securisé.";
 
 "Copied" = "Copié";
 
-//*****************************
-//*** KeyList.swift **********
-//*****************************
-
 "There is no key saved" = "Il n'y a pas de clé enregistrée";
 
-// "Select a key" already translated
-
 "My public encryption key" = "Ma clé de chiffrement publique";
-
 
 "Public keys" = "Clés publiques";
 
@@ -90,7 +56,7 @@
 
 "messageError0005" = "Re-démarrez iLocked et essayez à nouveau. Code erreur : VC/KL.SWIFT#0005#";
 
-"No link between selection and saved data" = "Impossible d'établir le lien entre la sélection et les données enregistrées";
+"No link between selection and saved data" = "Impossible d'établir un lien entre la sélection et les données enregistrées";
 
 "messageError0006" = "Re-démarrez iLocked et essayez à nouveau. Code erreur : VC/KL.SWIFT#0006#";
 
@@ -108,9 +74,7 @@
 
 "WARNING : You will not be able to undo this action" = "ATTENTION : Vous ne serez pas capable d'annuler cette action";
 
-//*****************************
-//*** ShowKey.swift ***********
-//*****************************
+"warningPublicKeyUse" = "N'utilisez pas votre propre clé publique pour chiffrer, sauf si vous voulez gardez de secret garder un secret pour vous-même.\nVous êtes le seul capable de déchiffrer un message chiffré avec votre clé publique.";
 
 "ImpossibleFindKey" = "Impossible de trouver cette clé. Assurez vous d'avoir la dernière version de iLocked et que vous avez assez de place disponible sur votre iDevice.";
 
@@ -124,17 +88,7 @@
 
 "ownKeyErrorEdit" = "Vous ne pouvez pas modifier votre propre clé publique. Pour revoker vos clés, allez dans les réglages.";
 
-//*****************************
-//*** DecryptedResult.swift ***
-//*****************************
-
-
 "infoEncryption" = "Ce message doit être chiffré avec votre propre clé publique et sera déchiffré avec votre clé privéee.";
-
-
-//*****************************
-//*** GenereKeysView.swift ****
-//*****************************
 
 "Please re-start iLocked !" = "Veuillez re-lancer iLocked !";
 
@@ -142,29 +96,17 @@
 
 "Quit app" = "Quitter l'app";
 
-
-//*****************************
-//*** LockedView.swift ********
-//*****************************
-
-
 "Your data are protected by a password." = "Vos données sont protégées par un mot de passe.";
 
 "Authentication failed. 🔒" = "L'authentification a échouée 🔒";
-
-
-//*****************************
-//*** Settings.swift **********
-//*****************************
-
 
 "👨‍💻 Support the developer" = "👨‍💻 Soutenir le développeur";
 
 "❌ Revoke your keys" = "❌ Révoquer vos clés";
 
-"🔑 Protect with a password" = "🔑 Protéger avec un code";
+"🔐 Protect with a password" = "🔐 Protéger avec un code";
 
-"📲 Hide screen in App Switcher" = "📲 Cacher l'écran (select. d'app)";
+"📲 Hide screen in App Switcher" = "📲 Cacher l'écran (sélectionneur d'app)";
 
 "Immediatly" = "Immédiatement";
 
@@ -176,14 +118,13 @@
 
 "📱 Visit developer website" = "📱 Ouvrir le site du développeur";
 
-"⚙️ Advanced settings" = "⚙️ Régalges avancés";
+"⚙️ Advanced settings" = "⚙️ Réglages avancés";
 
 "Developer 👨‍💻" = "Developpeur 👨‍💻";
 
 "Keys 🔑" = "Clés 🔑";
 
 "Security 🔐" = "Sécurité 🔐";
-
 
 "Time before locking the app with your password" = "Temps avant que l'app soit verouiller avec votre code";
 
@@ -209,11 +150,6 @@
 
 "Please try again" = "Veuillez réessayer";
 
-
-//*****************************
-//*** Revoke.swift ************
-//*****************************
-
 "REVOKE" = "RÉVOQUER";
 
 "confirm keys revocation" = "Confirmer la révocation des clés";
@@ -222,15 +158,11 @@
 
 "authErrorRevoke" = "Vous devez vous identifiez pour révoquer vos clés. Veuillez ré-essayer.";
 
-//*****************************
-//*** AdvancedSettings.swift **
-//*****************************
-
 "🔨 Feature coming soon !" = "🔨 Fonctionnalité bientôt là !";
 
 "featureComingSoonMessage" = "L'application iLocked est toujours en développement ! Vous allez bientôt être capable d'ouvrir les liens externes directement dans l'app!\nVous choix est enregistré et vous serez notifié lorsque l'option sera disponible.";
 
-"📲 Open external links in app" =  "📲 Ouvrir les liens dans l'app";
+"📲 Open external links in app" = "📲 Ouvrir les liens dans l'app";
 
 "📚 Open Source Libraries" = "📚 Les librairies open-source";
 
@@ -239,4 +171,19 @@
 "Information 📌" = "Informations 📌";
 
 "X509Description" = "Si vous rencontrez des difficultés à utiliser votre clé publique avec d'autre outils de chiffrement RSA, essayer de désactiver le certificat X.509. Vous serez alors en mesure de partager votre clé publique sans entête de certification\nNote : Désactiver cette option n'affecte pas votre clé publique en tant que clé RSA. Cela va uniquement changer son format d'encodage.\nPar défaut, the certificat X.509 est utilisé pour votre clé publique.";
-*/
+
+"Bad format" = "Mauvais format";
+
+"Bad key" = "Mauvaise clé";
+
+"formatKeyDecryptionMessage" = "Le format du chiffré est incorrect. Veuillez uniquement déchiffrer un message chiffré précédemment avec iLocked.";
+
+"can'tAccessErrorMessage" = "iLocked ne peut pas accéder à votre clé privée.";
+
+"can'tDecryptErrorMessage" = "Vous ne pouvez pas déchiffrer ce texte. Vous n'avez pas la bonne clé privée. Assurez vous que le message a bien été chiffré avec VOTRE clé publique.";
+
+"🔑 Export your keys" = "🔑 Exporter vos clés";
+
+"Human readable" = "Lisible pour humain";
+
+"WarningOnTableViewExport" = "ATTENTION : Vous vous apprêtez à exporter votre clé publique, une information extrêmement critique. Vous devez absolument la garder dans un endroit sûr. Ne la partager pas. Gardez la pour vous seul";

@@ -23,7 +23,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     var nameSelected = "nil"
     var userKeySelected = false // We can inform ShowKey.swift, if the key selected, is the user key or not
     
-    var selectModeIsActive = false // false = normal mode. False = user wants to select some cells.
+    var selectModeIsActive = false // false = normal mode. False = user wants to select some cells in order to delete.
     var selectedCellList : [Int] = [] // contains index.row of each selected cell
     var hasUpdated = false // if the viewed is already load, we update. If not, the view has just loaded
     var isKeySelection = false // default : false. True if it's called by homePageEncryption and the user wants to select a key. In that case, cell must not be lead to showKey
@@ -180,6 +180,15 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
             tableView.deselectRow(at: indexPath, animated: true)
         }
         
+    }
+    
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if !self.selectModeIsActive && self.isKeySelection{
+            if section == 1{
+                return "Do not use your own public key to encrypt, unless if you want to keep secret from yourself.\nYou are the only one able to decrypt a texte encrypted with your public key ! ".localized(withKey: "warningPublicKeyUse")
+            }
+        }
+        return nil
     }
     
     

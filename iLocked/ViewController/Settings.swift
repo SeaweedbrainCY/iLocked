@@ -63,7 +63,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0 : return 1
-        case 1 : return 1
+        case 1 : return 2
         case 2 :
             let settingsData = SettingsData()
             let settings = settingsData.getSetting()
@@ -103,6 +103,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         } else if indexPath.section == 1{
             switch indexPath.row {
             case 0:
+                cell.textLabel?.text = "🔑 Export your keys".localized()
+            case 1:
                 cell.textLabel?.text = "❌ Revoke your keys".localized()
                 cell.backgroundColor = .systemRed
             default:
@@ -123,7 +125,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     setting.updateValue("false", forKey: SettingsName.isPasswordActivated.key)
                     settingData.saveSetting(dict: setting)
                 }
-                cell.textLabel?.text = "🔑 Protect with a password".localized()
+                cell.textLabel?.text = "🔐 Protect with a password".localized()
                 accessoryView = self.protectionSwitch
             case 1 :
                 if (setting.keys).contains(SettingsName.hideScreen.key){ // Check if the setting is already init
@@ -139,6 +141,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     settingData.saveSetting(dict: setting)
                 }
                 cell.textLabel?.text = "📲 Hide screen in App Switcher".localized()
+                cell.textLabel?.numberOfLines = 0
                 accessoryView = self.hideScreenSwitcher
             case 2 :
                 if (setting.keys).contains(SettingsName.timeBeforeLocking.key){ // Check if the setting is already init
@@ -163,7 +166,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 self.timeBeforeLockingLabel.textColor = .lightGray
                 self.timeBeforeLockingLabel.textAlignment = .right
                 accessoryView = self.timeBeforeLockingLabel
-                accessoryView.frame = CGRect(x: accessoryView.frame.origin.x, y: accessoryView.frame.origin.y, width: 120, height: 20)
+                accessoryView.frame = CGRect(x: accessoryView.frame.origin.x, y: accessoryView.frame.origin.y, width: 140, height: 20)
                 
             //case 3 :
                 //cell.textLabel?.text = "🔒 Lock application now"
@@ -225,7 +228,9 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             }
         } else if indexPath.section == 1 {
             switch indexPath.row {
-            case 0 : // revoke keys
+            case 0 :
+                self.performSegue(withIdentifier: "showExportKeys", sender: self)
+            case 1 : // revoke keys
                 self.performSegue(withIdentifier: "showRevocationView", sender: self)
             default : break
             }

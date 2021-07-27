@@ -126,6 +126,38 @@ class KeyId {
     public func key_format(_ key : String) -> String{
         return self.start_key_format + key + self.end_key_format
     }
+    
+    /// Export a given key to the official pem format, in order to export it
+    public func export_pem_format(_ key:String, isPrivate:Bool)-> String{
+        let exctracted = extract_key(key)
+        if isPrivate {
+            return keyFormat.pem_private.start + exctracted + keyFormat.pem_private.end
+        } else {
+            return keyFormat.pem_public.start + exctracted + keyFormat.pem_public.end
+        }
+       
+    }
 }
 
+public enum keyFormat{
+    case pem_public
+    case pem_private
+    
+    var start:String {
+        switch self {
+        case .pem_public:
+            return" -----BEGIN PUBLIC KEY-----\n"
+        case .pem_private:
+            return" -----BEGIN PRIVATE KEY-----\n"
+        }
+    }
+    var end:String {
+        switch self {
+        case .pem_public:
+            return" -----END PUBLIC KEY-----\n"
+        case .pem_private:
+            return" -----END PRIVATE KEY-----\n"
+        }
+    }
+}
 

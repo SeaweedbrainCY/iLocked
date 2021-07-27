@@ -184,6 +184,9 @@ class Encrypt: UIViewController, UITextViewDelegate{
         self.closeHelpButtonView.widthAnchor.constraint(equalToConstant: self.helpView.frame.width).isActive = true
         self.closeHelpButtonView.backgroundColor = .none
         self.closeHelpButtonView.addTarget(self, action: #selector(closeHelpSelected), for: .touchUpInside)
+        
+        // encrypt textview :
+        self.textToEncrypt.text = "Text to encrypt".localized()
     }
     
     //

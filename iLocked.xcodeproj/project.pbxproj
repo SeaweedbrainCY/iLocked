@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9013F7F326B05FC300CC7361 /* ExportKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9013F7F226B05FC300CC7361 /* ExportKeys.swift */; };
+		901BD77626AF1C52009D246D /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BD77526AF1C52009D246D /* BartyCrouch.swift */; };
 		902624022688BD3400489B07 /* X509Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902624012688BD3400489B07 /* X509Certificate.swift */; };
 		904063AA26949B1600946518 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063A926949B1600946518 /* UIWindow.swift */; };
 		904063AC26971CCD00946518 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063AB26971CCD00946518 /* Colors.swift */; };
@@ -101,6 +103,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9013F7F226B05FC300CC7361 /* ExportKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportKeys.swift; sourceTree = "<group>"; };
+		901BD77526AF1C52009D246D /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		902624012688BD3400489B07 /* X509Certificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X509Certificate.swift; sourceTree = "<group>"; };
 		904063A926949B1600946518 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		904063AB26971CCD00946518 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -206,6 +210,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		901BD77426AF1C43009D246D /* Batycroutch */ = {
+			isa = PBXGroup;
+			children = (
+				901BD77526AF1C52009D246D /* BartyCrouch.swift */,
+			);
+			path = Batycroutch;
+			sourceTree = "<group>";
+		};
 		9058774F2401B483004F1894 /* KeychainWrapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +239,7 @@
 		90D43B5323FDDB1900EFE9BD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				901BD77426AF1C43009D246D /* Batycroutch */,
 				9058774F2401B483004F1894 /* KeychainWrapper */,
 				90D43B732401AF5A00EFE9BD /* SwiftyRSA */,
 			);
@@ -370,6 +383,7 @@
 				D8A64B552353BCC1000613F3 /* ShowKey.swift */,
 				D820B849235E359D006CEB38 /* DecryptedResult.swift */,
 				90EBFC8D26AC7FC3002B30E9 /* GenerateKeysView.swift */,
+				9013F7F226B05FC300CC7361 /* ExportKeys.swift */,
 				D820B84D235E5EB1006CEB38 /* LockedView.swift */,
 				90B886FB23F7F31A00035C82 /* Settings.swift */,
 				906207D025914ECE00E98F90 /* Revoke.swift */,
@@ -586,6 +600,7 @@
 				D8A64B4D2353BCA0000613F3 /* GifController.swift in Sources */,
 				D8416D362364ED5100A0B038 /* Encryption.swift in Sources */,
 				905877462401B19A004F1894 /* Message.swift in Sources */,
+				901BD77626AF1C52009D246D /* BartyCrouch.swift in Sources */,
 				90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */,
 				9058774E2401B227004F1894 /* ClearMessage.swift in Sources */,
 				904063AA26949B1600946518 /* UIWindow.swift in Sources */,
@@ -614,6 +629,7 @@
 				90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */,
 				90DB59A92416B03F001189C5 /* SettingsData.swift in Sources */,
 				D8A64B582353BCC1000613F3 /* EncryptResult.swift in Sources */,
+				9013F7F326B05FC300CC7361 /* ExportKeys.swift in Sources */,
 				D820B848235E3559006CEB38 /* UIView.swift in Sources */,
 				D8A64B092353BC1C000613F3 /* SceneDelegate.swift in Sources */,
 				9058774D2401B1D4004F1894 /* SwiftyRSA+ObjC.swift in Sources */,

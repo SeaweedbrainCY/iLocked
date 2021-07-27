@@ -121,6 +121,9 @@ class Decrypt: UIViewController, UITextViewDelegate {
         // round some button :
         self.dismissKeyboardButton.layer.cornerRadius = 10
         self.decryptButton.layer.cornerRadius = 10
+        
+        // textToDecrypt
+        self.textToDecryptView.text = "Text to decrypt".localized()
     }
     
     
