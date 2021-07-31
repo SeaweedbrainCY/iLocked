@@ -376,7 +376,7 @@
 /* Class = "UILabel"; text = "Safe to send"; ObjectID = "byC-BB-6Mv"; */
 "byC-BB-6Mv.text" = "Envoi sûr";
 
-/* Class = "UILabel"; text = "\"WARNING : Your are going to export your private key, a highly critical information. You absoutely must keep it in a safe place. Do not share it. Keep it for yourself.\""; ObjectID = "gO7-k7-Y51"; */
+/* Class = "UILabel"; text = "WARNING : Your are going to export your private key, a highly critical information. You absoutely must keep it in a safe place. Do not share it. Keep it for yourself."; ObjectID = "gO7-k7-Y51"; */
 "gO7-k7-Y51.text" = "ATTENTION : Vous vous apprêtez à exporter votre clé publique, une information extrêmement critique. Vous devez absolument la garder dans un endroit sûr. Ne la partager pas. Gardez la pour vous seul";
 
 /* Class = "UIButton"; normalTitle = "Get started"; ObjectID = "glu-yL-799"; */

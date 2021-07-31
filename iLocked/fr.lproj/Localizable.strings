@@ -187,3 +187,23 @@
 "Human readable" = "Lisible pour humain";
 
 "WarningOnTableViewExport" = "ATTENTION : Vous vous apprêtez à exporter votre clé publique, une information extrêmement critique. Vous devez absolument la garder dans un endroit sûr. Ne la partager pas. Gardez la pour vous seul";
+
+"PEM format and X.509 certificate for the public key" = "Format PEM et certificat X.509 pour la clé publique";
+
+"PEM format (wihtout X.509 certificate)" = "Format PEM (sans certificat X.509)";
+
+"Base64 format and X.509 certificate for the public key" = "Format Base64 et certificat X.509 pour la clé publique";
+
+"Base64 format (wihtout X.509 certificate)" = "Format Base64 (sans certificat X.509)";
+
+"Unable to retrieve your keys" = "Impossible de récuprer vos clés";
+
+"impossibleRetrieveErrorMessage" = "Veuillez réessayer. Si vous voyez ce message plusieurs fois, merci de contacter le développeur.";
+
+"footerExportKeys0" = "Format X.509 PEM : Format utilisé pour certains outils de chiffrement RSA (comme openSSL).\niLocked supporte ce format pour l'importation de clés.";
+
+"footerExportKeys1" = "Format PEM : Format utilisé pour certains outils de chiffrement RSA (en ligne par ex.). Il est plus flexible mais ne supporte pas le certificat X.509, ce qui peut créer des problèmes de chiffrement avec certains outils.\niLocked supporte ce format pour l'importation de clés.";
+
+"footerExportKeys2" = "Format X.509 Base64 : Format utilisé pour certains outils de chiffrement RSA (en ligne par ex.).\niLocked supporte ce format pour l'importation de clés.";
+
+"footerExportKeys3" = "Format Base64 : Format plus utile et flexible. Il peut être utilisé avec la plupart des outils de chiffrement RSA et peut êytre facilement converti au format PEM. Mais il ne supporte pas le certificat X.509, ce qui peut créer des problèmes de chiffrement avec certains outils.\niLocked supporte ce format pour l'importation de clés.";

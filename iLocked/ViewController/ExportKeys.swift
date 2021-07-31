@@ -115,10 +115,10 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
         headerSectionLabel.textAlignment = .center
        
         switch section {
-        case 0 : headerSectionLabel.text =  "PEM format and X.509 certificate for the public key"
-        case 1 : headerSectionLabel.text = "PEM format (wihtout X.509 certificate)"
-        case 2 : headerSectionLabel.text = "Base64 format and X.509 certificate for the public key"
-        case 3 : headerSectionLabel.text = "Base64 format (wihtout X.509 certificate)"
+        case 0 : headerSectionLabel.text =  "PEM format and X.509 certificate for the public key".localized()
+        case 1 : headerSectionLabel.text = "PEM format (wihtout X.509 certificate)".localized()
+        case 2 : headerSectionLabel.text = "Base64 format and X.509 certificate for the public key".localized()
+        case 3 : headerSectionLabel.text = "Base64 format (wihtout X.509 certificate)".localized()
         default : headerSectionLabel.text =  "ERROR"
         }
         headerSectionLabel.text = "        " + headerSectionLabel.text!
@@ -138,7 +138,7 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
         let privateKey = KeychainWrapper.standard.string(forKey: UserKeys.privateKey.tag)
         let keys = KeyId()
         if publicKey == nil || privateKey == nil {
-            alert("Unable to retrieve your keys", message: "Please try again. If you see this message several time, please contact the developer", quitMessage: "Ok")
+            alert("Unable to retrieve your keys".localized(), message: "Please try again. If you see this message several time, please contact the developer".localized(withKey: "impossibleRetrieveErrorMessage"), quitMessage: "Ok")
         } else {
             if indexPath.section == 0{ // pem / X.509
                 let public_formated = keys.export_pem_format(publicKey!, isPrivate: false)
@@ -206,7 +206,7 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         break
                     }
                 } catch{
-                    alert("Unable to retrieve your keys", message: "Please try again. If you see this message several time, please contact the developer", quitMessage: "Ok")
+                    alert("Unable to retrieve your keys".localized(), message: "Please try again. If you see this message several time, please contact the developer".localized(withKey: "impossibleRetrieveErrorMessage"), quitMessage: "Ok")
                 }
             } else if indexPath.section == 2 { // base 64 + X.509
                 let private_formated = privateKey!
@@ -250,7 +250,7 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
                         break
                     }
                 } catch{
-                    alert("Unable to retrieve your keys", message: "Please try again. If you see this message several time, please contact the developer", quitMessage: "Ok")
+                    alert("Unable to retrieve your keys".localized(), message: "Please try again. If you see this message several time, please contact the developer".localized(withKey: "impossibleRetrieveErrorMessage"), quitMessage: "Ok")
                 }
                 
             }
@@ -261,13 +261,13 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 0{
-            return "X.509 PEM format : Format used by some of RSA encryptor (as openSSL). \niLocked supports this format for importation."
+            return "X.509 PEM format : Format used by some of RSA encryptor (as openSSL). \niLocked supports this format for importation.".localized(withKey: "footerExportKeys0")
         } else if section == 1 {
-            return "PEM format : Format used by some of RSA encryptor (as online encryptor). More flexible but doens't support the X.509 certificate which can cause error with other RSA encryptor"
+            return "PEM format : Format used by some of RSA encryptor (as online encryptor). More flexible but doens't support the X.509 certificate which can cause error with other RSA encryptor".localized(withKey: "footerExportKeys1")
         } else if section == 2 {
-            return "X.509 Base64 format : Format used by some of RSA encryptor (as online encryptor). T.\niLocked supports this format for importation."
+            return "X.509 Base64 format : Format used by some of RSA encryptor (as online encryptor). T.\niLocked supports this format for importation.".localized(withKey: "footerExportKeys2")
         } else if section == 3 {
-            return "Base64 format : Most usable and flexible format. It can be used without the most of RSA encryptor and can easly be converted into a PEM file. But, it doens't support the X.509 certificate which can cause error with other RSA encryptor.\niLocked supports this format for importation."
+            return "Base64 format : Most usable and flexible format. It can be used with the most of RSA encryptor and can easly be converted into a PEM file. But, it doens't support the X.509 certificate which can cause error with other RSA encryptor.\niLocked supports this format for importation.".localized(withKey: "footerExportKeys3")
         }
         return nil
     }

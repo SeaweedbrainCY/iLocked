@@ -154,9 +154,9 @@ public enum keyFormat{
     var end:String {
         switch self {
         case .pem_public:
-            return" -----END PUBLIC KEY-----\n"
+            return"\n-----END PUBLIC KEY-----"
         case .pem_private:
-            return" -----END PRIVATE KEY-----\n"
+            return"\n-----END PRIVATE KEY-----"
         }
     }
 }
