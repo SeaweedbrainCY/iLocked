@@ -137,6 +137,7 @@ class KeyId {
         }
        
     }
+    
 }
 
 public enum keyFormat{
@@ -146,9 +147,9 @@ public enum keyFormat{
     var start:String {
         switch self {
         case .pem_public:
-            return" -----BEGIN PUBLIC KEY-----\n"
+            return "-----BEGIN PUBLIC KEY-----\n"
         case .pem_private:
-            return" -----BEGIN PRIVATE KEY-----\n"
+            return "-----BEGIN PRIVATE KEY-----\n"
         }
     }
     var end:String {

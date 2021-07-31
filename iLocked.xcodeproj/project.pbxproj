@@ -27,6 +27,7 @@
 		9058774E2401B227004F1894 /* ClearMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5E2401AF5A00EFE9BD /* ClearMessage.swift */; };
 		906207D125914ECE00E98F90 /* Revoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906207D025914ECE00E98F90 /* Revoke.swift */; };
 		906CE59325DDA53D007B8E08 /* AdvancedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */; };
+		908AE09926B554570032D74A /* ImportKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908AE09826B554570032D74A /* ImportKeys.swift */; };
 		90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */; };
 		90B69BE426A08FA800451DFC /* SecondWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */; };
 		90B69BEB26A2C5B700451DFC /* FirstTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */; };
@@ -114,6 +115,7 @@
 		9074A09525373C1C00983FBC /* iLocked.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iLocked.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9074A09625373C1C00983FBC /* iLockedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLockedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9074A09725373C1C00983FBC /* iLockedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLockedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		908AE09826B554570032D74A /* ImportKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportKeys.swift; sourceTree = "<group>"; };
 		909655F924F85615001147B3 /* iLocked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iLocked.entitlements; sourceTree = "<group>"; };
 		90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstWelcomeView.swift; sourceTree = "<group>"; };
 		90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWelcomeView.swift; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				90EE52B1267675FB00C506AA /* WebView.swift */,
 				90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */,
 				90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */,
+				908AE09826B554570032D74A /* ImportKeys.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				9058774B2401B1B2004F1894 /* SwiftyRSA.swift in Sources */,
 				D8A64B592353BCC1000613F3 /* EncryptHomePage.swift in Sources */,
 				90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */,
+				908AE09926B554570032D74A /* ImportKeys.swift in Sources */,
 				9048E65D23FB017800098C73 /* Dictionary.swift in Sources */,
 				D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */,
 				D8416D382364F62700A0B038 /* Decryption.swift in Sources */,

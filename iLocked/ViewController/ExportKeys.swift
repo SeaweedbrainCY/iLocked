@@ -329,11 +329,31 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func shareWithJSON(privateKey:String, publicKey:String, format:String) -> String {
-        let data = ["Type" :"RSA-4096", "Format": format, "Public key": publicKey , "Private key": privateKey]
+        let data = [ExportKeysJSON.type.key :"RSA-4096", ExportKeysJSON.format.key: format, ExportKeysJSON.publicKey.key: publicKey , ExportKeysJSON.privateKey.key: privateKey]
         return data.toJson()!
     }
     
     func shareInHumanReadable(privateKey:String, publicKey:String, format:String) -> String {
-        return "iLocked RSA-4096 keys:\n[Format] : \(format)\n[Public key] : \(publicKey)\n[Private key] : \(privateKey)"
+        return "iLocked RSA-4096 keys:\n[\(ExportKeysJSON.format.key)] : \(format)\n[\(ExportKeysJSON.publicKey.key)] : \(publicKey)\n[\(ExportKeysJSON.privateKey.key)] : \(privateKey)"
+    }
+}
+
+enum ExportKeysJSON { // key of the dictionnary encoded in JSON
+    case type
+    case format
+    case publicKey
+    case privateKey
+    
+    var key:String {
+        switch self {
+        case .type:
+            return "Type"
+        case .format:
+            return "Format"
+        case .publicKey:
+            return "Public key"
+        case .privateKey:
+            return "Private key"
+        }
     }
 }
