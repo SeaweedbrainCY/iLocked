@@ -157,13 +157,13 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
                     } // else a pop up is showed
                     
                 case 1:// JSON
-                    let json = shareWithJSON(privateKey: private_formated, publicKey: public_formated, format: "PEM / X.509")
+                    let json = shareWithJSON(privateKey: private_formated, publicKey: public_formated, format: ExportKeysJSON.format.pemX509)
                     let activityViewController = UIActivityViewController(activityItems: [json], applicationActivities: nil)
                     present(activityViewController, animated: true, completion: {
                         self.activityIndicator.stopAnimating()
                     })
                 case 2 : // Human readable
-                    let text = shareInHumanReadable(privateKey: private_formated, publicKey: public_formated, format: "PEM / X.509")
+                    let text = shareInHumanReadable(privateKey: private_formated, publicKey: public_formated, format: ExportKeysJSON.format.pemX509)
                     let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
                     present(activityViewController, animated: true, completion: {
                         self.activityIndicator.stopAnimating()
@@ -191,13 +191,13 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
                             })
                         } // else a pop up is showed
                     case 1:// JSON
-                        let json = shareWithJSON(privateKey: private_formated, publicKey: public_formated, format: "PEM")
+                        let json = shareWithJSON(privateKey: private_formated, publicKey: public_formated, format: ExportKeysJSON.format.pem)
                         let activityViewController = UIActivityViewController(activityItems: [json], applicationActivities: nil)
                         present(activityViewController, animated: true, completion: {
                             self.activityIndicator.stopAnimating()
                         })
                     case 2 : // Human readable
-                        let text = shareInHumanReadable(privateKey: private_formated, publicKey: public_formated, format: "PEM")
+                        let text = shareInHumanReadable(privateKey: private_formated, publicKey: public_formated, format: ExportKeysJSON.format.pem)
                         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
                         present(activityViewController, animated: true, completion: {
                             self.activityIndicator.stopAnimating()
@@ -213,13 +213,13 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 let public_formated = KeyId().extract_key(publicKey!)
                 switch indexPath.row {
                 case 0:// JSON
-                    let json = shareWithJSON(privateKey: private_formated, publicKey: public_formated, format: "Base64 / X.509")
+                    let json = shareWithJSON(privateKey: private_formated, publicKey: public_formated, format: ExportKeysJSON.format.base64X509)
                     let activityViewController = UIActivityViewController(activityItems: [json], applicationActivities: nil)
                     present(activityViewController, animated: true, completion: {
                         self.activityIndicator.stopAnimating()
                     })
                 case 1 : // Human readable
-                    let text = shareInHumanReadable(privateKey: private_formated, publicKey: public_formated, format: "Base64 / X.509")
+                    let text = shareInHumanReadable(privateKey: private_formated, publicKey: public_formated, format: ExportKeysJSON.format.base64X509)
                     let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
                     present(activityViewController, animated: true, completion: {
                         self.activityIndicator.stopAnimating()
@@ -235,13 +235,13 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
                     
                     switch indexPath.row {
                     case 0:// JSON
-                        let json = shareWithJSON(privateKey: private_formated, publicKey: public_formated, format: "Base64")
+                        let json = shareWithJSON(privateKey: private_formated, publicKey: public_formated, format: ExportKeysJSON.format.base64)
                         let activityViewController = UIActivityViewController(activityItems: [json], applicationActivities: nil)
                         present(activityViewController, animated: true, completion: {
                             self.activityIndicator.stopAnimating()
                         })
                     case 1 : // Human readable
-                        let text = shareInHumanReadable(privateKey: private_formated, publicKey: public_formated, format: "Base64")
+                        let text = shareInHumanReadable(privateKey: private_formated, publicKey: public_formated, format: ExportKeysJSON.format.base64)
                         let activityViewController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
                         present(activityViewController, animated: true, completion: {
                             self.activityIndicator.stopAnimating()
@@ -356,4 +356,39 @@ enum ExportKeysJSON { // key of the dictionnary encoded in JSON
             return "Private key"
         }
     }
+    
+    var pemX509:String{
+    switch self {
+    case .format:
+        return "PEM / X.509"
+    default :
+        return ""
+    }
+    }
+    var pem : String {
+        switch self {
+        case .format:
+            return "PEM"
+        default :
+            return ""
+        }
+    }
+    
+    var base64X509:String{
+    switch self {
+    case .format:
+        return "Base64 / X.509"
+    default :
+        return ""
+    }
+    }
+    var base64 : String {
+        switch self {
+        case .format:
+            return "Base64"
+        default :
+            return ""
+        }
+    }
+    
 }

@@ -135,7 +135,50 @@ class KeyId {
         } else {
             return keyFormat.pem_public.start + exctracted + keyFormat.pem_public.end
         }
-       
+    }
+    
+    /// Extract a given key from the official pem format, in order to import it
+    /// Then, the public key is padded with the iLocked format.
+    public func extract_from_pem_format(_ keyText:String, isPrivate:Bool)-> String? {
+        print("[*] Extraction of a key in PEM official format")
+        var separatorStart = ""
+        var separatorEnd = ""
+        if isPrivate{
+            separatorStart = keyFormat.pem_private.start.replacingOccurrences(of: " ", with: "")
+            separatorEnd = keyFormat.pem_private.end.replacingOccurrences(of: " ", with: "")
+        } else {
+            separatorStart = keyFormat.pem_public.start.replacingOccurrences(of: " ", with: "")
+            separatorEnd = keyFormat.pem_public.end.replacingOccurrences(of: " ", with: "")
+        }
+        let key = keyText.replacingOccurrences(of: " ", with: "") // We ignore space " "
+        
+        // extract key
+        let splited_key_start = key.components(separatedBy: separatorStart)
+        if splited_key_start.count == 2 {
+            if splited_key_start[0].contains(separatorEnd){
+                let splited_key_end = splited_key_start[0].components(separatedBy: separatorEnd)
+                if splited_key_end.count == 2 {
+                    return splited_key_end[0]
+                } else {
+                    print("[** Error **] No end detected while parsing. Splited_key_end = \(splited_key_end), Splited_key_start = \(splited_key_start)")
+                    return nil
+                }
+            } else if splited_key_start[1].contains(separatorEnd) {
+                let splited_key_end = splited_key_start[1].components(separatedBy: separatorEnd)
+                if splited_key_end.count == 2 {
+                    return splited_key_end[0]
+                } else {
+                    print("[** Error **] No end detected while parsing. Splited_key_end = \(splited_key_end), Splited_key_start = \(splited_key_start)")
+                    return nil
+                }
+            } else {
+                print("[** Error **] No end detected. Splited_key_start = \(splited_key_start)")
+                return nil
+            }
+        } else {
+            print("[** Error **] No start detected. Splited_key_start = \(splited_key_start). Start separator = \(separatorStart)")
+            return nil
+        }
     }
     
 }

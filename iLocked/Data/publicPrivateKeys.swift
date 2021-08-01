@@ -43,7 +43,7 @@ class PublicPrivateKeys {
     }
     
     
-    private func verifyIfKeysWork(privateKey: PrivateKey, publicKey: PublicKey)-> Bool{
+    public func verifyIfKeysWork(privateKey: PrivateKey, publicKey: PublicKey)-> Bool{
         do{
             let text = "Some random text"
             var clear = try ClearMessage(string: text, using: .utf8)

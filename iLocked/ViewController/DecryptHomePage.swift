@@ -151,11 +151,11 @@ class Decrypt: UIViewController, UITextViewDelegate {
     
     @IBAction func pasteButtonSelected(sender: UIButton){
         let content = UIPasteboard.general.string
-        if content == "" {
+        if content == "" || content == nil{
             shakeAnimation(view: self.pasteButton,text: "Nothing to paste".localized())
         } else {
             self.textViewDidBeginEditing(self.textToDecryptView)
-            self.textToDecryptView.text = content
+            self.textToDecryptView.text = content!
             self.textViewDidEndEditing(self.textToDecryptView)
             self.decryptButton(self.decryptButton)
         }
