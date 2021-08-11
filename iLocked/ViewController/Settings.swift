@@ -104,6 +104,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             switch indexPath.row {
             case 0:
                 cell.textLabel?.text = "🔑 Export your keys".localized()
+                accessoryView = UIImageView(image: self.nextViewSettingImageView)
+                accessoryView.tintColor = .darkGray
             case 1:
                 cell.textLabel?.text = "❌ Revoke your keys".localized()
                 cell.backgroundColor = .systemRed

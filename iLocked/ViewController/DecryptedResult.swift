@@ -34,22 +34,26 @@ class DecryptedResult : UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        self.contructView()
         decryption()
+        self.contructView()
+        print("Decryption view did appear")
     }
         
     
     func contructView(){
+        print("cgframe = \(self.view.frame)")
         self.barView.layer.cornerCurve = .circular
         //self.decryptedTextView.centerVertically()
-        
+        print("Error message frame = \(self.errorMessage.frame)")
         self.errorMessage.translatesAutoresizingMaskIntoConstraints = true
+        
+        self.errorMessage.frame = CGRect(x: 0, y: 0, width: self.view.frame.width - 40, height: self.view.frame.height / 3)
         self.errorMessage.center = self.view.center
-        self.errorMessage.frame = CGRect(x: self.errorMessage.frame.origin.x, y: self.errorMessage.frame.origin.y, width: self.view.frame.width - 40, height: self.view.frame.height / 3)
+        print("Error message frame (new) = \(self.errorMessage.frame)")
         self.errorMessage.layer.borderColor = UIColor.red.cgColor
         self.errorMessage.layer.cornerRadius = 10
         self.errorMessage.layer.borderWidth = 1.5
-        self.errorMessage.backgroundColor = .white//UIColor(red: 1, green: 0, blue: 0, alpha: 0.8)
+        self.errorMessage.backgroundColor = UIColor(red: 251/255, green: 233/255, blue: 232/255, alpha: 1)
         self.errorMessage.layer.masksToBounds = true
         self.errorMessage.textColor = .black
         
@@ -63,11 +67,8 @@ class DecryptedResult : UIViewController{
         self.errorTitle.layer.borderColor = UIColor.red.cgColor
         self.errorTitle.layer.borderWidth = 1.5
         self.errorTitle.layer.masksToBounds = true
-        self.errorTitle.backgroundColor = .white
+        self.errorTitle.backgroundColor = UIColor(red: 251/255, green: 233/255, blue: 232/255, alpha: 1)
         self.errorTitle.textColor = .black
-        
-        
-       
     }
         
     
