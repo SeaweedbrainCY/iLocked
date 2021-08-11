@@ -440,20 +440,20 @@
                                 <color key="sectionIndexBackgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Asc-LZ-kCa">
-                                        <rect key="frame" x="20" y="49" width="388" height="21.333333969116211"/>
+                                        <rect key="frame" x="20" y="49" width="388" height="20.666666030883789"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Asc-LZ-kCa" id="D1u-PI-Ook">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="21.333333969116211"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="20.666666030883789"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9o-Rm-f6L">
-                                                    <rect key="frame" x="20" y="0.0" width="325" height="21.333333333333332"/>
+                                                    <rect key="frame" x="20" y="0.0" width="325" height="20.666666666666668"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-X5-TjQ">
-                                                    <rect key="frame" x="357" y="0.0" width="21" height="21.333333333333332"/>
+                                                    <rect key="frame" x="357" y="0.0" width="21" height="20.666666666666668"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="Bdr-Yt-CH8"/>
                                                     </constraints>
@@ -2366,11 +2366,11 @@ Public and private key</string>
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="1iP-nM-tcL" customClass="GenerateKeysView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xch-yd-NQk">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TH2-DB-BLv">
-                                <rect key="frame" x="40" y="326" width="348" height="47"/>
+                                <rect key="frame" x="40" y="353" width="348" height="47"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="2Sh-CZ-LKi"/>
@@ -2384,17 +2384,17 @@ Public and private key</string>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="sPY-rS-cnb">
-                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
+                                <rect key="frame" x="20" y="44" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- or -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiL-tw-T3H">
-                                <rect key="frame" x="190.66666666666666" y="423" width="47" height="26"/>
+                                <rect key="frame" x="190.66666666666666" y="450" width="47" height="26"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="21"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chu-Up-A6c">
-                                <rect key="frame" x="40" y="499" width="348" height="47"/>
+                                <rect key="frame" x="40" y="526" width="348" height="47"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="K8c-fN-hc5"/>
@@ -2408,11 +2408,11 @@ Public and private key</string>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VZ5-wD-eAY">
-                                <rect key="frame" x="204" y="426" width="20" height="20"/>
+                                <rect key="frame" x="204" y="453" width="20" height="20"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓ Only if you had already used iLocked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goj-Vc-pon">
-                                <rect key="frame" x="40" y="554" width="260" height="20"/>
+                                <rect key="frame" x="40" y="581" width="260" height="20"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -2457,11 +2457,11 @@ Public and private key</string>
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="BTm-Ko-OcZ" customClass="ImportKeys" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rc0-Hv-Thg">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="x2V-LU-PSO">
-                                <rect key="frame" x="0.0" y="85" width="428" height="753"/>
+                                <rect key="frame" x="0.0" y="129" width="428" height="763"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EE-ww-Ui4">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
@@ -2568,22 +2568,43 @@ Public and private key</string>
                                             <constraint firstAttribute="trailing" secondItem="ZdO-ks-Nhn" secondAttribute="trailing" constant="80" id="w6c-iV-axy"/>
                                         </constraints>
                                     </view>
+                                    <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-oo-kwf">
+                                        <rect key="frame" x="139" y="264" width="150" height="150"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle@20x_light_gray" translatesAutoresizingMaskIntoConstraints="NO" id="wgw-Nz-rXL">
+                                                <rect key="frame" x="40" y="20" width="70" height="70"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="Cmc-PN-u5l"/>
+                                                    <constraint firstAttribute="width" constant="70" id="pjq-8O-xMV"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Success !" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYu-4w-stE">
+                                                <rect key="frame" x="20" y="110" width="110" height="27.333333333333343"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="wgw-Nz-rXL" secondAttribute="trailing" constant="40" id="8ZJ-ZB-B2B"/>
+                                            <constraint firstAttribute="trailing" secondItem="dYu-4w-stE" secondAttribute="trailing" constant="20" id="8ZZ-xT-hKf"/>
+                                            <constraint firstItem="dYu-4w-stE" firstAttribute="top" secondItem="wgw-Nz-rXL" secondAttribute="bottom" constant="20" id="HXq-JH-34m"/>
+                                            <constraint firstItem="wgw-Nz-rXL" firstAttribute="top" secondItem="gzg-oo-kwf" secondAttribute="top" constant="20" id="JPl-6O-mmT"/>
+                                            <constraint firstAttribute="width" constant="150" id="aC1-Up-wqx"/>
+                                            <constraint firstItem="wgw-Nz-rXL" firstAttribute="leading" secondItem="gzg-oo-kwf" secondAttribute="leading" constant="40" id="myR-g7-dw3"/>
+                                            <constraint firstAttribute="height" constant="150" id="q9Q-ai-kvy"/>
+                                            <constraint firstItem="wgw-Nz-rXL" firstAttribute="centerX" secondItem="gzg-oo-kwf" secondAttribute="centerX" id="qFB-fB-BNe"/>
+                                            <constraint firstItem="dYu-4w-stE" firstAttribute="leading" secondItem="gzg-oo-kwf" secondAttribute="leading" constant="20" id="zl4-tZ-vYd"/>
+                                        </constraints>
+                                    </view>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Gp4-Pb-TNg">
-                                        <rect key="frame" x="179" y="301" width="70" height="70"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <rect key="frame" x="179" y="304" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="YIL-36-lMo"/>
                                             <constraint firstAttribute="height" constant="70" id="kzB-ph-5Gn"/>
                                         </constraints>
                                     </activityIndicatorView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark" translatesAutoresizingMaskIntoConstraints="NO" id="wgw-Nz-rXL">
-                                        <rect key="frame" x="179" y="301" width="70" height="70"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="70" id="Cmc-PN-u5l"/>
-                                            <constraint firstAttribute="width" constant="70" id="pjq-8O-xMV"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="8EE-ww-Ui4" firstAttribute="leading" secondItem="x2V-LU-PSO" secondAttribute="leading" id="MyT-UH-SgD"/>
@@ -2596,17 +2617,17 @@ Public and private key</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KKO-3R-vVE"/>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="lo7-mq-D6i">
-                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
+                                <rect key="frame" x="20" y="44" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Import your iLocked keys" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5p-5t-Tw8">
-                                <rect key="frame" x="20" y="24" width="388" height="41"/>
+                                <rect key="frame" x="20" y="68" width="388" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PC1-wJ-yCf">
-                                <rect key="frame" x="10" y="65" width="40" height="29"/>
+                                <rect key="frame" x="10" y="109" width="40" height="29"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                 <state key="normal" title="&lt; Back">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2619,9 +2640,10 @@ Public and private key</string>
                         <viewLayoutGuide key="safeArea" id="fus-Ch-LMD"/>
                         <color key="backgroundColor" red="0.1098443493" green="0.1097008213" blue="0.11764953290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="gzg-oo-kwf" firstAttribute="centerY" secondItem="fus-Ch-LMD" secondAttribute="centerY" id="16y-dh-pcd"/>
                             <constraint firstItem="R5p-5t-Tw8" firstAttribute="top" secondItem="lo7-mq-D6i" secondAttribute="bottom" constant="20" id="22k-DT-EZK"/>
+                            <constraint firstItem="gzg-oo-kwf" firstAttribute="centerX" secondItem="fus-Ch-LMD" secondAttribute="centerX" id="5i5-DH-HB7"/>
                             <constraint firstItem="fus-Ch-LMD" firstAttribute="trailing" secondItem="R5p-5t-Tw8" secondAttribute="trailing" constant="20" id="7K3-qV-c8x"/>
-                            <constraint firstItem="wgw-Nz-rXL" firstAttribute="centerY" secondItem="fus-Ch-LMD" secondAttribute="centerY" id="8c2-WE-gy0"/>
                             <constraint firstItem="PC1-wJ-yCf" firstAttribute="leading" secondItem="fus-Ch-LMD" secondAttribute="leading" constant="10" id="Aui-Ak-JkQ"/>
                             <constraint firstItem="x2V-LU-PSO" firstAttribute="leading" secondItem="fus-Ch-LMD" secondAttribute="leading" id="HBu-UU-nSC"/>
                             <constraint firstItem="lo7-mq-D6i" firstAttribute="top" secondItem="fus-Ch-LMD" secondAttribute="top" id="HPF-Vw-Qi5"/>
@@ -2630,7 +2652,6 @@ Public and private key</string>
                             <constraint firstItem="fus-Ch-LMD" firstAttribute="trailing" secondItem="lo7-mq-D6i" secondAttribute="trailing" constant="20" id="YId-SD-Jhx"/>
                             <constraint firstItem="x2V-LU-PSO" firstAttribute="trailing" secondItem="fus-Ch-LMD" secondAttribute="trailing" id="csA-wg-eRr"/>
                             <constraint firstItem="lo7-mq-D6i" firstAttribute="leading" secondItem="fus-Ch-LMD" secondAttribute="leading" constant="20" id="f2g-s6-GV2"/>
-                            <constraint firstItem="wgw-Nz-rXL" firstAttribute="centerX" secondItem="fus-Ch-LMD" secondAttribute="centerX" id="fAx-S7-E48"/>
                             <constraint firstItem="Gp4-Pb-TNg" firstAttribute="centerX" secondItem="fus-Ch-LMD" secondAttribute="centerX" id="fdT-6t-l8Y"/>
                             <constraint firstItem="x2V-LU-PSO" firstAttribute="trailing" secondItem="fus-Ch-LMD" secondAttribute="trailing" id="fms-sR-Uc3"/>
                             <constraint firstItem="x2V-LU-PSO" firstAttribute="leading" secondItem="fus-Ch-LMD" secondAttribute="leading" id="kaw-th-rYr"/>
@@ -2644,7 +2665,11 @@ Public and private key</string>
                     <connections>
                         <outlet property="activityIndicator" destination="Gp4-Pb-TNg" id="Cfk-eT-K0k"/>
                         <outlet property="checkMark" destination="wgw-Nz-rXL" id="FSD-lE-Era"/>
+                        <outlet property="checkmarkBackground" destination="gzg-oo-kwf" id="WAB-js-8lP"/>
+                        <outlet property="clearButton" destination="5Ba-k5-xH7" id="DAe-cH-0jk"/>
                         <outlet property="importButton" destination="atA-OG-Xgv" id="wwd-r2-uVT"/>
+                        <outlet property="pasteButton" destination="R7x-Uu-nsv" id="47C-dR-1cO"/>
+                        <outlet property="successLabel" destination="dYu-4w-stE" id="1vG-YC-JC3"/>
                         <outlet property="textToImport" destination="wuR-F9-K4M" id="6bV-wA-wWW"/>
                         <outlet property="txtFileButton" destination="ZdO-ks-Nhn" id="VD2-54-W86"/>
                         <segue destination="2EE-iT-cBD" kind="presentation" identifier="homePage" modalPresentationStyle="fullScreen" id="lVN-wf-TST"/>
@@ -2666,7 +2691,7 @@ Public and private key</string>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
-        <image name="checkmark" width="398" height="399"/>
+        <image name="checkmark.circle@20x_light_gray" width="398" height="399"/>
         <image name="checkmark.shield" catalog="system" width="128" height="118"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>

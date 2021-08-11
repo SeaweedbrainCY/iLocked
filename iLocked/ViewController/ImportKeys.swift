@@ -21,6 +21,8 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
     @IBOutlet weak var checkMark: UIImageView!
     @IBOutlet weak var pasteButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var checkmarkBackground : UIView!
+    @IBOutlet weak var successLabel : UILabel!
     
     let placeHolder = "Paste your keys export text"
     
@@ -30,6 +32,7 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
         self.activityIndicator.layer.cornerRadius = 10
         self.checkMark.layer.cornerRadius = 10
         self.importButton.layer.cornerRadius = 20
+        self.checkmarkBackground.layer.cornerRadius = 20
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -105,8 +108,12 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
             return
         }
         print("import result : \(myURL.relativePath)")
+        let isAccessing = myURL.startAccessingSecurityScopedResource()
         do {
             let contents = try String(contentsOfFile: myURL.relativePath, encoding: .utf8)
+            if isAccessing {
+                myURL.stopAccessingSecurityScopedResource()
+            }
                 
             let myStrings = contents.components(separatedBy: .newlines)
                     let text = myStrings.joined(separator: "\n")
@@ -203,11 +210,13 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
     ///     - privateKey : The private key, base64 encoded
     ///     - isX509 : Optional. Nil if we have to check, bool value if we already know. The func store the result and test if necessary
     func saveKeys(publicKey:String, privateKey: String, isX509Given: Bool?){
+        self.importButton.isEnabled = false
         let saveSuccessfulPrivateKey = KeychainWrapper.standard.set(privateKey, forKey: UserKeys.privateKey.tag)
         let saveSuccessfulPublicKey = KeychainWrapper.standard.set(publicKey, forKey: UserKeys.publicKey.tag)
         if !saveSuccessfulPrivateKey && !saveSuccessfulPublicKey {
             self.activityIndicator.stopAnimating()
             alert("Impossible to save your keys", message: "Please check you have enough place in your iDevice.", quitMessage: "Ok")
+            self.importButton.isEnabled = true
         } else { // success
             self.activityIndicator.stopAnimating()
             let settingData = SettingsData()
@@ -230,11 +239,8 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
             
             settingDict.updateValue(String(isX509), forKey: SettingsName.X509Certificate.key)
             settingData.saveSetting(dict: settingDict)
-            let animation = UIViewPropertyAnimator(duration: 0.8, curve: .linear, animations: {
-                self.checkMark.alpha = 1
-            })
-            animation.startAnimation()
-            self.perform(#selector(performSegueWithDelay), with: nil, afterDelay: 1)
+            showSuccess()
+            self.perform(#selector(performSegueWithDelay), with: nil, afterDelay: 0.8)
         }
         
     }
@@ -245,16 +251,20 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
     
     func extractKeysFromString(_ str:String){
         print("[*] Try to extract keys from a given text")
+        if let dictIfJSON = str.jsonToDictionary() { // it's json
+            extractFromJSON(dictIfJSON)
+        } else {
+            extractFromHumanReadable(str)
+        }
+    }
+    
+    
+    
+    func extractFromJSON(_ dict: [String:String]){
         var privateKey:String?
         var publicKey:String?
         var isX509: Bool?
-        guard let dictIfJSON = str.jsonToDictionary()  else {
-            incorrectInfo()
-            return
-        } // if == [""] then it's not in JSON format
-            
-        
-        guard let type = dictIfJSON[ExportKeysJSON.type.key] else {
+        guard let type = dict[ExportKeysJSON.type.key] else {
             incorrectInfo()
             return
         }
@@ -267,21 +277,21 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
         
         print("[*] Right type (\(type). Extraction ...")
         
-        guard let format = dictIfJSON[ExportKeysJSON.format.key] else {
+        guard let format = dict[ExportKeysJSON.format.key] else {
             print("[** Error **] Incorrect format (key doesn't exist in the retrieved dictionnary)")
             incorrectInfo()
             return
         }
         print("[*] Format = \(format)")
         
-        guard let publicKeyString = dictIfJSON[ExportKeysJSON.publicKey.key] else {
+        guard let publicKeyString = dict[ExportKeysJSON.publicKey.key] else {
             print("[** Error **] Incorrect public key (key doesn't exist in the retrieved dictionnary)")
             incorrectInfo()
             return
         }
         print("[*] PublicKey = \(publicKeyString)")
         
-        guard let privateKeyString = dictIfJSON[ExportKeysJSON.privateKey.key] else {
+        guard let privateKeyString = dict[ExportKeysJSON.privateKey.key] else {
             print("[** Error **] Incorrect private key (key doesn't exist in the retrieved dictionnary)")
             incorrectInfo()
             return
@@ -303,7 +313,7 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
             publicKey = publicKeyString
             privateKey = privateKeyString
             isX509 = true
-        case ExportKeysJSON.format.base64X509:
+        case ExportKeysJSON.format.base64:
             publicKey = publicKeyString
             privateKey = privateKeyString
             isX509 = false
@@ -335,9 +345,114 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
             wrongKeys()
             return
         }
-        
-        
     }
+    
+    
+    func extractFromHumanReadable(_ str: String){
+        print("[*] Try to decrypt human readable keys")
+        var privateKey:String?
+        var publicKey:String?
+        var isX509: Bool?
+        let lines = str.components(separatedBy: "\n[")
+        guard  lines.count >= 4 else {
+            print("[** Error **] Too much data. Nb of lines = \(lines.count)")
+            incorrectInfo()
+            return
+        }
+            guard lines[0].contains(ExportKeysJSON.humanTitle.str) else {
+                print("[** Error **] Incorrect title. Line 0 : \(lines[0])")
+                incorrectInfo()
+                return
+            }
+            
+            guard lines[1].contains(ExportKeysJSON.format.key) else {
+                print("[** Error **] Incorrect format. Line 1 : \(lines[1])")
+                incorrectInfo()
+                return
+            }
+            let formatInfos = lines[1].split(separator: ":")
+            guard formatInfos.count == 2 else {
+                
+                incorrectInfo()
+                return
+            }
+            
+            let format = formatInfos[1].replacingOccurrences(of: " ", with: "")
+            
+            guard lines[2].contains(ExportKeysJSON.publicKey.key) else {
+                print("[** Error **] Incorrect public key. Line 2 : \(lines[2])")
+                incorrectInfo()
+                return
+            }
+            let publicKeyInfos = lines[2].split(separator: ":")
+            guard publicKeyInfos.count == 2 else {
+                incorrectInfo()
+                return
+            }
+            let publicKeyString = publicKeyInfos[1].replacingOccurrences(of: " ", with: "")
+            
+            guard lines[3].contains(ExportKeysJSON.privateKey.key) else {
+                print("[** Error **] Incorrect private key. Line 3 : \(lines[3])")
+                incorrectInfo()
+                return
+            }
+            let privateKeyInfos = lines[3].split(separator: ":")
+            guard privateKeyInfos.count == 2 else {
+                incorrectInfo()
+                return
+            }
+            let privateKeyString = privateKeyInfos[1].replacingOccurrences(of: " ", with: "")
+            
+        let keys = KeyId()
+        
+        switch format {
+        case ExportKeysJSON.format.pemX509.replacingOccurrences(of: " ", with: ""):
+            publicKey = keys.extract_from_pem_format(publicKeyString, isPrivate: false)
+            privateKey = keys.extract_from_pem_format(privateKeyString, isPrivate: true)
+            isX509 = true
+        case ExportKeysJSON.format.pem.replacingOccurrences(of: " ", with: ""):
+            publicKey = keys.extract_from_pem_format(publicKeyString, isPrivate: false)
+            privateKey = keys.extract_from_pem_format(privateKeyString, isPrivate: true)
+            isX509 = false
+        case ExportKeysJSON.format.base64X509.replacingOccurrences(of: " ", with: ""):
+            publicKey = publicKeyString
+            privateKey = privateKeyString
+            isX509 = true
+        case ExportKeysJSON.format.base64.replacingOccurrences(of: " ", with: ""):
+            publicKey = publicKeyString
+            privateKey = privateKeyString
+            isX509 = false
+        default : // error
+            print("[** Error **] Format unknown. Format = \(format)")
+            publicKey = nil
+            privateKey = nil
+            isX509 = nil
+        }
+        
+        if publicKey == nil || privateKey == nil {
+            print("[** Error **] One of the key is nil. PublicKey = \(String(describing: publicKey)), PrivateKey = \(String(describing: privateKey))")
+            impossibleToExtractKeys()
+            return
+        }
+        
+        let keysTest = PublicPrivateKeys()
+        do {
+            let publicKey_withType : PublicKey = try PublicKey(base64Encoded : publicKey!)
+            let privateKey_withType: PrivateKey = try PrivateKey(base64Encoded: privateKey!)
+            if keysTest.verifyIfKeysWork(privateKey:privateKey_withType , publicKey: publicKey_withType){
+                publicKey = keys.key_format(publicKey!)
+                saveKeys(publicKey: publicKey!, privateKey: privateKey!, isX509Given: isX509)
+            } else {
+                wrongKeys()
+                return
+            }
+        } catch {
+            wrongKeys()
+            return
+        }
+    }
+    
+    
     
     //
     // Obj C func
@@ -369,6 +484,13 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
     func wrongKeys(){
         self.activityIndicator.stopAnimating()
         alert("Wrong keys", message: "The public key given doesn't correspond to the private key. Please, verify you correctly provided a key pair.", quitMessage: "Ok")
+    }
+    
+    func showSuccess(){
+        let animation = UIViewPropertyAnimator(duration: 0.5, curve: .linear, animations: {
+            self.checkmarkBackground.alpha = 1
+        })
+        animation.startAnimation()
     }
     
 }

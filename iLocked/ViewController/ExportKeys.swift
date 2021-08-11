@@ -334,7 +334,7 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
     }
     
     func shareInHumanReadable(privateKey:String, publicKey:String, format:String) -> String {
-        return "iLocked RSA-4096 keys:\n[\(ExportKeysJSON.format.key)] : \(format)\n[\(ExportKeysJSON.publicKey.key)] : \(publicKey)\n[\(ExportKeysJSON.privateKey.key)] : \(privateKey)"
+        return "\(ExportKeysJSON.humanTitle.str)\n[\(ExportKeysJSON.format.key)] : \(format)\n[\(ExportKeysJSON.publicKey.key)] : \(publicKey)\n[\(ExportKeysJSON.privateKey.key)] : \(privateKey)"
     }
 }
 
@@ -343,6 +343,7 @@ enum ExportKeysJSON { // key of the dictionnary encoded in JSON
     case format
     case publicKey
     case privateKey
+    case humanTitle
     
     var key:String {
         switch self {
@@ -354,6 +355,8 @@ enum ExportKeysJSON { // key of the dictionnary encoded in JSON
             return "Public key"
         case .privateKey:
             return "Private key"
+        default:
+            return ""
         }
     }
     
@@ -387,6 +390,15 @@ enum ExportKeysJSON { // key of the dictionnary encoded in JSON
         case .format:
             return "Base64"
         default :
+            return ""
+        }
+    }
+    
+    var str : String {
+        switch self {
+        case .humanTitle:
+            return "iLocked RSA-4096 keys:"
+        default:
             return ""
         }
     }
