@@ -154,11 +154,11 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
                 if selectedCellList.contains(indexPath.row){ // deselect this cell
                     selectedCellList.remove(at: self.selectedCellList.firstIndex(of: indexPath.row)!)
                     let cell : UITableViewCell = tableView.cellForRow(at: indexPath)!
-                    cell.backgroundColor = .black
+                    cell.backgroundColor = Colors.darkGray5.color
                 } else { // select this cell
                     self.selectedCellList.append(indexPath.row)
                     let cell : UITableViewCell = tableView.cellForRow(at: indexPath)!
-                    cell.backgroundColor = .systemBlue
+                    cell.backgroundColor = .systemRed
                 }
                 
              } else { // User wants to
@@ -325,7 +325,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     ///Called by deleteOptionButton when user wants to delete selected key(s)
     private func deleteKeys(){
-        var message = "Destroy".localized() + String(self.selectedCellList.count) + "key".localized()
+        var message = "Destroy".localized() + " " + String(self.selectedCellList.count) + " " + "key".localized()
         if self.selectedCellList.count > 1 {
             message += "s"
         }

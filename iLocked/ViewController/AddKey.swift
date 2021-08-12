@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import InAppPurchaseLib
 
 class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextFieldDelegate  {
     
@@ -295,20 +296,35 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
                         return false
                     }
                 }
-                print("nameList in addKey = \(nameList)")
-                for name in nameList { // we verify if the name already exist
-                    print("name already stored = \(name)\n")
-                    if name == self.nameKeyField.text! {
-                        self.nameError.setTitle("This name is already taken !".localized(withKey: "takenError"), for: .normal)
-                        flip(firstView: self.nameKeyField, secondView: self.nameError)
-                        return false
-                    }
+            }
+            print("nameList in addKey = \(nameList)")
+            for name in nameList { // we verify if the name already exist
+                print("name already stored = \(name)\n")
+                if name == self.nameKeyField.text! && self.nameKeyField!.text != oldName{
+                    self.nameError.setTitle("This name is already taken !".localized(withKey: "takenError"), for: .normal)
+                    flip(firstView: self.nameKeyField, secondView: self.nameError)
+                    return false
                 }
             }
         }
+        // If we haven't already returned false, it must be true
+        // If the user already have 5 keys, isn't premium and isn't editing a existing key
+        if nameList.count >= 5 && !self.checkIfPremium() && self.oldKey == ""{
+            print("[*] Max key reached")
+            performSegue(withIdentifier: "upgrade", sender: self)
+            return false
+        }
+        
         return true // If we haven't already returned false, it must be true
     }
     
+    
+    func checkIfPremium() -> Bool {
+        if InAppPurchase.hasActiveSubscription() {
+          return true
+        }
+        return false
+    }
     
 }
 

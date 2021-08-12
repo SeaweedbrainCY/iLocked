@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import InAppPurchaseLib
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -35,6 +36,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
     }
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool{
+        print("[*] Application launched")
+        #warning("In app purchase isn't completed and will not work.\nIt must be completed before launching, after the creation of an apple ID.\nSee more @ https://iridescent.dev/posts/swift/in-app-purchases-ios-2")
+        /*InAppPurchase.initialize(
+              iapProducts: [
+                IAPProduct(productIdentifier: "nonConsumableId", productType: .nonConsumable),
+              ],
+              validatorUrlString: "https://validator.fovea.cc/v1/validate?appName=demo&apiKey=12345678"
+            )*/
+            return true
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        print("[*] Application will terminate")
+          InAppPurchase.stop()
+      }
 
     func sceneWillResignActive(_ scene: UIScene) {
         // Called when the scene will move from an active state to an inactive state.

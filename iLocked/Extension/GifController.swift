@@ -13,9 +13,11 @@ extension UIImageView {
         DispatchQueue.global().async {
             let image = UIImage.gif(name: name)
             DispatchQueue.main.async {
+                print("load gif called")
                 self.image = image
             }
         }
+        self.animationRepeatCount = 1
     }
     @available(iOS 9.0, *)
     public func loadGif(asset: String) {
@@ -35,6 +37,7 @@ extension UIImage {
             print("SwiftGif: Source for the image does not exist")
             return nil
         }
+        print("gif data called")
         return UIImage.animatedImageWithSource(source)
     }
     public class func gif(url: String) -> UIImage? {
@@ -80,8 +83,8 @@ extension UIImage {
     }
 
     internal class func delayForImageAtIndex(_ index: Int, source: CGImageSource!) -> Double {
-        var delay = 0.05
-
+        var delay = 0.03
+        print("delay for image called")
         // Get dictionaries
         let cfProperties = CGImageSourceCopyPropertiesAtIndex(source, index, nil)
         let gifPropertiesPointer = UnsafeMutablePointer<UnsafeRawPointer?>.allocate(capacity: 0)
@@ -104,7 +107,7 @@ extension UIImage {
         delay = delayObject as? Double ?? 0
         
         if delay < 0.1 {
-            delay = 0.05 // Make sure they're not too fast
+            delay = 0.03 // Make sure they're not too fast
         }
         
         return delay
@@ -158,6 +161,7 @@ extension UIImage {
     }
     
     internal class func animatedImageWithSource(_ source: CGImageSource) -> UIImage? {
+        print("animatedImageWithSource called")
         let count = CGImageSourceGetCount(source)
         var images = [CGImage]()
         var delays = [Int]()
@@ -200,11 +204,12 @@ extension UIImage {
                 frames.append(frame)
             }
         }
-        
+        print("duration = \(duration)")
         // Heyhey
+        print("frames count = \(frames.count)")
+        print("images count = \(frames.count)")
         let animation = UIImage.animatedImage(with: frames,
                                               duration: Double(duration) / 500)
-        
         return animation
     }
     

@@ -62,7 +62,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     /// Cells for each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0 : return 1
+        case 0 : return 2
         case 1 : return 2
         case 2 :
             let settingsData = SettingsData()
@@ -94,6 +94,10 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             switch indexPath.row {
             case 0:
                 cell.textLabel?.text = "👨‍💻 Support the developer".localized()
+                accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
+                accessoryView.tintColor = .white
+            case 1 :
+                cell.textLabel?.text = "✨ Premium version".localized()
                 cell.backgroundColor = .systemBlue
                 accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
                 accessoryView.tintColor = .white
@@ -225,6 +229,9 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             switch indexPath.row {
             case 0:
                 performSegue(withIdentifier: "showDeveloper", sender: self)
+            case 1:
+                performSegue(withIdentifier: "upgrade", sender: self)
+            
             default:
                 break
             }

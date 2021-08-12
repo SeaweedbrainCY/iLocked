@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -32,6 +32,11 @@
 		90B69BE426A08FA800451DFC /* SecondWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */; };
 		90B69BEB26A2C5B700451DFC /* FirstTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */; };
 		90B886FC23F7F31A00035C82 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B886FB23F7F31A00035C82 /* Settings.swift */; };
+		90D3679F26C5737D00108B64 /* InAppPurchaseLib in Frameworks */ = {isa = PBXBuildFile; productRef = 90D3679E26C5737D00108B64 /* InAppPurchaseLib */; };
+		90D367A126C586CF00108B64 /* logo_animated_ilocked.gif in Resources */ = {isa = PBXBuildFile; fileRef = 90D367A026C586CF00108B64 /* logo_animated_ilocked.gif */; };
+		90D367A326C58FA800108B64 /* UpgradePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D367A226C58FA800108B64 /* UpgradePage.swift */; };
+		90D367A526C595EA00108B64 /* animated_logo_ilocked_high.gif in Resources */ = {isa = PBXBuildFile; fileRef = 90D367A426C595E900108B64 /* animated_logo_ilocked_high.gif */; };
+		90D367A726C5966F00108B64 /* animated_logo_high_gray.gif in Resources */ = {isa = PBXBuildFile; fileRef = 90D367A626C5966F00108B64 /* animated_logo_high_gray.gif */; };
 		90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */; };
 		90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */; };
 		90DB59A92416B03F001189C5 /* SettingsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90DB59A82416B03F001189C5 /* SettingsData.swift */; };
@@ -45,7 +50,6 @@
 		D820B848235E3559006CEB38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B847235E3559006CEB38 /* UIView.swift */; };
 		D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B849235E359D006CEB38 /* DecryptedResult.swift */; };
 		D820B84E235E5EB1006CEB38 /* LockedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B84D235E5EB1006CEB38 /* LockedView.swift */; };
-		D820B85023623E23006CEB38 /* fingerprint.gif in Resources */ = {isa = PBXBuildFile; fileRef = D820B84F23623E23006CEB38 /* fingerprint.gif */; };
 		D820B8542363909C006CEB38 /* publicPrivateKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B8532363909C006CEB38 /* publicPrivateKeys.swift */; };
 		D8416D362364ED5100A0B038 /* Encryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8416D352364ED5100A0B038 /* Encryption.swift */; };
 		D8416D382364F62700A0B038 /* Decryption.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8416D372364F62700A0B038 /* Decryption.swift */; };
@@ -58,8 +62,6 @@
 		D8A64B1E2353BC24000613F3 /* iLockedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A64B1D2353BC24000613F3 /* iLockedTests.swift */; };
 		D8A64B292353BC24000613F3 /* iLockedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A64B282353BC24000613F3 /* iLockedUITests.swift */; };
 		D8A64B3C2353BC70000613F3 /* KeyId.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A64B3B2353BC70000613F3 /* KeyId.swift */; };
-		D8A64B3F2353BC85000613F3 /* load.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8A64B3D2353BC84000613F3 /* load.gif */; };
-		D8A64B402353BC85000613F3 /* binaire.gif in Resources */ = {isa = PBXBuildFile; fileRef = D8A64B3E2353BC85000613F3 /* binaire.gif */; };
 		D8A64B482353BCA0000613F3 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A64B422353BC9F000613F3 /* AttributedText.swift */; };
 		D8A64B492353BCA0000613F3 /* CustomCellTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A64B432353BC9F000613F3 /* CustomCellTableView.swift */; };
 		D8A64B4A2353BCA0000613F3 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A64B442353BCA0000613F3 /* UIButton.swift */; };
@@ -121,6 +123,10 @@
 		90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWelcomeView.swift; sourceTree = "<group>"; };
 		90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTutoView.swift; sourceTree = "<group>"; };
 		90B886FB23F7F31A00035C82 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		90D367A026C586CF00108B64 /* logo_animated_ilocked.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_animated_ilocked.gif; sourceTree = "<group>"; };
+		90D367A226C58FA800108B64 /* UpgradePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradePage.swift; sourceTree = "<group>"; };
+		90D367A426C595E900108B64 /* animated_logo_ilocked_high.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animated_logo_ilocked_high.gif; sourceTree = "<group>"; };
+		90D367A626C5966F00108B64 /* animated_logo_high_gray.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animated_logo_high_gray.gif; sourceTree = "<group>"; };
 		90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Asn1Parser.swift; path = Source/Asn1Parser.swift; sourceTree = "<group>"; };
@@ -155,7 +161,6 @@
 		D820B847235E3559006CEB38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		D820B849235E359D006CEB38 /* DecryptedResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecryptedResult.swift; sourceTree = "<group>"; };
 		D820B84D235E5EB1006CEB38 /* LockedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockedView.swift; sourceTree = "<group>"; };
-		D820B84F23623E23006CEB38 /* fingerprint.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fingerprint.gif; sourceTree = "<group>"; };
 		D820B8532363909C006CEB38 /* publicPrivateKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = publicPrivateKeys.swift; sourceTree = "<group>"; };
 		D8416D352364ED5100A0B038 /* Encryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encryption.swift; sourceTree = "<group>"; };
 		D8416D372364F62700A0B038 /* Decryption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decryption.swift; sourceTree = "<group>"; };
@@ -171,8 +176,6 @@
 		D8A64B282353BC24000613F3 /* iLockedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iLockedUITests.swift; sourceTree = "<group>"; };
 		D8A64B2A2353BC24000613F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D8A64B3B2353BC70000613F3 /* KeyId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyId.swift; sourceTree = "<group>"; };
-		D8A64B3D2353BC84000613F3 /* load.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = load.gif; sourceTree = "<group>"; };
-		D8A64B3E2353BC85000613F3 /* binaire.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = binaire.gif; sourceTree = "<group>"; };
 		D8A64B422353BC9F000613F3 /* AttributedText.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 		D8A64B432353BC9F000613F3 /* CustomCellTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellTableView.swift; sourceTree = "<group>"; };
 		D8A64B442353BCA0000613F3 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
@@ -192,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90D3679F26C5737D00108B64 /* InAppPurchaseLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,9 +370,9 @@
 		D8A64B372353BC38000613F3 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
-				D8A64B3E2353BC85000613F3 /* binaire.gif */,
-				D820B84F23623E23006CEB38 /* fingerprint.gif */,
-				D8A64B3D2353BC84000613F3 /* load.gif */,
+				90D367A626C5966F00108B64 /* animated_logo_high_gray.gif */,
+				90D367A426C595E900108B64 /* animated_logo_ilocked_high.gif */,
+				90D367A026C586CF00108B64 /* logo_animated_ilocked.gif */,
 			);
 			path = Gif;
 			sourceTree = "<group>";
@@ -395,6 +399,7 @@
 				90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */,
 				90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */,
 				908AE09826B554570032D74A /* ImportKeys.swift */,
+				90D367A226C58FA800108B64 /* UpgradePage.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -445,6 +450,9 @@
 			dependencies = (
 			);
 			name = iLocked;
+			packageProductDependencies = (
+				90D3679E26C5737D00108B64 /* InAppPurchaseLib */,
+			);
 			productName = iLocked;
 			productReference = 9074A09525373C1C00983FBC /* iLocked.app */;
 			productType = "com.apple.product-type.application";
@@ -518,6 +526,9 @@
 				fr,
 			);
 			mainGroup = D8A64AFA2353BC1C000613F3;
+			packageReferences = (
+				90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */,
+			);
 			productRefGroup = D8A64AFA2353BC1C000613F3;
 			projectDirPath = "";
 			projectRoot = "";
@@ -534,11 +545,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8A64B402353BC85000613F3 /* binaire.gif in Resources */,
 				90EBFC9926AD8C39002B30E9 /* Localizable.strings in Resources */,
-				D820B85023623E23006CEB38 /* fingerprint.gif in Resources */,
-				D8A64B3F2353BC85000613F3 /* load.gif in Resources */,
+				90D367A126C586CF00108B64 /* logo_animated_ilocked.gif in Resources */,
+				90D367A526C595EA00108B64 /* animated_logo_ilocked_high.gif in Resources */,
 				D8A64B132353BC23000613F3 /* LaunchScreen.storyboard in Resources */,
+				90D367A726C5966F00108B64 /* animated_logo_high_gray.gif in Resources */,
 				D8A64B102353BC23000613F3 /* Assets.xcassets in Resources */,
 				D8A64B0E2353BC1C000613F3 /* Main.storyboard in Resources */,
 			);
@@ -620,6 +631,7 @@
 				D8A64B592353BCC1000613F3 /* EncryptHomePage.swift in Sources */,
 				90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */,
 				908AE09926B554570032D74A /* ImportKeys.swift in Sources */,
+				90D367A326C58FA800108B64 /* UpgradePage.swift in Sources */,
 				9048E65D23FB017800098C73 /* Dictionary.swift in Sources */,
 				D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */,
 				D8416D382364F62700A0B038 /* Decryption.swift in Sources */,
@@ -999,6 +1011,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iridescent-dev/iap-swift-lib.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		90D3679E26C5737D00108B64 /* InAppPurchaseLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */;
+			productName = InAppPurchaseLib;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D8A64AFB2353BC1C000613F3 /* Project object */;
 }
