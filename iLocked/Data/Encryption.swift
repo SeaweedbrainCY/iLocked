@@ -21,7 +21,7 @@ class Encryption{
     /// - withKeyId : The name displayed to the user, if it's user's key, its "My encryption key"
     public func encryptText(_ text: String, withKeyName keyUsed : String) -> String{
         var publicKeyUsed = ""
-        if keyUsed == "My encryption key" {
+        if keyUsed == "My encryption key".localized() {
             publicKeyUsed =  UserKeys.publicKey.tag
         } else {
             publicKeyUsed = keyUsed
@@ -36,10 +36,10 @@ class Encryption{
                     let encrypted = try clear.encrypted(with: PublicKey(data: keyData), padding: .PKCS1)
                     return self.start_encrypted_format + encrypted.base64String + self.end_encrypted_format
                 }catch {
-                    return "ERROR : Please verify that your public key is correct"
+                    return "ERROR : Please verify that your public key is correct".localized()
                 }
         } else {
-            return "ERROR : Impossible to get the public key associated"
+            return "ERROR : Impossible to get the public key associated".localized()
         }
     }
 }

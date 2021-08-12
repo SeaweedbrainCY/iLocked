@@ -32,7 +32,7 @@ class KeyId {
             // Une grave erreur s'est produite lors de l'accès à la sauvegarde ERROR
             // *************************************************************************
             //
-            return ["##ERROR## An internal error unable the application to access to your stored data. Please, contact the developer with this error code : ##DATA/KI.SWIFT#0002# 🛠"]
+            return ["##ERROR## An internal error unables the application to access to your stored data. Please, contact the developer with this error code : ##DATA/KI.SWIFT#0002# 🛠".localized(withKey: "error0002")]
         }
         
         if arrayEncoded == "not found" {

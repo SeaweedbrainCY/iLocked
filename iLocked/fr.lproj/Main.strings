@@ -399,3 +399,51 @@
 
 /* Class = "UILabel"; text = "\" My password is ********* \""; ObjectID = "zlZ-Xg-NgT"; */
 "zlZ-Xg-NgT.text" = "\" Mon mot de passe est ********* \"";
+
+/* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "5Ba-k5-xH7"; */
+"5Ba-k5-xH7.normalTitle" = "Effacer";
+
+/* Class = "UILabel"; text = "Support a student developer in freelance"; ObjectID = "9pE-sF-gFX"; */
+"9pE-sF-gFX.text" = "Supporter un développeur étudiant en freelance";
+
+/* Class = "UIButton"; normalTitle = "Upgrade for 2,99 €"; ObjectID = "Fie-Fy-P2d"; */
+"Fie-Fy-P2d.normalTitle" = "Débloquer pour 2,99€";
+
+/* Class = "UIViewController"; title = "developerView"; ObjectID = "LK2-7x-vUP"; */
+"LK2-7x-vUP.title" = "";
+
+/* Class = "UIButton"; normalTitle = "< Back"; ObjectID = "PC1-wJ-yCf"; */
+"PC1-wJ-yCf.normalTitle" = "< Retour";
+
+/* Class = "UILabel"; text = "Import your iLocked keys"; ObjectID = "R5p-5t-Tw8"; */
+"R5p-5t-Tw8.text" = "Importer vos clés iLocked";
+
+/* Class = "UIButton"; normalTitle = "Paste"; ObjectID = "R7x-Uu-nsv"; */
+"R7x-Uu-nsv.normalTitle" = "Coller";
+
+/* Class = "UIButton"; normalTitle = "   Import a .txt file"; ObjectID = "ZdO-ks-Nhn"; */
+"ZdO-ks-Nhn.normalTitle" = "   Importer un fichier texte (.txt)";
+
+/* Class = "UIButton"; normalTitle = "Import"; ObjectID = "atA-OG-Xgv"; */
+"atA-OG-Xgv.normalTitle" = "Importer";
+
+/* Class = "UILabel"; text = "Success !"; ObjectID = "dYu-4w-stE"; */
+"dYu-4w-stE.text" = "Réussite !";
+
+/* Class = "UILabel"; text = "You've reached as far as the free version will take you. Upgrade now to unlock, "; ObjectID = "eaj-LV-RNY"; */
+"eaj-LV-RNY.text" = "Vous avez atteint les limites de la version gratuite ! Passez à iLocked Premium pour débloquer,";
+
+/* Class = "UILabel"; text = "Time to Upgrade"; ObjectID = "mhr-Jw-gDB"; */
+"mhr-Jw-gDB.text" = "Passons à la vitesse supérieure !";
+
+/* Class = "UILabel"; text = "Unlimited public keys"; ObjectID = "ub8-tG-clE"; */
+"ub8-tG-clE.text" = "Nombre de clés publiques illimité";
+
+/* Class = "UILabel"; text = "- OR -"; ObjectID = "wIF-dk-Cwq"; */
+"wIF-dk-Cwq.text" = "- OU -";
+
+/* Class = "UIButton"; normalTitle = "Restore purchases"; ObjectID = "wJK-dm-WH3"; */
+"wJK-dm-WH3.normalTitle" = "Restaurer vos achats";
+
+/* Class = "UITextView"; text = "Paste your keys"; ObjectID = "wuR-F9-K4M"; */
+"wuR-F9-K4M.text" = "Collez vos clés ici";

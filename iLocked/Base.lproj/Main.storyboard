@@ -29,10 +29,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KEY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JYE-Xh-LeX">
-                                <rect key="frame" x="38" y="252" width="50" height="21"/>
+                                <rect key="frame" x="38" y="252" width="100" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Dgz-iI-8TX"/>
-                                    <constraint firstAttribute="width" constant="50" id="RNc-3Z-hUX"/>
+                                    <constraint firstAttribute="width" constant="100" id="RNc-3Z-hUX"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -441,20 +441,20 @@
                                 <color key="sectionIndexBackgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Asc-LZ-kCa">
-                                        <rect key="frame" x="20" y="49" width="388" height="20.666666030883789"/>
+                                        <rect key="frame" x="20" y="49" width="388" height="21.333333969116211"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Asc-LZ-kCa" id="D1u-PI-Ook">
-                                            <rect key="frame" x="0.0" y="0.0" width="388" height="20.666666030883789"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="388" height="21.333333969116211"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z9o-Rm-f6L">
-                                                    <rect key="frame" x="20" y="0.0" width="325" height="20.666666666666668"/>
+                                                    <rect key="frame" x="20" y="0.0" width="325" height="21.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Fae-X5-TjQ">
-                                                    <rect key="frame" x="357" y="0.0" width="21" height="20.666666666666668"/>
+                                                    <rect key="frame" x="357" y="0.0" width="21" height="21.333333333333332"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="21" id="Bdr-Yt-CH8"/>
                                                     </constraints>
@@ -841,10 +841,10 @@ Thanks a lot !</string>
                                                         <constraint firstAttribute="height" constant="100" id="EdL-ew-67d"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO7-k7-Y51">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO7-k7-Y51">
                                                     <rect key="frame" x="20" y="263" width="388" height="93"/>
                                                     <string key="text">WARNING : Your are going to export your private key, a highly critical information. You absoutely must keep it in a safe place. Do not share it. Keep it for yourself.</string>
-                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBoldItalic" family="Avenir Next" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -1635,17 +1635,17 @@ Thanks a lot !</string>
             <objects>
                 <viewController storyboardIdentifier="tuto2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6JN-U5-biw" customClass="SecondTutoView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KGE-kK-Qus">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send a confidential message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zt-GF-ED8">
-                                <rect key="frame" x="30" y="78" width="368" height="79.333333333333314"/>
+                                <rect key="frame" x="30" y="33.999999999999993" width="368" height="79.333333333333314"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="33"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ellipsis.bubble" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Eoh-Bt-AYo">
-                                <rect key="frame" x="40" y="208.66666666666669" width="60" height="59.000000000000014"/>
+                                <rect key="frame" x="40" y="164.66666666666669" width="60" height="59.000000000000014"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="U0Y-Ua-3WH"/>
@@ -1653,13 +1653,13 @@ Thanks a lot !</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask for your friend's public key and store it in iLocked" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Pd-ZD-nlZ">
-                                <rect key="frame" x="120" y="208.33333333333334" width="288" height="50.666666666666657"/>
+                                <rect key="frame" x="120" y="164.33333333333334" width="288" height="50.666666666666657"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textformat.abc" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MRk-Yg-n17">
-                                <rect key="frame" x="40" y="300.66666666666663" width="60" height="54"/>
+                                <rect key="frame" x="40" y="256.66666666666669" width="60" height="54"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="jgQ-NQ-yXg"/>
@@ -1667,19 +1667,19 @@ Thanks a lot !</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your confidential message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbL-y7-hce">
-                                <rect key="frame" x="120" y="301.66666666666669" width="288" height="50.666666666666686"/>
+                                <rect key="frame" x="120" y="257.66666666666669" width="288" height="50.666666666666686"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓ iLocked never keep your messages" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQV-HW-pzz">
-                                <rect key="frame" x="113.00000000000001" y="353.33333333333331" width="207.33333333333337" height="11"/>
+                                <rect key="frame" x="113.00000000000001" y="309.33333333333331" width="207.33333333333337" height="11"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.doc" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nz5-Ly-r3C">
-                                <rect key="frame" x="40" y="387.66666666666663" width="60" height="59.666666666666686"/>
+                                <rect key="frame" x="40" y="343.66666666666663" width="60" height="59.666666666666686"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Les-OA-ViA"/>
@@ -1687,13 +1687,13 @@ Thanks a lot !</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Encrypt it with your friend public key" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmo-bK-81a">
-                                <rect key="frame" x="120" y="391.33333333333331" width="288" height="50.666666666666686"/>
+                                <rect key="frame" x="120" y="347.33333333333331" width="288" height="50.666666666666686"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="y4L-Uf-IzQ">
-                                <rect key="frame" x="40" y="476.33333333333331" width="60" height="60.666666666666629"/>
+                                <rect key="frame" x="40" y="432.33333333333331" width="60" height="60.666666666666686"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="7gz-iz-zgf"/>
@@ -1701,19 +1701,19 @@ Thanks a lot !</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send the encrypted message to your friend" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jit-4h-AME">
-                                <rect key="frame" x="120" y="479.66666666666669" width="288" height="50.666666666666686"/>
+                                <rect key="frame" x="120" y="435.66666666666669" width="288" height="50.666666666666686"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓ DO NOT use your own public key" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huX-W7-x6D">
-                                <rect key="frame" x="119.99999999999999" y="531.33333333333337" width="195.66666666666663" height="11"/>
+                                <rect key="frame" x="119.99999999999999" y="487.33333333333331" width="195.66666666666663" height="11"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ncv-rd-jca">
-                                <rect key="frame" x="40" y="800" width="348" height="47"/>
+                                <rect key="frame" x="40" y="746" width="348" height="47"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="cYM-9g-9r2"/>
@@ -1727,11 +1727,11 @@ Thanks a lot !</string>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.67000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="Eor-Ya-YUc">
-                                <rect key="frame" x="20" y="44" width="388" height="4"/>
+                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wwH-PE-v0R">
-                                <rect key="frame" x="100" y="857" width="228" height="35"/>
+                                <rect key="frame" x="100" y="803" width="228" height="35"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="19"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1797,11 +1797,11 @@ Thanks a lot !</string>
             <objects>
                 <viewController storyboardIdentifier="tuto1b" useStoryboardIdentifierAsRestorationIdentifier="YES" id="t7D-5u-JiX" customClass="FirstTutoView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uza-pf-Cdw">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nwp-wn-TB6">
-                                <rect key="frame" x="0.0" y="68" width="428" height="824"/>
+                                <rect key="frame" x="0.0" y="24" width="428" height="814"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJC-Vi-V2T">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
@@ -1995,7 +1995,7 @@ Public and private key</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6TR-cp-G8b"/>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ACa-M9-Cvp">
-                                <rect key="frame" x="20" y="44" width="388" height="4"/>
+                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                         </subviews>
@@ -2240,17 +2240,17 @@ Public and private key</string>
             <objects>
                 <viewController storyboardIdentifier="tuto3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DmF-Ef-NEK" customClass="SecondTutoView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dYW-OX-3dp">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recieve a confidential message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mII-BL-Rgu">
-                                <rect key="frame" x="30" y="78" width="368" height="93.666666666666686"/>
+                                <rect key="frame" x="30" y="34.000000000000007" width="368" height="93.666666666666686"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="39"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="envelope.badge.shield.leadinghalf.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wNs-Td-rcb">
-                                <rect key="frame" x="40" y="223.66666666666666" width="61" height="57.999999999999972"/>
+                                <rect key="frame" x="40" y="179.66666666666666" width="61" height="58"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="2gb-6K-Kn2"/>
@@ -2258,13 +2258,13 @@ Public and private key</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copy the encrypted message in iLocked" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJh-Kh-ItB">
-                                <rect key="frame" x="120" y="222.66666666666666" width="288" height="50.666666666666657"/>
+                                <rect key="frame" x="120" y="178.66666666666666" width="288" height="50.666666666666657"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.open" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="EaT-Rq-qZT">
-                                <rect key="frame" x="40" y="312.66666666666669" width="60" height="58"/>
+                                <rect key="frame" x="40" y="268.66666666666669" width="60" height="58"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Fxl-c5-QiC"/>
@@ -2272,19 +2272,19 @@ Public and private key</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Decrypt it" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fJ-qu-5WW">
-                                <rect key="frame" x="120" y="332.33333333333331" width="288" height="25.333333333333314"/>
+                                <rect key="frame" x="120" y="288.33333333333331" width="288" height="25.333333333333314"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓ iLocked never keep your messages" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="REP-vq-z8Q">
-                                <rect key="frame" x="113.00000000000001" y="358.66666666666669" width="207.33333333333337" height="11"/>
+                                <rect key="frame" x="113.00000000000001" y="314.66666666666669" width="207.33333333333337" height="11"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye.slash.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ORd-EU-3hJ">
-                                <rect key="frame" x="40" y="403.33333333333337" width="60" height="57"/>
+                                <rect key="frame" x="40" y="359.33333333333337" width="60" height="57"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="BBd-hR-Rhe"/>
@@ -2292,13 +2292,13 @@ Public and private key</string>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Be sure you are the only one watching your screen" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8y-CS-z4f">
-                                <rect key="frame" x="120" y="405.66666666666669" width="288" height="50.666666666666686"/>
+                                <rect key="frame" x="120" y="361.66666666666669" width="288" height="50.666666666666686"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kag-9M-ckw">
-                                <rect key="frame" x="40" y="800" width="348" height="47"/>
+                                <rect key="frame" x="40" y="746" width="348" height="47"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="FKp-9U-GUz"/>
@@ -2312,11 +2312,11 @@ Public and private key</string>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.82999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="KLz-Ic-fXs">
-                                <rect key="frame" x="20" y="44" width="388" height="4"/>
+                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9k-t6-CW5">
-                                <rect key="frame" x="100" y="857" width="228" height="35"/>
+                                <rect key="frame" x="100" y="803" width="228" height="35"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="19"/>
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2490,7 +2490,7 @@ Public and private key</string>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdO-ks-Nhn">
-                                                <rect key="frame" x="80" y="30" width="268" height="28"/>
+                                                <rect key="frame" x="40" y="30" width="348" height="28"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                 <state key="normal" title="   Import a .txt file" image="folder.badge.plus" catalog="system">
                                                     <color key="titleColor" systemColor="linkColor"/>
@@ -2517,7 +2517,7 @@ Public and private key</string>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Paste your keys export text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wuR-F9-K4M">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Paste your keys here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="wuR-F9-K4M">
                                                 <rect key="frame" x="10" y="178" width="408" height="377"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -2573,8 +2573,8 @@ Public and private key</string>
                                             <constraint firstItem="atA-OG-Xgv" firstAttribute="leading" secondItem="8EE-ww-Ui4" secondAttribute="leading" constant="40" id="rUj-Nc-Ck5"/>
                                             <constraint firstItem="wIF-dk-Cwq" firstAttribute="centerX" secondItem="8EE-ww-Ui4" secondAttribute="centerX" id="tHN-O6-65i"/>
                                             <constraint firstAttribute="trailing" secondItem="sNC-BX-WRK" secondAttribute="trailing" constant="10" id="vcl-ny-ReW"/>
-                                            <constraint firstItem="ZdO-ks-Nhn" firstAttribute="leading" secondItem="8EE-ww-Ui4" secondAttribute="leading" constant="80" id="vqT-pp-p6t"/>
-                                            <constraint firstAttribute="trailing" secondItem="ZdO-ks-Nhn" secondAttribute="trailing" constant="80" id="w6c-iV-axy"/>
+                                            <constraint firstItem="ZdO-ks-Nhn" firstAttribute="leading" secondItem="8EE-ww-Ui4" secondAttribute="leading" constant="40" id="vqT-pp-p6t"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZdO-ks-Nhn" secondAttribute="trailing" constant="40" id="w6c-iV-axy"/>
                                         </constraints>
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-oo-kwf">
@@ -2724,18 +2724,18 @@ Public and private key</string>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've reached as far as the free version will take you. Upgrade new to unlock, " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaj-LV-RNY">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You've reached as far as the free version will take you. Upgrade now to unlock, " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaj-LV-RNY">
                                                 <rect key="frame" x="35" y="378.66666666666669" width="358" height="46.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimited accounts" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub8-tG-clE">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlimited public keys" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ub8-tG-clE">
                                                 <rect key="frame" x="111" y="475.33333333333331" width="297" height="55.999999999999943"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="56" id="iBT-b7-mOj"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="24"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
                                                 <color key="textColor" red="0.087918914850000002" green="0.50737136599999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2872,7 +2872,7 @@ Public and private key</string>
     <inferredMetricsTieBreakers>
         <segue reference="qz5-5N-aWI"/>
         <segue reference="MbD-rn-9hb"/>
-        <segue reference="vQB-hS-Vgk"/>
+        <segue reference="z4W-nx-9XK"/>
         <segue reference="lMQ-dt-c2G"/>
         <segue reference="YdW-06-8TH"/>
         <segue reference="2z8-fZ-KqH"/>

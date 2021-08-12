@@ -97,7 +97,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
                 accessoryView.tintColor = .white
             case 1 :
-                cell.textLabel?.text = "✨ Premium version".localized()
+                cell.textLabel?.text = "🔥 Premium version".localized()
                 cell.backgroundColor = .systemBlue
                 accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
                 accessoryView.tintColor = .white

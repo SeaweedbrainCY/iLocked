@@ -292,11 +292,11 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 try text.write(to: fileURL, atomically: false, encoding: .utf8)
             }
             catch {
-                alert("Unable to convert your keys", message: "An error occured while adding your keys to a text file. Please verify you have enough space in your iDevice. If it still doesn't work, try another format and contact the developer.", quitMessage: "Ok")
+                alert("Unable to convert your keys".localized(), message: "An error occured while adding your keys to a text file. Please verify you have enough space in your iDevice.\nIf it still doesn't work, try another format and contact the developer.".localized(withKey: "convertionErrorMessage"), quitMessage: "Ok")
             }
             return fileURL
         }
-        alert("Unable to convert your keys", message: "An error occured while adding your keys to a text file. Please verify you have enough space in your iDevice. If it still doesn't work, try another format and contact the developer.", quitMessage: "Ok")
+        alert("Unable to convert your keys".localized(), message: "An error occured while adding your keys to a text file. Please verify you have enough space in your iDevice. If it still doesn't work, try another format and contact the developer.".localized(withKey: "convertionErrorMessage"), quitMessage: "Ok")
         return nil
     }
     

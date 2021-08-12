@@ -207,3 +207,52 @@
 "footerExportKeys2" = "Format X.509 Base64 : Format utilisé pour certains outils de chiffrement RSA (en ligne par ex.).\niLocked supporte ce format pour l'importation de clés.";
 
 "footerExportKeys3" = "Format Base64 : Format plus utile et flexible. Il peut être utilisé avec la plupart des outils de chiffrement RSA et peut êytre facilement converti au format PEM. Mais il ne supporte pas le certificat X.509, ce qui peut créer des problèmes de chiffrement avec certains outils.\niLocked supporte ce format pour l'importation de clés.";
+
+"Unable to convert your keys" = "Impossible de convertir vos clés";
+
+"convertionErrorMessage" = "Une erreur est survenue au moment d'ajouter vos clés au fichier texte. Verifiez que vous avez assez de place sur votre appareil.\nSi cela ne marche toujours pas, essayez un autre format et contactez le développeur.";
+
+"🔥 Premium version" = "🔥 Version premium";
+
+"Paste your keys" = "Collez vos clés";
+
+"Paste your keys (in text format) to import them" = "Collez vos clés (sous forme de texte) pour les importer.";
+
+"pasteKeyErrorMessage" = "Collez le texte généré par iLocked lors de l'export des clés. iLocked supporte les formats .txt, Lisible pour Humains, et JSON.";
+
+"Impossible to save your keys" = "Impossible de sauvegarder vos clés";
+
+"Please check you have enough space in your iDevice." = "Verifiez que vous avez assez de place sur votre appareil";
+
+"Impossible to retrieve your .txt" = "Impossible de récupérer votre .txt";
+
+"unreachableFIleMessageError" = "Votre fichier .txt est inatteignable. Veuillez ré-essayer.";
+
+"Impossible to extract your keys" = "Impossible d'extraitre vos clés";
+
+"extractionErrorMessage" = "Vos clés ne peuvent pas être extraites. Vous ne pouvez importer qu'un texte généré par iLocked.";
+
+"Impossible to retrieve your keys" = "Impossible de récupérer vos clés";
+
+"wrongInfoErrorMessage" = "Vos clés ne peuvent pas être extraites car les informations renseignées sont incorrectes ou corrompues. N'essayez pas d'importer un texte autre que celui généré par iLocked";
+
+"Wrong keys" = "Mauvaises clés";
+
+"wrongKeysErrorMessage" = "La clé publique renseignée ne correspond pas à la clé privée. Assurez d'avoir renseigné une paire de clé.";
+
+"Product unavailable" = "Produit indisponible";
+
+"Upgrade for " = "Débloquez pour ";
+
+"No purchase to restore" = "Aucun achat à restorer";
+
+"noRestaurationMessage" = "Assurez-vous d'avoir déjà acheté un produit avec votre identifiant Apple actuel.";
+
+"Restore purchases failed." = "La réstauration de vos achats a échouée";
+
+"error0002" = "##ERROR## Une erreur interne empêche l'application d'accéder à vos informations sauvegardées. Veuillez contacter le développeur avec le code erreur : ##DATA/KI.SWIFT#0002# 🛠";
+
+"ERROR : Please verify that your public key is correct" = "ERREUR : Veuillez verifier que votre clé publique est correcte.";
+
+"ERROR : Impossible to get the public key associated" = "ERREUR : Impossible d'obtenir la clé publique associée";
+

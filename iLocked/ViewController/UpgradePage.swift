@@ -18,7 +18,7 @@ class UpgradePage: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var restoreButton: UIButton!
     
-    var upgradeButtonTitle = "Product unavailable"
+    var upgradeButtonTitle = "Product unavailable".localized()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,12 +57,12 @@ class UpgradePage: UIViewController {
         self.upgradeButton.setTitleColor(.lightGray, for: .highlighted)
         self.restoreButton.setTitleColor(.lightGray, for: .highlighted)
         guard let product = InAppPurchase.getProductBy(identifier: "nonConsumableId") else {
-            self.upgradeButton.setTitle("Product unavailable", for: .normal)
+            self.upgradeButton.setTitle("Product unavailable".localized(), for: .normal)
             self.upgradeButton.isEnabled = false
             return
           }
         
-        self.upgradeButtonTitle = "Upgrade for \(product.localizedTitle)"
+        self.upgradeButtonTitle = "Upgrade for ".localized() + "\(product.localizedTitle)"
         self.upgradeButton.setTitle(self.upgradeButtonTitle, for: .normal)
        
     }
@@ -123,13 +123,13 @@ class UpgradePage: UIViewController {
                       print("Restore purchases successful.")
                   } else {
                       print("No purchase to restore.")
-                    self.alert("No purchase to restore", message : "Please make sure you already purchased a product with your current Apple ID.", quitMessage: "Ok")
+                    self.alert("No purchase to restore".localized(), message : "Please make sure you already purchased a product with your current Apple ID.".localized(withKey: "noRestaurationMessage"), quitMessage: "Ok")
                   }
               case .failed:
                   print("Restore purchases failed.")
-                self.alert("Restore purchases failed.", message : "Please make sure you already purchased a product with your current Apple ID.", quitMessage: "Ok")
+                self.alert("Restore purchases failed.".localized(), message : "Please make sure you already purchased a product with your current Apple ID.".localized(withKey: "noRestaurationMessage"), quitMessage: "Ok")
               default :
-                self.alert("No purchase to restore", message : "Please make sure you already purchased a product with your current Apple ID.", quitMessage: "Ok")
+                self.alert("No purchase to restore".localized(), message : "Please make sure you already purchased a product with your current Apple ID.".localized(withKey: "noRestaurationMessage"), quitMessage: "Ok")
               print("No result to share")
               }
             

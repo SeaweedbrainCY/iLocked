@@ -9,6 +9,8 @@
 //  This file is required in order for the `transform` task of the translation helper tool BartyCrouch to work.
 //  See here for more details: https://github.com/Flinesoft/BartyCrouch
 
+// Run the following command in the app dir 'bartycrouch update'
+
 import Foundation
 
 enum BartyCrouch {
