@@ -25,17 +25,17 @@
 /* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2rq-pl-Hmh"; */
 "2rq-pl-Hmh.normalTitle" = "Button";
 
-/* Class = "UILabel"; text = "PUBLIC KEY"; ObjectID = "38S-H1-IJu"; */
-"38S-H1-IJu.text" = "LA CLÉ PUBLIQUE";
+/* Class = "UILabel"; text = "YOUR PUBLIC KEY"; ObjectID = "38S-H1-IJu"; */
+"38S-H1-IJu.text" = "VOTRE CLÉ PUBLIQUE";
 
 /* Class = "UIBarButtonItem"; title = "Information"; ObjectID = "3CK-J3-Awp"; */
 "3CK-J3-Awp.title" = "Information";
 
-/* Class = "UILabel"; text = "Ask for your friend's public key and store it in iLocked"; ObjectID = "3Pd-ZD-nlZ"; */
+/* Class = "UILabel"; text = "Ask for your friend's public key and store it in iLocked feijovnue"; ObjectID = "3Pd-ZD-nlZ"; */
 "3Pd-ZD-nlZ.text" = "Demandez la clé publique de votre correspondant et stockez la dans iLocked";
 
-/* Class = "UILabel"; text = "PRIVATE KEY"; ObjectID = "53f-4R-G6c"; */
-"53f-4R-G6c.text" = "LA CLÉ PRIVÉE";
+/* Class = "UILabel"; text = "YOUR PRIVATE KEY"; ObjectID = "53f-4R-G6c"; */
+"53f-4R-G6c.text" = "VOTRE CLÉ PRIVÉE";
 
 /* Class = "UIBarButtonItem"; title = "Information"; ObjectID = "5WJ-U0-LFf"; */
 "5WJ-U0-LFf.title" = "Information";
@@ -43,8 +43,8 @@
 /* Class = "UIViewController"; title = "developerView"; ObjectID = "6A1-HS-Rdl"; */
 "6A1-HS-Rdl.title" = "developerView";
 
-/* Class = "UILabel"; text = "Send a confidential message"; ObjectID = "6Zt-GF-ED8"; */
-"6Zt-GF-ED8.text" = "Envoyer des messages confidentiels";
+/* Class = "UILabel"; text = "Encryption"; ObjectID = "6Zt-GF-ED8"; */
+"6Zt-GF-ED8.text" = "Chiffrement";
 
 /* Class = "UIButton"; normalTitle = "  Encrypt"; ObjectID = "AYy-4A-M5e"; */
 "AYy-4A-M5e.normalTitle" = "  Chiffrer";
@@ -92,7 +92,7 @@
 "HK9-uN-NVr.title" = "Réglages";
 
 /* Class = "UILabel"; text = "CANNOT decrypt"; ObjectID = "HfN-yE-mEi"; */
-"HfN-yE-mEi.text" = "NE PAS PAS déchiffrer";
+"HfN-yE-mEi.text" = "NE PEUT PAS déchiffrer";
 
 /* Class = "UILabel"; text = "Before starting"; ObjectID = "IP6-LX-IzC"; */
 "IP6-LX-IzC.text" = "Avant de commencer";
@@ -101,7 +101,7 @@
 "IYN-4d-LIH.title" = " ";
 
 /* Class = "UILabel"; text = "Can be shared everywhere, to everyone"; ObjectID = "Iud-VM-IiP"; */
-"Iud-VM-IiP.text" = "Elle est faite pour être partagée partout et à quiconque";
+"Iud-VM-IiP.text" = "Faite pour être partagée partout et à quiconque";
 
 /* Class = "UILabel"; text = "KEY"; ObjectID = "JYE-Xh-LeX"; */
 "JYE-Xh-LeX.text" = "CLÉ PUBLIQUE";
@@ -124,14 +124,14 @@
 /* Class = "UIBarButtonItem"; title = "Save"; ObjectID = "NEN-xC-HBO"; */
 "NEN-xC-HBO.title" = "Enregistrer";
 
-/* Class = "UILabel"; text = "You use it to decrypt message encrypted by your public key"; ObjectID = "NRj-4y-EgD"; */
+/* Class = "UILabel"; text = "Use it to decrypt a message encrypted by your public key"; ObjectID = "NRj-4y-EgD"; */
 "NRj-4y-EgD.text" = "Elle sert à dechiffrer tout message chiffré avec votre clé publique";
 
 /* Class = "UINavigationItem"; title = "Decryption"; ObjectID = "PoT-1Q-yWT"; */
 "PoT-1Q-yWT.title" = "Déchiffrement";
 
 /* Class = "UILabel"; text = "Be sure you are the only one watching your screen"; ObjectID = "Q8y-CS-z4f"; */
-"Q8y-CS-z4f.text" = "Assurez-vous que personne d'autre ne peut lire le message";
+"Q8y-CS-z4f.text" = "Protégez-vous des regards indiscrets.";
 
 /* Class = "UIViewController"; title = "LockedView"; ObjectID = "QiX-9o-pKS"; */
 "QiX-9o-pKS.title" = "LockedView";
@@ -154,11 +154,11 @@
 /* Class = "UIButton"; normalTitle = "🔑 Generate your keys"; ObjectID = "TH2-DB-BLv"; */
 "TH2-DB-BLv.normalTitle" = "🔑 Générer mes clés";
 
-/* Class = "UILabel"; text = "Copy the encrypted message in iLocked"; ObjectID = "TJh-Kh-ItB"; */
-"TJh-Kh-ItB.text" = "Copiez le message chiffré dans iLocked";
+/* Class = "UILabel"; text = "Copy the encrypted message and paste it in iLocked"; ObjectID = "TJh-Kh-ItB"; */
+"TJh-Kh-ItB.text" = "Copiez le message chiffré et collez le dans iLocked";
 
 /* Class = "UILabel"; text = "✓ iLocked never keep your messages"; ObjectID = "TQV-HW-pzz"; */
-"TQV-HW-pzz.text" = "✓ iLocked iLocked ne garde jamais vos messages";
+"TQV-HW-pzz.text" = "✓ iLocked ne garde jamais vos messages";
 
 /* Class = "UIButton"; normalTitle = "Tutorial"; ObjectID = "Tx1-Ma-0W4"; */
 "Tx1-Ma-0W4.normalTitle" = "Tutoriel";
@@ -212,7 +212,7 @@
 "arR-U4-Jcr.text" = "Tous les chiffrement effectués avec votre actuelle clé publique RSA ne pourront plus jamais être dechiffrer et seront définitivement perdus.";
 
 /* Class = "UIButton"; normalTitle = "I already know asymetric encryption"; ObjectID = "bfb-XE-oTO"; */
-"bfb-XE-oTO.normalTitle" = "Je connais déjà le ciffrement asymétrique";
+"bfb-XE-oTO.normalTitle" = "Je connais déjà le chiffrement asymétrique";
 
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "c74-Lg-rfd"; */
 "c74-Lg-rfd.title" = "Item";
@@ -280,8 +280,8 @@
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "m17-Ti-fxk"; */
 "m17-Ti-fxk.title" = "Item";
 
-/* Class = "UILabel"; text = "Recieve a confidential message"; ObjectID = "mII-BL-Rgu"; */
-"mII-BL-Rgu.text" = "Recevoir un message confidentiel";
+/* Class = "UILabel"; text = "Decryption"; ObjectID = "mII-BL-Rgu"; */
+"mII-BL-Rgu.text" = "Déchiffrement";
 
 /* Class = "UIButton"; normalTitle = "   Support me on "; ObjectID = "mWV-E8-dDn"; */
 "mWV-E8-dDn.normalTitle" = "   Soutiens moi sur ";
@@ -343,8 +343,8 @@
 /* Class = "UIViewController"; title = "AdvancedSettingsView"; ObjectID = "vWh-6x-5A5"; */
 "vWh-6x-5A5.title" = "AdvancedSettingsView";
 
-/* Class = "UILabel"; text = "Your keys : \nPublic and private key"; ObjectID = "wH8-Qy-L9g"; */
-"wH8-Qy-L9g.text" = "Vos clés : \nUne clé publique et une clé privée";
+/* Class = "UILabel"; text = "Asymetric encryption"; ObjectID = "wH8-Qy-L9g"; */
+"wH8-Qy-L9g.text" = "Chiffrement asymétrique";
 
 /* Class = "UIButton"; normalTitle = "Back"; ObjectID = "wwH-PE-v0R"; */
 "wwH-PE-v0R.normalTitle" = "Retour";
@@ -371,7 +371,7 @@
 "QuV-vQ-OaW.text" = "Envoi risqué";
 
 /* Class = "UILabel"; text = "Share your private information without any security and confidentiality issue."; ObjectID = "aRB-RU-I4k"; */
-"aRB-RU-I4k.text" = "Partagez vos informations privées dans aucun problème de sécurité ou de confidentialité.";
+"aRB-RU-I4k.text" = "Partagez vos informations privées sans aucun problème de sécurité ou de confidentialité.";
 
 /* Class = "UILabel"; text = "Safe to send"; ObjectID = "byC-BB-6Mv"; */
 "byC-BB-6Mv.text" = "Envoi sûr";
@@ -445,5 +445,17 @@
 /* Class = "UIButton"; normalTitle = "Restore purchases"; ObjectID = "wJK-dm-WH3"; */
 "wJK-dm-WH3.normalTitle" = "Restaurer vos achats";
 
-/* Class = "UITextView"; text = "Paste your keys"; ObjectID = "wuR-F9-K4M"; */
+/* Class = "UITextView"; text = "Paste your keys here"; ObjectID = "wuR-F9-K4M"; */
 "wuR-F9-K4M.text" = "Collez vos clés ici";
+
+/* Class = "UILabel"; text = "A public and a private key"; ObjectID = "71k-jb-H8Z"; */
+"71k-jb-H8Z.text" = "Une clé plublique et une clé privée.";
+
+/* Class = "UILabel"; text = "Recieve a confidential message"; ObjectID = "WvI-nV-cha"; */
+"WvI-nV-cha.text" = "Recevoir un message confidentiel";
+
+/* Class = "UILabel"; text = "Send a confidential message"; ObjectID = "eHs-n0-7ru"; */
+"eHs-n0-7ru.text" = "Envoyer un message confidentiel";
+
+/* Class = "UILabel"; text = "Code, credit card, secret password, critical info, confidential message ..."; ObjectID = "wEs-xh-NID"; */
+"wEs-xh-NID.text" = "Code, carte bleue, secret, mot-de-passe, informations critiques, messages confitiels";

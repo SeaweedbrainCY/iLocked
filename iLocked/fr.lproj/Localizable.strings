@@ -74,7 +74,7 @@
 
 "WARNING : You will not be able to undo this action" = "ATTENTION : Vous ne serez pas capable d'annuler cette action";
 
-"warningPublicKeyUse" = "N'utilisez pas votre propre clé publique pour chiffrer, sauf si vous voulez gardez de secret garder un secret pour vous-même.\nVous êtes le seul capable de déchiffrer un message chiffré avec votre clé publique.";
+"warningPublicKeyUse" = "N'utilisez pas votre propre clé publique pour chiffrer, sauf si vous voulez garder un secret pour vous-même.\nVous êtes le seul capable de déchiffrer un message chiffré avec votre clé publique.";
 
 "ImpossibleFindKey" = "Impossible de trouver cette clé. Assurez vous d'avoir la dernière version de iLocked et que vous avez assez de place disponible sur votre iDevice.";
 
@@ -82,11 +82,11 @@
 
 "That's your own public key !" = "C'est votre propre clé publique !";
 
-"ownKeyErrorMessage" = "Vous ne pouvez pas supprimer votre propre clé publique. Pour revoker vos clés, allez dans les réglages.";
+"ownKeyErrorMessage" = "Vous ne pouvez pas supprimer votre propre clé publique. Pour revoquer vos clés, allez dans les réglages.";
 
 "Destroy this key" = "Détruire cette clé";
 
-"ownKeyErrorEdit" = "Vous ne pouvez pas modifier votre propre clé publique. Pour revoker vos clés, allez dans les réglages.";
+"ownKeyErrorEdit" = "Vous ne pouvez pas modifier votre propre clé publique. Pour revoquer vos clés, allez dans les réglages.";
 
 "infoEncryption" = "Ce message doit être chiffré avec votre propre clé publique et sera déchiffré avec votre clé privéee.";
 
