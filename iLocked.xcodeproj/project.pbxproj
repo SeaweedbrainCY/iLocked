@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		9013F7F326B05FC300CC7361 /* ExportKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9013F7F226B05FC300CC7361 /* ExportKeys.swift */; };
 		901BD77626AF1C52009D246D /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BD77526AF1C52009D246D /* BartyCrouch.swift */; };
+		901D23A326C9C27500C5DCCA /* ThirdTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */; };
+		901D23A726C9C49200C5DCCA /* decryption.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 901D23A426C9C49100C5DCCA /* decryption.MP4 */; };
+		901D23A826C9C49200C5DCCA /* encryption.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 901D23A526C9C49200C5DCCA /* encryption.MP4 */; };
+		901D23A926C9C49200C5DCCA /* addKey.MP4 in Resources */ = {isa = PBXBuildFile; fileRef = 901D23A626C9C49200C5DCCA /* addKey.MP4 */; };
 		902624022688BD3400489B07 /* X509Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902624012688BD3400489B07 /* X509Certificate.swift */; };
 		904063AA26949B1600946518 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063A926949B1600946518 /* UIWindow.swift */; };
 		904063AC26971CCD00946518 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063AB26971CCD00946518 /* Colors.swift */; };
@@ -108,6 +112,10 @@
 /* Begin PBXFileReference section */
 		9013F7F226B05FC300CC7361 /* ExportKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportKeys.swift; sourceTree = "<group>"; };
 		901BD77526AF1C52009D246D /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
+		901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTutoView.swift; sourceTree = "<group>"; };
+		901D23A426C9C49100C5DCCA /* decryption.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = decryption.MP4; sourceTree = "<group>"; };
+		901D23A526C9C49200C5DCCA /* encryption.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = encryption.MP4; sourceTree = "<group>"; };
+		901D23A626C9C49200C5DCCA /* addKey.MP4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = addKey.MP4; sourceTree = "<group>"; };
 		902624012688BD3400489B07 /* X509Certificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X509Certificate.swift; sourceTree = "<group>"; };
 		904063A926949B1600946518 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		904063AB26971CCD00946518 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -238,8 +246,19 @@
 			children = (
 				90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */,
 				90EBFC8126A4D069002B30E9 /* SecondTutoView.swift */,
+				901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */,
 			);
 			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		90C61B0226C871D000454990 /* tuto_videos */ = {
+			isa = PBXGroup;
+			children = (
+				901D23A626C9C49200C5DCCA /* addKey.MP4 */,
+				901D23A426C9C49100C5DCCA /* decryption.MP4 */,
+				901D23A526C9C49200C5DCCA /* encryption.MP4 */,
+			);
+			path = tuto_videos;
 			sourceTree = "<group>";
 		};
 		90D43B5323FDDB1900EFE9BD /* Frameworks */ = {
@@ -321,6 +340,7 @@
 		D8A64B052353BC1C000613F3 /* iLocked */ = {
 			isa = PBXGroup;
 			children = (
+				90C61B0226C871D000454990 /* tuto_videos */,
 				909655F924F85615001147B3 /* iLocked.entitlements */,
 				90D43B5323FDDB1900EFE9BD /* Frameworks */,
 				D8A64B3A2353BC4D000613F3 /* Data */,
@@ -546,11 +566,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				90EBFC9926AD8C39002B30E9 /* Localizable.strings in Resources */,
+				901D23A926C9C49200C5DCCA /* addKey.MP4 in Resources */,
 				90D367A126C586CF00108B64 /* logo_animated_ilocked.gif in Resources */,
 				90D367A526C595EA00108B64 /* animated_logo_ilocked_high.gif in Resources */,
+				901D23A826C9C49200C5DCCA /* encryption.MP4 in Resources */,
 				D8A64B132353BC23000613F3 /* LaunchScreen.storyboard in Resources */,
 				90D367A726C5966F00108B64 /* animated_logo_high_gray.gif in Resources */,
 				D8A64B102353BC23000613F3 /* Assets.xcassets in Resources */,
+				901D23A726C9C49200C5DCCA /* decryption.MP4 in Resources */,
 				D8A64B0E2353BC1C000613F3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -626,6 +649,7 @@
 				90EBFC9426ACB6BD002B30E9 /* NavigationController.swift in Sources */,
 				9058774C2401B1B5004F1894 /* SwiftyRSAError.swift in Sources */,
 				902624022688BD3400489B07 /* X509Certificate.swift in Sources */,
+				901D23A326C9C27500C5DCCA /* ThirdTutoView.swift in Sources */,
 				904063AC26971CCD00946518 /* Colors.swift in Sources */,
 				9058774B2401B1B2004F1894 /* SwiftyRSA.swift in Sources */,
 				D8A64B592353BCC1000613F3 /* EncryptHomePage.swift in Sources */,

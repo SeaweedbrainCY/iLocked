@@ -1,5 +1,5 @@
 //
-//  SecondTutoView.swift
+//  ThirdTutoView.swift
 //  iLocked
 //
 //  Created by Stchepinsky Nathan on 18/07/2021.
@@ -11,7 +11,7 @@ import UIKit
 import AVKit
 import AVFoundation
 
-class SecondTutoView : UIViewController {
+class ThirdTutoView : UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
@@ -40,7 +40,7 @@ class SecondTutoView : UIViewController {
     }
     
     @IBAction func playSelected(sender: UIButton){
-        guard let path = Bundle.main.path(forResource: "encryption", ofType:"MP4") else {
+        guard let path = Bundle.main.path(forResource: "decryption", ofType:"MP4") else {
                     debugPrint("video.m4v not found")
                     return
                 }

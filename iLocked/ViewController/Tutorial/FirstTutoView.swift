@@ -8,11 +8,14 @@
 
 import Foundation
 import UIKit
+import AVKit
+import AVFoundation
 
 
 class FirstTutoView: UIViewController{
     
     @IBOutlet weak var nextButton : UIButton!
+    @IBOutlet weak var playButton : UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +35,22 @@ class FirstTutoView: UIViewController{
             self.view.addSubview(view)
         }
         self.nextButton.layer.cornerRadius = 10
+        
+        self.playButton.layer.cornerRadius = 10
+        
+        self.playButton.titleLabel?.textAlignment = .center
     }
     
-   
+    @IBAction func playSelected(sender: UIButton){
+        guard let path = Bundle.main.path(forResource: "addKey", ofType:"MP4") else {
+                    debugPrint("video.m4v not found")
+                    return
+                }
+                let player = AVPlayer(url: URL(fileURLWithPath: path))
+                let playerController = AVPlayerViewController()
+                playerController.player = player
+                present(playerController, animated: true) {
+                    player.play()
+                }
+    }
 }
