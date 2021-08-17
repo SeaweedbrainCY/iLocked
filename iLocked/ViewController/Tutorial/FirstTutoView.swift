@@ -18,9 +18,17 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
     @IBOutlet weak var playButton : UIButton!
     @IBOutlet weak var descriptionButtonLabel : UILabel!
     @IBOutlet weak var activityIndicator : UIActivityIndicatorView!
+    @IBOutlet weak var progressBar : UIProgressView!
+    @IBOutlet weak var errorButton: UIButton!
     
     var isDownloading = false // not download yet
     var isDownloaded = false
+    var dataTask: URLSessionTask?
+    private var observation: NSKeyValueObservation?
+
+      deinit {
+        observation?.invalidate()
+      }
     
     static let notificationOfVideoRecieved = Notification.Name("notificationOfVideoRecieved")
     
@@ -45,7 +53,7 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
         self.playButton.layer.cornerRadius = 10
         self.playButton.titleLabel?.textAlignment = .center
         
-        //Wait for user authentication
+        //Wait for the video
         NotificationCenter.default.addObserver(self, selector: #selector(videoRecieved), name: FirstTutoView.notificationOfVideoRecieved, object: nil)
         
         
@@ -53,6 +61,7 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        //downloadVideo()
         let filePath = makeURLPath()
         if FileManager().fileExists(atPath: filePath) {
             self.isDownloaded = true
@@ -61,6 +70,10 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
             downloadVideo()
         }
     }
+    
+    //
+    // IBAction func
+    //
     
     @IBAction func playSelected(sender: UIButton){
         let filePath = makeURLPath()
@@ -87,23 +100,30 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
         } else {
             showErrorVideo()
         }
-        
-       
-        
-        
-        
-        /*guard let path = Bundle.main.path(forResource: "addKey", ofType:"MP4") else {
-                    debugPrint("video.m4v not found")
-                    return
-                }
-                let player = AVPlayer(url: URL(fileURLWithPath: path))
-                let playerController = AVPlayerViewController()
-                playerController.player = player
-                present(playerController, animated: true) {
-                    player.play()
-                }
- */
     }
+    
+    @IBAction func errorButtonSelected(sender: UIButton){
+        if isDownloading {
+            let alert = UIAlertController(title: "The video is downloading ", message: "The download isn't finished yet. Do you want to re-start the download ?", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "Keep downloading", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Re-start the download", style: .default, handler: {_ in
+                self.dataTask?.cancel()
+                self.downloadVideo()
+            }))
+            alert.addAction(UIAlertAction(title: "Stop the download", style: UIAlertAction.Style.destructive, handler: {_ in
+                self.dataTask?.cancel()
+            }))
+            self.present(alert, animated: true)
+        } else {
+            downloadVideo()
+        }
+        
+    }
+    
+    //
+    // Download video func
+    //
     
     ///
     /// - Parameters :
@@ -114,7 +134,12 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
     ///
     
     func downloadVideo() {
+        self.progressBar.progress = 0
+        self.progressBar.isHidden = false
         self.isDownloading = true
+        self.descriptionButtonLabel.textColor = .systemOrange
+        self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+        self.descriptionButtonLabel.text = "Loading the video (10 MO) ..."
         let videoURL = TutoVideo.addKey.url
         print("Download started")
         self.playButton.setTitle("", for: .normal)
@@ -122,30 +147,49 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
         self.activityIndicator.startAnimating()
         self.descriptionButtonLabel.isHidden = false
         
-        DispatchQueue.global(qos: .background).async {
-            if let url = URL(string: videoURL),
-                let data = NSData(contentsOf: url) {
-                
-                
-                let filePath = self.makeURLPath()
-                do {
-                    try data.write(to: URL(fileURLWithPath: filePath))
-                    print("[*] Saved. Path = \(filePath)")
+        
+        //DispatchQueue.global(qos: .background).async {
+            if let url = URL(string: videoURL) {
+                let request = NSMutableURLRequest(url: url)
+                self.dataTask = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) in
+                        defer {
+                            self.showErrorVideo()
+                        }
+                        print("[*] Request sended")
+                        if let error = error {
+                            self.showErrorVideo(withErrorDescription: error.localizedDescription)
+                        } else if
+                            let data = data,
+                            let response = response as? HTTPURLResponse,
+                            response.statusCode == 200 {
+                            let filePath = self.makeURLPath()
+                            print("[*] Data recieved")
+                            do {
+                                print("[*] writing")
+                                try data.write(to: URL(fileURLWithPath: filePath))
+                                print("[*] Saved. Path = \(filePath)")
+                                DispatchQueue.main.async {
+                                    NotificationCenter.default.post(name: FirstTutoView.notificationOfVideoRecieved , object: nil, userInfo: ["fileURLString" : filePath, "success": "true"])
+                                }
+                            } catch {
+                                debugPrint(error)
+                                debugPrint("[*] Impossible to write")
+                                self.showErrorVideo(withErrorDescription: error.localizedDescription)
+                            }
+                        }
+                })
+                observation = dataTask!.progress.observe(\.fractionCompleted) { progress, _ in
+                    //print("progress: ", progress.fractionCompleted)
                     DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: FirstTutoView.notificationOfVideoRecieved , object: nil, userInfo: ["fileURLString" : filePath, "success": "true"])
-                    }
-                } catch {
-                    debugPrint(error)
-                    debugPrint("[*] Impossible to write")
-                    DispatchQueue.main.async {
-                    NotificationCenter.default.post(name: FirstTutoView.notificationOfVideoRecieved, object: nil, userInfo: ["fileURLString" : "", "success": "false"])
+                        self.progressBar.progress = Float(progress.fractionCompleted)
                     }
                 }
-                
-            } else{
+            } else {
                 print("No data to extract")
             }
-        }
+        //}
+        print("dataTask resumed")
+        dataTask?.resume()
     }
     
     
@@ -178,32 +222,65 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
             self.showErrorVideo()
         }
     }
-
-    func showErrorVideo(){
-        self.isDownloaded = false
-        self.isDownloading = false
-        self.activityIndicator.stopAnimating()
-        self.playButton.isEnabled = true
-        self.playButton.setTitle("Try again", for: .normal)
-        self.playButton.backgroundColor = .systemOrange
-        self.descriptionButtonLabel.text = "Error while downloading the video."
-        self.descriptionButtonLabel.textColor = .systemOrange
-    }
-    
-    func showSuccessVideo(){
-        self.isDownloaded = true
-        self.isDownloading = false
-        self.activityIndicator.stopAnimating()
-        self.playButton.isEnabled = true
-        self.playButton.setTitle("           How to add a new public key", for: .normal)
-        self.playButton.backgroundColor = .systemGreen
-        self.descriptionButtonLabel.isHidden = true
-    }
     
     func makeURLPath() -> String{
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
         return "\(documentsPath)/\(TutoVideo.addKey.name).mp4"
     }
+    
+    //
+    // Error func
+    //
+    
+    func showErrorVideo(){
+        DispatchQueue.main.async {
+            self.isDownloaded = false
+            self.isDownloading = false
+            self.progressBar.isHidden = true
+            self.activityIndicator.stopAnimating()
+            self.playButton.isEnabled = true
+            self.playButton.setTitle("Try again", for: .normal)
+            self.playButton.backgroundColor = .systemOrange
+            self.descriptionButtonLabel.text = "Error while downloading the video."
+            self.descriptionButtonLabel.textColor = .systemOrange
+            self.descriptionButtonLabel.textColor = .systemOrange
+            self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+        }
+    }
+    
+    func showErrorVideo(withErrorDescription error: String){
+        DispatchQueue.main.async {
+            self.isDownloaded = false
+            self.isDownloading = false
+            self.progressBar.isHidden = true
+            self.activityIndicator.stopAnimating()
+            self.playButton.isEnabled = true
+            self.playButton.setTitle("Try again", for: .normal)
+            self.playButton.backgroundColor = .systemOrange
+            self.descriptionButtonLabel.text = error
+            self.descriptionButtonLabel.textColor = .systemOrange
+            self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+            self.errorButton.setTitleColor(.systemOrange, for: .normal)
+        }
+    }
+    
+    func showSuccessVideo(){
+        DispatchQueue.main.async {
+            self.isDownloaded = true
+            self.isDownloading = false
+            self.progressBar.isHidden = true
+            self.activityIndicator.stopAnimating()
+            self.playButton.isEnabled = true
+            self.errorButton.setTitle("Impossible to watch the video ?", for: .normal)
+            self.playButton.setTitle("           How to add a new public key", for: .normal)
+            self.errorButton.setTitleColor(.lightGray, for: .normal)
+            self.playButton.backgroundColor = .systemGreen
+            self.descriptionButtonLabel.isHidden = true
+        }
+    }
+    
+    
+
 }
 
 public enum TutoVideo {
@@ -222,8 +299,8 @@ public enum TutoVideo {
     var url: String {
         switch self {
         case .addKey: return "https://devnathan.github.io/source/iLockedTutoVideo/addKey.MP4"
-        case .decryption : return "https://github.com/DevNathan/DevNathan.github.io/upload/master/source/iLockedTutoVideo/encryption.MP4"
-        case .encryption : return "https://github.com/DevNathan/DevNathan.github.io/upload/master/source/iLockedTutoVideo/decryption.MP4"
+        case .encryption : return "https://devnathan.github.io/source/iLockedTutoVideo/encryption.MP4"
+        case .decryption : return "https://devnathan.github.io/source/iLockedTutoVideo/decryption.MP4"
 
         }
     }
