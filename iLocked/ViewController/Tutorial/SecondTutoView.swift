@@ -23,6 +23,7 @@ class SecondTutoView : UIViewController {
     
     var isDownloading = false // not download yet
     var isDownloaded = false
+    var isViewPresented = true // false if the download is started by another bien
     var dataTask: URLSessionTask?
     private var observation: NSKeyValueObservation?
 
@@ -62,6 +63,7 @@ class SecondTutoView : UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //downloadVideo()
+        self.isViewPresented = true
         let filePath = makeURLPath()
         if FileManager().fileExists(atPath: filePath) {
             self.isDownloaded = true
@@ -103,7 +105,6 @@ class SecondTutoView : UIViewController {
                         if !FileManager().fileExists(atPath: thirdUrl) {
                             thirdTuto.downloadVideo(isViewPresented: false)
                         }
-                        thirdTuto.downloadVideo(isViewPresented: false)
                     }
                 } else {
                     print("[*] File doesn't exist")
@@ -139,26 +140,28 @@ class SecondTutoView : UIViewController {
     
     ///
     /// - Parameters :
-    ///         - videoURL : web url of the wanted video (String)
-    ///         - name : name of the video (for storing reason) (String)
+    ///         - viewIsPresented : Default value : true. False if it's loaded by an other view, in preshot of the download
     /// -  Returns :
     ///         None. Notification posted
     ///
     
-    func downloadVideo() {
-        self.progressBar.progress = 0
-        self.progressBar.isHidden = false
-        self.isDownloading = true
-        self.descriptionButtonLabel.textColor = .systemOrange
-        self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
-        self.descriptionButtonLabel.text = "Loading the video (11 MO) ..."
-        let videoURL = TutoVideo.encryption.url
+    func downloadVideo(isViewPresented : Bool = true) {
+        self.isViewPresented = isViewPresented
+        if isViewPresented {
+            self.progressBar.progress = 0
+            self.progressBar.isHidden = false
+            self.isDownloading = true
+            self.descriptionButtonLabel.textColor = .systemOrange
+            self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+            self.descriptionButtonLabel.text = "Loading the video (6 MO) ..."
+            self.playButton.setTitle("", for: .normal)
+            self.playButton.isEnabled = false
+            self.activityIndicator.startAnimating()
+            self.descriptionButtonLabel.isHidden = false
+        }
+       
+        let videoURL = TutoVideo.decryption.url
         print("Download started")
-        self.playButton.setTitle("", for: .normal)
-        self.playButton.isEnabled = false
-        self.activityIndicator.startAnimating()
-        self.descriptionButtonLabel.isHidden = false
-        
         
         //DispatchQueue.global(qos: .background).async {
             if let url = URL(string: videoURL) {
@@ -190,10 +193,12 @@ class SecondTutoView : UIViewController {
                             }
                         }
                 })
-                observation = dataTask!.progress.observe(\.fractionCompleted) { progress, _ in
-                    //print("progress: ", progress.fractionCompleted)
-                    DispatchQueue.main.async {
-                        self.progressBar.progress = Float(progress.fractionCompleted)
+                if self.isViewPresented {
+                    observation = dataTask!.progress.observe(\.fractionCompleted) { progress, _ in
+                        //print("progress: ", progress.fractionCompleted)
+                        DispatchQueue.main.async {
+                            self.progressBar.progress = Float(progress.fractionCompleted)
+                        }
                     }
                 }
             } else {
@@ -244,52 +249,58 @@ class SecondTutoView : UIViewController {
     //
     
     func showErrorVideo(){
-        DispatchQueue.main.async {
-            self.isDownloaded = false
-            self.isDownloading = false
-            self.progressBar.isHidden = true
-            self.activityIndicator.stopAnimating()
-            self.playButton.isEnabled = true
-            self.playButton.setTitle("Try again", for: .normal)
-            self.playButton.backgroundColor = .systemOrange
-            self.descriptionButtonLabel.text = "Error while downloading the video."
-            self.descriptionButtonLabel.textColor = .systemOrange
-            self.descriptionButtonLabel.textColor = .systemOrange
-            self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+        if self.isViewPresented {
+            DispatchQueue.main.async {
+                self.isDownloaded = false
+                self.isDownloading = false
+                self.progressBar.isHidden = true
+                self.activityIndicator.stopAnimating()
+                self.playButton.isEnabled = true
+                self.playButton.setTitle("Try again", for: .normal)
+                self.playButton.backgroundColor = .systemOrange
+                self.descriptionButtonLabel.text = "Error while downloading the video."
+                self.descriptionButtonLabel.textColor = .systemOrange
+                self.descriptionButtonLabel.textColor = .systemOrange
+                self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+            }
         }
     }
     
     func showErrorVideo(withErrorDescription error: String){
-        DispatchQueue.main.async {
-            self.isDownloaded = false
-            self.isDownloading = false
-            self.progressBar.isHidden = true
-            self.activityIndicator.stopAnimating()
-            self.playButton.isEnabled = true
-            self.playButton.setTitle("Try again", for: .normal)
-            self.playButton.backgroundColor = .systemOrange
-            self.descriptionButtonLabel.text = error
-            self.descriptionButtonLabel.textColor = .systemOrange
-            self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
-            self.errorButton.setTitleColor(.systemOrange, for: .normal)
+        if self.isViewPresented {
+            DispatchQueue.main.async {
+                self.isDownloaded = false
+                self.isDownloading = false
+                self.progressBar.isHidden = true
+                self.activityIndicator.stopAnimating()
+                self.playButton.isEnabled = true
+                self.playButton.setTitle("Try again", for: .normal)
+                self.playButton.backgroundColor = .systemOrange
+                self.descriptionButtonLabel.text = error
+                self.descriptionButtonLabel.textColor = .systemOrange
+                self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+                self.errorButton.setTitleColor(.systemOrange, for: .normal)
+            }
         }
     }
     
     func showSuccessVideo(){
-        DispatchQueue.main.async {
-            self.isDownloaded = true
-            self.isDownloading = false
-            self.progressBar.isHidden = true
-            self.activityIndicator.stopAnimating()
-            self.playButton.isEnabled = true
-            self.errorButton.setTitle("Impossible to watch the video ?", for: .normal)
-            self.playButton.setTitle("           How to encrypt", for: .normal)
-            self.errorButton.setTitleColor(.lightGray, for: .normal)
-            self.playButton.backgroundColor = .systemGreen
-            self.descriptionButtonLabel.isHidden = true
+        if self.isViewPresented {
+            DispatchQueue.main.async {
+                self.isDownloaded = true
+                self.isDownloading = false
+                self.progressBar.isHidden = true
+                self.activityIndicator.stopAnimating()
+                self.playButton.isEnabled = true
+                self.errorButton.setTitle("Impossible to watch the video ?", for: .normal)
+                self.playButton.setTitle("           How to encrypt", for: .normal)
+                self.errorButton.setTitleColor(.lightGray, for: .normal)
+                self.playButton.backgroundColor = .systemGreen
+                self.descriptionButtonLabel.isHidden = true
+            }
         }
     }
     
     
-
+    
 }

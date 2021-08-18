@@ -92,6 +92,12 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
                     playerController.player = player
                     present(playerController, animated: true) {
                         player.play()
+                        // If play, we start the download of the next video
+                        let secondTuto = ThirdTutoView()
+                        let secondUrl = secondTuto.makeURLPath()
+                        if !FileManager().fileExists(atPath: secondUrl) {
+                            secondTuto.downloadVideo(isViewPresented: false)
+                        }
                     }
                 } else {
                     print("[*] File doesn't exist")
