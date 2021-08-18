@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    let viewControllerTitleAllowedForSegue = ["MainTabBarController", "EncryptHomePage","addKeyNavCrtl","AddKeyCrtl","PublicKeyList","PublicKeyView","SettingsView", "AdvancedSettingsView","developerView","DecryptHomePage","DecryptResult","DecryptResult","revokeView"]
+    let viewControllerTitleAllowedForSegue = ["MainTabBarController", "EncryptHomePage","addKeyNavCrtl","AddKeyCrtl","PublicKeyList","PublicKeyView","SettingsView", "AdvancedSettingsView","developerView","DecryptHomePage","DecryptResult","DecryptResult"]
     // List of the titles of the VC that can perform a segue named "lockApp"
     
     let settingsData = SettingsData()

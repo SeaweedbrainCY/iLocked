@@ -49,9 +49,10 @@ class LockedView: UIViewController{
         super.viewDidAppear(true)
         print("[*] Lockedview - View did appear [BEGIN]")
         print("ActivityIsInPogress = \(activityInProgress)")
+        print("firstTime = \(firstTime)")
         if firstTime {
             performSegue(withIdentifier: "welcome", sender: self)
-        }// If activity is in progress, the view will appear and we don't want it disable
+        } // If activity is in progress, the view will appear and we don't want it disable
         if  password && !firstTime && !activityInProgress{
             askForAuthentification()
         }
