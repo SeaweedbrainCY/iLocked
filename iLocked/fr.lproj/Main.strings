@@ -412,7 +412,7 @@
 /* Class = "UILabel"; text = "✓ iLocked never keep your messages"; ObjectID = "3kZ-cm-iyc"; */
 "3kZ-cm-iyc.text" = "✓ iLocked ne garde jamais vos messages";
 
-/* Class = "UIButton"; normalTitle = "      How decrypt "; ObjectID = "7XU-PP-QU5"; */
+/* Class = "UIButton"; normalTitle = "      How to decrypt "; ObjectID = "7XU-PP-QU5"; */
 "7XU-PP-QU5.normalTitle" = "         Comment déchiffrer";
 
 /* Class = "UILabel"; text = "Be sure you are the only one watching your screen"; ObjectID = "8UG-Xv-eHH"; */
@@ -424,10 +424,10 @@
 /* Class = "UILabel"; text = "Recieve a confidential message"; ObjectID = "IlS-9W-SKN"; */
 "IlS-9W-SKN.text" = "Recevoir un message confidentiel";
 
-/* Class = "UIButton"; normalTitle = "      How add a new public key"; ObjectID = "LgZ-d0-gV2"; */
+/* Class = "UIButton"; normalTitle = "           How to add a new public key"; ObjectID = "LgZ-d0-gV2"; */
 "LgZ-d0-gV2.normalTitle" = "        Comment ajouter une clé publique";
 
-/* Class = "UIButton"; normalTitle = "      How encrypt "; ObjectID = "No5-kY-44U"; */
+/* Class = "UIButton"; normalTitle = "   How to encrypt "; ObjectID = "No5-kY-44U"; */
 "No5-kY-44U.normalTitle" = "      Comment chiffrer";
 
 /* Class = "UILabel"; text = "Ask for your friend's public key and store it in iLocked"; ObjectID = "REv-PS-fLF"; */
@@ -468,3 +468,24 @@
 
 /* Class = "UILabel"; text = "Encryption"; ObjectID = "z9G-66-DXr"; */
 "z9G-66-DXr.text" = "Chiffrement";
+
+/* Class = "UILabel"; text = "Loading the video (16MO) ..."; ObjectID = "4IP-Cc-dsw"; */
+"4IP-Cc-dsw.text" = "Chargement de la vidéo (16MO) ...";
+
+/* Class = "UILabel"; text = "Loading the video (10 MO) ..."; ObjectID = "ASa-W0-TRk"; */
+"ASa-W0-TRk.text" = "Chargement de la vidéo (10 MO) ...";
+
+/* Class = "UIButton"; normalTitle = "  Impossible to watch the video ?"; ObjectID = "DJR-QN-DKx"; */
+"DJR-QN-DKx.normalTitle" = "Problème pour regarder la vidéo ?";
+
+/* Class = "UILabel"; text = "Loading the video (11 MO) ..."; ObjectID = "nLk-lv-iRb"; */
+"nLk-lv-iRb.text" = "Chargement de la vidéo (11 MO) ...";
+
+/* Class = "UILabel"; text = "Success !"; ObjectID = "nw2-ZK-uV9"; */
+"nw2-ZK-uV9.text" = "Réussite !";
+
+/* Class = "UIButton"; normalTitle = "  Impossible to watch the video ?"; ObjectID = "qRM-VX-CsP"; */
+"qRM-VX-CsP.normalTitle" = "Problème pour regarder la vidéo ?";
+
+/* Class = "UIButton"; normalTitle = "  Impossible to watch the video ?"; ObjectID = "ruD-O4-NDI"; */
+"ruD-O4-NDI.normalTitle" = "Problème pour regarder la vidéo ?";

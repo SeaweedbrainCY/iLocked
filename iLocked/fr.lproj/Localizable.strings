@@ -256,3 +256,54 @@
 
 "ERROR : Impossible to get the public key associated" = "ERREUR : Impossible d'obtenir la clé publique associée";
 
+"The video is downloading" = "La vidéo se télécharge";
+
+"downloadingVideoMessage" = "Le téléchargement de la vidéo n'est pas encore fini. Voulez-vous recommencer le téléchargement ?";
+
+"Keep downloading" = "Continuer le téléchargement";
+
+
+"Re-start the download" = "Relancer le téléchargement";
+
+"Stop the download" = "Arrêter le téléchargement";
+
+"Impossible to download the video ?" = "Problèmes pour télécharger la vidéo ?";
+
+"Loading the video (10 MO) ..." = "Chargement de la vidéo (10 MO) ...";
+
+"Error occured while downloading the video." = "Erreur survenue lors du chargement de la vidéo";
+
+"Impossible to download the video ?" = "Problème pour télécharger la vidéo ?";
+
+"Impossible to watch the video ?" = "Problème pour regarder la vidéo ?";
+
+"       How to add a new public key" = "       Comment ajouter une clé publique ?";
+
+"addKey" = "ajoutCle";
+
+"encryption" = "chiffrement";
+
+"decrytpion" = "dechiffrement";
+
+"encryption.MP4" = "encryption_french.MP4";
+
+"decryption.MP4" = "decryption_french.MP4";
+
+"addKey.MP4" = "addKey_french.MP4";
+
+"Loading the video (6 MO) ..." =  "Chargement de la vidéo (6 MO) ...";
+
+"Try again" = "Ré-essayer";
+
+"           How to encrypt" = "           Comment chiffrer";
+
+"Loading the video (6 MO) ..." = "Chargement de la vidéo (6 MO) ...";
+
+"           How to decrypt" = "           Comment déchiffrer";
+
+"Fatal error" = "Erreur fatale";
+
+"keyRetrieveFailedMessage" = "Impossible de trouver cette clé. Veuillez verifier que vous n'avez fait aucune erreur, que vous avez installé la dernière version d'iLocked et que vous avez assez d'espace disponible sur votre appareil";
+
+"Delete the tuorial videos" = "Supprimer les videos de tuto";
+

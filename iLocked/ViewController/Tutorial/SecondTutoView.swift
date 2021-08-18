@@ -118,14 +118,14 @@ class SecondTutoView : UIViewController {
     
     @IBAction func errorButtonSelected(sender: UIButton){
         if isDownloading {
-            let alert = UIAlertController(title: "The video is downloading ", message: "The download isn't finished yet. Do you want to re-start the download ?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "The video is downloading".localized(), message: "The download isn't finished yet. Do you want to re-start the download ?".localized(withKey: "downloadingVideoMessage"), preferredStyle: .alert)
 
-            alert.addAction(UIAlertAction(title: "Keep downloading", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Re-start the download", style: .default, handler: {_ in
+            alert.addAction(UIAlertAction(title: "Keep downloading".localized(), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Re-start the download".localized(), style: .default, handler: {_ in
                 self.dataTask?.cancel()
                 self.downloadVideo()
             }))
-            alert.addAction(UIAlertAction(title: "Stop the download", style: UIAlertAction.Style.destructive, handler: {_ in
+            alert.addAction(UIAlertAction(title: "Stop the download".localized(), style: UIAlertAction.Style.destructive, handler: {_ in
                 self.dataTask?.cancel()
             }))
             self.present(alert, animated: true)
@@ -153,8 +153,8 @@ class SecondTutoView : UIViewController {
             self.progressBar.isHidden = false
             self.isDownloading = true
             self.descriptionButtonLabel.textColor = .systemOrange
-            self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
-            self.descriptionButtonLabel.text = "Loading the video (6 MO) ..."
+            self.errorButton.setTitle("Impossible to download the video ?".localized(), for: .normal)
+            self.descriptionButtonLabel.text = "Loading the video (6 MO) ...".localized()
             self.playButton.setTitle("", for: .normal)
             self.playButton.isEnabled = false
             self.activityIndicator.startAnimating()
@@ -264,12 +264,12 @@ class SecondTutoView : UIViewController {
                 self.progressBar.isHidden = true
                 self.activityIndicator.stopAnimating()
                 self.playButton.isEnabled = true
-                self.playButton.setTitle("Try again", for: .normal)
+                self.playButton.setTitle("Try again".localized(), for: .normal)
                 self.playButton.backgroundColor = .systemOrange
-                self.descriptionButtonLabel.text = "Error while downloading the video."
+                self.descriptionButtonLabel.text = "Error occured while downloading the video.".localized()
                 self.descriptionButtonLabel.textColor = .systemOrange
                 self.descriptionButtonLabel.textColor = .systemOrange
-                self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+                self.errorButton.setTitle("Impossible to download the video ?".localized(), for: .normal)
             }
         }
     }
@@ -282,11 +282,11 @@ class SecondTutoView : UIViewController {
                 self.progressBar.isHidden = true
                 self.activityIndicator.stopAnimating()
                 self.playButton.isEnabled = true
-                self.playButton.setTitle("Try again", for: .normal)
+                self.playButton.setTitle("Try again".localized(), for: .normal)
                 self.playButton.backgroundColor = .systemOrange
                 self.descriptionButtonLabel.text = error
                 self.descriptionButtonLabel.textColor = .systemOrange
-                self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+                self.errorButton.setTitle("Impossible to download the video ?".localized(), for: .normal)
                 self.errorButton.setTitleColor(.systemOrange, for: .normal)
             }
         }
@@ -300,8 +300,8 @@ class SecondTutoView : UIViewController {
                 self.progressBar.isHidden = true
                 self.activityIndicator.stopAnimating()
                 self.playButton.isEnabled = true
-                self.errorButton.setTitle("Impossible to watch the video ?", for: .normal)
-                self.playButton.setTitle("           How to encrypt", for: .normal)
+                self.errorButton.setTitle("Impossible to watch the video ?".localized(), for: .normal)
+                self.playButton.setTitle("           How to encrypt".localized(), for: .normal)
                 self.errorButton.setTitleColor(.lightGray, for: .normal)
                 self.playButton.backgroundColor = .systemGreen
                 self.descriptionButtonLabel.isHidden = true

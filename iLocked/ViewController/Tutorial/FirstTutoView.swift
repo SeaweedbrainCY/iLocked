@@ -110,14 +110,14 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
     
     @IBAction func errorButtonSelected(sender: UIButton){
         if isDownloading {
-            let alert = UIAlertController(title: "The video is downloading ", message: "The download isn't finished yet. Do you want to re-start the download ?", preferredStyle: .alert)
+            let alert = UIAlertController(title: "The video is downloading".localized(), message: "The download isn't finished yet. Do you want to re-start the download ?".localized(withKey: "downloadingVideoMessage"), preferredStyle: .alert)
 
-            alert.addAction(UIAlertAction(title: "Keep downloading", style: .cancel, handler: nil))
-            alert.addAction(UIAlertAction(title: "Re-start the download", style: .default, handler: {_ in
+            alert.addAction(UIAlertAction(title: "Keep downloading".localized(), style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Re-start the download".localized(), style: .default, handler: {_ in
                 self.dataTask?.cancel()
                 self.downloadVideo()
             }))
-            alert.addAction(UIAlertAction(title: "Stop the download", style: UIAlertAction.Style.destructive, handler: {_ in
+            alert.addAction(UIAlertAction(title: "Stop the download".localized(), style: UIAlertAction.Style.destructive, handler: {_ in
                 self.dataTask?.cancel()
             }))
             self.present(alert, animated: true)
@@ -144,8 +144,8 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
         self.progressBar.isHidden = false
         self.isDownloading = true
         self.descriptionButtonLabel.textColor = .systemOrange
-        self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
-        self.descriptionButtonLabel.text = "Loading the video (10 MO) ..."
+        self.errorButton.setTitle("Impossible to download the video ?".localized(), for: .normal)
+        self.descriptionButtonLabel.text = "Loading the video (10 MO) ...".localized()
         let videoURL = TutoVideo.addKey.url
         print("Download started")
         self.playButton.setTitle("", for: .normal)
@@ -234,7 +234,7 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
     
     func makeURLPath(isNameLocalized : Bool = true) -> String{
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
-        var name = TutoVideo.addKey.name.localized() // not yet localized
+        var name = TutoVideo.addKey.name.localized()
         if !isNameLocalized {
             name = TutoVideo.addKey.name
         }
@@ -252,12 +252,12 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
             self.progressBar.isHidden = true
             self.activityIndicator.stopAnimating()
             self.playButton.isEnabled = true
-            self.playButton.setTitle("Try again", for: .normal)
+            self.playButton.setTitle("Try again".localized(), for: .normal)
             self.playButton.backgroundColor = .systemOrange
-            self.descriptionButtonLabel.text = "Error while downloading the video."
+            self.descriptionButtonLabel.text = "Error occured while downloading the video.".localized()
             self.descriptionButtonLabel.textColor = .systemOrange
             self.descriptionButtonLabel.textColor = .systemOrange
-            self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+            self.errorButton.setTitle("Impossible to download the video ?".localized(), for: .normal)
         }
     }
     
@@ -268,11 +268,11 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
             self.progressBar.isHidden = true
             self.activityIndicator.stopAnimating()
             self.playButton.isEnabled = true
-            self.playButton.setTitle("Try again", for: .normal)
+            self.playButton.setTitle("Try again".localized(), for: .normal)
             self.playButton.backgroundColor = .systemOrange
             self.descriptionButtonLabel.text = error
             self.descriptionButtonLabel.textColor = .systemOrange
-            self.errorButton.setTitle("Impossible to download the video ?", for: .normal)
+            self.errorButton.setTitle("Impossible to download the video ?".localized(), for: .normal)
             self.errorButton.setTitleColor(.systemOrange, for: .normal)
         }
     }
@@ -284,8 +284,8 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
             self.progressBar.isHidden = true
             self.activityIndicator.stopAnimating()
             self.playButton.isEnabled = true
-            self.errorButton.setTitle("Impossible to watch the video ?", for: .normal)
-            self.playButton.setTitle("           How to add a new public key", for: .normal)
+            self.errorButton.setTitle("Impossible to watch the video ?".localized(), for: .normal)
+            self.playButton.setTitle("           How to add a new public key".localized(), for: .normal)
             self.errorButton.setTitleColor(.lightGray, for: .normal)
             self.playButton.backgroundColor = .systemGreen
             self.descriptionButtonLabel.isHidden = true
@@ -311,9 +311,9 @@ public enum TutoVideo {
     
     var url: String {
         switch self {
-        case .addKey: return "https://devnathan.github.io/source/iLockedTutoVideo/addKey.MP4"
-        case .encryption : return "https://devnathan.github.io/source/iLockedTutoVideo/encryption.MP4"
-        case .decryption : return "https://devnathan.github.io/source/iLockedTutoVideo/decryption.MP4"
+        case .addKey: return "https://devnathan.github.io/source/iLockedTutoVideo/" + "addKey.MP4".localized()
+        case .encryption : return "https://devnathan.github.io/source/iLockedTutoVideo/" + "encryption.MP4".localized()
+        case .decryption : return "https://devnathan.github.io/source/iLockedTutoVideo/" + "decryption.MP4".localized()
 
         }
     }

@@ -153,7 +153,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     private func keyRetrieveFailed(swicthIsOn : Bool){
-        alert("Fatal error", message: "Impossible to find this key. Please check you didn't make any mistake, install the last version of this application and be sure you have enough space on your iDevice.", quitMessage: "Ok")
+        alert("Fatal error".localized(), message: "Impossible to find this key. Please check you didn't make any mistake, install the last version of this application and be sure you have enough space on your iDevice.".localized(withKey: "keyRetrieveFailedMessage"), quitMessage: "Ok")
         self.x509certificateSwitch.isOn = swicthIsOn
     }
     
@@ -216,7 +216,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
                 cell.textLabel?.text = "📲 Open external links in app".localized()
                 accessoryView = self.inAppBrowserSwitch
             case 1 :
-                cell.textLabel?.text = "🧹 Delete the tuorial videos"
+                cell.textLabel?.text = "🧹 " + "Delete the tuorial videos".localized()
             default :
                 cell.textLabel?.text = "ERROR"
             }
