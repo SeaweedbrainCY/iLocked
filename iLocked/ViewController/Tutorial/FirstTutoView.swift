@@ -93,7 +93,7 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
                     present(playerController, animated: true) {
                         player.play()
                         // If play, we start the download of the next video
-                        let secondTuto = ThirdTutoView()
+                        let secondTuto = SecondTutoView()
                         let secondUrl = secondTuto.makeURLPath()
                         if !FileManager().fileExists(atPath: secondUrl) {
                             secondTuto.downloadVideo(isViewPresented: false)
@@ -229,9 +229,16 @@ class FirstTutoView: UIViewController, URLSessionDelegate{
         }
     }
     
-    func makeURLPath() -> String{
+    /// - parameters :
+    ///     - isNameLocalized : by default true. If not it returns the name without translation
+    
+    func makeURLPath(isNameLocalized : Bool = true) -> String{
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
-        return "\(documentsPath)/\(TutoVideo.addKey.name).mp4"
+        var name = TutoVideo.addKey.name.localized() // not yet localized
+        if !isNameLocalized {
+            name = TutoVideo.addKey.name
+        }
+        return "\(documentsPath)/\(name).mp4"
     }
     
     //

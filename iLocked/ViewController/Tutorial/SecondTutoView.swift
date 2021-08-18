@@ -68,6 +68,7 @@ class SecondTutoView : UIViewController {
         if FileManager().fileExists(atPath: filePath) {
             self.isDownloaded = true
             self.isDownloading = false
+            print("[*] Encryption file video already exists")
         } else {
             downloadVideo()
         }
@@ -89,7 +90,7 @@ class SecondTutoView : UIViewController {
                 downloadVideo()
             } else if isDownloaded == true && isDownloading == false {
                 if FileManager().fileExists(atPath: filePath) {
-                    print("file exists")
+                    print("[*] File exists. Reading the video")
                     let avAssest = AVAsset(url: URL(fileURLWithPath: filePath))
                     let playerItem = AVPlayerItem(asset: avAssest)
                     
@@ -239,9 +240,16 @@ class SecondTutoView : UIViewController {
         }
     }
     
-    func makeURLPath() -> String{
+    /// - parameters :
+    ///     - isNameLocalized : by default true. If not it returns the name without translation
+    
+    func makeURLPath(isNameLocalized : Bool = true) -> String{
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
-        return "\(documentsPath)/\(TutoVideo.encryption.name).mp4"
+        var name = TutoVideo.encryption.name.localized() // not yet localized
+        if !isNameLocalized {
+            name = TutoVideo.encryption.name
+        }
+        return "\(documentsPath)/\(name).mp4"
     }
     
     //

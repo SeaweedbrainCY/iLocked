@@ -231,9 +231,16 @@ class ThirdTutoView : UIViewController {
         }
     }
     
-    func makeURLPath() -> String{
+    /// - parameters :
+    ///     - isNameLocalized : by default true. If not it returns the name without translation
+    
+    func makeURLPath(isNameLocalized : Bool = true) -> String{
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0];
-        return "\(documentsPath)/\(TutoVideo.decryption.name).mp4"
+        var name = TutoVideo.decryption.name.localized() // not yet localized
+        if !isNameLocalized {
+            name = TutoVideo.decryption.name
+        }
+        return "\(documentsPath)/\(name).mp4"
     }
     
     //

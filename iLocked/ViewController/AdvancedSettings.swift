@@ -12,6 +12,7 @@ import UIKit
 class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView : UITableView!
+    @IBOutlet weak var successView : UIView!
     let inAppBrowserSwitch = UISwitch()
     let x509certificateSwitch = UISwitch()
     let x509CertificateForAllSwitch = UISwitch()
@@ -23,7 +24,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell") //on associe la tableView au custom de Style/customeCelleTableView.swift
         loadSettings()
-        
+        self.successView.layer.cornerRadius = 20
     }
     //
     // Pop up func
@@ -156,6 +157,23 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         self.x509certificateSwitch.isOn = swicthIsOn
     }
     
+    func showSuccess(){
+        let duration: TimeInterval = 0.8
+        let waitTime: TimeInterval = 1.5
+        let animation = UIViewPropertyAnimator(duration: duration, curve: .linear, animations: {
+            self.successView.alpha = 1
+        })
+        animation.startAnimation()
+        perform(#selector(hideSuccess), with: nil, afterDelay: duration + waitTime)
+    }
+    
+    @objc func hideSuccess(){
+        let animation = UIViewPropertyAnimator(duration: 0.5, curve: .linear, animations: {
+            self.successView.alpha = 0
+        })
+        animation.startAnimation()
+    }
+    
     //
     // Table view func
     //
@@ -168,7 +186,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
     /// Cells for each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0 : return 1
+        case 0 : return 2
         case 1 : return 1
         case 2 : return 1
         default : return 0
@@ -197,6 +215,8 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
                 }
                 cell.textLabel?.text = "📲 Open external links in app".localized()
                 accessoryView = self.inAppBrowserSwitch
+            case 1 :
+                cell.textLabel?.text = "🧹 Delete the tuorial videos"
             default :
                 cell.textLabel?.text = "ERROR"
             }
@@ -245,6 +265,18 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // cellule selctionnée
         if indexPath.section == 0 {
             switch indexPath.row {
+            case 1:
+                let paths = [FirstTutoView().makeURLPath(isNameLocalized: false), SecondTutoView().makeURLPath(isNameLocalized: false), ThirdTutoView().makeURLPath(isNameLocalized: false), FirstTutoView().makeURLPath(), SecondTutoView().makeURLPath(), ThirdTutoView().makeURLPath()] // get all the possible path
+                let fileManager = FileManager()
+                for path in paths {
+                    print("[*] path to delete = \(path)")
+                    do {
+                        try fileManager.removeItem(atPath: path)
+                    } catch {
+                        print("[*] Impossible to delete : error = \(error)")
+                    }
+                }
+                showSuccess()
             default : break
             }
         } else if indexPath.section == 1{
