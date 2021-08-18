@@ -127,8 +127,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     }
                 }else { // Not init. Se we do it
                     // default value
-                    self.protectionSwitch.isOn = false
-                    setting.updateValue("false", forKey: SettingsName.isPasswordActivated.key)
+                    self.protectionSwitch.isOn = true
+                    setting.updateValue("true", forKey: SettingsName.isPasswordActivated.key)
                     settingData.saveSetting(dict: setting)
                 }
                 cell.textLabel?.text = "🔐 Protect with a password".localized()
@@ -142,8 +142,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     }
                 }else { // Not init. Se we do it
                     // default value
-                    self.hideScreenSwitcher.isOn = true
-                    setting.updateValue("true", forKey: SettingsName.hideScreen.key)
+                    self.hideScreenSwitcher.isOn = false
+                    setting.updateValue("false", forKey: SettingsName.hideScreen.key)
                     settingData.saveSetting(dict: setting)
                 }
                 cell.textLabel?.text = "📲 Hide screen in App Switcher".localized()
