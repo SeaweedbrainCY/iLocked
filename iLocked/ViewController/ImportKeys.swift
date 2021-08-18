@@ -210,6 +210,7 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
     ///     - privateKey : The private key, base64 encoded
     ///     - isX509 : Optional. Nil if we have to check, bool value if we already know. The func store the result and test if necessary
     func saveKeys(publicKey:String, privateKey: String, isX509Given: Bool?){
+        print("[*] Saving your keys")
         self.importButton.isEnabled = false
         let saveSuccessfulPrivateKey = KeychainWrapper.standard.set(privateKey, forKey: UserKeys.privateKey.tag)
         let saveSuccessfulPublicKey = KeychainWrapper.standard.set(publicKey, forKey: UserKeys.publicKey.tag)
@@ -226,14 +227,19 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
             if isX509Given != nil {
                 isX509 = isX509Given!
             } else {
-                if let publicKeyData = Data(base64Encoded: publicKey) {
+                let keys = KeyId()
+                if let publicKeyData = Data(base64Encoded: keys.extract_key(publicKey)) {
                     do {
                         isX509 = try publicKeyData.hasX509Header()
+                        print("[*] Recieved public key = \(publicKeyData.base64EncodedString())")
+                        print("[*] Public key checked. Test passed. Result : hasX509Header = \(isX509)")
                     } catch {
-                        print("Impossible to verify X509 certificate")
+                        print("[*] Impossible to verify X509 certificate")
                         isX509 = false
                     }
                     
+                } else {
+                    print("[*] Error while converting the public key. Public key = \(publicKey)")
                 }
             }
             
