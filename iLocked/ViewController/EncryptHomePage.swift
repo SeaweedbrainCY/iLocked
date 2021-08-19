@@ -24,7 +24,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     @IBOutlet weak var helpBarButtonItem : UIBarButtonItem!
     
     //Help views
-    let helpTextLabel = UILabel()
+    let helpTextView = UITextView()
     let helpView = UIView()
     let quitButton = UIButton()
     var backgroundInfo = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
@@ -157,36 +157,53 @@ class Encrypt: UIViewController, UITextViewDelegate{
         self.backgroundInfo.alpha = 0
         
         self.view.addSubview(self.helpView)
-        self.helpView.frame.size.height = self.view.frame.size.height / 2
+        self.helpView.frame.size.height = self.view.frame.size.height
         self.helpView.frame.size.width = self.view.frame.size.width - 20
         self.helpView.center = self.view.center
         self.helpView.backgroundColor = .none
         self.helpView.alpha = 0
         
-        
-        self.helpView.addSubview(self.helpTextLabel)
-        self.helpTextLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.helpTextLabel.widthAnchor.constraint(equalToConstant: self.helpView.frame.size.width - 20).isActive = true
-        self.helpTextLabel.heightAnchor.constraint(equalToConstant: self.helpView.frame.size.height
-             - 10).isActive = true
-        self.helpTextLabel.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
-        self.helpTextLabel.centerYAnchor.constraint(equalToSystemSpacingBelow: self.helpView.centerYAnchor, multiplier: 1).isActive = true
-        self.helpTextLabel.numberOfLines = 0
-        self.helpTextLabel.textAlignment = .justified
-        self.helpTextLabel.font = UIFont(name: "American Typewriter", size: 17.0)
-        self.helpTextLabel.textColor = .white
-        
         self.helpView.addSubview(closeHelpButtonView)
         self.closeHelpButtonView.translatesAutoresizingMaskIntoConstraints = false
-        self.closeHelpButtonView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
-        self.closeHelpButtonView.centerYAnchor.constraint(equalToSystemSpacingBelow: self.helpView.centerYAnchor, multiplier: 1).isActive = true
         self.closeHelpButtonView.heightAnchor.constraint(equalToConstant: self.helpView.frame.height).isActive = true
         self.closeHelpButtonView.widthAnchor.constraint(equalToConstant: self.helpView.frame.width).isActive = true
+        self.closeHelpButtonView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
+        self.closeHelpButtonView.centerYAnchor.constraint(equalToSystemSpacingBelow: self.helpView.centerYAnchor, multiplier: 1).isActive = true
+        
         self.closeHelpButtonView.backgroundColor = .none
         self.closeHelpButtonView.addTarget(self, action: #selector(closeHelpSelected), for: .touchUpInside)
         
+        
+        self.helpView.addSubview(self.helpTextView)
+        self.helpTextView.translatesAutoresizingMaskIntoConstraints = false
+        self.helpTextView.widthAnchor.constraint(equalToConstant: self.helpView.frame.size.width - 20).isActive = true
+        self.helpTextView.heightAnchor.constraint(equalToConstant: self.helpView.frame.size.height
+             / 2).isActive = true
+        self.helpTextView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
+        self.helpTextView.centerYAnchor.constraint(equalToSystemSpacingBelow: self.helpView.centerYAnchor, multiplier: 1).isActive = true
+        self.helpTextView.isEditable = false
+        self.helpTextView.isSelectable = false
+        self.helpTextView.textAlignment = .justified
+        self.helpTextView.font = UIFont(name: "American Typewriter", size: 17.0)
+        self.helpTextView.textColor = .white
+        self.helpTextView.backgroundColor = .none
+        self.helpTextView.isScrollEnabled = true
+        /*self.helpTextLabel.adjustsFontSizeToFitWidth = true
+        self.helpTextLabel.adjustsFontForContentSizeCategory = true
+        self.helpTextLabel.lineBreakMode = .byClipping
+        self.helpTextLabel.minimumScaleFactor = 0.5*/
+        
+        
+        
+        
         // encrypt textview :
         self.textToEncrypt.text = "Text to encrypt".localized()
+        
+        
+        if #available(iOS 14.0, *), #available(watchOS 7.0, *), #available(tvOS 14.0, *){
+            self.encryptButton.setImage(UIImage(systemName: "lock.doc.fill"), for: .normal)
+        }
+        
     }
     
     //
@@ -387,7 +404,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
     func showHelp(text: String){
         self.helpBarButtonItem.image = UIImage(systemName: "multiply.circle.fill")
         self.helpView.layer.borderColor = UIColor.white.cgColor
-        self.helpTextLabel.text = text
+        self.helpTextView.text = text
         let animator = UIViewPropertyAnimator(duration: 0.7, dampingRatio: 0.7, animations: {
             self.helpView.alpha = 1
             self.backgroundInfo.alpha = 1

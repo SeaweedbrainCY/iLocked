@@ -238,7 +238,7 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
                     //
                     // ERROR #0005# : SERIOUS
                     //
-                    alert("Wrong data displayed".localized(), message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0005#".localized(withKey: "messageError0005"), quitMessage: "Close".localized())
+                    alert("Wrong data".localized(), message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0005#".localized(withKey: "messageError0005"), quitMessage: "Close".localized())
                 }
             } else { // No cell correponding to the selection
                 //

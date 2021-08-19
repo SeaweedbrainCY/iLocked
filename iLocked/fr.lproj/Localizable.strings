@@ -16,7 +16,7 @@
 
 "Nothing to paste" = "Rien à coller";
 
-"helpText" = "⚠️ CONFIDENTIALITÉ : iLocked ne conserve ne partage JAMAIS (jamais) vos messages !\nPour preuve, l'application n'a pas besoin de connexion internet pour chiffrer, déchiffrer ou stocker une clé ! Ce qui est sur votre iPhone, reste sur votre iPhone.\n\n\n📨Pour déchiffrer un message chiffré avec votre propre clé publique, copiez et collez simplement le texte dans le champ. Appuyez aussi sur le bouton 'déchiffrer'.\n\nUne nouvelle fenêtre va être ouverte et donnera le message déchiffré.\n\n🙇IMPORTANT : Assurez vous que votre correspondant a chiffré son message avec votre clé publique et que vous avez copié la totalité du texte reçu. Ni plus, ni moins.";
+"helpText" = "⚠️ CONFIDENTIALITÉ : iLocked ne conserve ou ne partage JAMAIS (jamais) vos messages !\nPour preuve, l'application n'a pas besoin de connexion internet pour chiffrer, déchiffrer ou stocker une clé ! Ce qui est sur votre iPhone, reste sur votre iPhone.\n\n\n📨Pour déchiffrer un message chiffré avec votre propre clé publique, copiez et collez simplement le texte dans le champ. Appuyez aussi sur le bouton 'déchiffrer'.\n\nUne nouvelle fenêtre va être ouverte et donnera le message déchiffré.\n\n🙇IMPORTANT : Assurez vous que votre correspondant a chiffré son message avec votre clé publique et que vous avez copié la totalité du texte reçu. Ni plus, ni moins.";
 
 "Text to decrypt" = "Texte à déchiffrer";
 
@@ -34,9 +34,9 @@
 
 "Text to encrypt" = "Texte à chiffrer";
 
-"helpTextEncryption" = "⚠️ CONFIDENTIALITÉ : iLocked ne conserve ne partage JAMAIS (jamais) vos messages !\nPour preuve, l'application n'a pas besoin de connexion internet pour chiffrer, déchiffrer ou stocker une clé ! Ce qui est sur votre iPhone, reste sur votre iPhone.\n\n\n🔐iLocked utilise le chiffrement RSA-4096, une protection hautement sécurisée, pour chiffre vos messages.\n\nPersonnes à part le détenteur de la clé privée, associée à la clé publique que vous allez utiliser, ne pourra le déchiffrer. Même vous !\n\n🙇IMPORTANT : Assurez vous de chiffrer votre message avec la clé plublique de la personne à qui vous voulez envoyer le message. Faites attention à bien copier l'intégralité du message chiffré avant de l'envoyer. Ni plus, ni moins.";
+"helpTextEncryption" = "⚠️ CONFIDENTIALITÉ : iLocked ne conserve ou ne partage JAMAIS (jamais) vos messages !\nPour preuve, l'application n'a pas besoin de connexion internet pour chiffrer, déchiffrer ou stocker une clé ! Ce qui est sur votre iPhone, reste sur votre iPhone.\n\n\n🔐iLocked utilise le chiffrement RSA-4096, une protection hautement sécurisée, pour chiffrer vos messages.\n\nPersonne à part le détenteur de la clé privée, associée à la clé publique que vous allez utiliser, ne pourra le déchiffrer. Même vous !\n\n🙇IMPORTANT : Assurez vous de chiffrer votre message avec la clé publique de la personne à qui vous voulez envoyer le message. Faites attention à bien copier l'intégralité du message chiffré avant de l'envoyer. Ni plus, ni moins.";
 
-"Your message is now encrypted with RSA-4096, a highly secure encryption." = "Votre messsage est désomrais chiffré avec RSA-4096, un chiffrement hautement securisé.";
+"Your message is now encrypted with RSA-4096, a highly secure encryption." = "Votre messsage est désormais chiffré avec RSA-4096, un chiffrement hautement securisé.";
 
 "Copied" = "Copié";
 
@@ -52,7 +52,7 @@
 
 "Close" = "Fermer";
 
-"Wrong data displayed" = "Donnée corrompue affichée";
+"Wrong data" = "Mauvaises données";
 
 "messageError0005" = "Re-démarrez iLocked et essayez à nouveau. Code erreur : VC/KL.SWIFT#0005#";
 
@@ -62,7 +62,7 @@
 
 "Cancel" = "Annuler";
 
-"Please select some keys" = "Selectionnez des clés";
+"Please select some keys" = "Sélectionnez des clés";
 
 "Got it !" = "Compris !";
 
@@ -82,13 +82,13 @@
 
 "That's your own public key !" = "C'est votre propre clé publique !";
 
-"ownKeyErrorMessage" = "Vous ne pouvez pas supprimer votre propre clé publique. Pour revoquer vos clés, allez dans les réglages.";
+"ownKeyErrorMessage" = "Vous ne pouvez pas supprimer votre propre clé publique. Pour révoquer vos clés, allez dans les réglages.";
 
 "Destroy this key" = "Détruire cette clé";
 
-"ownKeyErrorEdit" = "Vous ne pouvez pas modifier votre propre clé publique. Pour revoquer vos clés, allez dans les réglages.";
+"ownKeyErrorEdit" = "Vous ne pouvez pas modifier votre propre clé publique. Pour révoquer vos clés, allez dans les réglages.";
 
-"infoEncryption" = "Ce message doit être chiffré avec votre propre clé publique et sera déchiffré avec votre clé privéee.";
+"infoEncryption" = "Ce message doit être chiffré avec votre propre clé publique et sera déchiffré avec votre clé privée.";
 
 "Please re-start iLocked !" = "Veuillez re-lancer iLocked !";
 
@@ -126,7 +126,7 @@
 
 "Security 🔐" = "Sécurité 🔐";
 
-"Time before locking the app with your password" = "Temps avant que l'app soit verouiller avec votre code";
+"Time before locking the app with your password" = "Temps avant que l'app ne soit verrouillée avec votre code";
 
 "Report a bug" = "Reporter un bug";
 
@@ -144,7 +144,7 @@
 
 "Error ! 🔨" = "Erreur ! 🔨";
 
-"errorMail" = "Impossible d'utilisr les services de mail";
+"errorMail" = "Impossible d'utiliser les services de mail";
 
 "An error occured" = "Une erreur est survenue";
 
@@ -154,13 +154,13 @@
 
 "confirm keys revocation" = "Confirmer la révocation des clés";
 
-"Authentication failed" = "l'authentification a échouée";
+"Authentication failed" = "L'authentification a échouée";
 
-"authErrorRevoke" = "Vous devez vous identifiez pour révoquer vos clés. Veuillez ré-essayer.";
+"authErrorRevoke" = "Vous devez vous identifier pour révoquer vos clés. Veuillez ré-essayer.";
 
 "🔨 Feature coming soon !" = "🔨 Fonctionnalité bientôt là !";
 
-"featureComingSoonMessage" = "L'application iLocked est toujours en développement ! Vous allez bientôt être capable d'ouvrir les liens externes directement dans l'app!\nVous choix est enregistré et vous serez notifié lorsque l'option sera disponible.";
+"featureComingSoonMessage" = "L'application iLocked est toujours en développement ! Vous allez bientôt être capable d'ouvrir les liens externes directement dans l'app !\Votre choix est enregistré et vous serez notifié lorsque l'option sera disponible.";
 
 "📲 Open external links in app" = "📲 Ouvrir les liens dans l'app";
 
@@ -170,7 +170,7 @@
 
 "Information 📌" = "Informations 📌";
 
-"X509Description" = "Si vous rencontrez des difficultés à utiliser votre clé publique avec d'autre outils de chiffrement RSA, essayer de désactiver le certificat X.509. Vous serez alors en mesure de partager votre clé publique sans entête de certification\nNote : Désactiver cette option n'affecte pas votre clé publique en tant que clé RSA. Cela va uniquement changer son format d'encodage.\nPar défaut, the certificat X.509 est utilisé pour votre clé publique.";
+"X509Description" = "Si vous rencontrez des difficultés à utiliser votre clé publique avec d'autre outils de chiffrement RSA, essayez de désactiver le certificat X.509. Vous serez alors en mesure de partager votre clé publique sans entête de certification\nNote : Désactiver cette option n'affecte pas votre clé publique en tant que clé RSA. Cela va uniquement changer son format d'encodage.\nPar défaut, the certificat X.509 est utilisé pour votre clé publique.";
 
 "Bad format" = "Mauvais format";
 
@@ -184,9 +184,9 @@
 
 "🔑 Export your keys" = "🔑 Exporter vos clés";
 
-"Human readable" = "Lisible pour humain";
+"Human readable" = "Lisible (Human readable)";
 
-"WarningOnTableViewExport" = "ATTENTION : Vous vous apprêtez à exporter votre clé publique, une information extrêmement critique. Vous devez absolument la garder dans un endroit sûr. Ne la partager pas. Gardez la pour vous seul";
+"WarningOnTableViewExport" = "ATTENTION : Vous vous apprêtez à exporter votre clé publique, une information extrêmement critique. Vous devez absolument la garder dans un endroit sûr. Ne la partagez pas. Gardez la pour vous seul";
 
 "PEM format and X.509 certificate for the public key" = "Format PEM et certificat X.509 pour la clé publique";
 
@@ -196,7 +196,7 @@
 
 "Base64 format (wihtout X.509 certificate)" = "Format Base64 (sans certificat X.509)";
 
-"Unable to retrieve your keys" = "Impossible de récuprer vos clés";
+"Unable to retrieve your keys" = "Impossible de récupérer vos clés";
 
 "impossibleRetrieveErrorMessage" = "Veuillez réessayer. Si vous voyez ce message plusieurs fois, merci de contacter le développeur.";
 
@@ -206,7 +206,7 @@
 
 "footerExportKeys2" = "Format X.509 Base64 : Format utilisé pour certains outils de chiffrement RSA (en ligne par ex.).\niLocked supporte ce format pour l'importation de clés.";
 
-"footerExportKeys3" = "Format Base64 : Format plus utile et flexible. Il peut être utilisé avec la plupart des outils de chiffrement RSA et peut êytre facilement converti au format PEM. Mais il ne supporte pas le certificat X.509, ce qui peut créer des problèmes de chiffrement avec certains outils.\niLocked supporte ce format pour l'importation de clés.";
+"footerExportKeys3" = "Format Base64 : Format plus utile et flexible. Il peut être utilisé avec la plupart des outils de chiffrement RSA et peut être facilement converti au format PEM. Mais il ne supporte pas le certificat X.509, ce qui peut créer des problèmes de chiffrement avec certains outils.\niLocked supporte ce format pour l'importation de clés.";
 
 "Unable to convert your keys" = "Impossible de convertir vos clés";
 
@@ -214,15 +214,15 @@
 
 "🔥 Premium version" = "🔥 Version premium";
 
-"Paste your keys" = "Collez vos clés";
+"Paste your keys here" = "Collez vos clés ici";
 
 "Paste your keys (in text format) to import them" = "Collez vos clés (sous forme de texte) pour les importer.";
 
-"pasteKeyErrorMessage" = "Collez le texte généré par iLocked lors de l'export des clés. iLocked supporte les formats .txt, Lisible pour Humains, et JSON.";
+"pasteKeyErrorMessage" = "Collez le texte généré par iLocked lors de l'export des clés. iLocked supporte les formats .txt, Lisible (Human readable), et JSON.";
 
 "Impossible to save your keys" = "Impossible de sauvegarder vos clés";
 
-"Please check you have enough space in your iDevice." = "Verifiez que vous avez assez de place sur votre appareil";
+"Please check you have enough space in your iDevice." = "Vérifiez que vous avez assez de place sur votre appareil";
 
 "Impossible to retrieve your .txt" = "Impossible de récupérer votre .txt";
 
@@ -238,13 +238,13 @@
 
 "Wrong keys" = "Mauvaises clés";
 
-"wrongKeysErrorMessage" = "La clé publique renseignée ne correspond pas à la clé privée. Assurez d'avoir renseigné une paire de clé.";
+"wrongKeysErrorMessage" = "La clé publique renseignée ne correspond pas à la clé privée. Assurez-vous d'avoir renseigné une paire de clé.";
 
 "Product unavailable" = "Produit indisponible";
 
 "Upgrade for " = "Débloquez pour ";
 
-"No purchase to restore" = "Aucun achat à restorer";
+"No purchase to restore" = "Aucun achat à restaurer";
 
 "noRestaurationMessage" = "Assurez-vous d'avoir déjà acheté un produit avec votre identifiant Apple actuel.";
 
@@ -268,7 +268,7 @@
 
 "Impossible to download the video ?" = "Problèmes pour télécharger la vidéo ?";
 
-"Loading the video (10 MO) ..." = "Chargement de la vidéo (10 MO) ...";
+"Loading the video (10 MO) ..." = "Chargement de la vidéo (8 MO) ...";
 
 "Error occured while downloading the video." = "Erreur survenue lors du chargement de la vidéo";
 
@@ -276,7 +276,7 @@
 
 "Impossible to watch the video ?" = "Problème pour regarder la vidéo ?";
 
-"       How to add a new public key" = "       Comment ajouter une clé publique ?";
+"       How to add a new public key" = "       Ajouter une clé publique ?";
 
 "addKey" = "ajoutCle";
 
@@ -302,7 +302,7 @@
 
 "Fatal error" = "Erreur fatale";
 
-"keyRetrieveFailedMessage" = "Impossible de trouver cette clé. Veuillez verifier que vous n'avez fait aucune erreur, que vous avez installé la dernière version d'iLocked et que vous avez assez d'espace disponible sur votre appareil";
+"keyRetrieveFailedMessage" = "Impossible de trouver cette clé. Veuillez vérifier que vous n'avez fait aucune erreur, que vous avez installé la dernière version d'iLocked et que vous avez assez d'espace disponible sur votre appareil";
 
 "Delete the tuorial videos" = "Supprimer les videos de tuto";
 

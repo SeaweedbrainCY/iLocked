@@ -24,7 +24,7 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
     @IBOutlet weak var checkmarkBackground : UIView!
     @IBOutlet weak var successLabel : UILabel!
     
-    let placeHolder = "Paste your keys".localized()
+    let placeHolder = "Paste your keys here".localized()
     
     override func viewDidLoad() {
         super.viewDidLoad()
