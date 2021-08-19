@@ -12,7 +12,6 @@ import UIKit
 class Donation: UIViewController{
     
     @IBOutlet weak var donationButton: UIButton!
-    @IBOutlet weak var tipeeButton: UIButton!
     @IBOutlet weak var developerLabel: UILabel!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var developerStickerImage: UIImageView!
@@ -38,7 +37,7 @@ class Donation: UIViewController{
     //
     
     func hideViews(){ // Hide view below the content view
-        let viewList: [UIView] = [donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel,tipeeButton,supportLabel]
+        let viewList: [UIView] = [donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel,supportLabel]
         
         for i  in 0 ..< viewList.count {
             self.initialViewsPosition.updateValue(viewList[i].frame , forKey: viewList[i])
@@ -48,7 +47,7 @@ class Donation: UIViewController{
     }
     
     func showViews(){
-        let viewList: [UIView] = [donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel,tipeeButton,supportLabel]
+        let viewList: [UIView] = [donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel,supportLabel]
         let animation = UIViewPropertyAnimator(duration: 1, dampingRatio: 2, animations: {
             for i  in 0 ..< viewList.count {
                 viewList[i].frame = self.initialViewsPosition[viewList[i]]!
@@ -59,7 +58,7 @@ class Donation: UIViewController{
     }
     
     func stickView(){ // when the view is loaded, the views came with an animation, we fix with the determined constraints
-        let viewList: [UIView] = [donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel,tipeeButton,supportLabel]
+        let viewList: [UIView] = [donationButton,developerLabel,closeButton,developerStickerImage,helloLabel,infosLabel,supportLabel]
         
         for i  in 0 ..< viewList.count {
             viewList[i].translatesAutoresizingMaskIntoConstraints = false
@@ -75,7 +74,7 @@ class Donation: UIViewController{
     }
     
     @IBAction func donationButtonSelected(sender: UIButton){
-        UIApplication.shared.open(URL(string: "https://fr.tipeee.com/devnathan")!, options: [:], completionHandler: nil)
+        performSegue(withIdentifier: "upgrade", sender: self)
     }
     
    

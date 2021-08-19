@@ -16,7 +16,7 @@
 
 "Nothing to paste" = "Rien à coller";
 
-"helpText" = "Pour déchiffrer un message chiffré avec votre propre clé publique, copiez et collez simplement le texte dans le champ. Appuyez aussi sur le bouton 'déchiffrer'.\n\nUne nouvelle fenêtre va être ouverte et donnera le message déchiffré.\n\nIMPORTANT : Assurez vous que votre correspondant a chiffré son message avec votre clé publique et que vous avez copié la totalité du texte reçu. Ni plus, ni moins. Sinon, ça ne marchera pas ...";
+"helpText" = "⚠️ CONFIDENTIALITÉ : iLocked ne conserve ne partage JAMAIS (jamais) vos messages !\nPour preuve, l'application n'a pas besoin de connexion internet pour chiffrer, déchiffrer ou stocker une clé ! Ce qui est sur votre iPhone, reste sur votre iPhone.\n\n\n📨Pour déchiffrer un message chiffré avec votre propre clé publique, copiez et collez simplement le texte dans le champ. Appuyez aussi sur le bouton 'déchiffrer'.\n\nUne nouvelle fenêtre va être ouverte et donnera le message déchiffré.\n\n🙇IMPORTANT : Assurez vous que votre correspondant a chiffré son message avec votre clé publique et que vous avez copié la totalité du texte reçu. Ni plus, ni moins.";
 
 "Text to decrypt" = "Texte à déchiffrer";
 
@@ -34,7 +34,7 @@
 
 "Text to encrypt" = "Texte à chiffrer";
 
-"helpTextEncryption" = "iLocked utilise le chiffrement RSA-4096, une protection hautement sécurisée, pour chiffre vos messages.\n\nPersonnes à part le détenteur de la clé privée, associée à la clé publique que vous allez utiliser, ne pourra le déchiffrer. Même vous !\n\nIMPORTANT : Assurez vous de chiffrer votre message avec la clé plublique de la personne à qui vous voulez envoyer le message. Faites attention à bien copier l'intégralité du message chiffré avant de l'envoyer. Ni plus, ni moins. Sinon, cela ne marchera pas ...";
+"helpTextEncryption" = "⚠️ CONFIDENTIALITÉ : iLocked ne conserve ne partage JAMAIS (jamais) vos messages !\nPour preuve, l'application n'a pas besoin de connexion internet pour chiffrer, déchiffrer ou stocker une clé ! Ce qui est sur votre iPhone, reste sur votre iPhone.\n\n\n🔐iLocked utilise le chiffrement RSA-4096, une protection hautement sécurisée, pour chiffre vos messages.\n\nPersonnes à part le détenteur de la clé privée, associée à la clé publique que vous allez utiliser, ne pourra le déchiffrer. Même vous !\n\n🙇IMPORTANT : Assurez vous de chiffrer votre message avec la clé plublique de la personne à qui vous voulez envoyer le message. Faites attention à bien copier l'intégralité du message chiffré avant de l'envoyer. Ni plus, ni moins.";
 
 "Your message is now encrypted with RSA-4096, a highly secure encryption." = "Votre messsage est désomrais chiffré avec RSA-4096, un chiffrement hautement securisé.";
 
@@ -262,7 +262,6 @@
 
 "Keep downloading" = "Continuer le téléchargement";
 
-
 "Re-start the download" = "Relancer le téléchargement";
 
 "Stop the download" = "Arrêter le téléchargement";
@@ -291,7 +290,7 @@
 
 "addKey.MP4" = "addKey_french.MP4";
 
-"Loading the video (6 MO) ..." =  "Chargement de la vidéo (6 MO) ...";
+"Loading the video (6 MO) ..." = "Chargement de la vidéo (6 MO) ...";
 
 "Try again" = "Ré-essayer";
 

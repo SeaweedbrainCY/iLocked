@@ -171,9 +171,9 @@ class Encrypt: UIViewController, UITextViewDelegate{
              - 10).isActive = true
         self.helpTextLabel.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
         self.helpTextLabel.centerYAnchor.constraint(equalToSystemSpacingBelow: self.helpView.centerYAnchor, multiplier: 1).isActive = true
-        self.helpTextLabel.numberOfLines = 20
+        self.helpTextLabel.numberOfLines = 0
         self.helpTextLabel.textAlignment = .justified
-        self.helpTextLabel.font = UIFont(name: "American Typewriter", size: 16.0)
+        self.helpTextLabel.font = UIFont(name: "American Typewriter", size: 17.0)
         self.helpTextLabel.textColor = .white
         
         self.helpView.addSubview(closeHelpButtonView)
@@ -262,11 +262,16 @@ class Encrypt: UIViewController, UITextViewDelegate{
     @IBAction func infoButtonSelected(_ sender: Any) {
         if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
             let helpText = """
-                iLocked uses the RSA-4096 encryption method, a highly secure protection, to encrypt your messages.
+                ⚠️ CONFIDENTIALITY : iLocked NEVER (never) keeps or shares your messages.
+                To prove it, the app doesn't require any internet connection to encrypt, decrypt or store a key ! What's in your iPhone, stays in your iPhone.
+                
+                
+                
+                🔐 iLocked uses the RSA-4096 encryption method, a highly secure protection, to encrypt your messages.
                 
                 Nobody but the owner of the private key corresponding to the public key you are going to use to encrypt, can decrypt it. Even you.
                 
-                IMPORTANT : Make sure to encrypt your message with the public key of the person you want to send it to. Be careful to copy the whole encrypted text before sending it. No more no less. Or it won't work  . . .
+                🙇 IMPORTANT : Make sure to encrypt your message with the public key of the person you want to send it to. Be careful to copy the whole encrypted text before sending it. No more no less. Or it won't work  . . .
                 """.localized(withKey: "helpTextEncryption")
             self.showHelp(text: helpText)
         } else {

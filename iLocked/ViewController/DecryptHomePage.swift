@@ -88,7 +88,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
         //helpView :
         
         self.view.addSubview(self.helpView)
-        self.helpView.frame.size.height = self.view.frame.size.height / 2
+        self.helpView.frame.size.height = self.view.frame.size.height
         self.helpView.frame.size.width = self.view.frame.size.width - 20
         self.helpView.center = self.view.center
         self.helpView.backgroundColor = .none
@@ -98,13 +98,12 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.helpView.addSubview(self.helpTextLabel)
         self.helpTextLabel.translatesAutoresizingMaskIntoConstraints = false
         self.helpTextLabel.widthAnchor.constraint(equalToConstant: self.helpView.frame.size.width - 20).isActive = true
-        self.helpTextLabel.heightAnchor.constraint(equalToConstant: self.helpView.frame.size.height
-             - 10).isActive = true
+        self.helpTextLabel.heightAnchor.constraint(equalToConstant: self.helpView.frame.size.height).isActive = true
         self.helpTextLabel.centerXAnchor.constraint(equalToSystemSpacingAfter: self.helpView.centerXAnchor, multiplier: 1).isActive = true
         self.helpTextLabel.centerYAnchor.constraint(equalToSystemSpacingBelow: self.helpView.centerYAnchor, multiplier: 1).isActive = true
-        self.helpTextLabel.numberOfLines = 20
+        self.helpTextLabel.numberOfLines = 0
         self.helpTextLabel.textAlignment = .justified
-        self.helpTextLabel.font = UIFont(name: "American Typewriter", size: 16.0)
+        self.helpTextLabel.font = UIFont(name: "American Typewriter", size: 17.0)
         self.helpTextLabel.textColor = .white
         
         self.helpView.addSubview(closeHelpButtonView)
@@ -152,7 +151,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
     @IBAction func pasteButtonSelected(sender: UIButton){
         let content = UIPasteboard.general.string
         if content == "" || content == nil{
-            shakeAnimation(view: self.pasteButton,text: "Nothing to paste".localized())
+            shakeAnimation(view: self.pasteButton,text: "Paste".localized())
         } else {
             self.textViewDidBeginEditing(self.textToDecryptView)
             self.textToDecryptView.text = content!
@@ -165,11 +164,17 @@ class Decrypt: UIViewController, UITextViewDelegate {
     @IBAction func infoButtonSelected(_ sender: Any) {
         if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
             let helpText = """
-                To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the decryot button.
+                ⚠️ CONFIDENTIALITY : iLocked NEVER (never) keeps or shares your messages.
+                To prove it, the app doesn't require any internet connection to encrypt, decrypt or store a key ! What's in your iPhone, stays in your iPhone.
+                
+                
+                
+                
+                📨 To decrypt a message encrypted with your own public key, just copy and past the text in the field. Then click on the decrypt button.
                 
                 A new window will be opened and will show the decrypted message.
                 
-                IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . .
+                🙇 IMPORTANT : Be sure that the sender encrypted his message with your public key and be careful to copy the whole text. No more no less. Or it's gonna be wierd . . .
                 """.localized(withKey: "helpText")
             self.showHelp(text: helpText)
         } else {

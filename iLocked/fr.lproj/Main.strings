@@ -19,9 +19,6 @@
 /* Class = "UILabel"; text = "People use it to encrypt message for you"; ObjectID = "2j6-8v-Uex"; */
 "2j6-8v-Uex.text" = "Elle est utilisée pour chiffrer des messages pour vous";
 
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "2rq-pl-Hmh"; */
-"2rq-pl-Hmh.normalTitle" = "Button";
-
 /* Class = "UILabel"; text = "YOUR PUBLIC KEY"; ObjectID = "38S-H1-IJu"; */
 "38S-H1-IJu.text" = "VOTRE CLÉ PUBLIQUE";
 
@@ -241,8 +238,8 @@
 /* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "m17-Ti-fxk"; */
 "m17-Ti-fxk.title" = "Item";
 
-/* Class = "UIButton"; normalTitle = "   Support me on "; ObjectID = "mWV-E8-dDn"; */
-"mWV-E8-dDn.normalTitle" = "   Soutiens moi sur ";
+/* Class = "UIButton"; normalTitle = "Support my work "; ObjectID = "mWV-E8-dDn"; */
+"mWV-E8-dDn.normalTitle" = "   Soutenir mon travail";
 
 /* Class = "UINavigationItem"; title = "Advanced Settings"; ObjectID = "n3k-Mb-YAC"; */
 "n3k-Mb-YAC.title" = "Réglages avancés";
@@ -262,8 +259,8 @@
 /* Class = "UIButton"; normalTitle = "  Decrypt"; ObjectID = "piq-Hx-Ehf"; */
 "piq-Hx-Ehf.normalTitle" = "  Déchiffrer";
 
-/* Class = "UILabel"; text = "I'm Nathan, a young french developer studying in a french \"Grande École d'Ingénieur\" (Great Engineering School). \n\nI developed this whole open source project with heart and live on donations.\n\nIf you like this open source application and want to support a freelance student, you can make a donation right below. \n\nThanks a lot !"; ObjectID = "qu5-eh-nO6"; */
-"qu5-eh-nO6.text" = "Je suis Nathan, un jeune développeur Français étudiant à Télécom SudParis, une grand école d'ingénieur Française. \n\nJ'ai développé seul tout ce projet open source avec le coeur et je vis grâce aux donations.\n\nSi vous aimez cette application open-source et voulez supporter un étudiant en freelance, vous pouvez faire un don juste au-dessus. \n\nMerci beaucoup !";
+/* Class = "UILabel"; text = "I'm Nathan, a young french developer studying cybersecurity in a Great Engineering School : Télécom SudParis 🇫🇷\n\nI developed this whole project with heart and live on donations.\n\nIf you like this open source application and want to support a freelance student, you can make a donation right below. \n\nThanks a lot !"; ObjectID = "qu5-eh-nO6"; */
+"qu5-eh-nO6.text" = "Je suis Nathan, un jeune développeur Français étudiant à la cybersécurité à Télécom SudParis, une grand école d'ingénieur Française. \n\nJ'ai développé seul tout ce projet avec le coeur et je vis grâce aux donations.\n\nSi vous aimez cette application open-source et voulez supporter un étudiant en freelance, vous pouvez faire un don juste au-dessus. \n\nMerci beaucoup !";
 
 /* Class = "UIButton"; normalTitle = "nameError"; ObjectID = "rYj-v7-E9g"; */
 "rYj-v7-E9g.normalTitle" = "nameError";
@@ -489,3 +486,15 @@
 
 /* Class = "UIButton"; normalTitle = "  Impossible to watch the video ?"; ObjectID = "ruD-O4-NDI"; */
 "ruD-O4-NDI.normalTitle" = "Problème pour regarder la vidéo ?";
+
+/* Class = "UILabel"; text = "No need for internet connection"; ObjectID = "GPq-eb-ZsZ"; */
+"GPq-eb-ZsZ.text" = "Pas besoin de connexion internet !";
+
+/* Class = "UILabel"; text = "iLocked NEVER keeps or shares your messages :"; ObjectID = "Uvl-Q5-kJE"; */
+"Uvl-Q5-kJE.text" = "iLocked ne garde ou ne partage JAMAIS vos messages";
+
+/* Class = "UILabel"; text = "No need for internet connection"; ObjectID = "UXE-VK-jzA"; */
+"UXE-VK-jzA.text" = "Pas besoin de connexion internet";
+
+/* Class = "UILabel"; text = "🔐 What's in your iPhone, stays in your iPhone"; ObjectID = "hxC-uf-Lfn"; */
+"hxC-uf-Lfn.text" = "🔐 Ce qui est sur votre iPhone, reste sur votre iPhone";

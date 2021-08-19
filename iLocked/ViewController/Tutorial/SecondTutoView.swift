@@ -161,7 +161,7 @@ class SecondTutoView : UIViewController {
             self.descriptionButtonLabel.isHidden = false
         }
        
-        let videoURL = TutoVideo.decryption.url
+        let videoURL = TutoVideo.encryption.url
         print("Download started")
         
         //DispatchQueue.global(qos: .background).async {
