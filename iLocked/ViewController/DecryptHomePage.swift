@@ -119,6 +119,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
         self.helpTextView.textColor = .white
         self.helpTextView.backgroundColor = .none
         self.helpTextView.isScrollEnabled = true
+        self.helpTextView.showsVerticalScrollIndicator = true
         
         // paste button
         self.pasteButton.layer.cornerRadius = 15
@@ -170,7 +171,7 @@ class Decrypt: UIViewController, UITextViewDelegate {
         if self.helpBarButtonItem.image == UIImage(systemName: "info.circle"){
             let helpText = """
                 ⚠️ CONFIDENTIALITY : iLocked NEVER (never) keeps or shares your messages.
-                To prove it, the app doesn't require any internet connection to encrypt, decrypt or store a key ! What's in your iPhone, stays in your iPhone.
+                That is why, the app doesn't require any internet connection to encrypt, decrypt or store a key ! What's in your iPhone, stays in your iPhone.
                 
                 
                 
