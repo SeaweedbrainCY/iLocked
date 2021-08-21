@@ -320,7 +320,7 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
     
     
     func checkIfPremium() -> Bool {
-        if InAppPurchase.hasActiveSubscription() {
+        if InAppPurchase.hasActivePurchase(for: "nonConsumableId") {
           return true
         }
         return false

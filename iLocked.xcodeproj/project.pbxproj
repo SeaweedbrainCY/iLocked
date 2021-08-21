@@ -29,11 +29,13 @@
 		906207D125914ECE00E98F90 /* Revoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906207D025914ECE00E98F90 /* Revoke.swift */; };
 		906CE59325DDA53D007B8E08 /* AdvancedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */; };
 		908AE09926B554570032D74A /* ImportKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908AE09826B554570032D74A /* ImportKeys.swift */; };
+		90983B3A26D17C4F007F46BB /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 90983B3926D17C4F007F46BB /* SPConfetti */; };
 		90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */; };
 		90B69BE426A08FA800451DFC /* SecondWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */; };
 		90B69BEB26A2C5B700451DFC /* FirstTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */; };
 		90B886FC23F7F31A00035C82 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B886FB23F7F31A00035C82 /* Settings.swift */; };
 		90CDFA9F26CEED96006CF06D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDFA9E26CEED96006CF06D /* UIImage.swift */; };
+		90CDFAA226CFF674006CF06D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CDFAA126CFF674006CF06D /* StoreKit.framework */; };
 		90D3679F26C5737D00108B64 /* InAppPurchaseLib in Frameworks */ = {isa = PBXBuildFile; productRef = 90D3679E26C5737D00108B64 /* InAppPurchaseLib */; };
 		90D367A126C586CF00108B64 /* logo_animated_ilocked.gif in Resources */ = {isa = PBXBuildFile; fileRef = 90D367A026C586CF00108B64 /* logo_animated_ilocked.gif */; };
 		90D367A326C58FA800108B64 /* UpgradePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D367A226C58FA800108B64 /* UpgradePage.swift */; };
@@ -127,6 +129,7 @@
 		90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTutoView.swift; sourceTree = "<group>"; };
 		90B886FB23F7F31A00035C82 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		90CDFA9E26CEED96006CF06D /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
+		90CDFAA126CFF674006CF06D /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		90D367A026C586CF00108B64 /* logo_animated_ilocked.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = logo_animated_ilocked.gif; sourceTree = "<group>"; };
 		90D367A226C58FA800108B64 /* UpgradePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpgradePage.swift; sourceTree = "<group>"; };
 		90D367A426C595E900108B64 /* animated_logo_ilocked_high.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animated_logo_ilocked_high.gif; sourceTree = "<group>"; };
@@ -200,6 +203,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				90D3679F26C5737D00108B64 /* InAppPurchaseLib in Frameworks */,
+				90983B3A26D17C4F007F46BB /* SPConfetti in Frameworks */,
+				90CDFAA226CFF674006CF06D /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +250,14 @@
 				901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */,
 			);
 			path = Tutorial;
+			sourceTree = "<group>";
+		};
+		90CDFAA026CFF674006CF06D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90CDFAA126CFF674006CF06D /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		90D43B5323FDDB1900EFE9BD /* Frameworks */ = {
@@ -320,6 +333,7 @@
 				9074A09525373C1C00983FBC /* iLocked.app */,
 				9074A09625373C1C00983FBC /* iLockedTests.xctest */,
 				9074A09725373C1C00983FBC /* iLockedUITests.xctest */,
+				90CDFAA026CFF674006CF06D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -458,6 +472,7 @@
 			name = iLocked;
 			packageProductDependencies = (
 				90D3679E26C5737D00108B64 /* InAppPurchaseLib */,
+				90983B3926D17C4F007F46BB /* SPConfetti */,
 			);
 			productName = iLocked;
 			productReference = 9074A09525373C1C00983FBC /* iLocked.app */;
@@ -534,6 +549,7 @@
 			mainGroup = D8A64AFA2353BC1C000613F3;
 			packageReferences = (
 				90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */,
+				90983B3826D17C4E007F46BB /* XCRemoteSwiftPackageReference "SPConfetti" */,
 			);
 			productRefGroup = D8A64AFA2353BC1C000613F3;
 			projectDirPath = "";
@@ -1021,6 +1037,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		90983B3826D17C4E007F46BB /* XCRemoteSwiftPackageReference "SPConfetti" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPConfetti";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.4;
+			};
+		};
 		90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/iridescent-dev/iap-swift-lib.git";
@@ -1032,6 +1056,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		90983B3926D17C4F007F46BB /* SPConfetti */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90983B3826D17C4E007F46BB /* XCRemoteSwiftPackageReference "SPConfetti" */;
+			productName = SPConfetti;
+		};
 		90D3679E26C5737D00108B64 /* InAppPurchaseLib */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */;

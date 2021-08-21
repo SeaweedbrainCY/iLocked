@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import InAppPurchaseLib
+import SPConfetti
 
 class UpgradePage: UIViewController {
     
@@ -17,6 +18,8 @@ class UpgradePage: UIViewController {
     @IBOutlet weak var closeButton : UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var restoreButton: UIButton!
+    @IBOutlet weak var upgradeTitle: UILabel!
+    @IBOutlet weak var upgradeDescription: UILabel!
     
     var upgradeButtonTitle = "Product unavailable".localized()
     
@@ -24,12 +27,17 @@ class UpgradePage: UIViewController {
         super.viewDidLoad()
         setUpDesign()
         loadProducts()
+        
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         //logoImage.animationRepeatCount = 1
         //var gif = logoImage.loadGif(name: "animated_logo_high_gray")
+        if InAppPurchase.hasActivePurchase(for: "nonConsumableId") {
+            self.showPurchased()
+        }
         loadGif()
         self.logoImage.image = UIImage(named: "animated_logo_high_gray_last_frame-1")
         
@@ -62,7 +70,7 @@ class UpgradePage: UIViewController {
             return
           }
         
-        self.upgradeButtonTitle = "Upgrade for ".localized() + "\(product.localizedTitle)"
+        self.upgradeButtonTitle = "Upgrade for ".localized() + "\(product.localizedPrice)"
         self.upgradeButton.setTitle(self.upgradeButtonTitle, for: .normal)
        
     }
@@ -72,6 +80,14 @@ class UpgradePage: UIViewController {
         let ok = UIAlertAction(title: quitMessage, style: UIAlertAction.Style.cancel, handler: nil)
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showPurchased(){
+        SPConfetti.startAnimating(.fullWidthToDown, particles: [.triangle, .arc,. heart, .circle, .polygon], duration: 8)
+        self.view.backgroundColor = UIColor(red: 204/255, green: 172/255, blue: 0, alpha: 1)
+        self.upgradeTitle.text = "Thank you ! ❤️".localized()
+        self.upgradeDescription.text = "Thanks for supporting the app and the developer ! Enjoy your premium app ! 🔥".localized()
+        self.upgradeButton.isHidden = true
     }
     
     //
@@ -87,16 +103,17 @@ class UpgradePage: UIViewController {
               callback: { result in
                 self.activityIndicator.stopAnimating()
                 self.upgradeButton.setTitle(self.upgradeButtonTitle, for: .normal)
-                  switch result.state {
-                  case .purchased:
-                      print("Product purchased successful.")
-                      // Do not process the purchase here
-
-                  case .failed:
+                switch result.state {
+                case .purchased:
+                    print("Product purchased successful.")
+                    self.showPurchased()
+                    // Do not process the purchase here
+                    print(" has active subscription = \(InAppPurchase.hasActivePurchase(for: "nonConsumableId"))")
+                case .failed:
                     
                     print("Purchase failed: \(String(describing: result.localizedDescription)).")
-                    #warning("Must be tested !\nApple already take care of the pop up ?")
-                    //self.alert("Purchase failed", message: result.localizedDescription ?? "An error occured. PLease try again.", quitMessage: "Ok")
+                    
+                    self.alert("Purchase failed", message: result.localizedDescription ?? "An error occured. PLease try again.", quitMessage: "Ok")
                   case .cancelled:
                       print("The user canceled the payment request.")
 

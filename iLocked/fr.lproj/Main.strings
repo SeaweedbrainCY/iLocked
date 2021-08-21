@@ -13,9 +13,6 @@
 /* Class = "UIBarButtonItem"; title = "Delete key"; ObjectID = "2Ie-P9-434"; */
 "2Ie-P9-434.title" = "Supprimer la clé";
 
-/* Class = "UIBarButtonItem"; title = "Website name"; ObjectID = "2Of-MV-L2o"; */
-"2Of-MV-L2o.title" = "Nom du site web";
-
 /* Class = "UILabel"; text = "People use it to encrypt message for you"; ObjectID = "2j6-8v-Uex"; */
 "2j6-8v-Uex.text" = "Elle est utilisée pour chiffrer des messages pour vous";
 
@@ -49,10 +46,7 @@
 /* Class = "UIViewController"; title = "PublicKeyList"; ObjectID = "Bw4-Uw-PF4"; */
 "Bw4-Uw-PF4.title" = "PublicKeyList";
 
-/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "C3r-HB-irf"; */
-"C3r-HB-irf.title" = "Fermer";
-
-/* Class = "UIButton"; normalTitle = "📲 Import your iLocked keys"; ObjectID = "Chu-Up-A6c"; */
+/* Class = "UIButton"; normalTitle = "📲 Import my iLocked keys"; ObjectID = "Chu-Up-A6c"; */
 "Chu-Up-A6c.normalTitle" = "📲 Importer vos clés iLocked";
 
 /* Class = "UILabel"; text = "Please make sure that no one can read this text. This message was encrypted with RSA-4096 which is a highly secure encryption. DO NOT copy the clear text, only keep the encrypted message."; ObjectID = "DIb-8W-OFr"; */
@@ -88,7 +82,7 @@
 /* Class = "UILabel"; text = "Can be shared everywhere, to everyone"; ObjectID = "Iud-VM-IiP"; */
 "Iud-VM-IiP.text" = "Faite pour être partagée partout et à quiconque";
 
-/* Class = "UILabel"; text = "KEY"; ObjectID = "JYE-Xh-LeX"; */
+/* Class = "UILabel"; text = "PUBLIC KEY"; ObjectID = "JYE-Xh-LeX"; */
 "JYE-Xh-LeX.text" = "CLÉ PUBLIQUE";
 
 /* Class = "UINavigationItem"; title = "Public Key"; ObjectID = "KDJ-5D-bZe"; */
@@ -96,9 +90,6 @@
 
 /* Class = "UINavigationItem"; title = "Encryption keys list"; ObjectID = "Lg8-Qp-Jbh"; */
 "Lg8-Qp-Jbh.title" = "Clés publiques";
-
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "MFe-je-W8q"; */
-"MFe-je-W8q.title" = "Item";
 
 /* Class = "UIViewController"; title = "DecryptHomePage"; ObjectID = "N9l-yk-OqT"; */
 "N9l-yk-OqT.title" = "DecryptHomePage";
@@ -127,7 +118,7 @@
 /* Class = "UIBarButtonItem"; title = " "; ObjectID = "TCW-I1-elO"; */
 "TCW-I1-elO.title" = " ";
 
-/* Class = "UIButton"; normalTitle = "🔑 Generate your keys"; ObjectID = "TH2-DB-BLv"; */
+/* Class = "UIButton"; normalTitle = "🔑 Generate my keys"; ObjectID = "TH2-DB-BLv"; */
 "TH2-DB-BLv.normalTitle" = "🔑 Générer mes clés";
 
 /* Class = "UIButton"; normalTitle = "Tutorial"; ObjectID = "Tx1-Ma-0W4"; */
@@ -148,9 +139,6 @@
 /* Class = "UIBarButtonItem"; title = "Add a key"; ObjectID = "Wx0-92-Gn4"; */
 "Wx0-92-Gn4.title" = "Ajouter une clé";
 
-/* Class = "UITextView"; text = "No log ..."; ObjectID = "WyO-SO-C2L"; */
-"WyO-SO-C2L.text" = "Pas de log ...";
-
 /* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "X0t-73-21W"; */
 "X0t-73-21W.normalTitle" = "Continuer";
 
@@ -166,9 +154,6 @@
 /* Class = "UILabel"; text = "Description label"; ObjectID = "YyK-7i-xxh"; */
 "YyK-7i-xxh.text" = "Description label";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "Z9o-Rm-f6L"; */
-"Z9o-Rm-f6L.text" = "Label";
-
 /* Class = "UILabel"; text = "iLocked is powered by people like you ❤️"; ObjectID = "Zvp-Lt-urR"; */
 "Zvp-Lt-urR.text" = "iLocked est maintenu par des personnes comme toi ❤️";
 
@@ -183,9 +168,6 @@
 
 /* Class = "UIButton"; normalTitle = "I already know asymetric encryption"; ObjectID = "bfb-XE-oTO"; */
 "bfb-XE-oTO.normalTitle" = "Je connais déjà le chiffrement asymétrique";
-
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "c74-Lg-rfd"; */
-"c74-Lg-rfd.title" = "Item";
 
 /* Class = "UIBarButtonItem"; title = "Settings"; ObjectID = "cUz-8T-xrI"; */
 "cUz-8T-xrI.title" = "Réglages";
@@ -235,9 +217,6 @@
 /* Class = "UIViewController"; title = "EncryptedResult"; ObjectID = "lni-hq-xo9"; */
 "lni-hq-xo9.title" = "EncryptedResult";
 
-/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "m17-Ti-fxk"; */
-"m17-Ti-fxk.title" = "Item";
-
 /* Class = "UIButton"; normalTitle = "Support my work "; ObjectID = "mWV-E8-dDn"; */
 "mWV-E8-dDn.normalTitle" = "   Soutenir mon travail";
 
@@ -250,16 +229,13 @@
 /* Class = "UILabel"; text = "Title label"; ObjectID = "oDB-ym-ZNu"; */
 "oDB-ym-ZNu.text" = "Title label";
 
-/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "p7z-Ac-82f"; */
-"p7z-Ac-82f.normalTitle" = "Button";
-
 /* Class = "UIButton"; normalTitle = "Close the decryption program"; ObjectID = "pEy-Df-sd5"; */
 "pEy-Df-sd5.normalTitle" = "Fermer le programme de déchiffrement";
 
 /* Class = "UIButton"; normalTitle = "  Decrypt"; ObjectID = "piq-Hx-Ehf"; */
 "piq-Hx-Ehf.normalTitle" = "  Déchiffrer";
 
-/* Class = "UILabel"; text = "I'm Nathan, a young french developer studying cybersecurity in a Great Engineering School : Télécom SudParis 🇫🇷\n\nI developed this whole project with heart and live on donations.\n\nIf you like this open source application and want to support a freelance student, you can make a donation right below. \n\nThanks a lot !"; ObjectID = "qu5-eh-nO6"; */
+/* Class = "UILabel"; text = "I'm Nathan, a young french developer studying cybersecurity in a Great Engineering School : Télécom SudParis 🇫🇷\n\nI developed this whole project with heart and live on donations.\n\nIf you like this application and want to support a freelance student, you can make a donation right below. \n\nThanks a lot ! 🤍"; ObjectID = "qu5-eh-nO6"; */
 "qu5-eh-nO6.text" = "Je suis Nathan, un jeune développeur Français étudiant à la cybersécurité à Télécom SudParis, une grand école d'ingénieur Française 🇫🇷. \n\nJ'ai développé seul tout ce projet avec le coeur et je vis grâce aux donations.\n\nSi vous aimez cette application et voulez supporter un étudiant en freelance, vous pouvez faire un don juste au-dessus. \n\nMerci beaucoup !🤍";
 
 /* Class = "UIButton"; normalTitle = "nameError"; ObjectID = "rYj-v7-E9g"; */
@@ -297,9 +273,6 @@
 
 /* Class = "UILabel"; text = "Asymetric encryption"; ObjectID = "wH8-Qy-L9g"; */
 "wH8-Qy-L9g.text" = "Chiffrement asymétrique";
-
-/* Class = "UIBarButtonItem"; title = "Close"; ObjectID = "xDW-fc-kt1"; */
-"xDW-fc-kt1.title" = "Fermer";
 
 /* Class = "UIViewController"; title = "DecryptResult"; ObjectID = "xbo-aT-QG9"; */
 "xbo-aT-QG9.title" = "DecryptResult";
@@ -352,7 +325,7 @@
 /* Class = "UIButton"; normalTitle = "Clear"; ObjectID = "5Ba-k5-xH7"; */
 "5Ba-k5-xH7.normalTitle" = "Effacer";
 
-/* Class = "UILabel"; text = "Support a student developer in freelance"; ObjectID = "9pE-sF-gFX"; */
+/* Class = "UILabel"; text = "Support an independant student developer "; ObjectID = "9pE-sF-gFX"; */
 "9pE-sF-gFX.text" = "Supporter un développeur français, étudiant et en freelance";
 
 /* Class = "UIButton"; normalTitle = "Upgrade for 2,99 €"; ObjectID = "Fie-Fy-P2d"; */
@@ -406,7 +379,7 @@
 /* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "0yA-wt-HzQ"; */
 "0yA-wt-HzQ.normalTitle" = "Continuer";
 
-/* Class = "UILabel"; text = "✓ iLocked never keep your messages"; ObjectID = "3kZ-cm-iyc"; */
+/* Class = "UILabel"; text = "✓ iLocked never keeps your messages"; ObjectID = "3kZ-cm-iyc"; */
 "3kZ-cm-iyc.text" = "✓ iLocked ne garde jamais vos messages";
 
 /* Class = "UIButton"; normalTitle = "      How to decrypt "; ObjectID = "7XU-PP-QU5"; */
@@ -442,7 +415,7 @@
 /* Class = "UILabel"; text = "Send the encrypted message to your friend"; ObjectID = "biO-rs-CN2"; */
 "biO-rs-CN2.text" = "Envoyez le message chiffré à votre ami";
 
-/* Class = "UILabel"; text = "✓ iLocked never keep your messages"; ObjectID = "fKK-4h-m7k"; */
+/* Class = "UILabel"; text = "✓ iLocked never keeps your messages"; ObjectID = "fKK-4h-m7k"; */
 "fKK-4h-m7k.text" = "✓ iLocked ne garde jamais vos messages";
 
 /* Class = "UILabel"; text = "Enter your confidential message"; ObjectID = "hFK-45-nk5"; */

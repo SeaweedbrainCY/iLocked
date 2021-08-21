@@ -39,13 +39,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool{
         print("[*] Application launched")
-        #warning("In app purchase isn't completed and will not work.\nIt must be completed before launching, after the creation of an apple ID.\nSee more @ https://iridescent.dev/posts/swift/in-app-purchases-ios-2")
-        /*InAppPurchase.initialize(
+        InAppPurchase.initialize(
               iapProducts: [
                 IAPProduct(productIdentifier: "nonConsumableId", productType: .nonConsumable),
               ],
-              validatorUrlString: "https://validator.fovea.cc/v1/validate?appName=demo&apiKey=12345678"
-            )*/
+            validatorUrlString: "https://validator.fovea.cc/v1/validate?appName=ilocked&apiKey=550988a5-22cc-45ba-8012-1b6dd168d1ed"
+            )
             return true
     }
     

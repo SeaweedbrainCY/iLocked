@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import MessageUI
-
+import InAppPurchaseLib
 
 
 class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MFMailComposeViewControllerDelegate  {
@@ -23,6 +23,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     
     
     var lockAppButtonIsHit = false // True if the user tap on lockApp button
+    var isPremium = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +34,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         protectionSwitch.addTarget(self, action: #selector(protectionSwitchChanged), for: .valueChanged)
         protectionSwitch.tintColor = .systemRed
         hideScreenSwitcher.addTarget(self, action: #selector(hideScreenSwitchChanged), for: .valueChanged)
-        
+        self.isPremium =  InAppPurchase.hasActivePurchase(for: "nonConsumableId")
         // Set up the setting label:
         
     }
@@ -62,7 +63,13 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     /// Cells for each section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0 : return 2
+        
+        case 0 :
+            if self.isPremium{
+                return 1
+            } else {
+                return 2
+            }
         case 1 : return 2
         case 2 :
             let settingsData = SettingsData()
@@ -91,18 +98,27 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         let settingData = SettingsData()
         var setting = settingData.getSetting()
         if indexPath.section == 0 {
-            switch indexPath.row {
-            case 0:
-                cell.textLabel?.text = "👨‍💻 Support the developer".localized()
-                accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
-                accessoryView.tintColor = .white
-            case 1 :
-                cell.textLabel?.text = "🔥 Premium version".localized()
-                cell.backgroundColor = .systemBlue
-                accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
-                accessoryView.tintColor = .white
-            default:
-                cell.textLabel?.text = "ERROR"
+            if self.isPremium{
+                cell.textLabel?.text = "✨ iLocked upgraded version ✨".localized()
+                cell.textLabel?.font  = UIFont(name: "Avenir Next Bold", size: 20)
+                cell.textLabel?.textAlignment = .center
+                cell.textLabel?.textColor = UIColor(red: 204/255, green: 172/255, blue: 0, alpha: 1)
+                cell.backgroundColor = Colors.darkGray6.color
+                cell.textLabel?.numberOfLines = 0
+            } else {
+                switch indexPath.row {
+                case 0:
+                    cell.textLabel?.text = "👨‍💻 Support the developer".localized()
+                    accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
+                    accessoryView.tintColor = .white
+                case 1 :
+                    cell.textLabel?.text = "🔥 Premium version".localized()
+                    cell.backgroundColor = .systemBlue
+                    accessoryView = UIImageView(image: UIImage(systemName: "info.circle"))
+                    accessoryView.tintColor = .white
+                default:
+                    cell.textLabel?.text = "ERROR"
+                }
             }
         } else if indexPath.section == 1{
             switch indexPath.row {
@@ -214,7 +230,13 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     /// Sections' name
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch section {
-        case 0 : return "Developer 👨‍💻".localized()
+        
+        case 0 :
+            if self.isPremium {
+                return ""
+            } else {
+                return "Developer 👨‍💻".localized()
+            }
         case 1 : return "Keys 🔑".localized()
         case 2 : return "Security 🔐".localized()
         case 3 : return "Application 📱"
@@ -226,15 +248,20 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { // cellule selctionnée
         if indexPath.section == 0{
-            switch indexPath.row {
-            case 0:
-                performSegue(withIdentifier: "showDeveloper", sender: self)
-            case 1:
+            if self.isPremium {
                 performSegue(withIdentifier: "upgrade", sender: self)
-            
-            default:
-                break
+            } else {
+                switch indexPath.row {
+                case 0:
+                    performSegue(withIdentifier: "showDeveloper", sender: self)
+                case 1:
+                    performSegue(withIdentifier: "upgrade", sender: self)
+                
+                default:
+                    break
+                }
             }
+            
         } else if indexPath.section == 1 {
             switch indexPath.row {
             case 0 :
