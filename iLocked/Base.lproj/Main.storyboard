@@ -648,11 +648,53 @@ Thanks a lot ! 🤍</string>
                     <connections>
                         <outlet property="successView" destination="uPl-1k-JX8" id="doK-Wb-fqC"/>
                         <outlet property="tableView" destination="6Xu-UC-H7w" id="2sU-wg-yBh"/>
+                        <segue destination="syl-SI-6Ok" kind="show" identifier="log" id="xES-z6-cSQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cws-Ua-pcv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2837.5999999999999" y="2683.8080959520244"/>
+        </scene>
+        <!--Log-->
+        <scene sceneID="JnQ-Rq-HSR">
+            <objects>
+                <viewController id="syl-SI-6Ok" customClass="LogView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tO9-rV-Gr8">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="No log." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ATw-1g-IWi">
+                                <rect key="frame" x="0.0" y="140" width="428" height="703"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ray-11-THM"/>
+                        <color key="backgroundColor" red="0.1098443493" green="0.1097008213" blue="0.11764953290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="ATw-1g-IWi" firstAttribute="bottom" secondItem="ray-11-THM" secondAttribute="bottom" id="PAp-QT-nXf"/>
+                            <constraint firstItem="ATw-1g-IWi" firstAttribute="top" secondItem="ray-11-THM" secondAttribute="top" id="UhP-QD-KMy"/>
+                            <constraint firstItem="ATw-1g-IWi" firstAttribute="leading" secondItem="ray-11-THM" secondAttribute="leading" id="ktR-yh-DEC"/>
+                            <constraint firstItem="ray-11-THM" firstAttribute="trailing" secondItem="ATw-1g-IWi" secondAttribute="trailing" id="ptA-UD-Yrz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Log" id="tyL-C4-iDT">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="square.and.arrow.up" catalog="system" id="3kE-4B-AVQ">
+                            <connections>
+                                <action selector="shareButtonSelectedWithSender:" destination="syl-SI-6Ok" id="Utr-dN-5jI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="shareButton" destination="3kE-4B-AVQ" id="DZt-x3-F1A"/>
+                        <outlet property="textView" destination="ATw-1g-IWi" id="3dg-Su-sbS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8d9-VI-fVh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3340.6542056074763" y="3327.8617710583158"/>
         </scene>
         <!--Export your keys-->
         <scene sceneID="NnB-Kd-OaS">

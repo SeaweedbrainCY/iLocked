@@ -16,12 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="V 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IiZ-BG-yMJ">
-                                <rect key="frame" x="183.5" y="839" width="47.5" height="23"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="18"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_chargement" translatesAutoresizingMaskIntoConstraints="NO" id="oPt-CA-2rZ">
                                 <rect key="frame" x="123.5" y="350.5" width="167" height="195"/>
                                 <constraints>
@@ -29,12 +23,17 @@
                                     <constraint firstAttribute="width" constant="167" id="CyN-Ug-k7p"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="By Nathan Stchepinsky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3v-JZ-C3X">
+                                <rect key="frame" x="123" y="841" width="167" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="IiZ-BG-yMJ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7Z8-D6-ABd"/>
-                            <constraint firstItem="IiZ-BG-yMJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="8iR-9L-7KW"/>
                             <constraint firstItem="oPt-CA-2rZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LaV-Pc-VLm"/>
                             <constraint firstItem="oPt-CA-2rZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dQG-1z-are"/>
                         </constraints>

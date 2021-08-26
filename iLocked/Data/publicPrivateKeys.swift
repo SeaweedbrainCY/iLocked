@@ -13,10 +13,14 @@ import Foundation
 /// This class manage creation, stock, access to the differents keys
 class PublicPrivateKeys {
     
-    let log = Logs()
+    let log = LogFile(fileManager: FileManager())
+    let queue = DispatchQueue.global(qos: .background)
     
     public func generateAndStockKeyUser() -> Bool{
-        log.storeLog(message: "Start generating a key pair")
+        queue.async {
+            try? self.log.write(message: "Start generating a key pair")
+        }
+        
         do {
             let keyPair = try SwiftyRSA.generateRSAKeyPair(sizeInBits: 4096)
             let privateKey = keyPair.privateKey
@@ -32,28 +36,27 @@ class PublicPrivateKeys {
                 let saveSuccessfulPublicKey = KeychainWrapper.standard.set(publicKeyFormat, forKey: UserKeys.publicKey.tag)
                 if saveSuccessfulPublicKey && saveSuccessfulPrivateKey {
                     return true
-                } else{return false}
-            } else {
-                var logMessage = ""
-                var i = 0
-                while logMessage != "success" && i<20{
-                    logMessage = log.storeLog(message: "**FATAL ERROR** The key pair generated isn't correct.They will e  destroyed. privateKey64 = \(privateKey64). X509 public key = \(x509key64).")
-                    i += 1
+                } else{
+                    queue.async {
+                        try? self.log.write(message: "⚠️ ERROR. One of the key (or both) cannot be saved. Successful save for : 1 - Public key = \(saveSuccessfulPublicKey) | 2 - Private key = \(saveSuccessfulPrivateKey)")
+                    }
+                    return false
+                    
                 }
-               
+            } else {
+                queue.async {
+                    try? self.log.write(message: "⚠️ **FATAL ERROR** The key pair generated isn't correct. Test not passed. They will be destroyed. privateKey64 = \(privateKey64). X509 public key = \(x509key64).")
+                }
                 print("[*] An error occur while verifying keys")
                 print("[*] privateKey64 = \(privateKey64)")
                 print("[*] X509 public key = \(x509key64)")
                 return false
             }
         }catch{
-            var logMessage = ""
-            var i = 0
-            while logMessage != "success" && i<20{
-                logMessage = log.storeLog(message: "**FATAL ERROR** Impossible to generate a key. Error message : \(error)")
-                i += 1
+            queue.async {
+                try? self.log.write(message: "⚠️ **FATAL ERROR** Impossible to generate a key. Error message : \(error)")
             }
-           
+            
             print("[*] An error occur while creating a key")
             return false
         }

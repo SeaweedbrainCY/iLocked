@@ -21,6 +21,9 @@ class Revoke: UIViewController {
     
     static let notificationOfAuthenticationName = Notification.Name("notificationOfAuthenticationResult")
     
+    let queue = DispatchQueue.global(qos: .background)
+    let log = LogFile(fileManager: FileManager())
+    
     var timer: Timer!
     var timerWarning :Timer!
     var second = 0 //Count the number of seconds passed
@@ -149,6 +152,9 @@ class Revoke: UIViewController {
         let notificationData = notification.userInfo
         let hasSucceed = notificationData?["Result"] as! Bool
         if hasSucceed {
+            queue.async {
+                try? self.log.write(message: "Keys revoked.")
+            }
             self.destroyKey()
         } else {
             self.fail()

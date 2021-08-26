@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9013F7F326B05FC300CC7361 /* ExportKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9013F7F226B05FC300CC7361 /* ExportKeys.swift */; };
 		9014387D26D6687700384EB4 /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014387C26D6687700384EB4 /* Logs.swift */; };
+		9014387F26D807EA00384EB4 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014387E26D807EA00384EB4 /* LogView.swift */; };
 		901BD77626AF1C52009D246D /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BD77526AF1C52009D246D /* BartyCrouch.swift */; };
 		901D23A326C9C27500C5DCCA /* ThirdTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */; };
 		902624022688BD3400489B07 /* X509Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902624012688BD3400489B07 /* X509Certificate.swift */; };
@@ -113,6 +114,7 @@
 /* Begin PBXFileReference section */
 		9013F7F226B05FC300CC7361 /* ExportKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportKeys.swift; sourceTree = "<group>"; };
 		9014387C26D6687700384EB4 /* Logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logs.swift; sourceTree = "<group>"; };
+		9014387E26D807EA00384EB4 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		901BD77526AF1C52009D246D /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTutoView.swift; sourceTree = "<group>"; };
 		902624012688BD3400489B07 /* X509Certificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X509Certificate.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 				906207D025914ECE00E98F90 /* Revoke.swift */,
 				90EEEAFC266E7D0C00A158DA /* donationView.swift */,
 				906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */,
+				9014387E26D807EA00384EB4 /* LogView.swift */,
 				90EE52B1267675FB00C506AA /* WebView.swift */,
 				90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */,
 				90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */,
@@ -667,6 +670,7 @@
 				90EEEAFD266E7D0C00A158DA /* donationView.swift in Sources */,
 				90EBFC8226A4D069002B30E9 /* SecondTutoView.swift in Sources */,
 				906CE59325DDA53D007B8E08 /* AdvancedSettings.swift in Sources */,
+				9014387F26D807EA00384EB4 /* LogView.swift in Sources */,
 				9014387D26D6687700384EB4 /* Logs.swift in Sources */,
 				D820B8542363909C006CEB38 /* publicPrivateKeys.swift in Sources */,
 				D820B84E235E5EB1006CEB38 /* LockedView.swift in Sources */,

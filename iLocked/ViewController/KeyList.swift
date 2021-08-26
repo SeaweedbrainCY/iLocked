@@ -18,6 +18,9 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var selectCellButton : UIBarButtonItem!
     @IBOutlet weak var addKeyButton : UIBarButtonItem!
     
+    let log = LogFile(fileManager: FileManager())
+    let queue = DispatchQueue.global(qos: .background)
+    
     
     var nameList: [String] = ["There is no key saved".localized()]
     var nameSelected = "nil"
@@ -231,6 +234,9 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
                         //
                         // ERROR #0004# : SERIOUS
                         //
+                        queue.async {
+                            try? self.log.write(message: "⚠️ ERROR. Impossible to recognize the given data. VC/KL.SWIFT#0004#.")
+                        }
                         alert("Impossible to recognize this data".localized(), message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0004#".localized(withKey: "messageError0004"), quitMessage: "Close".localized())
                         break
                     }
@@ -238,12 +244,18 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
                     //
                     // ERROR #0005# : SERIOUS
                     //
+                    queue.async {
+                        try? self.log.write(message: "⚠️ ERROR. No title received. VC/KL.SWIFT#0005#")
+                    }
                     alert("Wrong data".localized(), message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0005#".localized(withKey: "messageError0005"), quitMessage: "Close".localized())
                 }
             } else { // No cell correponding to the selection
                 //
                 // ERROR #0006# : SERIOUS
                 //
+                queue.async {
+                    try? self.log.write(message: "⚠️ ERROR. No link between selection and saved data. VC/KL.SWIFT#0006#")
+                }
                 alert("No link between selection and saved data".localized(), message: "Please re-start iLocked and try again. Error code : VC/KL.SWIFT#0006#".localized(withKey: "messageError0006"), quitMessage: "Close".localized())
             }
             

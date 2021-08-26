@@ -187,7 +187,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0 : return 2
-        case 1 : return 1
+        case 1 : return 2
         case 2 : return 1
         default : return 0
             
@@ -225,6 +225,10 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
             case 0:
                 cell.textLabel?.text = "📚 Open Source Libraries".localized()
                 accessoryView = UIImageView(image:Settings().externalLinkView)
+                accessoryView.tintColor = .darkGray
+            case 1 :
+                cell.textLabel?.text = "🚧 Open logs"
+                accessoryView = UIImageView(image: Settings().nextViewSettingImageView)
                 accessoryView.tintColor = .darkGray
             default:
                 cell.textLabel?.text = "ERROR"
@@ -283,6 +287,8 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
             switch indexPath.row {
             case 0:
                 UIApplication.shared.open(URL(string: "https://github.com/DevNathan/iLocked/blob/master/OpenSourceLibrary.md#open-source-libraries")!, options: [:], completionHandler: nil)
+            case 1 :
+                performSegue(withIdentifier: "log", sender: self)
             default:
                 break 
             }

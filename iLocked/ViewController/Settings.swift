@@ -25,6 +25,9 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     var lockAppButtonIsHit = false // True if the user tap on lockApp button
     var isPremium = false
     
+    let log = LogFile(fileManager: FileManager())
+    let queue = DispatchQueue.global(qos: .background)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("[*] Settings just load")
@@ -311,10 +314,10 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             case 1 : // report a bug
                 let alert = UIAlertController(title: "Report a bug".localized(), message: "Report a bug help the developer to upgrade this application and improve your experience".localized(withKey: "ReportBugMessage"), preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Report a bug".localized(), style: .default) { _ in
-                    self.mailReport(subject: "I found a bug in iLocked app !!".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "reportBugEmail"))
+                    self.mailReport(subject: "I found a bug in iLocked app !!".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "reportBugEmail"), attachLog: true)
                 })
                 alert.addAction(UIAlertAction(title: "Contact the developer".localized(), style: .default) { _ in
-                    self.mailReport(subject: "Request of an iLocked user".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "contactEmail"))
+                    self.mailReport(subject: "Request of an iLocked user".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "contactEmail"), attachLog: false)
                 })
                 alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
                 present(alert, animated: true)
@@ -339,7 +342,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     /// - Parameters:
     ///   - subject: subject of the email. Must be a short String
     ///   - body: body text of the email. Can be a HTML code.
-    func mailReport(subject: String, body: String){
+    func mailReport(subject: String, body: String, attachLog: Bool){
         let email = "nathanstchepinsky@gmail.com"
         var bodyText = body
         if MFMailComposeViewController.canSendMail() {
@@ -347,34 +350,26 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             mailComposerVC.mailComposeDelegate = self
             mailComposerVC.setToRecipients([email])
             mailComposerVC.setSubject(subject)
-            let file = Log.path.name
-            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                let fileURL = dir.appendingPathComponent(file)
+            if attachLog {
                 do {
-                    let dataStr = try String.init(contentsOf: fileURL)
-                    print("dataStr = \(dataStr)")
-                    mailComposerVC.setMessageBody(bodyText + "\n\n\n\n\n\n\n\n\n\n 500 last logs : " + dataStr, isHTML: true)
+                    let data: Data = try self.log.data()
+                    mailComposerVC.addAttachmentData(data, mimeType: "text/plain", fileName: "log")
                 } catch {
-                    print("error = \(error)")
-                    mailComposerVC.setMessageBody(bodyText, isHTML: true)
+                    print("Impossible to attach log. Error = \(error)")
+                    queue.async {
+                        try? self.log.write(message: "⚠️ ERROR. Impossible to attach the log file. Error thrown : \(error)")
+                    }
+                    bodyText.append("The log file cannot be attached. Error : \(error)")
                 }
-            } else {
-                mailComposerVC.setMessageBody(bodyText, isHTML: true)
+               
+                
+                
             }
+            
+            mailComposerVC.setMessageBody(bodyText, isHTML: true)
+            
             self.present(mailComposerVC, animated: true, completion: nil)
         } else {
-            let file = Log.path.name
-            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                let fileURL = dir.appendingPathComponent(file)
-                do {
-                    let dataStr = try String.init(contentsOf: fileURL)
-                    print("dataStr = \(dataStr)")
-                    bodyText = bodyText + "\n\n\n\n\n\n\n\n\n\n 500 last logs : " + dataStr
-                } catch {
-                    print("error = \(error)")
-                    
-                }
-            }
             let coded = "mailto:\(email)?subject=\(subject)&body=\(bodyText)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             if let emailURL = URL(string: coded!){
                 if UIApplication.shared.canOpenURL(emailURL){

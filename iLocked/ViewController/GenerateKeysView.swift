@@ -20,7 +20,8 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
     @IBOutlet weak var reportBug: UIButton!
     
     var retrievedString:String? = nil
-    let logs = Logs()
+    let log = LogFile(fileManager: FileManager())
+    let queue = DispatchQueue.global(qos: .background)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,9 +69,7 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
     
     func alert(_ title: String, message: String, quitMessage: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: quitMessage, style: UIAlertAction.Style.destructive, handler: {_ in
-            exit(-1)
-        })
+        let ok = UIAlertAction(title: quitMessage, style: UIAlertAction.Style.destructive, handler: nil)
         alert.addAction(ok)
         self.present(alert, animated: true, completion: nil)
     }
@@ -97,9 +96,19 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
         let keys = PublicPrivateKeys()
         let isSuccessful = keys.generateAndStockKeyUser()
         if isSuccessful {
-            logs.storeLog(message: "Key generated with success")
+            
+            queue.async {
+                do {
+                    try self.log.write(message: "Key generated with success")
+                } catch {
+                    print("An error occured = \(error)")
+                }
+            }
             self.performSegue(withIdentifier: "HomePage", sender: self)
         } else {
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR. Impossible to create the keys. See the above logs for more details.")
+            }
             print("FATAL ERROR. APP IS GOING TO BE CRASHED BY USER.")
             alert("An error occured while creating keys. Please restart the application".localized(withKey: "crashAppMessageError"), message: "", quitMessage: "Ok")
             //crashApp()
@@ -123,34 +132,21 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
             mailComposerVC.mailComposeDelegate = self
             mailComposerVC.setToRecipients([email])
             mailComposerVC.setSubject(subject)
-            let file = Log.path.name
-            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                let fileURL = dir.appendingPathComponent(file)
-                do {
-                    let dataStr = try String.init(contentsOf: fileURL)
-                    print("dataStr = \(dataStr)")
-                    mailComposerVC.setMessageBody(bodyText + "\n\n\n\n\n\n\n\n\n\n 500 last logs : " + dataStr, isHTML: true)
-                } catch {
-                    print("error = \(error)")
-                    mailComposerVC.setMessageBody(bodyText, isHTML: true)
+            do {
+                let data: Data = try self.log.data()
+                mailComposerVC.addAttachmentData(data, mimeType: "text/plain", fileName: "log")
+            } catch {
+                print("Impossible to attach log. Error = \(error)")
+                queue.async {
+                    try? self.log.write(message: "⚠️ ERROR. Impossible to attach the log file. Error thrown : \(error)")
                 }
-            } else {
-                mailComposerVC.setMessageBody(bodyText, isHTML: true)
+                bodyText.append("The log file cannot be attached. Error : \(error)")
             }
+            mailComposerVC.setMessageBody(bodyText, isHTML: true)
+            
             self.present(mailComposerVC, animated: true, completion: nil)
         } else {
-            let file = Log.path.name
-            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                let fileURL = dir.appendingPathComponent(file)
-                do {
-                    let dataStr = try String.init(contentsOf: fileURL)
-                    print("dataStr = \(dataStr)")
-                    bodyText = bodyText + "\n\n\n\n\n\n\n\n\n\n 500 last logs : " + dataStr
-                } catch {
-                    print("error = \(error)")
-                    
-                }
-            }
+            
             let coded = "mailto:\(email)?subject=\(subject)&body=\(bodyText)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             if let emailURL = URL(string: coded!){
                 if UIApplication.shared.canOpenURL(emailURL){

@@ -13,6 +13,9 @@ class KeyId {
     let end_key_format = "\n-----END RSA 4096 PUBLIC KEY-----"
     let pem_format = "RSA 4096 PUBLIC"
     
+    let queue = DispatchQueue.global(qos: .background)
+    let log = LogFile(fileManager: FileManager())
+    
     /// Return all key and id associated to saved keys
     /// - Data format = [keyName(String)]
     public func getKeyName() -> [String]{
@@ -32,6 +35,9 @@ class KeyId {
             // Une grave erreur s'est produite lors de l'accès à la sauvegarde ERROR
             // *************************************************************************
             //
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR002 ##DATA/KI.SWIFT#0002# : An internal error unables the application to access to your stored")
+            }
             return ["##ERROR## An internal error unables the application to access to your stored data. Please, contact the developer with this error code : ##DATA/KI.SWIFT#0002# 🛠".localized(withKey: "error0002")]
         }
         
@@ -160,6 +166,10 @@ class KeyId {
                 if splited_key_end.count == 2 {
                     return splited_key_end[0]
                 } else {
+                    queue.async {
+                        try? self.log.write(message: "⚠️ [** Error **] No end detected while parsing. Splited_key_end = \(splited_key_end), Splited_key_start = \(splited_key_start)")
+                    }
+                    
                     print("[** Error **] No end detected while parsing. Splited_key_end = \(splited_key_end), Splited_key_start = \(splited_key_start)")
                     return nil
                 }
@@ -168,15 +178,25 @@ class KeyId {
                 if splited_key_end.count == 2 {
                     return splited_key_end[0]
                 } else {
+                    queue.async {
+                        try? self.log.write(message: "⚠️ [** Error **] No end detected while parsing. Splited_key_end = \(splited_key_end), Splited_key_start = \(splited_key_start)")
+                    }
+                    
                     print("[** Error **] No end detected while parsing. Splited_key_end = \(splited_key_end), Splited_key_start = \(splited_key_start)")
                     return nil
                 }
             } else {
+                queue.async {
+                    try? self.log.write(message: "⚠️ [** Error **] No end detected. Splited_key_start = \(splited_key_start)")
+                }
                 print("[** Error **] No end detected. Splited_key_start = \(splited_key_start)")
                 return nil
             }
         } else {
-            print("[** Error **] No start detected. Splited_key_start = \(splited_key_start). Start separator = \(separatorStart)")
+            queue.async {
+                try? self.log.write(message: "⚠️ [** Error **] No start detected. Splited_key_start = \(splited_key_start). Start separator = \(separatorStart)")
+            }
+            print("⚠️ [** Error **] No start detected. Splited_key_start = \(splited_key_start). Start separator = \(separatorStart)")
             return nil
         }
     }

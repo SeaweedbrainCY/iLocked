@@ -27,6 +27,9 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
     //var segmentView = UIView()
     var allCellsText = [String]() // Store data from the textField in table View
     
+    let log = LogFile(fileManager: FileManager())
+    let queue = DispatchQueue.global(qos: .background)
+    
     var viewOnBack: String = ""
     var oldName:String = ""
     var oldKey : String = ""
@@ -158,6 +161,9 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
                 let nameList = keyId.getKeyName()
                 print("old name = \(self.oldName)")
                 if !nameList.contains(oldName) { // Impossible to find the name. Fatal error
+                    queue.async {
+                        try? self.log.write(message: "⚠️ ERROR ##DATA/AK.SWIFT 0003. Impossible to identify this key")
+                    }
                     self.publicKeyError.setTitle("Impossible to identify this key. Please, try to save it again. If you see this error several times please report the bug with the id : ##DATA/AK.SWIFT 0003 🛠".localized(withKey: "Error0003"), for: .normal)
                     self.flip(firstView: self.keyTextView, secondView: self.publicKeyError)
                 } else { // id found

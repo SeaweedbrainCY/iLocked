@@ -26,6 +26,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
     
     let placeHolder = "Paste your keys here".localized()
     
+    let queue = DispatchQueue.global(qos: .background)
+    let log = LogFile(fileManager: FileManager())
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.textToImport.delegate = self
@@ -239,6 +242,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
                     }
                     
                 } else {
+                    queue.async {
+                        try? self.log.write(message: "⚠️ ERROR while importing keys : Error occured while converting the public key. Public key = \(publicKey)")
+                    }
                     print("[*] Error while converting the public key. Public key = \(publicKey)")
                 }
             }
@@ -276,6 +282,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
         }
         
         if type != "RSA-4096"{
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR while importing keys : Incorrect type. Format = \(type)")
+            }
             print("[** Error **] Incorrect type. Format = \(type)")
             incorrectInfo()
             return
@@ -285,12 +294,18 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
         
         guard let format = dict[ExportKeysJSON.format.key] else {
             print("[** Error **] Incorrect format (key doesn't exist in the retrieved dictionnary)")
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR while importing keys : Incorrect format (key doesn't exist in the retrieved dictionnary)")
+            }
             incorrectInfo()
             return
         }
         print("[*] Format = \(format)")
         
         guard let publicKeyString = dict[ExportKeysJSON.publicKey.key] else {
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR while importing keys : Incorrect public key (key doesn't exist in the retrieved dictionnary)")
+            }
             print("[** Error **] Incorrect public key (key doesn't exist in the retrieved dictionnary)")
             incorrectInfo()
             return
@@ -298,6 +313,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
         print("[*] PublicKey = \(publicKeyString)")
         
         guard let privateKeyString = dict[ExportKeysJSON.privateKey.key] else {
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR while importing keys : Incorrect public key (key doesn't exist in the retrieved dictionnary)")
+            }
             print("[** Error **] Incorrect private key (key doesn't exist in the retrieved dictionnary)")
             incorrectInfo()
             return
@@ -324,6 +342,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
             privateKey = privateKeyString
             isX509 = false
         default : // error
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR while importing keys : Format unuknown. Format = \(format))")
+            }
             print("[** Error **] Format unknown. Format = \(format)")
             publicKey = nil
             privateKey = nil
@@ -331,6 +352,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
         }
         
         if publicKey == nil || privateKey == nil {
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR while importing keys : One of the key is nil. PublicKey = \(String(describing: publicKey)), PrivateKey = \(String(describing: privateKey))")
+            }
             print("[** Error **] One of the key is nil. PublicKey = \(String(describing: publicKey)), PrivateKey = \(String(describing: privateKey))")
             impossibleToExtractKeys()
             return
@@ -361,17 +385,26 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
         var isX509: Bool?
         let lines = str.components(separatedBy: "\n[")
         guard  lines.count >= 4 else {
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR while importing keys : Too much data. Nb of lines = \(lines.count)")
+            }
             print("[** Error **] Too much data. Nb of lines = \(lines.count)")
             incorrectInfo()
             return
         }
             guard lines[0].contains(ExportKeysJSON.humanTitle.str) else {
+                queue.async {
+                    try? self.log.write(message: "⚠️ ERROR while importing keys :Incorrect title. Line 0 : \(lines[0])")
+                }
                 print("[** Error **] Incorrect title. Line 0 : \(lines[0])")
                 incorrectInfo()
                 return
             }
             
             guard lines[1].contains(ExportKeysJSON.format.key) else {
+                queue.async {
+                    try? self.log.write(message: "⚠️ ERROR while importing keys : Incorrect format. Line 1 : \(lines[1])")
+                }
                 print("[** Error **] Incorrect format. Line 1 : \(lines[1])")
                 incorrectInfo()
                 return
@@ -386,6 +419,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
             let format = formatInfos[1].replacingOccurrences(of: " ", with: "")
             
             guard lines[2].contains(ExportKeysJSON.publicKey.key) else {
+                queue.async {
+                    try? self.log.write(message: "⚠️ ERROR while importing keys : Incorrect public key. Line 2 : \(lines[2])")
+                }
                 print("[** Error **] Incorrect public key. Line 2 : \(lines[2])")
                 incorrectInfo()
                 return
@@ -398,6 +434,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
             let publicKeyString = publicKeyInfos[1].replacingOccurrences(of: " ", with: "")
             
             guard lines[3].contains(ExportKeysJSON.privateKey.key) else {
+                queue.async {
+                    try? self.log.write(message: "⚠️ ERROR while importing keys : Incorrect public key. Line 3 : \(lines[3])")
+                }
                 print("[** Error **] Incorrect private key. Line 3 : \(lines[3])")
                 incorrectInfo()
                 return
@@ -429,6 +468,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
             privateKey = privateKeyString
             isX509 = false
         default : // error
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR while importing keys : Format unknown. Format = \(format)")
+            }
             print("[** Error **] Format unknown. Format = \(format)")
             publicKey = nil
             privateKey = nil
@@ -436,6 +478,9 @@ class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
         }
         
         if publicKey == nil || privateKey == nil {
+            queue.async {
+                try? self.log.write(message: "⚠️ ERROR while importing keys : One of the key is nil. PublicKey = \(String(describing: publicKey)), PrivateKey = \(String(describing: privateKey))")
+            }
             print("[** Error **] One of the key is nil. PublicKey = \(String(describing: publicKey)), PrivateKey = \(String(describing: privateKey))")
             impossibleToExtractKeys()
             return
