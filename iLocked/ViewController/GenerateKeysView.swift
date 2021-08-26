@@ -8,16 +8,19 @@
 
 import Foundation
 import UIKit
+import MessageUI
 
-class GenerateKeysView: UIViewController {
+class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
     
     @IBOutlet weak var generateButton: UIButton!
     @IBOutlet weak var importButton: UIButton!
     @IBOutlet weak var waitingView: UIActivityIndicatorView!
     @IBOutlet weak var orLabel: UILabel!
     @IBOutlet weak var littleInfo : UILabel!
+    @IBOutlet weak var reportBug: UIButton!
     
     var retrievedString:String? = nil
+    let logs = Logs()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,10 +97,86 @@ class GenerateKeysView: UIViewController {
         let keys = PublicPrivateKeys()
         let isSuccessful = keys.generateAndStockKeyUser()
         if isSuccessful {
+            logs.storeLog(message: "Key generated with success")
             self.performSegue(withIdentifier: "HomePage", sender: self)
         } else {
             print("FATAL ERROR. APP IS GOING TO BE CRASHED BY USER.")
-            crashApp()
+            alert("An error occured while creating keys. Please restart the application".localized(withKey: "crashAppMessageError"), message: "", quitMessage: "Ok")
+            //crashApp()
+        }
+    }
+    
+    
+    @IBAction func reportBugButtonSelected(sender: UIButton){
+        self.mailReport(subject: "I found a bug in iLocked app !!".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "reportBugEmail"))
+    }
+    
+    /// Send  mail method
+    /// - Parameters:
+    ///   - subject: subject of the email. Must be a short String
+    ///   - body: body text of the email. Can be a HTML code.
+    func mailReport(subject: String, body: String){
+        let email = "nathanstchepinsky@gmail.com"
+        var bodyText = body
+        if MFMailComposeViewController.canSendMail() {
+            let mailComposerVC = MFMailComposeViewController()
+            mailComposerVC.mailComposeDelegate = self
+            mailComposerVC.setToRecipients([email])
+            mailComposerVC.setSubject(subject)
+            let file = Log.path.name
+            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let fileURL = dir.appendingPathComponent(file)
+                do {
+                    let dataStr = try String.init(contentsOf: fileURL)
+                    print("dataStr = \(dataStr)")
+                    mailComposerVC.setMessageBody(bodyText + "\n\n\n\n\n\n\n\n\n\n 500 last logs : " + dataStr, isHTML: true)
+                } catch {
+                    print("error = \(error)")
+                    mailComposerVC.setMessageBody(bodyText, isHTML: true)
+                }
+            } else {
+                mailComposerVC.setMessageBody(bodyText, isHTML: true)
+            }
+            self.present(mailComposerVC, animated: true, completion: nil)
+        } else {
+            let file = Log.path.name
+            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let fileURL = dir.appendingPathComponent(file)
+                do {
+                    let dataStr = try String.init(contentsOf: fileURL)
+                    print("dataStr = \(dataStr)")
+                    bodyText = bodyText + "\n\n\n\n\n\n\n\n\n\n 500 last logs : " + dataStr
+                } catch {
+                    print("error = \(error)")
+                    
+                }
+            }
+            let coded = "mailto:\(email)?subject=\(subject)&body=\(bodyText)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            if let emailURL = URL(string: coded!){
+                if UIApplication.shared.canOpenURL(emailURL){
+                    UIApplication.shared.open(emailURL, options: [:], completionHandler: { (result) in
+                        if !result {
+                            self.alert("Error ! 🔨".localized(), message: "Impossible to use mail services".localized(withKey: "errorMail"), quitMessage: "Ok")
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
+    /**
+     Function called by **Delegate** when user ask for contact the developer
+     - Parameter _ controller : Correpond to MFMail
+     - Parameter result : Result of user's actions
+     - Parameter error : **nil** if there is no error
+     */
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Swift.Error?) {
+        
+        // Dismiss the mail compose view controller.
+        controller.dismiss(animated: true, completion: nil)
+        if error != nil { // S'il y a une erreur
+            alert("An error occured".localized(), message: String(describing: error) + ". " + "Please try again".localized(), quitMessage: "Ok")
         }
     }
 }

@@ -212,6 +212,8 @@
 
 "convertionErrorMessage" = "Une erreur est survenue au moment d'ajouter vos clés au fichier texte. Verifiez que vous avez assez de place sur votre appareil.\nSi cela ne marche toujours pas, essayez un autre format et contactez le développeur.";
 
+"convertionErrorMessageLog" = "Une erreur est survenue au moment d'ajouter vos logs au fichier texte. Verifiez que vous avez assez de place sur votre appareil.\nSi cela ne marche toujours pas, essayez un autre format et contactez le développeur.";
+
 "🔥 Premium version" = "🔥 Version premium";
 
 "Paste your keys here" = "Collez vos clés ici";

@@ -13,7 +13,10 @@ import Foundation
 /// This class manage creation, stock, access to the differents keys
 class PublicPrivateKeys {
     
+    let log = Logs()
+    
     public func generateAndStockKeyUser() -> Bool{
+        log.storeLog(message: "Start generating a key pair")
         do {
             let keyPair = try SwiftyRSA.generateRSAKeyPair(sizeInBits: 4096)
             let privateKey = keyPair.privateKey
@@ -31,12 +34,26 @@ class PublicPrivateKeys {
                     return true
                 } else{return false}
             } else {
+                var logMessage = ""
+                var i = 0
+                while logMessage != "success" && i<20{
+                    logMessage = log.storeLog(message: "**FATAL ERROR** The key pair generated isn't correct.They will e  destroyed. privateKey64 = \(privateKey64). X509 public key = \(x509key64).")
+                    i += 1
+                }
+               
                 print("[*] An error occur while verifying keys")
                 print("[*] privateKey64 = \(privateKey64)")
                 print("[*] X509 public key = \(x509key64)")
                 return false
             }
         }catch{
+            var logMessage = ""
+            var i = 0
+            while logMessage != "success" && i<20{
+                logMessage = log.storeLog(message: "**FATAL ERROR** Impossible to generate a key. Error message : \(error)")
+                i += 1
+            }
+           
             print("[*] An error occur while creating a key")
             return false
         }

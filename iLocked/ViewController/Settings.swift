@@ -341,15 +341,40 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     ///   - body: body text of the email. Can be a HTML code.
     func mailReport(subject: String, body: String){
         let email = "nathanstchepinsky@gmail.com"
-        let bodyText = body
+        var bodyText = body
         if MFMailComposeViewController.canSendMail() {
             let mailComposerVC = MFMailComposeViewController()
             mailComposerVC.mailComposeDelegate = self
             mailComposerVC.setToRecipients([email])
             mailComposerVC.setSubject(subject)
-            mailComposerVC.setMessageBody(bodyText, isHTML: true)
+            let file = Log.path.name
+            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let fileURL = dir.appendingPathComponent(file)
+                do {
+                    let dataStr = try String.init(contentsOf: fileURL)
+                    print("dataStr = \(dataStr)")
+                    mailComposerVC.setMessageBody(bodyText + "\n\n\n\n\n\n\n\n\n\n 500 last logs : " + dataStr, isHTML: true)
+                } catch {
+                    print("error = \(error)")
+                    mailComposerVC.setMessageBody(bodyText, isHTML: true)
+                }
+            } else {
+                mailComposerVC.setMessageBody(bodyText, isHTML: true)
+            }
             self.present(mailComposerVC, animated: true, completion: nil)
         } else {
+            let file = Log.path.name
+            if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+                let fileURL = dir.appendingPathComponent(file)
+                do {
+                    let dataStr = try String.init(contentsOf: fileURL)
+                    print("dataStr = \(dataStr)")
+                    bodyText = bodyText + "\n\n\n\n\n\n\n\n\n\n 500 last logs : " + dataStr
+                } catch {
+                    print("error = \(error)")
+                    
+                }
+            }
             let coded = "mailto:\(email)?subject=\(subject)&body=\(bodyText)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
             if let emailURL = URL(string: coded!){
                 if UIApplication.shared.canOpenURL(emailURL){
@@ -411,8 +436,6 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
      */
     func mailComposeController(_ controller: MFMailComposeViewController,
                                didFinishWith result: MFMailComposeResult, error: Swift.Error?) {
-        
-        
         
         // Dismiss the mail compose view controller.
         controller.dismiss(animated: true, completion: nil)

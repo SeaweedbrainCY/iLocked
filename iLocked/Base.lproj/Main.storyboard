@@ -1381,21 +1381,21 @@ Thanks a lot ! 🤍</string>
             <objects>
                 <viewController id="hzK-w4-iyY" customClass="SecondWelcomeView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v8j-D0-ck0">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.33000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="gmK-s6-nVQ">
-                                <rect key="frame" x="20" y="10" width="388" height="4"/>
+                                <rect key="frame" x="20" y="54" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before starting" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IP6-LX-IzC">
-                                <rect key="frame" x="20" y="78" width="388" height="46.666666666666657"/>
+                                <rect key="frame" x="20" y="122.00000000000001" width="388" height="46.666666666666671"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="34"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tx1-Ma-0W4">
-                                <rect key="frame" x="120" y="411" width="188" height="50"/>
+                                <rect key="frame" x="120" y="438" width="188" height="50"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="188" id="5M9-CH-5Hj"/>
@@ -1411,7 +1411,7 @@ Thanks a lot ! 🤍</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZw-em-S5c">
-                                <rect key="frame" x="200" y="481" width="28" height="26"/>
+                                <rect key="frame" x="200" y="508" width="28" height="26"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1424,7 +1424,7 @@ Thanks a lot ! 🤍</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bfb-XE-oTO">
-                                <rect key="frame" x="20" y="527" width="388" height="38"/>
+                                <rect key="frame" x="20" y="554" width="388" height="38"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="19"/>
                                 <state key="normal" title="I already know asymetric encryption">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1434,7 +1434,7 @@ Thanks a lot ! 🤍</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RY8-k8-2ag">
-                                <rect key="frame" x="19" y="31" width="40" height="29"/>
+                                <rect key="frame" x="19" y="75" width="40" height="29"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                 <state key="normal" title="&lt; Back">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1444,7 +1444,7 @@ Thanks a lot ! 🤍</string>
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Gb2-pm-xEd">
-                                <rect key="frame" x="204" y="534" width="20" height="20"/>
+                                <rect key="frame" x="204" y="561" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="ofQ-Vl-lFG"/>
                                     <constraint firstAttribute="height" constant="20" id="r9q-t5-9bn"/>
@@ -2166,6 +2166,16 @@ Thanks a lot ! 🤍</string>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zN7-nN-GvS">
+                                <rect key="frame" x="321" y="381" width="67" height="30"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="13"/>
+                                <state key="normal" title="Report bug">
+                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="reportBugButtonSelectedWithSender:" destination="1iP-nM-tcL" eventType="touchUpInside" id="syx-MZ-6Fo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PrV-rh-NF0"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2174,8 +2184,10 @@ Thanks a lot ! 🤍</string>
                             <constraint firstItem="TH2-DB-BLv" firstAttribute="leading" secondItem="PrV-rh-NF0" secondAttribute="leading" constant="40" id="8Pb-u8-7Hc"/>
                             <constraint firstItem="uiL-tw-T3H" firstAttribute="top" secondItem="TH2-DB-BLv" secondAttribute="bottom" constant="50" id="8bc-5U-Oty"/>
                             <constraint firstItem="sPY-rS-cnb" firstAttribute="top" secondItem="PrV-rh-NF0" secondAttribute="top" id="CR8-r4-m3C"/>
+                            <constraint firstItem="zN7-nN-GvS" firstAttribute="top" secondItem="TH2-DB-BLv" secondAttribute="bottom" constant="8" symbolic="YES" id="HdA-1P-8gQ"/>
                             <constraint firstItem="PrV-rh-NF0" firstAttribute="trailing" secondItem="Chu-Up-A6c" secondAttribute="trailing" constant="40" id="IUG-7S-eet"/>
                             <constraint firstItem="Goj-Vc-pon" firstAttribute="leading" secondItem="PrV-rh-NF0" secondAttribute="leading" constant="40" id="OV1-C2-n9O"/>
+                            <constraint firstItem="PrV-rh-NF0" firstAttribute="trailing" secondItem="zN7-nN-GvS" secondAttribute="trailing" constant="40" id="PZW-T0-d8s"/>
                             <constraint firstItem="VZ5-wD-eAY" firstAttribute="centerX" secondItem="xch-yd-NQk" secondAttribute="centerX" id="Q2b-eg-0p3"/>
                             <constraint firstItem="sPY-rS-cnb" firstAttribute="leading" secondItem="xch-yd-NQk" secondAttribute="leading" constant="20" id="Q7y-us-B7l"/>
                             <constraint firstItem="Chu-Up-A6c" firstAttribute="leading" secondItem="PrV-rh-NF0" secondAttribute="leading" constant="40" id="RYS-um-gmV"/>
@@ -2193,6 +2205,7 @@ Thanks a lot ! 🤍</string>
                         <outlet property="importButton" destination="Chu-Up-A6c" id="CRt-79-KQ2"/>
                         <outlet property="littleInfo" destination="Goj-Vc-pon" id="uQm-Wk-tez"/>
                         <outlet property="orLabel" destination="uiL-tw-T3H" id="MZF-DL-RaR"/>
+                        <outlet property="reportBug" destination="zN7-nN-GvS" id="aOU-zE-kIO"/>
                         <outlet property="waitingView" destination="VZ5-wD-eAY" id="0Xw-LD-iXN"/>
                         <segue destination="2EE-iT-cBD" kind="presentation" identifier="HomePage" modalPresentationStyle="fullScreen" id="QV3-YS-SAc"/>
                     </connections>
@@ -3166,7 +3179,6 @@ Thanks a lot ! 🤍</string>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Mgl-CS-HIT"/>
         <segue reference="D2r-ch-J57"/>
         <segue reference="uw9-uG-WID"/>
         <segue reference="z4W-nx-9XK"/>
