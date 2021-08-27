@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import SwiftyRSA
 
 
 class Encryption{
@@ -34,14 +34,13 @@ class Encryption{
             
                     print("\n\nExtraced key = '\(extractedKey)'")
                 do {
-                    let keyData = try SwiftyRSA.stripKeyHeader(keyData:  PublicKey(base64Encoded: extractedKey).data()) // get rid of X509 certificate
-                    print("stripped key = \(try PublicKey(data: keyData).base64String())")
+                    let publicKey = try PublicKey(base64Encoded: extractedKey) // get rid of X509 certificate
                     let clear = try ClearMessage(string: text, using: .utf8)
                     queue.async {
                         #warning("CRITIC INFO DEBUGED")
                         try? self.log.write(message: "Start encryption. Text = \(text). Key used : \n ****publicKey****\n\(publicKey)\n\n****Extracted key****\n\(extractedKey)\n\nCorresponding clear = \(clear.string(encoding: .utf8))")
                     }
-                    let encrypted = try clear.encrypted(with: PublicKey(data: keyData), padding: .PKCS1)
+                    let encrypted = try clear.encrypted(with: publicKey, padding: .PKCS1)
                     #warning("CRITIC INFO DEBUGED")
                     queue.async {
                         try? self.log.write(message: "Encryption done. Encrypted message (base64) : \n\(encrypted)")

@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import SwiftyRSA
 
 
 
@@ -296,19 +296,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
         }
     }
 
-    //Encryption method :
-    private func encryptText(text: String, publicKey: String) -> String{
-        do {
-            let clear = try ClearMessage(string: text, using: .utf8)
-            print("Text to encrypt = \(clear.base64String)")
-            //error("Attention verifier qu'il ne faut pas encoder la public key. Que cela marche aussi avec une key sous la forme d'une string")
-            
-            let encrypted = try clear.encrypted(with: PublicKey(base64Encoded: publicKey) , padding: .PKCS1)
-            return encrypted.base64String
-        } catch {
-            return "error"
-        }
-    }
+    
     
     //
     // objc func

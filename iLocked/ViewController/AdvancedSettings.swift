@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyRSA
 
 class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -129,7 +130,8 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
                 } else{
                     do {
                         let publicKey : PublicKey = try PublicKey(base64Encoded: publicKeyString!)
-                        let publicKeyStripped = try SwiftyRSA.stripKeyHeader(keyData: publicKey.data())
+                        let public_data = try publicKey.data()
+                        let publicKeyStripped = try public_data.stripPublicKeyHeader()
                         let publickeyStripped64 = publicKeyStripped.base64EncodedString()
                         let publicKeyStrippedString = KeyId().key_format(publickeyStripped64)
                         let isSaved = KeychainWrapper.standard.set(publicKeyStrippedString, forKey: UserKeys.publicKey.tag)

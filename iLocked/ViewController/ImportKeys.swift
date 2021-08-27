@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import MobileCoreServices
 import UniformTypeIdentifiers
+import SwiftyRSA
 
 class ImportKeys:UIViewController, UITextViewDelegate, UIDocumentPickerDelegate
  {

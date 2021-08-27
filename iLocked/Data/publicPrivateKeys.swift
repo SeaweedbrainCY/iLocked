@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import SwiftyRSA
 
 
 /// This class manage creation, stock, access to the differents keys

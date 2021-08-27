@@ -9,39 +9,27 @@
 /* Begin PBXBuildFile section */
 		18C22E061A4B98701C8A2A80 /* Pods_iLocked_iLockedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E3266A737B37B6E5EB8628 /* Pods_iLocked_iLockedUITests.framework */; };
 		8B2EBF535CDC2D70F1E25B9E /* Pods_iLocked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51CC857FDA009979BA8EABC3 /* Pods_iLocked.framework */; };
+		900BEE4226D9493F00426C11 /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BEE4126D9493F00426C11 /* SwiftyRSA.swift */; };
 		9013F7F326B05FC300CC7361 /* ExportKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9013F7F226B05FC300CC7361 /* ExportKeys.swift */; };
 		9014387D26D6687700384EB4 /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014387C26D6687700384EB4 /* Logs.swift */; };
 		9014387F26D807EA00384EB4 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014387E26D807EA00384EB4 /* LogView.swift */; };
 		901BD77626AF1C52009D246D /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BD77526AF1C52009D246D /* BartyCrouch.swift */; };
 		901D23A326C9C27500C5DCCA /* ThirdTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */; };
-		902624022688BD3400489B07 /* X509Certificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902624012688BD3400489B07 /* X509Certificate.swift */; };
 		9031317C26D91A9E0085C9E2 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9031317B26D91A9E0085C9E2 /* Bundle.swift */; };
 		904063AA26949B1600946518 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063A926949B1600946518 /* UIWindow.swift */; };
 		904063AC26971CCD00946518 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063AB26971CCD00946518 /* Colors.swift */; };
 		9048E65D23FB017800098C73 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9048E65C23FB017800098C73 /* Dictionary.swift */; };
-		905877422401B171004F1894 /* EncryptedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */; };
-		905877432401B18A004F1894 /* Asn1Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */; };
-		905877452401B197004F1894 /* Key.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B602401AF5A00EFE9BD /* Key.swift */; };
-		905877462401B19A004F1894 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B612401AF5A00EFE9BD /* Message.swift */; };
-		905877472401B1A3004F1894 /* NSData+SHA.m in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B632401AF5A00EFE9BD /* NSData+SHA.m */; };
-		905877482401B1A9004F1894 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B642401AF5A00EFE9BD /* PrivateKey.swift */; };
-		905877492401B1AB004F1894 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B652401AF5A00EFE9BD /* PublicKey.swift */; };
-		9058774A2401B1AD004F1894 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B662401AF5A00EFE9BD /* Signature.swift */; };
-		9058774B2401B1B2004F1894 /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B682401AF5A00EFE9BD /* SwiftyRSA.swift */; };
-		9058774C2401B1B5004F1894 /* SwiftyRSAError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B692401AF5A00EFE9BD /* SwiftyRSAError.swift */; };
-		9058774D2401B1D4004F1894 /* SwiftyRSA+ObjC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B6A2401AF5A00EFE9BD /* SwiftyRSA+ObjC.swift */; };
-		9058774E2401B227004F1894 /* ClearMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D43B5E2401AF5A00EFE9BD /* ClearMessage.swift */; };
 		906207D125914ECE00E98F90 /* Revoke.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906207D025914ECE00E98F90 /* Revoke.swift */; };
 		906CE59325DDA53D007B8E08 /* AdvancedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */; };
 		908AE09926B554570032D74A /* ImportKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908AE09826B554570032D74A /* ImportKeys.swift */; };
-		90983B3A26D17C4F007F46BB /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 90983B3926D17C4F007F46BB /* SwiftPackageProductDependency */; };
+		90983B3A26D17C4F007F46BB /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 90983B3926D17C4F007F46BB /* SPConfetti */; };
 		90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */; };
 		90B69BE426A08FA800451DFC /* SecondWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */; };
 		90B69BEB26A2C5B700451DFC /* FirstTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */; };
 		90B886FC23F7F31A00035C82 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B886FB23F7F31A00035C82 /* Settings.swift */; };
 		90CDFA9F26CEED96006CF06D /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90CDFA9E26CEED96006CF06D /* UIImage.swift */; };
 		90CDFAA226CFF674006CF06D /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90CDFAA126CFF674006CF06D /* StoreKit.framework */; };
-		90D3679F26C5737D00108B64 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 90D3679E26C5737D00108B64 /* SwiftPackageProductDependency */; };
+		90D3679F26C5737D00108B64 /* InAppPurchaseLib in Frameworks */ = {isa = PBXBuildFile; productRef = 90D3679E26C5737D00108B64 /* InAppPurchaseLib */; };
 		90D367A126C586CF00108B64 /* logo_animated_ilocked.gif in Resources */ = {isa = PBXBuildFile; fileRef = 90D367A026C586CF00108B64 /* logo_animated_ilocked.gif */; };
 		90D367A326C58FA800108B64 /* UpgradePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D367A226C58FA800108B64 /* UpgradePage.swift */; };
 		90D367A526C595EA00108B64 /* animated_logo_ilocked_high.gif in Resources */ = {isa = PBXBuildFile; fileRef = 90D367A426C595E900108B64 /* animated_logo_ilocked_high.gif */; };
@@ -121,12 +109,12 @@
 		51CC857FDA009979BA8EABC3 /* Pods_iLocked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLocked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		730C3F2FDC83288355D730E1 /* Pods-iLockedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLockedTests.debug.xcconfig"; path = "Target Support Files/Pods-iLockedTests/Pods-iLockedTests.debug.xcconfig"; sourceTree = "<group>"; };
 		795E0CE1AEC71C0C257C2D28 /* Pods-iLocked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLocked.release.xcconfig"; path = "Target Support Files/Pods-iLocked/Pods-iLocked.release.xcconfig"; sourceTree = "<group>"; };
+		900BEE4126D9493F00426C11 /* SwiftyRSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyRSA.swift; sourceTree = "<group>"; };
 		9013F7F226B05FC300CC7361 /* ExportKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportKeys.swift; sourceTree = "<group>"; };
 		9014387C26D6687700384EB4 /* Logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logs.swift; sourceTree = "<group>"; };
 		9014387E26D807EA00384EB4 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		901BD77526AF1C52009D246D /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTutoView.swift; sourceTree = "<group>"; };
-		902624012688BD3400489B07 /* X509Certificate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = X509Certificate.swift; sourceTree = "<group>"; };
 		9031317B26D91A9E0085C9E2 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		904063A926949B1600946518 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		904063AB26971CCD00946518 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -150,26 +138,6 @@
 		90D367A626C5966F00108B64 /* animated_logo_high_gray.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = animated_logo_high_gray.gif; sourceTree = "<group>"; };
 		90D43B5423FDDB3F00EFE9BD /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		90D43B5623FDDB5B00EFE9BD /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
-		90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Asn1Parser.swift; path = Source/Asn1Parser.swift; sourceTree = "<group>"; };
-		90D43B5E2401AF5A00EFE9BD /* ClearMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ClearMessage.swift; path = Source/ClearMessage.swift; sourceTree = "<group>"; };
-		90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EncryptedMessage.swift; path = Source/EncryptedMessage.swift; sourceTree = "<group>"; };
-		90D43B602401AF5A00EFE9BD /* Key.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Key.swift; path = Source/Key.swift; sourceTree = "<group>"; };
-		90D43B612401AF5A00EFE9BD /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Message.swift; path = Source/Message.swift; sourceTree = "<group>"; };
-		90D43B622401AF5A00EFE9BD /* NSData+SHA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "NSData+SHA.h"; path = "Source/NSData+SHA.h"; sourceTree = "<group>"; };
-		90D43B632401AF5A00EFE9BD /* NSData+SHA.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSData+SHA.m"; path = "Source/NSData+SHA.m"; sourceTree = "<group>"; };
-		90D43B642401AF5A00EFE9BD /* PrivateKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrivateKey.swift; path = Source/PrivateKey.swift; sourceTree = "<group>"; };
-		90D43B652401AF5A00EFE9BD /* PublicKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PublicKey.swift; path = Source/PublicKey.swift; sourceTree = "<group>"; };
-		90D43B662401AF5A00EFE9BD /* Signature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Signature.swift; path = Source/Signature.swift; sourceTree = "<group>"; };
-		90D43B672401AF5A00EFE9BD /* SwiftyRSA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SwiftyRSA.h; path = Source/SwiftyRSA.h; sourceTree = "<group>"; };
-		90D43B682401AF5A00EFE9BD /* SwiftyRSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftyRSA.swift; path = Source/SwiftyRSA.swift; sourceTree = "<group>"; };
-		90D43B692401AF5A00EFE9BD /* SwiftyRSAError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SwiftyRSAError.swift; path = Source/SwiftyRSAError.swift; sourceTree = "<group>"; };
-		90D43B6A2401AF5A00EFE9BD /* SwiftyRSA+ObjC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "SwiftyRSA+ObjC.swift"; path = "Source/SwiftyRSA+ObjC.swift"; sourceTree = "<group>"; };
-		90D43B6C2401AF5A00EFE9BD /* SwiftyRSA.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; name = SwiftyRSA.modulemap; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA.modulemap"; sourceTree = "<group>"; };
-		90D43B6D2401AF5A00EFE9BD /* SwiftyRSA.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = SwiftyRSA.xcconfig; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA.xcconfig"; sourceTree = "<group>"; };
-		90D43B6E2401AF5A00EFE9BD /* SwiftyRSA-dummy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "SwiftyRSA-dummy.m"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-dummy.m"; sourceTree = "<group>"; };
-		90D43B6F2401AF5A00EFE9BD /* SwiftyRSA-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "SwiftyRSA-Info.plist"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-Info.plist"; sourceTree = "<group>"; };
-		90D43B702401AF5A00EFE9BD /* SwiftyRSA-prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-prefix.pch"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-prefix.pch"; sourceTree = "<group>"; };
-		90D43B712401AF5A00EFE9BD /* SwiftyRSA-umbrella.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SwiftyRSA-umbrella.h"; path = "iLocked/Frameworks/Target Support Files/SwiftyRSA/SwiftyRSA-umbrella.h"; sourceTree = "<group>"; };
 		90DB59A82416B03F001189C5 /* SettingsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsData.swift; sourceTree = "<group>"; };
 		90EBFC8126A4D069002B30E9 /* SecondTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondTutoView.swift; sourceTree = "<group>"; };
 		90EBFC8D26AC7FC3002B30E9 /* GenerateKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateKeysView.swift; sourceTree = "<group>"; };
@@ -220,8 +188,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90D3679F26C5737D00108B64 /* BuildFile in Frameworks */,
-				90983B3A26D17C4F007F46BB /* BuildFile in Frameworks */,
+				90D3679F26C5737D00108B64 /* InAppPurchaseLib in Frameworks */,
+				90983B3A26D17C4F007F46BB /* SPConfetti in Frameworks */,
 				90CDFAA226CFF674006CF06D /* StoreKit.framework in Frameworks */,
 				8B2EBF535CDC2D70F1E25B9E /* Pods_iLocked.framework in Frameworks */,
 			);
@@ -256,7 +224,6 @@
 				730C3F2FDC83288355D730E1 /* Pods-iLockedTests.debug.xcconfig */,
 				DE53BFCDAF7F2C64B66EA065 /* Pods-iLockedTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -303,54 +270,8 @@
 			children = (
 				901BD77426AF1C43009D246D /* Batycroutch */,
 				9058774F2401B483004F1894 /* KeychainWrapper */,
-				90D43B732401AF5A00EFE9BD /* SwiftyRSA */,
 			);
 			path = Frameworks;
-			sourceTree = "<group>";
-		};
-		90D43B6B2401AF5A00EFE9BD /* ObjC */ = {
-			isa = PBXGroup;
-			children = (
-				90D43B6A2401AF5A00EFE9BD /* SwiftyRSA+ObjC.swift */,
-			);
-			name = ObjC;
-			sourceTree = "<group>";
-		};
-		90D43B722401AF5A00EFE9BD /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				90D43B6C2401AF5A00EFE9BD /* SwiftyRSA.modulemap */,
-				90D43B6D2401AF5A00EFE9BD /* SwiftyRSA.xcconfig */,
-				90D43B6E2401AF5A00EFE9BD /* SwiftyRSA-dummy.m */,
-				90D43B6F2401AF5A00EFE9BD /* SwiftyRSA-Info.plist */,
-				90D43B702401AF5A00EFE9BD /* SwiftyRSA-prefix.pch */,
-				90D43B712401AF5A00EFE9BD /* SwiftyRSA-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/SwiftyRSA";
-			sourceTree = "<group>";
-		};
-		90D43B732401AF5A00EFE9BD /* SwiftyRSA */ = {
-			isa = PBXGroup;
-			children = (
-				90D43B5D2401AF5A00EFE9BD /* Asn1Parser.swift */,
-				90D43B5E2401AF5A00EFE9BD /* ClearMessage.swift */,
-				90D43B5F2401AF5A00EFE9BD /* EncryptedMessage.swift */,
-				90D43B602401AF5A00EFE9BD /* Key.swift */,
-				90D43B612401AF5A00EFE9BD /* Message.swift */,
-				90D43B622401AF5A00EFE9BD /* NSData+SHA.h */,
-				90D43B632401AF5A00EFE9BD /* NSData+SHA.m */,
-				90D43B642401AF5A00EFE9BD /* PrivateKey.swift */,
-				90D43B652401AF5A00EFE9BD /* PublicKey.swift */,
-				90D43B662401AF5A00EFE9BD /* Signature.swift */,
-				90D43B672401AF5A00EFE9BD /* SwiftyRSA.h */,
-				90D43B682401AF5A00EFE9BD /* SwiftyRSA.swift */,
-				902624012688BD3400489B07 /* X509Certificate.swift */,
-				90D43B692401AF5A00EFE9BD /* SwiftyRSAError.swift */,
-				90D43B6B2401AF5A00EFE9BD /* ObjC */,
-				90D43B722401AF5A00EFE9BD /* Support Files */,
-			);
-			path = SwiftyRSA;
 			sourceTree = "<group>";
 		};
 		90EBFC9526ACB6D7002B30E9 /* Controller */ = {
@@ -490,6 +411,7 @@
 				904063A926949B1600946518 /* UIWindow.swift */,
 				90CDFA9E26CEED96006CF06D /* UIImage.swift */,
 				9031317B26D91A9E0085C9E2 /* Bundle.swift */,
+				900BEE4126D9493F00426C11 /* SwiftyRSA.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -515,8 +437,8 @@
 			);
 			name = iLocked;
 			packageProductDependencies = (
-				90D3679E26C5737D00108B64 /* SwiftPackageProductDependency */,
-				90983B3926D17C4F007F46BB /* SwiftPackageProductDependency */,
+				90D3679E26C5737D00108B64 /* InAppPurchaseLib */,
+				90983B3926D17C4F007F46BB /* SPConfetti */,
 			);
 			productName = iLocked;
 			productReference = 9074A09525373C1C00983FBC /* iLocked.app */;
@@ -595,8 +517,8 @@
 			);
 			mainGroup = D8A64AFA2353BC1C000613F3;
 			packageReferences = (
-				90D3679D26C5737C00108B64 /* RemoteSwiftPackageReference */,
-				90983B3826D17C4E007F46BB /* RemoteSwiftPackageReference */,
+				90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */,
+				90983B3826D17C4E007F46BB /* XCRemoteSwiftPackageReference "SPConfetti" */,
 			);
 			productRefGroup = D8A64AFA2353BC1C000613F3;
 			projectDirPath = "";
@@ -765,27 +687,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				905877492401B1AB004F1894 /* PublicKey.swift in Sources */,
 				90EBFC9226ACB68C002B30E9 /* TabBarController.swift in Sources */,
-				905877432401B18A004F1894 /* Asn1Parser.swift in Sources */,
 				D8A64B3C2353BC70000613F3 /* KeyId.swift in Sources */,
+				900BEE4226D9493F00426C11 /* SwiftyRSA.swift in Sources */,
 				D8A64B562353BCC1000613F3 /* AddKey.swift in Sources */,
 				D8A64B4B2353BCA0000613F3 /* TextView.swift in Sources */,
 				D8A64B0B2353BC1C000613F3 /* ViewController.swift in Sources */,
-				905877422401B171004F1894 /* EncryptedMessage.swift in Sources */,
 				D8A64B4C2353BCA0000613F3 /* String.swift in Sources */,
 				D8A64B572353BCC1000613F3 /* DecryptHomePage.swift in Sources */,
 				D8A64B5B2353BCC1000613F3 /* ShowKey.swift in Sources */,
 				D8A64B492353BCA0000613F3 /* CustomCellTableView.swift in Sources */,
 				D8A64B072353BC1C000613F3 /* AppDelegate.swift in Sources */,
-				9058774A2401B1AD004F1894 /* Signature.swift in Sources */,
 				90EBFC8E26AC7FC3002B30E9 /* GenerateKeysView.swift in Sources */,
 				D8A64B4D2353BCA0000613F3 /* GifController.swift in Sources */,
 				D8416D362364ED5100A0B038 /* Encryption.swift in Sources */,
-				905877462401B19A004F1894 /* Message.swift in Sources */,
 				901BD77626AF1C52009D246D /* BartyCrouch.swift in Sources */,
 				90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */,
-				9058774E2401B227004F1894 /* ClearMessage.swift in Sources */,
 				904063AA26949B1600946518 /* UIWindow.swift in Sources */,
 				D8A64B4A2353BCA0000613F3 /* UIButton.swift in Sources */,
 				906207D125914ECE00E98F90 /* Revoke.swift in Sources */,
@@ -794,11 +711,8 @@
 				90CDFA9F26CEED96006CF06D /* UIImage.swift in Sources */,
 				90EE52B2267675FB00C506AA /* WebView.swift in Sources */,
 				90EBFC9426ACB6BD002B30E9 /* NavigationController.swift in Sources */,
-				9058774C2401B1B5004F1894 /* SwiftyRSAError.swift in Sources */,
-				902624022688BD3400489B07 /* X509Certificate.swift in Sources */,
 				901D23A326C9C27500C5DCCA /* ThirdTutoView.swift in Sources */,
 				904063AC26971CCD00946518 /* Colors.swift in Sources */,
-				9058774B2401B1B2004F1894 /* SwiftyRSA.swift in Sources */,
 				D8A64B592353BCC1000613F3 /* EncryptHomePage.swift in Sources */,
 				9031317C26D91A9E0085C9E2 /* Bundle.swift in Sources */,
 				90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */,
@@ -822,11 +736,7 @@
 				9013F7F326B05FC300CC7361 /* ExportKeys.swift in Sources */,
 				D820B848235E3559006CEB38 /* UIView.swift in Sources */,
 				D8A64B092353BC1C000613F3 /* SceneDelegate.swift in Sources */,
-				9058774D2401B1D4004F1894 /* SwiftyRSA+ObjC.swift in Sources */,
-				905877452401B197004F1894 /* Key.swift in Sources */,
-				905877472401B1A3004F1894 /* NSData+SHA.m in Sources */,
 				90B69BEB26A2C5B700451DFC /* FirstTutoView.swift in Sources */,
-				905877482401B1A9004F1894 /* PrivateKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,7 +931,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1034,7 +944,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/iLocked/Frameworks/SwiftyRSA/Source/NSData+SHA.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1048,7 +958,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -1061,7 +971,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/iLocked/Frameworks/SwiftyRSA/Source/NSData+SHA.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1197,7 +1107,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		90983B3826D17C4E007F46BB /* RemoteSwiftPackageReference */ = {
+		90983B3826D17C4E007F46BB /* XCRemoteSwiftPackageReference "SPConfetti" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ivanvorobei/SPConfetti";
 			requirement = {
@@ -1205,7 +1115,7 @@
 				minimumVersion = 1.2.4;
 			};
 		};
-		90D3679D26C5737C00108B64 /* RemoteSwiftPackageReference */ = {
+		90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/iridescent-dev/iap-swift-lib.git";
 			requirement = {
@@ -1216,14 +1126,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		90983B3926D17C4F007F46BB /* SwiftPackageProductDependency */ = {
+		90983B3926D17C4F007F46BB /* SPConfetti */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 90983B3826D17C4E007F46BB /* RemoteSwiftPackageReference */;
+			package = 90983B3826D17C4E007F46BB /* XCRemoteSwiftPackageReference "SPConfetti" */;
 			productName = SPConfetti;
 		};
-		90D3679E26C5737D00108B64 /* SwiftPackageProductDependency */ = {
+		90D3679E26C5737D00108B64 /* InAppPurchaseLib */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 90D3679D26C5737C00108B64 /* RemoteSwiftPackageReference */;
+			package = 90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */;
 			productName = InAppPurchaseLib;
 		};
 /* End XCSwiftPackageProductDependency section */

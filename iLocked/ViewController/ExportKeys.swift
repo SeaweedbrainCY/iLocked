@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SwiftyRSA
 
 class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
@@ -175,7 +176,9 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 let private_formated = keys.export_pem_format(privateKey!, isPrivate: true)
                 let public_base64 = KeyId().extract_key(publicKey!)
                 do {
-                    let public_stripped = try SwiftyRSA.stripKeyHeader(keyData: PublicKey(base64Encoded: public_base64).data()).base64EncodedString()
+                    let public_data = try PublicKey(base64Encoded: public_base64).data()
+                    let public_stripped_data = try public_data.stripPublicKeyHeader()
+                    let public_stripped = public_stripped_data.base64EncodedString()
                     let public_formated = keys.export_pem_format(public_stripped, isPrivate: false)
                     
                     switch indexPath.row {
@@ -231,7 +234,9 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 let private_formated = privateKey!
                 let public_base64 = KeyId().extract_key(publicKey!)
                 do {
-                    let public_formated = try SwiftyRSA.stripKeyHeader(keyData: PublicKey(base64Encoded: public_base64).data()).base64EncodedString()
+                    let public_data = try PublicKey(base64Encoded: public_base64).data()
+                    let public_stripped_data = try public_data.stripPublicKeyHeader()
+                    let public_formated = public_stripped_data.base64EncodedString()
                     
                     switch indexPath.row {
                     case 0:// JSON
