@@ -236,7 +236,7 @@
 "piq-Hx-Ehf.normalTitle" = "  Déchiffrer";
 
 /* Class = "UILabel"; text = "I'm Nathan, a young french developer studying cybersecurity in a Great Engineering School : Télécom SudParis 🇫🇷\n\nI developed this whole project with heart and live on donations.\n\nIf you like this application and want to support a freelance student, you can make a donation right below. \n\nThanks a lot ! 🤍"; ObjectID = "qu5-eh-nO6"; */
-"qu5-eh-nO6.text" = "Je suis Nathan, un jeune développeur Français étudiant à la cybersécurité à Télécom SudParis, une grand école d'ingénieur Française 🇫🇷. \n\nJ'ai développé seul tout ce projet avec le coeur et je vis grâce aux donations.\n\nSi vous aimez cette application et voulez supporter un étudiant en freelance, vous pouvez faire un don juste au-dessus. \n\nMerci beaucoup !🤍";
+"qu5-eh-nO6.text" = "Je suis Nathan, un jeune développeur Français étudiant la cybersécurité à Télécom SudParis, une grand école d'ingénieur Française 🇫🇷. \n\nJ'ai développé seul tout ce projet avec le coeur et je vis grâce aux donations.\n\nSi vous aimez cette application et voulez supporter un étudiant en freelance, vous pouvez faire un don juste au-dessus. \n\nMerci beaucoup !🤍";
 
 /* Class = "UIButton"; normalTitle = "nameError"; ObjectID = "rYj-v7-E9g"; */
 "rYj-v7-E9g.normalTitle" = "nameError";
@@ -471,3 +471,15 @@
 
 /* Class = "UILabel"; text = "🔐 What's in your iPhone, stays in your iPhone"; ObjectID = "hxC-uf-Lfn"; */
 "hxC-uf-Lfn.text" = "🔐 Ce qui est sur votre iPhone, reste sur votre iPhone";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "3kE-4B-AVQ"; */
+"3kE-4B-AVQ.title" = "";
+
+/* Class = "UITextView"; text = "No log."; ObjectID = "ATw-1g-IWi"; */
+"ATw-1g-IWi.text" = "";
+
+/* Class = "UINavigationItem"; title = "Log"; ObjectID = "tyL-C4-iDT"; */
+"tyL-C4-iDT.title" = "";
+
+/* Class = "UIButton"; normalTitle = "Report bug"; ObjectID = "zN7-nN-GvS"; */
+"zN7-nN-GvS.normalTitle" = "Reporter un bug";

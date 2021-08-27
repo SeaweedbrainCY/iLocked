@@ -92,7 +92,7 @@
 
 "Please re-start iLocked !" = "Veuillez re-lancer iLocked !";
 
-"crashAppMessageError" = "Une erreur est servenue lors de la creation de vos clés. Veuillez re-lancer l'application";
+"crashAppMessageError" = "Une erreur est servenue lors de la creation de vos clés. Veuillez réessayer";
 
 "Quit app" = "Quitter l'app";
 
@@ -132,15 +132,17 @@
 
 "ReportBugMessage" = "Reporter un bug aide le développeur à améliorer cette application ainsi que votre expérience";
 
-"I found a bug in iLocked app !!" = "J'ai trouvé un bug dans l'app iLocked !!";
+"iOS iLocked : Bug report" = "iOS iLocked : Report de bug";
 
-"reportBugEmail" = "[App lg : fr]\n [!] Envoyé par l'application iOS iLocked [!]. \nCorps du texte : \n\n\n";
+"reportBugEmailSetting" = "********* Envoyé par iLocked iOS app *********\nReport de bug depuis la page des réglages\nLangue : Français\n********************************************\n\n\n";
+
+"reportBugEmailGeneration" = "********* Envoyé par iLocked iOS app *********\nReport de bug depuis la page de génération des clés\nLangue : Français\n********************************************\n\n\n";
 
 "Contact the developer" = "Contacter le développeur";
 
-"Request of an iLocked user" = "Requète d'un utilisateur d'iLocked";
+"iOS iLocked : Request contact" = "iOS iLocked : Demande de contact";
 
-"contactEmail" = "[App lg : fr]\n [!] Envoyé par l'application iOS iLocked [!]. \nCorps du texte : \n\n\n";
+"contactEmail" = "********* Envoyé par iLocked iOS app *********\nDemande de contact depuis la page des réglages\nLangue : Français\n********************************************\n\n\n";
 
 "Error ! 🔨" = "Erreur ! 🔨";
 
@@ -313,3 +315,5 @@
 "Thank you ! ❤️" = "Merci ! ❤️";
 
 "Thanks for supporting the app and the developer ! Enjoy your premium app ! 🔥" = "Merci de supporter l'application et le développeur ! Amusez-vous bien avec la version premium ! 🔥";
+
+"Open logs" = "Ouvrir les logs";

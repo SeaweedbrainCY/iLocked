@@ -49,6 +49,7 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
             self.importButton.isHidden = true
             self.orLabel.isHidden = true
             self.littleInfo.isHidden = true
+            self.reportBug.isHidden = true
             self.waitingView.startAnimating()
         }
     }
@@ -91,6 +92,18 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
         
     }
     
+    func stopWaitingView(){
+        self.waitingView.stopAnimating()
+        self.generateButton.backgroundColor = .systemBlue
+        self.generateButton.setTitleColor(.white, for: .normal)
+        self.importButton.backgroundColor = .systemOrange
+        self.importButton.setTitleColor(.white, for: .normal)
+        self.generateButton.isEnabled = true
+        self.orLabel.isHidden = false
+        self.importButton.isEnabled = true
+        self.littleInfo.isHidden = false
+    }
+    
     @objc func generateKeys(){
         print("start generation")
         let keys = PublicPrivateKeys()
@@ -107,17 +120,18 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
             self.performSegue(withIdentifier: "HomePage", sender: self)
         } else {
             queue.async {
-                try? self.log.write(message: "⚠️ ERROR. Impossible to create the keys. See the above logs for more details.")
+                //try? self.log.write(message: "⚠️ ERROR. Impossible to create the keys. See the above logs for more details.")
             }
             print("FATAL ERROR. APP IS GOING TO BE CRASHED BY USER.")
-            alert("An error occured while creating keys. Please restart the application".localized(withKey: "crashAppMessageError"), message: "", quitMessage: "Ok")
+            alert("An error occured while creating keys. Please try again.".localized(withKey: "crashAppMessageError"), message: "", quitMessage: "Ok")
+            
             //crashApp()
         }
     }
     
     
     @IBAction func reportBugButtonSelected(sender: UIButton){
-        self.mailReport(subject: "I found a bug in iLocked app !!".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "reportBugEmail"))
+        self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the keys generation page\nLangage : English\n*****************************************\n\n\n".localized(withKey: "reportBugEmailGeneration"))
     }
     
     /// Send  mail method
@@ -132,15 +146,24 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
             mailComposerVC.mailComposeDelegate = self
             mailComposerVC.setToRecipients([email])
             mailComposerVC.setSubject(subject)
-            do {
-                let data: Data = try self.log.data()
-                mailComposerVC.addAttachmentData(data, mimeType: "text/plain", fileName: "log")
-            } catch {
-                print("Impossible to attach log. Error = \(error)")
-                queue.async {
-                    try? self.log.write(message: "⚠️ ERROR. Impossible to attach the log file. Error thrown : \(error)")
+            let url = log.makeURL()
+            if url == nil {
+                bodyText.append("Impossible to create the log url. Invalide directory.")
+            }
+            let fileManager = FileManager()
+            if fileManager.fileExists(atPath: url!.path){
+                do {
+                    let data: Data = try self.log.data()
+                    mailComposerVC.addAttachmentData(data, mimeType: "text/plain", fileName: "log")
+                } catch {
+                    print("Impossible to attach log. Error = \(error)")
+                    queue.async {
+                        try? self.log.write(message: "⚠️ ERROR. Impossible to attach the log file. Error thrown : \(error)")
+                    }
+                    bodyText.append("The log file cannot be attached. Error : \(error)")
                 }
-                bodyText.append("The log file cannot be attached. Error : \(error)")
+            } else {
+                bodyText.append("The log file cannot be attached. Last error : \(log.getLogError())")
             }
             mailComposerVC.setMessageBody(bodyText, isHTML: true)
             

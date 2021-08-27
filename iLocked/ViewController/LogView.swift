@@ -23,6 +23,14 @@ class LogView : UIViewController {
             self.textView.text = "Impossible to read the logs. Error thrown : \(error.localizedDescription)"
             self.textView.textColor = .systemRed
         }
+       
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        let bottom = NSMakeRange(textView.text.count - 1, 1)
+        textView.scrollRangeToVisible(bottom)
     }
     
     @IBAction func shareButtonSelected(sender: UIBarButtonItem){

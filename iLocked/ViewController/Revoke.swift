@@ -19,6 +19,8 @@ class Revoke: UIViewController {
     
     @IBOutlet var warningImage: UIView!
     
+    var revokeButtonIsEnabled = false // wait the timer
+    
     static let notificationOfAuthenticationName = Notification.Name("notificationOfAuthenticationResult")
     
     let queue = DispatchQueue.global(qos: .background)
@@ -34,6 +36,9 @@ class Revoke: UIViewController {
         
         //Wait for user authentication
         NotificationCenter.default.addObserver(self, selector: #selector(editKeyResult), name: Revoke.notificationOfAuthenticationName, object: nil)
+        
+        let recognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressHappened))
+        self.revokeButton.addGestureRecognizer(recognizer)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -62,7 +67,7 @@ class Revoke: UIViewController {
         if self.second >= 5{ // Button is now enabled
             timer.invalidate()
             self.revokeButton.setTitle("REVOKE".localized(), for: .normal)
-            self.revokeButton.isEnabled = true
+            self.revokeButtonIsEnabled = true
             self.revokeButton.backgroundColor = .systemRed
         }else if self.second < 0 {
             timer.invalidate()
@@ -78,12 +83,20 @@ class Revoke: UIViewController {
         self.warningImage.isHidden = !self.warningImage.isHidden
     }
     
+    @objc func longPressHappened(){
+        self.revokeButtonIsEnabled = true
+        revokeKeys(sender: self.revokeButton)
+        
+    }
+    
     @IBAction func closeView(sender: UIButton){
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func revokeKeys(sender:UIButton){
-        askForPassword()
+        if self.revokeButtonIsEnabled {
+            askForPassword()
+        }
     }
     
     /// Ask password to confirm the selection

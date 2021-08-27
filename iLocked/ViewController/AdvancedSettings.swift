@@ -227,7 +227,7 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
                 accessoryView = UIImageView(image:Settings().externalLinkView)
                 accessoryView.tintColor = .darkGray
             case 1 :
-                cell.textLabel?.text = "🚧 Open logs"
+                cell.textLabel?.text = "🚧 " + "Open logs".localized()
                 accessoryView = UIImageView(image: Settings().nextViewSettingImageView)
                 accessoryView.tintColor = .darkGray
             default:

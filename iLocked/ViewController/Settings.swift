@@ -314,10 +314,11 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             case 1 : // report a bug
                 let alert = UIAlertController(title: "Report a bug".localized(), message: "Report a bug help the developer to upgrade this application and improve your experience".localized(withKey: "ReportBugMessage"), preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Report a bug".localized(), style: .default) { _ in
-                    self.mailReport(subject: "I found a bug in iLocked app !!".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "reportBugEmail"), attachLog: true)
+                    self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the settings page\nLangage : English\n*****************************************\n\n\n".localized(withKey: "reportBugEmailSetting"), attachLog: true)
                 })
                 alert.addAction(UIAlertAction(title: "Contact the developer".localized(), style: .default) { _ in
-                    self.mailReport(subject: "Request of an iLocked user".localized(), body: "[!] Send by iLocked iOS app [!]. \nBody text : \n\n\n".localized(withKey: "contactEmail"), attachLog: false)
+                    self.mailReport(subject: "iOS iLocked : Request contact".localized(), body: "********* Send by iLocked iOS app *********\nContact requested from the settings page\nLangage : English\n*****************************************\n\n\n".localized(withKey: "contactEmail"), attachLog: false)
+                    
                 })
                 alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
                 present(alert, animated: true)
@@ -350,22 +351,27 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             mailComposerVC.mailComposeDelegate = self
             mailComposerVC.setToRecipients([email])
             mailComposerVC.setSubject(subject)
-            if attachLog {
-                do {
-                    let data: Data = try self.log.data()
-                    mailComposerVC.addAttachmentData(data, mimeType: "text/plain", fileName: "log")
-                } catch {
-                    print("Impossible to attach log. Error = \(error)")
-                    queue.async {
-                        try? self.log.write(message: "⚠️ ERROR. Impossible to attach the log file. Error thrown : \(error)")
-                    }
-                    bodyText.append("The log file cannot be attached. Error : \(error)")
-                }
-               
-                
-                
+            let url = log.makeURL()
+            if url == nil {
+                bodyText.append("Impossible to create the log url. Invalide directory.")
             }
-            
+            let fileManager = FileManager()
+            if attachLog {
+                if  fileManager.fileExists(atPath: url!.path){
+                    do {
+                        let data: Data = try self.log.data()
+                        mailComposerVC.addAttachmentData(data, mimeType: "text/plain", fileName: "log")
+                    } catch {
+                        print("Impossible to attach log. Error = \(error)")
+                        queue.async {
+                            try? self.log.write(message: "⚠️ ERROR. Impossible to attach the log file. Error thrown : \(error)")
+                        }
+                        bodyText.append("The log file cannot be attached. Error : \(error)")
+                    }
+                } else {
+                    bodyText.append("The log file cannot be attached. Last error : \(log.getLogError())")
+                }
+            }
             mailComposerVC.setMessageBody(bodyText, isHTML: true)
             
             self.present(mailComposerVC, animated: true, completion: nil)

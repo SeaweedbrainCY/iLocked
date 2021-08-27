@@ -108,6 +108,7 @@ public enum settingsPath : String{
     case appSettings
     case timeWhenClose
     case arrayNameId
+    case logError
     
     var path : String{
         switch self {
@@ -117,6 +118,8 @@ public enum settingsPath : String{
             return "time.txt"
         case .arrayNameId :
             return "arrayNameId.txt"
+        case.logError :
+            return "logError.txt"
         }
     }
 }

@@ -31,6 +31,7 @@ class LogFile {
     func write(message: String) throws {
         
             guard let url = makeURL() else {
+                saveLogError(message: "badURL (write)")
                 throw Error.invalideDirectory
             }
         print("url = \(url)")
@@ -46,32 +47,37 @@ class LogFile {
                     print("oldLog = \(oldLog)")
                     print("clearedLog = \(clearedLog)")
                 } catch {
+                    saveLogError(message: "ERROR while reading the log file : \(error)")
                     clearedLog = "\(makeLog(message: "ERROR while reading the log file : \(error)"))"
                 }
                 guard let data: Data = clearedLog.data(using: .utf8) else {
+                    saveLogError(message: "Impossible to convert the text in data. (write + exists)")
                     throw Error.convertionFailed
                 }
                 
                 do {
                     try data.write(to: url)
                 } catch {
+                    saveLogError(message: "Error while writting (exists). Error = \(error)")
                     throw Error.writtingFailed
                 }
             } else {
                 print("Log file didn't exist")
                 guard let data: Data = log.data(using: .utf8) else {
+                    saveLogError(message: "Impossible to convert the text in data. (write + doesn't exist)")
                     throw Error.convertionFailed
                 }
 
                 do {
                     try data.write(to:url)
                 } catch {
+                    saveLogError(message: "Error while writting (didn't exist). Error = \(error)")
                     throw Error.writtingFailed
                 }
             }
     }
     
-    private func makeURL() -> URL?{
+    func makeURL() -> URL?{
         guard let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
             return nil
         }
@@ -80,6 +86,7 @@ class LogFile {
     
     func read() throws -> String  {
         guard let url = makeURL() else {
+            saveLogError(message: "Error while reading")
             throw Error.invalideDirectory
         }
         return try String.init(contentsOf: url)
@@ -87,6 +94,7 @@ class LogFile {
     
     func data() throws -> Data {
         guard let url = makeURL() else {
+            saveLogError(message: "Error while conerting the data. URL invalide.")
             throw Error.invalideDirectory
         }
         return try Data.init(contentsOf: url)
@@ -115,6 +123,22 @@ class LogFile {
         } else {
             return log
         }
+    }
+    
+    private func saveLogError(message: String){ // If saving a log failed, we save it
+        _ = FileManager.default.createFile(atPath: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingsPath.logError.path).path, contents: "[*] Last log error : \(makeLog(message: message))".data(using: String.Encoding.utf8), attributes: nil)
+    }
+    
+    public func getLogError()-> String {
+        var errors :String? = nil
+        
+        errors = try? String(contentsOf: URL(fileURLWithPath: NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]).appendingPathComponent(settingsPath.logError.path), encoding: .utf8)
+        if errors == nil {
+            return ""
+        } else {
+            return errors!
+        }
+       
     }
     
 }
