@@ -131,7 +131,22 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
     
     
     @IBAction func reportBugButtonSelected(sender: UIButton){
-        self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the keys generation page\nLangage : English\n*****************************************\n\n\n".localized(withKey: "reportBugEmailGeneration"))
+        var textVersion = ""
+        if let version = Bundle.main.releaseVersionNumber {
+            print("version = \(version)")
+            textVersion += "Version : \(version)"
+        } else {
+            textVersion += "Version unknown"
+        }
+        
+        if let build = Bundle.main.buildVersionNumber {
+            print("build = \(build)")
+            textVersion += " (\(build))"
+        } else {
+            textVersion += " (Unknown)"
+            
+        }
+        self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the keys generation page\nLangage : English" + "\n\(textVersion)\n" + "\n*****************************************\n\n\n".localized(withKey: "reportBugEmailGeneration"))
     }
     
     /// Send  mail method

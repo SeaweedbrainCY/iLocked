@@ -224,13 +224,12 @@ class Encrypt: UIViewController, UITextViewDelegate{
             if keySaved == nil {
                 alert("Impossible to find the public key".localized(), message: "Please verify that a key is selected. If all the fields are filled, try to relaunch the app.".localized(withKey: "alertKeyErrorMessage"))
             } else {
-                var encryptedText = encryptText(text: self.textToEncrypt.text!, publicKey: keySaved!)
                 let encryptionMethod = Encryption()
                 var nameSelected = self.keyNameButton.currentTitle
                 if nameSelected == "My encryption key".localized(){
                     nameSelected =  UserKeys.publicKey.tag
                 }
-                encryptedText = encryptionMethod.encryptText(self.textToEncrypt.text, withKeyName: nameSelected!)
+                let encryptedText = encryptionMethod.encryptText(self.textToEncrypt.text, withKeyName: nameSelected!)
                 if encryptedText != "error" && encryptedText != "" {
                     self.textEncrypted = encryptedText
                     performSegue(withIdentifier: "Encryption", sender: nil)

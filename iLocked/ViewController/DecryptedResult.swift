@@ -34,8 +34,8 @@ class DecryptedResult : UIViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        decryption()
         self.contructView()
+        decryption()
         print("Decryption view did appear")
     }
         

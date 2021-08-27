@@ -308,16 +308,31 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 break
             }
         } else if indexPath.section == 3  {
+            var textVersion = ""
+            if let version = Bundle.main.releaseVersionNumber {
+                print("version = \(version)")
+                textVersion += "Version : \(version)"
+            } else {
+                textVersion += "Version unknown"
+            }
+            
+            if let build = Bundle.main.buildVersionNumber {
+                print("build = \(build)")
+                textVersion += " (\(build))"
+            } else {
+                textVersion += " (Unknown)"
+                
+            }
             switch indexPath.row {
             case 0: // tuto
                 performSegue(withIdentifier: "tuto", sender: self)
             case 1 : // report a bug
                 let alert = UIAlertController(title: "Report a bug".localized(), message: "Report a bug help the developer to upgrade this application and improve your experience".localized(withKey: "ReportBugMessage"), preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Report a bug".localized(), style: .default) { _ in
-                    self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the settings page\nLangage : English\n*****************************************\n\n\n".localized(withKey: "reportBugEmailSetting"), attachLog: true)
+                    self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the settings page\nLangage : English" + "\n\(textVersion)\n" + "\n*****************************************\n\n\n".localized(withKey: "reportBugEmailSetting"), attachLog: true)
                 })
                 alert.addAction(UIAlertAction(title: "Contact the developer".localized(), style: .default) { _ in
-                    self.mailReport(subject: "iOS iLocked : Request contact".localized(), body: "********* Send by iLocked iOS app *********\nContact requested from the settings page\nLangage : English\n*****************************************\n\n\n".localized(withKey: "contactEmail"), attachLog: false)
+                    self.mailReport(subject: "iOS iLocked : Request contact".localized(), body: "********* Send by iLocked iOS app *********\nContact requested from the settings page\nLangage : English".localized(withKey: "contactEmail") + "\n\(textVersion)" + "\n*****************************************\n\n\n", attachLog: false)
                     
                 })
                 alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
@@ -335,6 +350,45 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             }
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+   
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 4 {
+            let footerLabelView = UILabel()
+            footerLabelView.textColor = .lightGray
+            footerLabelView.font = UIFont(name: "Avenir Next Bold", size: 15)
+            footerLabelView.numberOfLines = 2
+            footerLabelView.textAlignment = .center
+            var text = ""
+            if let version = Bundle.main.releaseVersionNumber {
+                print("version = \(version)")
+                text += "Version \(version)"
+            } else {
+                print("no version")
+            }
+            
+            if let build = Bundle.main.buildVersionNumber {
+                print("build = \(build)")
+                text += "\nBuild \(build)"
+            } else {
+                print("no build")
+                
+            }
+            print("footerText = '\(text)'")
+            footerLabelView.text = text
+            return footerLabelView
+        }
+        return nil
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 4 {
+            return 100
+        }
+        return 20
+        
     }
     
     

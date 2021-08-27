@@ -20,6 +20,9 @@ class Decryption {
     let codeErrorNoPrivateKey = 2 // if we are unable to access to the user private key
     let codeErrorKeyIncorrect = 3 // if the key ins't the rigth key to decrypt the given text
     
+    let queue = DispatchQueue.global(qos: .background)
+    let log = LogFile(fileManager: FileManager())
+    
     ///This function return the decrypted text of a String given
     /// - return : A dictionnary containing ONLY two keys : "state" : Bool (True if success, False if not) and "message" : String(The message according to the error or the result asked for)
     public func decryptText(_ text:String) -> [String: Any]{
@@ -32,9 +35,31 @@ class Decryption {
             let decrypted = try EncryptedMessage(base64Encoded: extracted_text)
             if let privateKey: String = KeychainWrapper.standard.string(forKey:  UserKeys.privateKey.tag) {
                 print(privateKey)
-                let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)
-                return ["state" : true,"codeError" : self.noCodeError, "message" : try clear.string(encoding: .utf8)]
+                queue.async {
+                    #warning("CRITIC INFO DEBUGED")
+                    try? self.log.write(message: "Start decryption. Text extracted : \(extracted_text). Private key used = \(privateKey)")
+                }
+                do {
+                    let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)
+                    let data = clear.data
+                    let base64Encoded = data.base64EncodedString()
+                    let string = try clear.string(encoding: .utf8)
+                    queue.async {
+                        try? self.log.write(message: "Decryption done. Base64Encoded string = \(decrypted). \n\nClear produced (base64) = \(base64Encoded). \n\nUTF8= \(string)")
+                    }
+                    return ["state" : true,"codeError" : self.noCodeError, "message" : try clear.string(encoding: .utf8)]
+                } catch {
+                    queue.async {
+                        try? self.log.write(message: "⚠️ ERROR while decrypting. Operation aborted. Error thrown = \(error)")
+                    }
+                    return ["state" : false, "codeError" : self.codeErrorNoPrivateKey, "message" : "iLocked can't decrypt this text. Please try again or encrypt a new message.".localized(withKey: "impossibleToDecrypt")]
+                    
+                }
+                
             } else {
+                queue.async {
+                    try? self.log.write(message: "⚠️ ERROR while decrypting. Operation aborted. Impossible to access to the user's private key")
+                }
                 return ["state" : false, "codeError" : self.codeErrorNoPrivateKey, "message" : "iLocked can't access to your private Key".localized(withKey: "can'tAccessErrorMessage")]
             }
             

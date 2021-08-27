@@ -28,8 +28,8 @@ class Decrypt: UIViewController, UITextViewDelegate {
     
     var textToDecryptViewErrorMessage = UIButton()
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         viewConstruction()
         self.textToDecryptView.delegate = self
         
