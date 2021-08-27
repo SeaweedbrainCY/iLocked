@@ -146,7 +146,7 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
             textVersion += " (Unknown)"
             
         }
-        self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the keys generation page\nLangage : English" + "\n\(textVersion)\n" + "\n*****************************************\n\n\n".localized(withKey: "reportBugEmailGeneration"))
+        self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the keys generation page\nLangage : English".localized(withKey: "reportBugEmailGeneration") + " \n\(textVersion)\n" + "\n*****************************************\n\n\n")
     }
     
     /// Send  mail method

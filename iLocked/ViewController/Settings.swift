@@ -329,10 +329,10 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             case 1 : // report a bug
                 let alert = UIAlertController(title: "Report a bug".localized(), message: "Report a bug help the developer to upgrade this application and improve your experience".localized(withKey: "ReportBugMessage"), preferredStyle: .actionSheet)
                 alert.addAction(UIAlertAction(title: "Report a bug".localized(), style: .default) { _ in
-                    self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the settings page\nLangage : English" + "\n\(textVersion)\n" + "\n*****************************************\n\n\n".localized(withKey: "reportBugEmailSetting"), attachLog: true)
+                    self.mailReport(subject: "iOS iLocked : Bug report".localized(), body: "********* Send by iLocked iOS app *********\nBug reported from the settings page\nLangage : English".localized(withKey: "reportBugEmailSetting") + " \n\(textVersion)\n" + "\n*****************************************\n\n\n", attachLog: true)
                 })
                 alert.addAction(UIAlertAction(title: "Contact the developer".localized(), style: .default) { _ in
-                    self.mailReport(subject: "iOS iLocked : Request contact".localized(), body: "********* Send by iLocked iOS app *********\nContact requested from the settings page\nLangage : English".localized(withKey: "contactEmail") + "\n\(textVersion)" + "\n*****************************************\n\n\n", attachLog: false)
+                    self.mailReport(subject: "iOS iLocked : Request contact".localized(), body: "********* Send by iLocked iOS app *********\nContact requested from the settings page\nLangage : English".localized(withKey: "contactEmail") + " \n\(textVersion)\n" + "\n*****************************************\n\n\n", attachLog: false)
                     
                 })
                 alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)) // Retour

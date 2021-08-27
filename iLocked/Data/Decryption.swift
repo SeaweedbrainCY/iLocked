@@ -35,10 +35,7 @@ class Decryption {
             let decrypted = try EncryptedMessage(base64Encoded: extracted_text)
             if let privateKey: String = KeychainWrapper.standard.string(forKey:  UserKeys.privateKey.tag) {
                 print(privateKey)
-                queue.async {
-                    #warning("CRITIC INFO DEBUGED")
-                    try? self.log.write(message: "Start decryption. Text extracted : \(extracted_text). Private key used = \(privateKey)")
-                }
+                
                 do {
                     let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)
                     let data = clear.data

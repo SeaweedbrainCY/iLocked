@@ -36,20 +36,12 @@ class Encryption{
                 do {
                     let publicKey = try PublicKey(base64Encoded: extractedKey) // get rid of X509 certificate
                     let clear = try ClearMessage(string: text, using: .utf8)
-                    queue.async {
-                        #warning("CRITIC INFO DEBUGED")
-                        try? self.log.write(message: "Start encryption. Text = \(text). Key used : \n ****publicKey****\n\(publicKey)\n\n****Extracted key****\n\(extractedKey)\n\nCorresponding clear = \(clear.string(encoding: .utf8))")
-                    }
+                    
                     let encrypted = try clear.encrypted(with: publicKey, padding: .PKCS1)
-                    #warning("CRITIC INFO DEBUGED")
-                    queue.async {
-                        try? self.log.write(message: "Encryption done. Encrypted message (base64) : \n\(encrypted)")
-                    }
+                    
                     return self.start_encrypted_format + encrypted.base64String + self.end_encrypted_format
                 }catch {
-                    queue.async {
-                        try? self.log.write(message: "⚠️ ERROR while encrypting. Operation aborted. Error thown = \(error)")
-                    }
+                    
                     return "ERROR : Please verify that your public key is correct.".localized()
                 }
         } else {
