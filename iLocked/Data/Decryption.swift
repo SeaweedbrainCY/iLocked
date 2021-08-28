@@ -38,18 +38,13 @@ class Decryption {
                 
                 do {
                     let clear = try decrypted.decrypted(with: PrivateKey(base64Encoded: privateKey), padding: .PKCS1)
-                    let data = clear.data
-                    let base64Encoded = data.base64EncodedString()
-                    let string = try clear.string(encoding: .utf8)
-                    queue.async {
-                        try? self.log.write(message: "Decryption done. Base64Encoded string = \(decrypted). \n\nClear produced (base64) = \(base64Encoded). \n\nUTF8= \(string)")
-                    }
+                    
                     return ["state" : true,"codeError" : self.noCodeError, "message" : try clear.string(encoding: .utf8)]
                 } catch {
                     queue.async {
-                        try? self.log.write(message: "⚠️ ERROR while decrypting. Operation aborted. Error thrown = \(error)")
+                        try? self.log.write(message: "Tried to decrypt a message. Impossible to decrypt. The private key isn't the right one. This should not be an error. Message thrown = \(error)")
                     }
-                    return ["state" : false, "codeError" : self.codeErrorNoPrivateKey, "message" : "iLocked can't decrypt this text. Please try again or encrypt a new message.".localized(withKey: "impossibleToDecrypt")]
+                    return ["state" : false, "codeError" : self.codeErrorKeyIncorrect, "message": "Your cannot decrypt this text. You don't have the right key. Please ensure this message has been encrypted with YOUR public key".localized(withKey: "can'tDecryptErrorMessage")]
                     
                 }
                 
@@ -61,6 +56,9 @@ class Decryption {
             }
             
         } catch {
+            queue.async {
+                try? self.log.write(message: "Tried to decrypt a message. Impossible to decrypt. The private key isn't the right one. This should not be an error. Message thrown = \(error)")
+            }
             return ["state" : false, "codeError" : self.codeErrorKeyIncorrect, "message": "Your cannot decrypt this text. You don't have the right key. Please ensure this message has been encrypted with YOUR public key".localized(withKey: "can'tDecryptErrorMessage")]
         }
     }

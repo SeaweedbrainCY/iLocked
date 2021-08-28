@@ -16,6 +16,13 @@ class LogView : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
+
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
         let log = LogFile(fileManager: FileManager())
         do {
             self.textView.text = try log.read()
@@ -23,12 +30,6 @@ class LogView : UIViewController {
             self.textView.text = "Impossible to read the logs. Error thrown : \(error.localizedDescription)"
             self.textView.textColor = .systemRed
         }
-       
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
         let bottom = NSMakeRange(textView.text.count - 1, 1)
         textView.scrollRangeToVisible(bottom)
     }
