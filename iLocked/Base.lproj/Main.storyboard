@@ -190,7 +190,7 @@
             <objects>
                 <viewController title="EncryptHomePage" id="BYZ-38-t0r" customClass="Encrypt" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y5f-SM-Sl0">
@@ -199,14 +199,14 @@
                                 <color key="backgroundColor" red="0.022266329000000001" green="0.2760188818" blue="0.3711135787" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text to encrypt" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ac5-qZ-Cvq">
-                                <rect key="frame" x="0.0" y="219" width="428" height="574"/>
+                                <rect key="frame" x="0.0" y="187" width="428" height="601"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter-Semibold" family="American Typewriter" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCo-dJ-S93">
-                                <rect key="frame" x="26" y="160" width="376" height="39"/>
+                                <rect key="frame" x="26" y="128" width="376" height="39"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="23"/>
                                 <state key="normal" title="Select a key">
@@ -218,7 +218,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYy-4A-M5e">
-                                <rect key="frame" x="20" y="748" width="388" height="42"/>
+                                <rect key="frame" x="20" y="743" width="388" height="42"/>
                                 <color key="backgroundColor" red="0.13032735094390804" green="0.34928066109618361" blue="0.78764666150314633" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="WT9-0Q-8ZP"/>
@@ -234,7 +234,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W5O-G1-fht">
-                                <rect key="frame" x="20" y="747" width="65" height="42"/>
+                                <rect key="frame" x="20" y="742" width="65" height="42"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="AX8-eq-ft6"/>
@@ -771,13 +771,14 @@ Thanks a lot ! 🤍</string>
                                 </view>
                                 <blurEffect style="systemUltraThinMaterialDark"/>
                             </visualEffectView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="rHe-Im-Yk7">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="rHe-Im-Yk7">
                                 <rect key="frame" x="179" y="456.66666666666669" width="70" height="70.000000000000057"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="K4U-6t-2pO"/>
                                     <constraint firstAttribute="width" constant="70" id="aI7-yl-Fxc"/>
                                 </constraints>
+                                <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zMI-VL-2gF"/>
@@ -1095,7 +1096,7 @@ Thanks a lot ! 🤍</string>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="50L-Vd-Lqr">
-                        <rect key="frame" x="0.0" y="44" width="428" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="108"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.1098443493" green="0.1097008213" blue="0.11764953290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <color key="tintColor" systemColor="systemOrangeColor"/>
@@ -1325,6 +1326,12 @@ Thanks a lot ! 🤍</string>
                                     <action selector="editBarButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="Q8Y-dT-QNU"/>
                                 </connections>
                             </barButtonItem>
+                            <barButtonItem title="Item" image="qrcode" catalog="system" id="V3d-Ud-Jsc">
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                                <connections>
+                                    <action selector="QRCodeButtonItemSelectedWithSender:" destination="H5r-il-Mel" id="954-K2-upd"/>
+                                </connections>
+                            </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
@@ -1337,22 +1344,110 @@ Thanks a lot ! 🤍</string>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="j11-r2-z5x"/>
                         <segue destination="tOU-fV-Ibc" kind="presentation" identifier="editKey" id="FyZ-iz-rV4"/>
                         <segue destination="hHY-cd-32x" kind="presentation" identifier="encryptMessage" id="YdW-06-8TH"/>
+                        <segue destination="GUe-Xe-ayR" kind="presentation" identifier="QRCODE" id="cJR-rQ-CJ1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="80f-07-qES" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2838" y="1891"/>
         </scene>
+        <!--Code View Controller-->
+        <scene sceneID="USs-wc-aih">
+            <objects>
+                <viewController id="GUe-Xe-ayR" customClass="QRCodeViewController" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="crv-a7-7WE">
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="20" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Sf-fA-ZbG">
+                                <rect key="frame" x="20" y="80" width="388" height="53.333333333333343"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="39"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flash the QRCode with an other iLocked app to get this key" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-Hf-xI3">
+                                <rect key="frame" x="20" y="777" width="388" height="41"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qq-3i-Z9B">
+                                <rect key="frame" x="356" y="10" width="52" height="40"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleColor" systemColor="systemBlueColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeButtonSelectedWithSender:" destination="GUe-Xe-ayR" eventType="touchUpInside" id="lsv-pL-CKj"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generating the QRCode ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aG6-PE-AUi">
+                                <rect key="frame" x="30" y="459.66666666666669" width="368" height="28"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="20"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="SVf-Qx-w2r">
+                                <rect key="frame" x="195.66666666666666" y="417.66666666666669" width="37" height="37"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KE2-J5-zkk">
+                                <rect key="frame" x="20" y="233" width="388" height="406"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_chargement" translatesAutoresizingMaskIntoConstraints="NO" id="Jpf-o5-ihd">
+                                <rect key="frame" x="189" y="10" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ct5-UU-LfL"/>
+                                    <constraint firstAttribute="width" constant="50" id="ND9-xZ-9Ft"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="WZj-nB-rgl"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WZj-nB-rgl" firstAttribute="bottom" secondItem="LmV-Hf-xI3" secondAttribute="bottom" constant="20" id="2jl-eo-y0Z"/>
+                            <constraint firstItem="1Sf-fA-ZbG" firstAttribute="leading" secondItem="WZj-nB-rgl" secondAttribute="leading" constant="20" id="43f-y7-JHy"/>
+                            <constraint firstItem="aG6-PE-AUi" firstAttribute="leading" secondItem="WZj-nB-rgl" secondAttribute="leading" constant="30" id="4ur-jT-POQ"/>
+                            <constraint firstItem="9Qq-3i-Z9B" firstAttribute="top" secondItem="WZj-nB-rgl" secondAttribute="top" constant="10" id="7SU-8I-Q6L"/>
+                            <constraint firstItem="LmV-Hf-xI3" firstAttribute="leading" secondItem="WZj-nB-rgl" secondAttribute="leading" constant="20" id="ARh-yw-lOA"/>
+                            <constraint firstItem="WZj-nB-rgl" firstAttribute="trailing" secondItem="1Sf-fA-ZbG" secondAttribute="trailing" constant="20" id="Cow-UK-JR2"/>
+                            <constraint firstItem="1Sf-fA-ZbG" firstAttribute="top" secondItem="Jpf-o5-ihd" secondAttribute="bottom" constant="20" id="JSU-9K-R6Y"/>
+                            <constraint firstItem="Jpf-o5-ihd" firstAttribute="top" secondItem="WZj-nB-rgl" secondAttribute="top" constant="10" id="NQs-3s-L4L"/>
+                            <constraint firstItem="WZj-nB-rgl" firstAttribute="trailing" secondItem="9Qq-3i-Z9B" secondAttribute="trailing" constant="20" id="Nd4-28-DrN"/>
+                            <constraint firstItem="KE2-J5-zkk" firstAttribute="top" secondItem="1Sf-fA-ZbG" secondAttribute="bottom" constant="20" id="OGi-vv-jHD"/>
+                            <constraint firstItem="SVf-Qx-w2r" firstAttribute="centerY" secondItem="crv-a7-7WE" secondAttribute="centerY" id="WNG-lU-1dA"/>
+                            <constraint firstItem="WZj-nB-rgl" firstAttribute="trailing" secondItem="aG6-PE-AUi" secondAttribute="trailing" constant="30" id="aPu-Vl-Ffg"/>
+                            <constraint firstItem="Jpf-o5-ihd" firstAttribute="centerX" secondItem="crv-a7-7WE" secondAttribute="centerX" id="efB-dD-W2a"/>
+                            <constraint firstItem="aG6-PE-AUi" firstAttribute="top" secondItem="SVf-Qx-w2r" secondAttribute="bottom" constant="5" id="f38-BR-Nsa"/>
+                            <constraint firstItem="SVf-Qx-w2r" firstAttribute="centerX" secondItem="crv-a7-7WE" secondAttribute="centerX" id="mgq-wl-OvC"/>
+                            <constraint firstItem="1Sf-fA-ZbG" firstAttribute="leading" secondItem="WZj-nB-rgl" secondAttribute="leading" constant="20" id="o1F-YS-30E"/>
+                            <constraint firstItem="WZj-nB-rgl" firstAttribute="trailing" secondItem="1Sf-fA-ZbG" secondAttribute="trailing" constant="20" id="qUk-Yb-eXn"/>
+                            <constraint firstItem="WZj-nB-rgl" firstAttribute="trailing" secondItem="LmV-Hf-xI3" secondAttribute="trailing" constant="20" id="w5q-dP-mWA"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="closeButton" destination="9Qq-3i-Z9B" id="Cyd-IX-ajv"/>
+                        <outlet property="descriptionLabel" destination="LmV-Hf-xI3" id="jSa-KQ-THz"/>
+                        <outlet property="qrCodeImage" destination="KE2-J5-zkk" id="JW5-5a-ZC5"/>
+                        <outlet property="titleLabel" destination="1Sf-fA-ZbG" id="rNI-2t-1cr"/>
+                        <outlet property="waitLabel" destination="aG6-PE-AUi" id="Zda-pt-KbO"/>
+                        <outlet property="waitView" destination="SVf-Qx-w2r" id="g2q-59-yP1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6VA-V2-yam" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3713.5514018691588" y="1890.7127429805616"/>
+        </scene>
         <!--EncryptedResult-->
         <scene sceneID="nc4-Bc-6PQ">
             <objects>
                 <viewController title="EncryptedResult" id="lni-hq-xo9" customClass="EncryptedResult" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" opaque="NO" contentMode="scaleToFill" id="ur2-5E-dqe">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uyQ-tL-Niz">
-                                <rect key="frame" x="0.0" y="140" width="428" height="703"/>
+                                <rect key="frame" x="0.0" y="108" width="428" height="730"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c30-kj-W9B">
                                         <rect key="frame" x="0.0" y="-85" width="428" height="885"/>
@@ -1537,11 +1632,11 @@ Thanks a lot ! 🤍</string>
             <objects>
                 <viewController id="t7D-5u-JiX" customClass="FirstTutoView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uza-pf-Cdw">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="1600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1546"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nwp-wn-TB6">
-                                <rect key="frame" x="0.0" y="68" width="428" height="1498"/>
+                                <rect key="frame" x="0.0" y="24" width="428" height="1488"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJC-Vi-V2T">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="1700"/>
@@ -1553,7 +1648,7 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="A public and a private key" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71k-jb-H8Z">
-                                                <rect key="frame" x="20" y="71.666666666666657" width="388" height="27.333333333333329"/>
+                                                <rect key="frame" x="20" y="71.666666666666671" width="388" height="27.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -1565,7 +1660,7 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pvj-dc-1dQ">
-                                                <rect key="frame" x="20" y="445.33333333333337" width="60" height="58.666666666666686"/>
+                                                <rect key="frame" x="20" y="445.33333333333331" width="60" height="58.666666666666686"/>
                                                 <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="60" id="bzQ-Vq-CZo"/>
@@ -1573,7 +1668,7 @@ Thanks a lot ! 🤍</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="People use it to encrypt message for you" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumFontSize="15" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2j6-8v-Uex">
-                                                <rect key="frame" x="90" y="444.33333333333337" width="318" height="60"/>
+                                                <rect key="frame" x="90" y="444.33333333333331" width="318" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="g3N-OP-tqv"/>
                                                 </constraints>
@@ -1864,7 +1959,7 @@ Thanks a lot ! 🤍</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="6TR-cp-G8b"/>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ACa-M9-Cvp">
-                                <rect key="frame" x="20" y="44" width="388" height="4"/>
+                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                         </subviews>
@@ -1906,13 +2001,13 @@ Thanks a lot ! 🤍</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V60-rj-zff">
-                                <rect key="frame" x="0.0" y="134.33333333333337" width="428" height="1031.6666666666665"/>
+                                <rect key="frame" x="0.0" y="134.33333333333337" width="409" height="1031.6666666666665"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dx-Dm-H2Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="409" height="1300"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; My password is ********* &quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlZ-Xg-NgT">
-                                                <rect key="frame" x="15" y="418.66666666666663" width="230" height="51"/>
+                                                <rect key="frame" x="15" y="447.33333333333326" width="230" height="51"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="230" id="3jf-Zx-QZv"/>
                                                 </constraints>
@@ -1921,14 +2016,14 @@ Thanks a lot ! 🤍</string>
                                                 <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share.attention" translatesAutoresizingMaskIntoConstraints="NO" id="wbp-O8-NNn">
-                                                <rect key="frame" x="253" y="412" width="53" height="53"/>
+                                                <rect key="frame" x="253" y="440.66666666666663" width="53" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="53" id="B18-M5-t1A"/>
                                                     <constraint firstAttribute="height" constant="53" id="O6I-iG-pj3"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unsafe to send" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuV-vQ-OaW">
-                                                <rect key="frame" x="326" y="416" width="63" height="53"/>
+                                                <rect key="frame" x="326" y="444.66666666666663" width="63" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="4Dp-y9-OtZ"/>
                                                     <constraint firstAttribute="width" constant="63" id="ZQZ-Lz-cBW"/>
@@ -1938,14 +2033,14 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_ok" translatesAutoresizingMaskIntoConstraints="NO" id="0ps-gO-264">
-                                                <rect key="frame" x="253" y="520" width="53" height="53"/>
+                                                <rect key="frame" x="253" y="548.66666666666663" width="53" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="eea-Mv-gVu"/>
                                                     <constraint firstAttribute="width" constant="53" id="uHy-XY-Ov4"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iLocked encrypts and secures your messages" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6J-78-5EF">
-                                                <rect key="frame" x="20" y="20" width="388" height="91"/>
+                                                <rect key="frame" x="20" y="20" width="369" height="91"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="91" id="Ebo-tS-s7K"/>
                                                 </constraints>
@@ -1954,13 +2049,13 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Share your private information without any security and confidentiality issue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRB-RU-I4k">
-                                                <rect key="frame" x="20" y="281" width="388" height="57.666666666666686"/>
+                                                <rect key="frame" x="20" y="281" width="369" height="86.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; ubevVizgv#oebbfzO!YTA§TRSFj &quot;" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdU-sv-N8V">
-                                                <rect key="frame" x="15" y="524" width="194" height="44"/>
+                                                <rect key="frame" x="15" y="552.66666666666663" width="194" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="194" id="qfy-4y-Bls"/>
                                                 </constraints>
@@ -1969,7 +2064,7 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_chargement" translatesAutoresizingMaskIntoConstraints="NO" id="ml2-TL-JG8">
-                                                <rect key="frame" x="169" y="150.99999999999997" width="90" height="90"/>
+                                                <rect key="frame" x="159.66666666666666" y="150.99999999999997" width="90" height="90"/>
                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="2Aq-xy-uon"/>
@@ -1977,7 +2072,7 @@ Thanks a lot ! 🤍</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safe to send" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byC-BB-6Mv">
-                                                <rect key="frame" x="326" y="523" width="63" height="53"/>
+                                                <rect key="frame" x="326" y="551.66666666666663" width="63" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="RKR-Fz-Yns"/>
                                                     <constraint firstAttribute="width" constant="63" id="ieW-Sw-1kc"/>
@@ -1987,13 +2082,13 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Code, credit card, secret, password, critical info, confidential message ..." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEs-xh-NID">
-                                                <rect key="frame" x="10" y="348.66666666666663" width="408" height="41"/>
+                                                <rect key="frame" x="10" y="377.33333333333337" width="389" height="41"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="15"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0dk-rq-5IA">
-                                                <rect key="frame" x="20" y="627.33333333333337" width="60" height="58.666666666666629"/>
+                                                <rect key="frame" x="20" y="656" width="60" height="58.666666666666629"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="87C-my-rq3"/>
@@ -2001,7 +2096,7 @@ Thanks a lot ! 🤍</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="No need for internet connection" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXE-VK-jzA">
-                                                <rect key="frame" x="88" y="628" width="320" height="60"/>
+                                                <rect key="frame" x="88" y="656.66666666666663" width="301" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="prC-Zp-V1N"/>
                                                 </constraints>
@@ -2010,13 +2105,13 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="🔐 What's in your iPhone, stays in your iPhone" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxC-uf-Lfn">
-                                                <rect key="frame" x="88" y="688" width="330" height="16.666666666666629"/>
+                                                <rect key="frame" x="88" y="716.66666666666663" width="311" height="16.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glu-yL-799">
-                                                <rect key="frame" x="114" y="782" width="200" height="51"/>
+                                                <rect key="frame" x="104.66666666666669" y="810.66666666666663" width="200" height="51"/>
                                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="51" id="BUN-cU-mtm"/>
@@ -2086,11 +2181,11 @@ Thanks a lot ! 🤍</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="7lv-k7-fVV"/>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.17000000178813934" translatesAutoresizingMaskIntoConstraints="NO" id="5CJ-h6-x1p">
-                                <rect key="frame" x="20" y="44" width="388" height="4"/>
+                                <rect key="frame" x="20" y="44" width="369" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome ! 👋" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24N-2Q-Wsr">
-                                <rect key="frame" x="20" y="58" width="388" height="56.333333333333343"/>
+                                <rect key="frame" x="20" y="58" width="369" height="56.333333333333343"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="41"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -2157,11 +2252,11 @@ Thanks a lot ! 🤍</string>
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="1iP-nM-tcL" customClass="GenerateKeysView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xch-yd-NQk">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TH2-DB-BLv">
-                                <rect key="frame" x="40" y="353" width="348" height="47"/>
+                                <rect key="frame" x="40" y="326" width="348" height="47"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="2Sh-CZ-LKi"/>
@@ -2175,17 +2270,17 @@ Thanks a lot ! 🤍</string>
                                 </connections>
                             </button>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="sPY-rS-cnb">
-                                <rect key="frame" x="20" y="44" width="388" height="4"/>
+                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- or -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiL-tw-T3H">
-                                <rect key="frame" x="190.66666666666666" y="450" width="47" height="26"/>
+                                <rect key="frame" x="190.66666666666666" y="423" width="47" height="26"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="21"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Chu-Up-A6c">
-                                <rect key="frame" x="40" y="526" width="348" height="47"/>
+                                <rect key="frame" x="40" y="499" width="348" height="47"/>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="K8c-fN-hc5"/>
@@ -2198,18 +2293,18 @@ Thanks a lot ! 🤍</string>
                                     <segue destination="BTm-Ko-OcZ" kind="show" id="W3Q-Tr-ER7"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="VZ5-wD-eAY">
-                                <rect key="frame" x="204" y="453" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="VZ5-wD-eAY">
+                                <rect key="frame" x="195.66666666666666" y="417.66666666666669" width="37" height="37"/>
                                 <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="✓ Only if you had already used iLocked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Goj-Vc-pon">
-                                <rect key="frame" x="40" y="581" width="285.33333333333331" height="22"/>
+                                <rect key="frame" x="40" y="554" width="285.33333333333331" height="22"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zN7-nN-GvS">
-                                <rect key="frame" x="321" y="408" width="67" height="30"/>
+                                <rect key="frame" x="321" y="381" width="67" height="30"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="13"/>
                                 <state key="normal" title="Report bug">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2261,11 +2356,11 @@ Thanks a lot ! 🤍</string>
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="BTm-Ko-OcZ" customClass="ImportKeys" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rc0-Hv-Thg">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="872"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="x2V-LU-PSO">
-                                <rect key="frame" x="0.0" y="129" width="428" height="763"/>
+                                <rect key="frame" x="0.0" y="85" width="428" height="753"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8EE-ww-Ui4">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
@@ -2373,7 +2468,7 @@ Thanks a lot ! 🤍</string>
                                         </constraints>
                                     </view>
                                     <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzg-oo-kwf">
-                                        <rect key="frame" x="139" y="264" width="150" height="150"/>
+                                        <rect key="frame" x="139" y="259" width="150" height="150"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.circle@20x_light_gray" translatesAutoresizingMaskIntoConstraints="NO" id="wgw-Nz-rXL">
                                                 <rect key="frame" x="40" y="20" width="70" height="70"/>
@@ -2402,12 +2497,13 @@ Thanks a lot ! 🤍</string>
                                             <constraint firstItem="dYu-4w-stE" firstAttribute="leading" secondItem="gzg-oo-kwf" secondAttribute="leading" constant="20" id="zl4-tZ-vYd"/>
                                         </constraints>
                                     </view>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Gp4-Pb-TNg">
-                                        <rect key="frame" x="179" y="304" width="70" height="70"/>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="Gp4-Pb-TNg">
+                                        <rect key="frame" x="179" y="299" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="YIL-36-lMo"/>
                                             <constraint firstAttribute="height" constant="70" id="kzB-ph-5Gn"/>
                                         </constraints>
+                                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <constraints>
@@ -2421,17 +2517,17 @@ Thanks a lot ! 🤍</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="KKO-3R-vVE"/>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="lo7-mq-D6i">
-                                <rect key="frame" x="20" y="44" width="388" height="4"/>
+                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Import your iLocked keys" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R5p-5t-Tw8">
-                                <rect key="frame" x="20" y="68" width="388" height="41"/>
+                                <rect key="frame" x="20" y="24" width="388" height="41"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PC1-wJ-yCf">
-                                <rect key="frame" x="10" y="109" width="40" height="29"/>
+                                <rect key="frame" x="10" y="65" width="40" height="29"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                 <state key="normal" title="&lt; Back">
                                     <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2671,11 +2767,11 @@ Thanks a lot ! 🤍</string>
             <objects>
                 <viewController id="wro-YW-NTP" customClass="SecondTutoView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6C7-RI-Yor">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="1100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="1046"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tll-vW-J1f">
-                                <rect key="frame" x="0.0" y="68" width="428" height="998"/>
+                                <rect key="frame" x="0.0" y="24" width="428" height="988"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQH-4g-Vjl">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="1100"/>
@@ -2687,7 +2783,7 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Send a confidential message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="woh-Wy-Moj">
-                                                <rect key="frame" x="20" y="75.666666666666657" width="388" height="27.333333333333329"/>
+                                                <rect key="frame" x="20" y="75.666666666666671" width="388" height="27.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -2906,7 +3002,7 @@ Thanks a lot ! 🤍</string>
                                         </constraints>
                                     </view>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="XTr-dt-Q5o">
-                                        <rect key="frame" x="204" y="199" width="20" height="20"/>
+                                        <rect key="frame" x="204" y="219" width="20" height="20"/>
                                         <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -2923,7 +3019,7 @@ Thanks a lot ! 🤍</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="UgX-oG-DGB"/>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.67000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="923-fs-Dxb">
-                                <rect key="frame" x="20" y="44" width="388" height="4"/>
+                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                         </subviews>
@@ -2962,11 +3058,11 @@ Thanks a lot ! 🤍</string>
             <objects>
                 <viewController id="j1T-nl-aDB" customClass="ThirdTutoView" customModule="iLocked" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7kN-Iu-kMp">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="428" height="946"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hkN-UG-FuV">
-                                <rect key="frame" x="0.0" y="68" width="428" height="898"/>
+                                <rect key="frame" x="0.0" y="24" width="428" height="888"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ekL-15-A9V">
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="1000"/>
@@ -2997,7 +3093,7 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Recieve a confidential message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IlS-9W-SKN">
-                                                <rect key="frame" x="20" y="75.666666666666657" width="388" height="27.333333333333329"/>
+                                                <rect key="frame" x="20" y="75.666666666666671" width="388" height="27.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -3185,7 +3281,7 @@ Thanks a lot ! 🤍</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="q3q-cb-jYC"/>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.82999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="sfQ-Nc-ewM">
-                                <rect key="frame" x="20" y="44" width="388" height="4"/>
+                                <rect key="frame" x="20" y="0.0" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                         </subviews>
@@ -3224,11 +3320,11 @@ Thanks a lot ! 🤍</string>
         <segue reference="D2r-ch-J57"/>
         <segue reference="uw9-uG-WID"/>
         <segue reference="z4W-nx-9XK"/>
-        <segue reference="lMQ-dt-c2G"/>
-        <segue reference="71P-2m-G7t"/>
+        <segue reference="FyZ-iz-rV4"/>
+        <segue reference="YdW-06-8TH"/>
         <segue reference="43S-Bo-H0g"/>
         <segue reference="QV3-YS-SAc"/>
-        <segue reference="kS3-Ti-jHR"/>
+        <segue reference="j11-r2-z5x"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.right" catalog="system" width="128" height="106"/>
@@ -3259,6 +3355,7 @@ Thanks a lot ! 🤍</string>
         <image name="pencil.and.outline" catalog="system" width="128" height="128"/>
         <image name="play" width="486" height="396"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="qrcode" catalog="system" width="128" height="114"/>
         <image name="rectangle.stack.badge.minus" catalog="system" width="128" height="122"/>
         <image name="share.attention" width="2209" height="2335"/>
         <image name="share_ok" width="277" height="291"/>

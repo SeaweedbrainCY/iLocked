@@ -27,7 +27,7 @@ class LogView : UIViewController {
         do {
             self.textView.text = try log.read()
         } catch {
-            self.textView.text = "Impossible to read the logs. Error thrown : \(error.localizedDescription)"
+            self.textView.text = "Impossible to read the logs.".localized() + "Error thrown : \(error.localizedDescription)"
             self.textView.textColor = .systemRed
         }
         let bottom = NSMakeRange(textView.text.count - 1, 1)

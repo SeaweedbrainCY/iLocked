@@ -78,7 +78,7 @@
 
 "ImpossibleFindKey" = "Impossible de trouver cette clé. Assurez vous d'avoir la dernière version de iLocked et que vous avez assez de place disponible sur votre iDevice.";
 
-"Tips : double tap on the key-text to copy it !" = "Astuce : Double-tapez sur la clé pour la copier !";
+"Tips : double tap on the key-text to copy it !" = "Astuce : Double-tape sur la clé pour la copier !";
 
 "That's your own public key !" = "C'est votre propre clé publique !";
 
@@ -319,3 +319,5 @@
 "Open logs" = "Ouvrir les logs";
 
 "impossibleToDecrypt" = "iLocked ne peut pas déchiffrer ce texte. Veuillez ré-essayer ou chiffrer un nouveau message";
+
+"Impossible to read the logs." = "Impossible de lire les logs";

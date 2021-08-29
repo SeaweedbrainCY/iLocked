@@ -28,6 +28,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     var notificationView = UIButton()
     var date = UILabel()
     var tips = UILabel()
+    var QRCodeButton = UIButton()
     
     
     
@@ -150,23 +151,20 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         
         
         
-        
-        
-        
-        
-        
+        let viewWidthUsable: CGFloat = self.view.frame.width - 80
+        let buttonDistance: CGFloat = 10
+        let buttonWidth: CGFloat = (viewWidthUsable - buttonDistance * 3) / 4
         
         self.backgroundView.addSubview(self.encryptButton)
         self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
-        self.encryptButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        self.encryptButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        self.encryptButton.centerXAnchor.constraint(equalTo: self.scrollView.centerXAnchor).isActive = true
+        self.encryptButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        self.encryptButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        self.encryptButton.leftAnchor.constraint(equalTo: self.scrollView.leftAnchor, constant: 40).isActive = true
         self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
-        if #available(iOS 13.0, *) {
-            self.encryptButton.setImage(UIImage(systemName: "lock.doc") , for: .normal)
-        } else {
-            self.encryptButton.setImage(UIImage(named: "addKey"), for: .normal)
-        }
+
+            let image = UIImage(systemName: "lock.doc")!
+        
+        self.encryptButton.setImage(image, for: .normal)
         self.encryptButton.backgroundColor = Colors.darkGray5.color
         self.encryptButton.setTitleColor(.white, for: .normal)
         self.encryptButton.tintColor = .systemOrange
@@ -176,25 +174,36 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         
         self.backgroundView.addSubview(self.shareButton)
         self.shareButton.translatesAutoresizingMaskIntoConstraints = false
-        self.shareButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        self.shareButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        self.shareButton.rightAnchor.constraint(equalTo: self.encryptButton.leftAnchor, constant: -20).isActive = true
+        self.shareButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        self.shareButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        self.shareButton.leftAnchor.constraint(equalTo: self.encryptButton.rightAnchor, constant: buttonDistance).isActive = true
         self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
         
-        if #available(iOS 13.0, *) {
-            self.shareButton.setImage(UIImage(systemName: "square.and.arrow.up") , for: .normal)
-        }
+        self.shareButton.setImage(UIImage(systemName: "square.and.arrow.up") , for: .normal)
         self.shareButton.tintColor = .systemOrange
         self.shareButton.backgroundColor = Colors.darkGray5.color
         self.shareButton.rondBorder()
         self.shareButton.addTarget(self, action: #selector(shareButtonSelected), for: .touchUpInside)
         
+        self.backgroundView.addSubview(self.QRCodeButton)
+        self.QRCodeButton.translatesAutoresizingMaskIntoConstraints = false
+        self.QRCodeButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        self.QRCodeButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        self.QRCodeButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
+        self.QRCodeButton.leftAnchor.constraint(equalTo: self.shareButton.rightAnchor, constant: buttonDistance).isActive = true
+        self.QRCodeButton.setImage(UIImage(systemName: "qrcode") , for: .normal)
+        self.QRCodeButton.tintColor = .systemOrange
+        self.QRCodeButton.backgroundColor = Colors.darkGray5.color
+        self.QRCodeButton.rondBorder()
+        self.QRCodeButton.addTarget(self, action: #selector(QRCodeButtonSelected), for: .touchUpInside)
+        
+        
         self.backgroundView.addSubview(self.deleteButton)
         self.deleteButton.translatesAutoresizingMaskIntoConstraints = false
-        self.deleteButton.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        self.deleteButton.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        self.deleteButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
+        self.deleteButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         self.deleteButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
-        self.deleteButton.leftAnchor.constraint(equalTo: self.encryptButton.rightAnchor, constant: 20).isActive = true
+        self.deleteButton.leftAnchor.constraint(equalTo: self.QRCodeButton.rightAnchor, constant: buttonDistance).isActive = true
         if #available(iOS 13.0, *) {
             self.deleteButton.setImage(UIImage(systemName: "trash") , for: .normal)
         }
@@ -289,6 +298,10 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
        
     }
     
+    @IBAction private func QRCodeButtonItemSelected(sender: UIBarButtonItem){
+        performSegue(withIdentifier: "QRCODE", sender: self)
+    }
+    
     
     //
     // Obj C func
@@ -317,6 +330,9 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    @objc private func QRCodeButtonSelected(sender: UIButton){
+        performSegue(withIdentifier: "QRCODE", sender: self)
+    }
   
     
     /// When user click on 'Use this key to encrypt a message' button. We send data to EncryptHomePage with all field filled
@@ -385,6 +401,8 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.perform(#selector(dismissView), with: nil, afterDelay: 1.6)
     }
     
+    
+    
     //
     // segue func
     //
@@ -403,6 +421,17 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
             let viewController = segue.destination as? UINavigationController
             let targetController = viewController?.topViewController as! Encrypt
             targetController.keyNameTransmitted = self.name
+        } else if segue.identifier == "QRCODE"{
+            let qrCodeView = segue.destination as? QRCodeViewController
+            let qrCodeData = QRCodeData()
+            let data = qrCodeData.getQRCodeTextFromPublicKey(self.key.text!)
+            if data != nil {
+                qrCodeView?.text = data!
+                qrCodeView?.titleStr = self.keyTitle.text!
+            }else {
+                qrCodeView?.text = ""
+                qrCodeView?.titleStr = "Error 🚧. Please try again."
+            }
         }
         
     }

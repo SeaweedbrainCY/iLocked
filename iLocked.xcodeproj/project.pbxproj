@@ -15,6 +15,8 @@
 		9014387F26D807EA00384EB4 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014387E26D807EA00384EB4 /* LogView.swift */; };
 		901BD77626AF1C52009D246D /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901BD77526AF1C52009D246D /* BartyCrouch.swift */; };
 		901D23A326C9C27500C5DCCA /* ThirdTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */; };
+		901F8D3526DC3C25001BCD17 /* QRCodeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901F8D3426DC3C25001BCD17 /* QRCodeData.swift */; };
+		901F8D3726DC3FF3001BCD17 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901F8D3626DC3FF3001BCD17 /* Data.swift */; };
 		9031317C26D91A9E0085C9E2 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9031317B26D91A9E0085C9E2 /* Bundle.swift */; };
 		904063AA26949B1600946518 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063A926949B1600946518 /* UIWindow.swift */; };
 		904063AC26971CCD00946518 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063AB26971CCD00946518 /* Colors.swift */; };
@@ -23,6 +25,8 @@
 		906CE59325DDA53D007B8E08 /* AdvancedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 906CE59225DDA53D007B8E08 /* AdvancedSettings.swift */; };
 		908AE09926B554570032D74A /* ImportKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908AE09826B554570032D74A /* ImportKeys.swift */; };
 		90983B3A26D17C4F007F46BB /* SPConfetti in Frameworks */ = {isa = PBXBuildFile; productRef = 90983B3926D17C4F007F46BB /* SPConfetti */; };
+		90ABB45226DC102B005F7497 /* QRCode in Frameworks */ = {isa = PBXBuildFile; productRef = 90ABB45126DC102B005F7497 /* QRCode */; };
+		90ABB45426DC23DF005F7497 /* QRCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90ABB45326DC23DF005F7497 /* QRCodeView.swift */; };
 		90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */; };
 		90B69BE426A08FA800451DFC /* SecondWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */; };
 		90B69BEB26A2C5B700451DFC /* FirstTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */; };
@@ -115,6 +119,8 @@
 		9014387E26D807EA00384EB4 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		901BD77526AF1C52009D246D /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTutoView.swift; sourceTree = "<group>"; };
+		901F8D3426DC3C25001BCD17 /* QRCodeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeData.swift; sourceTree = "<group>"; };
+		901F8D3626DC3FF3001BCD17 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		9031317B26D91A9E0085C9E2 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		904063A926949B1600946518 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		904063AB26971CCD00946518 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -126,6 +132,7 @@
 		9074A09725373C1C00983FBC /* iLockedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iLockedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		908AE09826B554570032D74A /* ImportKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportKeys.swift; sourceTree = "<group>"; };
 		909655F924F85615001147B3 /* iLocked.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iLocked.entitlements; sourceTree = "<group>"; };
+		90ABB45326DC23DF005F7497 /* QRCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeView.swift; sourceTree = "<group>"; };
 		90B69BE1269DB58A00451DFC /* FirstWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstWelcomeView.swift; sourceTree = "<group>"; };
 		90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondWelcomeView.swift; sourceTree = "<group>"; };
 		90B69BEA26A2C5B700451DFC /* FirstTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstTutoView.swift; sourceTree = "<group>"; };
@@ -188,6 +195,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90ABB45226DC102B005F7497 /* QRCode in Frameworks */,
 				90D3679F26C5737D00108B64 /* InAppPurchaseLib in Frameworks */,
 				90983B3A26D17C4F007F46BB /* SPConfetti in Frameworks */,
 				90CDFAA226CFF674006CF06D /* StoreKit.framework in Frameworks */,
@@ -369,6 +377,7 @@
 				D820B849235E359D006CEB38 /* DecryptedResult.swift */,
 				90EBFC8D26AC7FC3002B30E9 /* GenerateKeysView.swift */,
 				9013F7F226B05FC300CC7361 /* ExportKeys.swift */,
+				90ABB45326DC23DF005F7497 /* QRCodeView.swift */,
 				D820B84D235E5EB1006CEB38 /* LockedView.swift */,
 				90B886FB23F7F31A00035C82 /* Settings.swift */,
 				906207D025914ECE00E98F90 /* Revoke.swift */,
@@ -393,6 +402,7 @@
 				D8416D372364F62700A0B038 /* Decryption.swift */,
 				90DB59A82416B03F001189C5 /* SettingsData.swift */,
 				9014387C26D6687700384EB4 /* Logs.swift */,
+				901F8D3426DC3C25001BCD17 /* QRCodeData.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -412,6 +422,7 @@
 				90CDFA9E26CEED96006CF06D /* UIImage.swift */,
 				9031317B26D91A9E0085C9E2 /* Bundle.swift */,
 				900BEE4126D9493F00426C11 /* SwiftyRSA.swift */,
+				901F8D3626DC3FF3001BCD17 /* Data.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -439,6 +450,7 @@
 			packageProductDependencies = (
 				90D3679E26C5737D00108B64 /* InAppPurchaseLib */,
 				90983B3926D17C4F007F46BB /* SPConfetti */,
+				90ABB45126DC102B005F7497 /* QRCode */,
 			);
 			productName = iLocked;
 			productReference = 9074A09525373C1C00983FBC /* iLocked.app */;
@@ -519,6 +531,7 @@
 			packageReferences = (
 				90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */,
 				90983B3826D17C4E007F46BB /* XCRemoteSwiftPackageReference "SPConfetti" */,
+				90ABB45026DC102B005F7497 /* XCRemoteSwiftPackageReference "QRCode" */,
 			);
 			productRefGroup = D8A64AFA2353BC1C000613F3;
 			projectDirPath = "";
@@ -699,8 +712,10 @@
 				D8A64B492353BCA0000613F3 /* CustomCellTableView.swift in Sources */,
 				D8A64B072353BC1C000613F3 /* AppDelegate.swift in Sources */,
 				90EBFC8E26AC7FC3002B30E9 /* GenerateKeysView.swift in Sources */,
+				90ABB45426DC23DF005F7497 /* QRCodeView.swift in Sources */,
 				D8A64B4D2353BCA0000613F3 /* GifController.swift in Sources */,
 				D8416D362364ED5100A0B038 /* Encryption.swift in Sources */,
+				901F8D3526DC3C25001BCD17 /* QRCodeData.swift in Sources */,
 				901BD77626AF1C52009D246D /* BartyCrouch.swift in Sources */,
 				90D43B5523FDDB3F00EFE9BD /* KeychainWrapper.swift in Sources */,
 				904063AA26949B1600946518 /* UIWindow.swift in Sources */,
@@ -730,6 +745,7 @@
 				9014387D26D6687700384EB4 /* Logs.swift in Sources */,
 				D820B8542363909C006CEB38 /* publicPrivateKeys.swift in Sources */,
 				D820B84E235E5EB1006CEB38 /* LockedView.swift in Sources */,
+				901F8D3726DC3FF3001BCD17 /* Data.swift in Sources */,
 				90D43B5723FDDB5B00EFE9BD /* KeychainItemAccessibility.swift in Sources */,
 				90DB59A92416B03F001189C5 /* SettingsData.swift in Sources */,
 				D8A64B582353BCC1000613F3 /* EncryptResult.swift in Sources */,
@@ -931,7 +947,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -940,10 +956,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -958,7 +975,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -967,10 +984,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1115,6 +1133,14 @@
 				minimumVersion = 1.2.4;
 			};
 		};
+		90ABB45026DC102B005F7497 /* XCRemoteSwiftPackageReference "QRCode" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dmrschmidt/QRCode";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
+			};
+		};
 		90D3679D26C5737C00108B64 /* XCRemoteSwiftPackageReference "iap-swift-lib" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/iridescent-dev/iap-swift-lib.git";
@@ -1130,6 +1156,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 90983B3826D17C4E007F46BB /* XCRemoteSwiftPackageReference "SPConfetti" */;
 			productName = SPConfetti;
+		};
+		90ABB45126DC102B005F7497 /* QRCode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90ABB45026DC102B005F7497 /* XCRemoteSwiftPackageReference "QRCode" */;
+			productName = QRCode;
 		};
 		90D3679E26C5737D00108B64 /* InAppPurchaseLib */ = {
 			isa = XCSwiftPackageProductDependency;
