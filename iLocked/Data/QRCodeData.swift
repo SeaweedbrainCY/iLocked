@@ -14,6 +14,35 @@ class QRCodeData {
     ///
     
     /*
+            ***************************************************************
+            *************************** WARNING ***************************
+            ***************************************************************
+            ******* MUST BE RED BEFORE CREATE A NEW QRCODE ENCODING *******
+            ***************************************************************
+            ***************************************************************
+     
+     This class encode, decode a QRCode.
+     
+     A version is attributed to a documented (below) format.
+     
+     The following rules MUST be respected, in all time
+        
+                            
+                                *********** RULES *********
+     When a version is used on production,
+        1 - It MUST be documented here, and
+     
+        2 - The decoding func MUST remain here
+     
+        3 - The encoded string MUST be
+                    * In JSON
+        4 - The decoded string MUST
+                    * Be a dictionnary of strings of type [String: String]
+                    * Contain a key named "Version" which details the version number
+     */
+    
+    
+    /*
      ***** VERSION 1 *****
         Created : 30/08/21
         By : Nathan Stchepinsky
@@ -37,7 +66,7 @@ class QRCodeData {
         var key : String{
             switch self {
             case .version:
-                return "Version"
+                return "Version" // MUST NEVER CHANGE
             case .type:
                 return "Type"
             case .data :
@@ -92,5 +121,67 @@ class QRCodeData {
             return nil
         }
         return finalJson
+    }
+    
+    // MUST NEVER BE DELETED
+    public func decodeQrCodeText(_ text: String) throws -> String{
+        guard let data: [String: String] = text.jsonToDictionary() else {
+            throw qrCodeError.incorrectJSON
+        }
+        
+        guard let version = data[QRCodeData.version.key] else {
+            throw qrCodeError.unknownVersion
+        }
+        
+        
+        switch version {
+        case "1" :
+            return try decodeVersion1(data)
+        default:
+            throw qrCodeError.unknownVersion
+        }
+    }
+    
+    private func decodeVersion1(_ data: [String: String]) throws -> String {
+        
+        guard let checksum = data[QRCodeData.checksum.key] else {
+            throw qrCodeError.noChecksum
+        }
+        
+        data.remove
+        
+        guard let type = data[QRCodeData.type.key] else {
+            throw qrCodeError.unknownType
+        }
+    }
+    
+    
+    
+}
+
+enum qrCodeError : Error{
+    case unknownVersion
+    case invalideChesksum
+    case unknownType
+    case incorrectJSON
+    case noChecksum
+    
+    var description : String{
+        switch self {
+        case .unknownVersion :
+            return "The data cannot be decoded because the version of the qrCode is unknown."
+            
+        case .invalideChesksum :
+            return "The checksum of the qrCode data isn't correct. The data may be corupted."
+            
+        case .unknownType:
+            return "The data cannot be decoded because the type of the qrCode data is unknown."
+            
+        case .incorrectJSON:
+            return "The provided JSON cannot be decoded."
+            
+        case .noChecksum:
+            return "There is no checksum in the provided data. "
+        }
     }
 }

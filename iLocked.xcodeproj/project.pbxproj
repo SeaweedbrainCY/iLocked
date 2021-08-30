@@ -17,6 +17,7 @@
 		901D23A326C9C27500C5DCCA /* ThirdTutoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */; };
 		901F8D3526DC3C25001BCD17 /* QRCodeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901F8D3426DC3C25001BCD17 /* QRCodeData.swift */; };
 		901F8D3726DC3FF3001BCD17 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901F8D3626DC3FF3001BCD17 /* Data.swift */; };
+		901F8D3C26DD14F4001BCD17 /* QRCodeReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901F8D3B26DD14F4001BCD17 /* QRCodeReader.swift */; };
 		9031317C26D91A9E0085C9E2 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9031317B26D91A9E0085C9E2 /* Bundle.swift */; };
 		904063AA26949B1600946518 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063A926949B1600946518 /* UIWindow.swift */; };
 		904063AC26971CCD00946518 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 904063AB26971CCD00946518 /* Colors.swift */; };
@@ -121,6 +122,7 @@
 		901D23A226C9C27500C5DCCA /* ThirdTutoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdTutoView.swift; sourceTree = "<group>"; };
 		901F8D3426DC3C25001BCD17 /* QRCodeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeData.swift; sourceTree = "<group>"; };
 		901F8D3626DC3FF3001BCD17 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		901F8D3B26DD14F4001BCD17 /* QRCodeReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeReader.swift; sourceTree = "<group>"; };
 		9031317B26D91A9E0085C9E2 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		904063A926949B1600946518 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		904063AB26971CCD00946518 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
@@ -389,6 +391,7 @@
 				90B69BE326A08FA700451DFC /* SecondWelcomeView.swift */,
 				908AE09826B554570032D74A /* ImportKeys.swift */,
 				90D367A226C58FA800108B64 /* UpgradePage.swift */,
+				901F8D3B26DD14F4001BCD17 /* QRCodeReader.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -712,6 +715,7 @@
 				D8A64B492353BCA0000613F3 /* CustomCellTableView.swift in Sources */,
 				D8A64B072353BC1C000613F3 /* AppDelegate.swift in Sources */,
 				90EBFC8E26AC7FC3002B30E9 /* GenerateKeysView.swift in Sources */,
+				901F8D3C26DD14F4001BCD17 /* QRCodeReader.swift in Sources */,
 				90ABB45426DC23DF005F7497 /* QRCodeView.swift in Sources */,
 				D8A64B4D2353BCA0000613F3 /* GifController.swift in Sources */,
 				D8416D362364ED5100A0B038 /* Encryption.swift in Sources */,
@@ -947,7 +951,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -975,7 +979,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";

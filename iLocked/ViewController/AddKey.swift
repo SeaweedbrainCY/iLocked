@@ -51,6 +51,9 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
         super.viewDidLoad()
         print("View on back = \(self.viewOnBack)")
         self.constructView()
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(qrCodeScannedNotification), name: QRCodeReader.qrCodeRedNotificationname, object: nil)
     }
     
     
@@ -131,6 +134,16 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
     
     @objc func dismissView(){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @objc func qrCodeScannedNotification(notification: Notification){
+        let notificationData = notification.userInfo
+        guard let qrCodeText = notificationData?["DataString"] as? String else {
+            return
+        }
+        let qrCodeData = QRCodeData()
+        
+        
     }
     
     
