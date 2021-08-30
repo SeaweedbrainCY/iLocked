@@ -114,7 +114,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         self.background.addSubview(self.notificationView)
         self.notificationView.translatesAutoresizingMaskIntoConstraints = false
         self.notificationView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1).isActive = true
-        self.notificationView.topAnchor.constraint(equalToSystemSpacingBelow: self.scrollView.topAnchor, multiplier: 1).isActive = true
+        self.notificationView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         self.notificationView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         self.notificationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
         self.notificationView.layer.borderWidth = 2

@@ -23,8 +23,8 @@
                                     <constraint firstAttribute="width" constant="167" id="CyN-Ug-k7p"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Nathan Stchepinsky" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3v-JZ-C3X">
-                                <rect key="frame" x="123" y="841" width="167" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By Nathan Stchepinsky" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3v-JZ-C3X">
+                                <rect key="frame" x="20" y="841" width="374" height="21"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -35,9 +35,9 @@
                         <constraints>
                             <constraint firstItem="c3v-JZ-C3X" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="H5Y-Gd-QHo"/>
                             <constraint firstItem="oPt-CA-2rZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="LaV-Pc-VLm"/>
-                            <constraint firstItem="c3v-JZ-C3X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="123" id="NWP-Rp-UFf"/>
+                            <constraint firstItem="c3v-JZ-C3X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="NWP-Rp-UFf"/>
                             <constraint firstItem="oPt-CA-2rZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dQG-1z-are"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c3v-JZ-C3X" secondAttribute="trailing" constant="124" id="fum-PE-1ot"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c3v-JZ-C3X" secondAttribute="trailing" constant="20" id="fum-PE-1ot"/>
                         </constraints>
                     </view>
                 </viewController>

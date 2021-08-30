@@ -145,9 +145,6 @@
 /* Class = "UITabBarItem"; title = "Decrypt"; ObjectID = "X9m-wT-whJ"; */
 "X9m-wT-whJ.title" = "Déchiffrer";
 
-/* Class = "UILabel"; text = "You will revoke your public and private keys. They will be permanently destroyed, and there will be no way to get them back. This includes your private key."; ObjectID = "XJR-tV-Pjb"; */
-"XJR-tV-Pjb.text" = "Vous allez révoquer vos clés publique et privée. Elles vont être à jamais détruites, et il n'y aura plus aucun moyen de les récupérer. Cela inclu votre clé privée.";
-
 /* Class = "UINavigationItem"; title = "Add an encryption key"; ObjectID = "YYc-gE-kow"; */
 "YYc-gE-kow.title" = "Nouvelle clé publique";
 
@@ -162,9 +159,6 @@
 
 /* Class = "UITextView"; text = "Decryption ..."; ObjectID = "aj7-eM-Sf2"; */
 "aj7-eM-Sf2.text" = "Déchiffrement ...";
-
-/* Class = "UILabel"; text = "Any and all encryption done with your current RSA public key can never be decrypted again and will be permanently lost."; ObjectID = "arR-U4-Jcr"; */
-"arR-U4-Jcr.text" = "Tous les chiffrements effectués avec votre clé publique RSA actuelle ne pourront plus jamais être déchiffrés et seront définitivement perdus.";
 
 /* Class = "UIButton"; normalTitle = "I already know asymetric encryption"; ObjectID = "bfb-XE-oTO"; */
 "bfb-XE-oTO.normalTitle" = "Je connais déjà le chiffrement asymétrique";
@@ -181,9 +175,6 @@
 /* Class = "UINavigationItem"; title = "Encyption"; ObjectID = "eGS-Iy-0AG"; */
 "eGS-Iy-0AG.title" = "Chiffrement";
 
-/* Class = "UILabel"; text = "WARNING"; ObjectID = "eZW-eg-dI3"; */
-"eZW-eg-dI3.text" = "ATTENTION";
-
 /* Class = "UIBarButtonItem"; title = "Lock the app"; ObjectID = "fFF-Oo-VMX"; */
 "fFF-Oo-VMX.title" = "Verrouiller l'application";
 
@@ -195,9 +186,6 @@
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "ftf-Te-pdR"; */
 "ftf-Te-pdR.text" = "Label";
-
-/* Class = "UIViewController"; title = "revokeView"; ObjectID = "gqQ-4o-g0B"; */
-"gqQ-4o-g0B.title" = "revokeView";
 
 /* Class = "UINavigationController"; title = "EncryptNavigationController"; ObjectID = "hHY-cd-32x"; */
 "hHY-cd-32x.title" = "EncryptNavigationController";
@@ -241,17 +229,11 @@
 /* Class = "UIButton"; normalTitle = "nameError"; ObjectID = "rYj-v7-E9g"; */
 "rYj-v7-E9g.normalTitle" = "nameError";
 
-/* Class = "UIButton"; normalTitle = "REVOKE (5s)"; ObjectID = "sYu-Ym-Cua"; */
-"sYu-Ym-Cua.normalTitle" = "REVOQUER (5s)";
-
 /* Class = "UITextView"; text = "Aa"; ObjectID = "sfC-Z1-Yjk"; */
 "sfC-Z1-Yjk.text" = "Aa";
 
 /* Class = "UINavigationController"; title = "addKeyNavCrtl"; ObjectID = "tOU-fV-Ibc"; */
 "tOU-fV-Ibc.title" = "addKeyNavCrtl";
-
-/* Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "u2S-FE-xH9"; */
-"u2S-FE-xH9.normalTitle" = "ANNULER";
 
 /* Class = "UIBarButtonItem"; title = "  "; ObjectID = "uS5-aM-wNL"; */
 "uS5-aM-wNL.title" = "  ";
@@ -483,3 +465,36 @@
 
 /* Class = "UIButton"; normalTitle = "Report bug"; ObjectID = "zN7-nN-GvS"; */
 "zN7-nN-GvS.normalTitle" = "Reporter un bug";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "1Sf-fA-ZbG"; */
+"1Sf-fA-ZbG.text" = "";
+
+/* Class = "UILabel"; text = "You will revoke your public and private keys. They will be permanently destroyed, and there will be no way to get them back. This includes your private key."; ObjectID = "3aw-OC-LWV"; */
+"3aw-OC-LWV.text" = "Vous allez revoquer votre clé publique et votre clé privée. Elles seront définitivement détruites et il n'y a aucun moyen de les récupérer. Cela inclu votre clé privée.";
+
+/* Class = "UIButton"; normalTitle = "REVOKE (5s)"; ObjectID = "3el-17-KNt"; */
+"3el-17-KNt.normalTitle" = "RÉVOQUER";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "9Qq-3i-Z9B"; */
+"9Qq-3i-Z9B.normalTitle" = "Fermer";
+
+/* Class = "UIViewController"; title = "developerView"; ObjectID = "GZy-y8-vkP"; */
+"GZy-y8-vkP.title" = "";
+
+/* Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "LfG-D6-f2h"; */
+"LfG-D6-f2h.normalTitle" = "ANNULER";
+
+/* Class = "UILabel"; text = "Flash the QRCode with an other iLocked app to get this key"; ObjectID = "LmV-Hf-xI3"; */
+"LmV-Hf-xI3.text" = "Flash le QRCode avec une autre application iLocked pour avoir la clé";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "V3d-Ud-Jsc"; */
+"V3d-Ud-Jsc.title" = "";
+
+/* Class = "UILabel"; text = "Generating the QRCode ..."; ObjectID = "aG6-PE-AUi"; */
+"aG6-PE-AUi.text" = "Génération du QRCode";
+
+/* Class = "UILabel"; text = "WARNING"; ObjectID = "bbC-5k-UMb"; */
+"bbC-5k-UMb.text" = "ATTENTION";
+
+/* Class = "UILabel"; text = "Any and all encryption done with your current RSA public key can never be decrypted again and will be permanently lost."; ObjectID = "vT4-9N-MpL"; */
+"vT4-9N-MpL.text" = "Tout chiffrement effectué avec votre clé publique actuelle ne pourra plus jamais être déchiffré et sera définitivement perdu.";

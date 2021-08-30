@@ -151,7 +151,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         
         
         
-        let viewWidthUsable: CGFloat = self.view.frame.width - 80
+        let viewWidthUsable: CGFloat = self.view.frame.width - 60
         let buttonDistance: CGFloat = 10
         let buttonWidth: CGFloat = (viewWidthUsable - buttonDistance * 3) / 4
         
@@ -159,10 +159,10 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.encryptButton.translatesAutoresizingMaskIntoConstraints = false
         self.encryptButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         self.encryptButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
-        self.encryptButton.leftAnchor.constraint(equalTo: self.scrollView.leftAnchor, constant: 40).isActive = true
+        self.encryptButton.leftAnchor.constraint(equalTo: self.scrollView.leftAnchor, constant: 30).isActive = true
         self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
-
-            let image = UIImage(systemName: "lock.doc")!
+        let image = UIImage(systemName: "lock.doc")!
+        
         
         self.encryptButton.setImage(image, for: .normal)
         self.encryptButton.backgroundColor = Colors.darkGray5.color
@@ -234,7 +234,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.notificationView.centerXAnchor.constraint(equalToSystemSpacingAfter: self.view.centerXAnchor, multiplier: 1).isActive = true
         self.notificationView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         self.notificationView.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        self.notificationView.topAnchor.constraint(equalToSystemSpacingBelow: self.scrollView.topAnchor, multiplier: 1).isActive = true
+        self.notificationView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         self.notificationView.layer.borderWidth = 2
         self.notificationView.layer.cornerRadius = 20
         self.notificationView.backgroundColor = .white
