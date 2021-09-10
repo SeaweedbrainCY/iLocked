@@ -11,7 +11,6 @@ import UIKit
 import SwiftyRSA
 
 
-
 class Encrypt: UIViewController, UITextViewDelegate{
     
     @IBOutlet weak var textToEncrypt: UITextView!

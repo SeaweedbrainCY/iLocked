@@ -17,10 +17,13 @@ class QRCodeReader: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
     
+    var notificationNameTopPostTo: Notification.Name?
+    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var scannerImage:UIImageView!
     
-    static var qrCodeRedNotificationname: Notification.Name = Notification.Name("qrCodeRedNotificationname")
+    let background = DispatchQueue.global(qos: .background)
+    let log = LogFile(fileManager: FileManager())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,8 +112,16 @@ class QRCodeReader: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
     
     func found(code: String) {
         print("Qr code scanned = " + code)
-        NotificationCenter.default.post(name: QRCodeReader.qrCodeRedNotificationname, object: nil, userInfo: ["DataString":code])
-        self.dismiss(animated: true, completion: nil)
+        if self.notificationNameTopPostTo == nil {
+            background.async {
+                try? self.log.write(message: "⚠️ ERROR : Qr code decoded but no notification name transmitted.")
+            }
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            NotificationCenter.default.post(name: self.notificationNameTopPostTo!, object: nil, userInfo: ["DataString":code])
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     override var prefersStatusBarHidden: Bool {

@@ -39,8 +39,12 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     
     static let notificationOfModificationName = Notification.Name("notificationOfModifcationFormEditKeyToShowKey")
     
+    
+    
     var name = ""
     var isUserKey = false // if true, you cannot delete this key
+    let background = DispatchQueue.global(qos: .background)
+    let log = LogFile(fileManager: FileManager())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +64,8 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         super.viewDidAppear(true)
         
         NotificationCenter.default.addObserver(self, selector: #selector(editKeyResult), name: ShowKey.notificationOfModificationName, object: nil)
+        
+        
                     
     }
         
@@ -377,6 +383,8 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         backToNormal()
     }
     
+    
+    
     //
     // Data gestion func
     //
@@ -432,7 +440,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
                 qrCodeView?.text = ""
                 qrCodeView?.titleStr = "Error 🚧. Please try again."
             }
-        }
+        } 
         
     }
 }

@@ -53,7 +53,7 @@ class QRCodeData {
                 "Data" : "----BEGIN [...]",
                 "Checksum" : "IJHDNLK[...]"
             ]
-        Hash : SHA256. Used on the JSON of the 3 first keys (and values)
+        Hash : SHA256. Used on the JSON of the 3 first values concanated
         PubKey : The one displayed to the user
      */
     
@@ -112,7 +112,8 @@ class QRCodeData {
             }
             return nil
         }
-        let checksum = jsonInfos.sha256()
+        
+        let checksum = checksumVersion1(version: QRCodeData.version.current, type: QRCodeData.type.pubKey, key: publicKey)
         infos.updateValue(checksum, forKey: QRCodeData.checksum.key)
         guard let finalJson = infos.toJson() else {
             background.async {
@@ -124,7 +125,7 @@ class QRCodeData {
     }
     
     // MUST NEVER BE DELETED
-    public func decodeQrCodeText(_ text: String) throws -> String{
+    public func decodeQrCodeText(_ text: String) throws -> [String:String]{
         guard let data: [String: String] = text.jsonToDictionary() else {
             throw qrCodeError.incorrectJSON
         }
@@ -142,20 +143,36 @@ class QRCodeData {
         }
     }
     
-    private func decodeVersion1(_ data: [String: String]) throws -> String {
+    private func decodeVersion1(_ data: [String: String]) throws -> [String:String] {
         
         guard let checksum = data[QRCodeData.checksum.key] else {
             throw qrCodeError.noChecksum
         }
         
-        data.remove
-        
         guard let type = data[QRCodeData.type.key] else {
             throw qrCodeError.unknownType
         }
+        
+        guard let version = data[QRCodeData.version.key] else {
+            throw qrCodeError.unknownVersion
+        }
+        
+        guard let key = data[QRCodeData.data.key] else {
+            throw qrCodeError.noKey
+        }
+        
+        let newChecksum = checksumVersion1(version: version, type: type, key: key)
+        guard checksum == newChecksum else {
+            throw qrCodeError.invalideChesksum
+        }
+        
+        return data
     }
     
-    
+    func checksumVersion1(version: String, type:String, key:String) -> String {
+        let str = version + type + key
+        return str.sha256()
+    }
     
 }
 
@@ -165,6 +182,7 @@ enum qrCodeError : Error{
     case unknownType
     case incorrectJSON
     case noChecksum
+    case noKey
     
     var description : String{
         switch self {
@@ -182,6 +200,10 @@ enum qrCodeError : Error{
             
         case .noChecksum:
             return "There is no checksum in the provided data. "
+            
+        case .noKey:
+            return "There is no key in the provided data. "
+            
         }
     }
 }

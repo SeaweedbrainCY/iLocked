@@ -27,6 +27,8 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
     //var segmentView = UIView()
     var allCellsText = [String]() // Store data from the textField in table View
     
+    static let keyQrCodeRedNotificationName = Notification.Name("keyQrCodeRedNotificationName")
+    
     let log = LogFile(fileManager: FileManager())
     let queue = DispatchQueue.global(qos: .background)
     
@@ -53,7 +55,7 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
         self.constructView()
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(qrCodeScannedNotification), name: QRCodeReader.qrCodeRedNotificationname, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(newKeyWithQRCode), name: AddKey.keyQrCodeRedNotificationName, object: nil)
     }
     
     
@@ -196,6 +198,39 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
     }
     
     //
+    // OBJC func
+    //
+    
+    @objc private func newKeyWithQRCode(notification: Notification) {
+        let notificationData = notification.userInfo
+        let qrCodeString = notificationData?["DataString"] as? String
+        if qrCodeString == nil {
+            alert("No data", message: "Impossible to retrieve the data of the QRCode. Please try again.")
+            queue.async {
+                try? self.log.write(message: "⚠️ Error while decoding the QRCode. Notification received but there was no data attached.")
+            }
+        } else {
+            let qrCodeData = QRCodeData()
+            do{
+                let data = try qrCodeData.decodeQrCodeText(qrCodeString!)
+                if data[QRCodeData.QRCodeData.type.key] == QRCodeData.QRCodeData.type.pubKey {
+                    self.keyTextView.text = data[QRCodeData.QRCodeData.data.key]
+                } else {
+                    alert("Oups! ", message: "The QRCode doesn't contain a public key.")
+                    queue.async {
+                        try? self.log.write(message: "⚠️ Error while decoding the QRCode. Data received but this is not a public key.")
+                    }
+                }
+            } catch {
+                alert("Oups! ", message: error.localizedDescription)
+                queue.async {
+                    try? self.log.write(message: "⚠️ Error while decoding the QRCode. Error thrown : \(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
+    //
     // Design function
     //
     
@@ -211,6 +246,13 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
         })
     }
     
+    func alert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: nil)
+        alert.addAction(ok)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     
     //
     // segue func
@@ -220,6 +262,9 @@ class AddKey: UIViewController, UITextViewDelegate,UIScrollViewDelegate, UITextF
         if segue.identifier == "lockApp"{
             let lockedView = segue.destination as! LockedView
             lockedView.activityInProgress = true
+        } else if segue.identifier == "QRCodeReader"{
+            let qrCodeReader = segue.destination as? QRCodeReader
+            qrCodeReader?.notificationNameTopPostTo = AddKey.keyQrCodeRedNotificationName
         }
     }
     

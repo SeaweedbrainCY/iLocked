@@ -75,7 +75,7 @@
                                     <imageReference key="image" image="qrcode.viewfinder" catalog="system" symbolScale="large"/>
                                 </state>
                                 <connections>
-                                    <segue destination="e87-Rv-wFK" kind="presentation" id="X0a-Ey-gxo"/>
+                                    <segue destination="e87-Rv-wFK" kind="presentation" identifier="QRCodeReader" id="X0a-Ey-gxo"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d8x-Hm-gHO">
@@ -136,7 +136,7 @@
                                 <imageReference key="image" image="qrcode.viewfinder" catalog="system" symbolScale="large"/>
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                                 <connections>
-                                    <segue destination="e87-Rv-wFK" kind="presentation" id="7Ij-bL-Fc7"/>
+                                    <segue destination="e87-Rv-wFK" kind="presentation" identifier="QRCodeReader" id="7Ij-bL-Fc7"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
