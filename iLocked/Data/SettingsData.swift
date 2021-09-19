@@ -85,18 +85,20 @@ class SettingsData {
     public func shouldAskForReview(){
         var count = UserDefaults.standard.integer(forKey: settingsPath.ratingRequest.path)
         count += 1
-        
+        print("[*] Check for review")
         // Get the current bundle version for the app
         let infoDictionaryKey = kCFBundleVersionKey as String
         guard let currentVersion = Bundle.main.object(forInfoDictionaryKey: infoDictionaryKey) as? String
             else {return}
         
-        guard let lastVersionPromptedForReview = UserDefaults.standard.string(forKey: settingsPath.lastVersionPromptedForReview.path) else {
-            return
-        }
-        if count >= 10 && lastVersionPromptedForReview != currentVersion{
+        var  lastVersionPromptedForReview: String = ""
+        lastVersionPromptedForReview = UserDefaults.standard.string(forKey: settingsPath.lastVersionPromptedForReview.path) ?? ""
+        
+        if count >= 5 && lastVersionPromptedForReview != currentVersion{
+            print("[****] REQUEST FOR RATE REVIEW (before queue)")
             let twoSecondsFromNow = DispatchTime.now() + 2.0
                 DispatchQueue.main.asyncAfter(deadline: twoSecondsFromNow) {[] in
+                    print("[****] REQUEST FOR RATE REVIEW")
                     SKStoreReviewController.requestReview()
                     UserDefaults.standard.set(currentVersion, forKey: settingsPath.lastVersionPromptedForReview.path)
                 }
@@ -150,6 +152,22 @@ public enum settingsPath : String{
             return "ratingRequest"
         case .lastVersionPromptedForReview:
             return "lastVersionPromptedForReview"
+        }
+    }
+}
+
+/// Key related to the number of times the User encrypt or decrupt a text
+/// It's used for ask for (an optionnal) support after a given amount of encryption/decryption
+public enum UserStat: String {
+    case decryption
+    case encryption
+    
+    var key: String{
+        switch self {
+        case .decryption:
+            return "decryption"
+        case .encryption:
+            return "encryption"
         }
     }
 }

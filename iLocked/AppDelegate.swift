@@ -55,7 +55,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool{
-        print("[*] Application launched")
+        let nbTimesLaunched = UserDefaults.standard.integer(forKey: settingsPath.ratingRequest.path)
+        UserDefaults.standard.setValue(nbTimesLaunched + 1, forKey: settingsPath.ratingRequest.path)
+        print("[*] Application launched \(nbTimesLaunched + 1) times")
         InAppPurchase.initialize(
               iapProducts: [
                 IAPProduct(productIdentifier: "nonConsumableId", productType: .nonConsumable),

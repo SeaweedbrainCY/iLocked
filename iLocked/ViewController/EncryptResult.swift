@@ -26,12 +26,17 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
     var encryptedTextTransmitted = ""
     var keyNameTransmitted = ""
     
+    let backgroundQueue = DispatchQueue.global(qos: .background)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.scrollView.delegate = self
         self.loadViews()
-       
+        backgroundQueue.async {
+            let nbTimesEncryption = UserDefaults.standard.integer(forKey: UserStat.encryption.key) // Nb times the user encrypt a text.
+            UserDefaults.standard.setValue(nbTimesEncryption + 1, forKey: UserStat.encryption.key)
+            print("New encryption. (total = \(nbTimesEncryption + 1))")
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

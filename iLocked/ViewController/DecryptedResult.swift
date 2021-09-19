@@ -26,6 +26,8 @@ class DecryptedResult : UIViewController{
     
     var encryptedText = ""
     
+    let backgroundQueue = DispatchQueue.global(qos: .background)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -103,6 +105,11 @@ class DecryptedResult : UIViewController{
             let clearText = (clearTextResult["message"] as! String)
             print("Clear text = \(clearText)")
             self.decryptedTextView.text = clearText
+            backgroundQueue.async {// if success we consider the new decryption
+                let nbTimesEncryption = UserDefaults.standard.integer(forKey: UserStat.decryption.key) // Nb times the user encrypt a text.
+                UserDefaults.standard.setValue(nbTimesEncryption + 1, forKey: UserStat.decryption.key)
+                print("New decryption. (total = \(nbTimesEncryption + 1))")
+            }
         } else {
             let codeError = (clearTextResult["codeError"] as! Int)
             let spaceBeforeTitle = "         "
