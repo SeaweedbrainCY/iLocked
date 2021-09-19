@@ -172,7 +172,7 @@
 
 "Information 📌" = "Informations 📌";
 
-"X509Description" = "Si vous rencontrez des difficultés à utiliser votre clé publique avec d'autre outils de chiffrement RSA, essayez de désactiver le certificat X.509. Vous serez alors en mesure de partager votre clé publique sans entête de certification\nNote : Désactiver cette option n'affecte pas votre clé publique en tant que clé RSA. Cela va uniquement changer son format d'encodage.\nPar défaut, the certificat X.509 est utilisé pour votre clé publique.";
+"X509Description" = "Si vous rencontrez des difficultés à utiliser votre clé publique avec d'autre outils de chiffrement RSA, essayez de désactiver le certificat X.509. Vous serez alors en mesure de partager votre clé publique sans entête de certification\nNote : Désactiver cette option n'affecte pas votre clé publique en tant que clé RSA. Cela va uniquement changer son format d'encodage.\nPar défaut, le certificat X.509 est utilisé pour votre clé publique.";
 
 "Bad format" = "Mauvais format";
 
