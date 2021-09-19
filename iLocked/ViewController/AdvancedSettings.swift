@@ -27,6 +27,9 @@ class AdvancedSettings: UIViewController, UITableViewDelegate, UITableViewDataSo
         loadSettings()
         self.successView.layer.cornerRadius = 20
     }
+    
+    
+    
     //
     // Pop up func
     //

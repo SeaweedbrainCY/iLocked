@@ -94,6 +94,17 @@
                                     <action selector="nameKeyErrorSelected:" destination="nVe-hc-Wct" eventType="touchUpInside" id="ERE-hu-VzP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idI-PG-pjJ">
+                                <rect key="frame" x="10" y="118" width="408" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gw2-py-ekR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="notificationViewSelectedWithSender:" destination="nVe-hc-Wct" eventType="touchUpInside" id="T7x-9u-Efv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="BT1-vS-TsE"/>
                         <color key="backgroundColor" red="0.1098443493" green="0.1097008213" blue="0.11764953290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -104,6 +115,8 @@
                             <constraint firstItem="BT1-vS-TsE" firstAttribute="bottom" secondItem="B7m-kL-5A1" secondAttribute="bottom" constant="68" id="GHR-XT-Aiy"/>
                             <constraint firstItem="B7m-kL-5A1" firstAttribute="leading" secondItem="BT1-vS-TsE" secondAttribute="leading" constant="100" id="QP3-3B-R3l"/>
                             <constraint firstItem="JYE-Xh-LeX" firstAttribute="leading" secondItem="BT1-vS-TsE" secondAttribute="leading" constant="38" id="XWR-OT-t3e"/>
+                            <constraint firstItem="idI-PG-pjJ" firstAttribute="leading" secondItem="BT1-vS-TsE" secondAttribute="leading" constant="10" id="ZPn-uz-VO0"/>
+                            <constraint firstItem="BT1-vS-TsE" firstAttribute="trailing" secondItem="idI-PG-pjJ" secondAttribute="trailing" constant="10" id="aDD-GO-oTX"/>
                             <constraint firstItem="jPO-t3-KSo" firstAttribute="top" secondItem="fJK-Su-Pay" secondAttribute="bottom" constant="8" id="euz-EC-3Ox"/>
                             <constraint firstItem="jPO-t3-KSo" firstAttribute="leading" secondItem="BT1-vS-TsE" secondAttribute="leading" constant="20" id="fm6-L5-p2A"/>
                             <constraint firstItem="sfC-Z1-Yjk" firstAttribute="top" secondItem="2ek-pm-5IA" secondAttribute="bottom" constant="8" symbolic="YES" id="gqJ-AP-Xnb"/>
@@ -112,6 +125,7 @@
                             <constraint firstItem="fJK-Su-Pay" firstAttribute="top" secondItem="BT1-vS-TsE" secondAttribute="top" constant="31" id="qus-e1-atL"/>
                             <constraint firstItem="fJK-Su-Pay" firstAttribute="leading" secondItem="BT1-vS-TsE" secondAttribute="leading" constant="38" id="rAr-S4-sNF"/>
                             <constraint firstItem="BT1-vS-TsE" firstAttribute="trailing" secondItem="2ek-pm-5IA" secondAttribute="trailing" constant="20" id="rOo-kI-2cL"/>
+                            <constraint firstItem="idI-PG-pjJ" firstAttribute="top" secondItem="BT1-vS-TsE" secondAttribute="top" constant="10" id="tD8-y7-hEW"/>
                             <constraint firstItem="JYE-Xh-LeX" firstAttribute="top" secondItem="jPO-t3-KSo" secondAttribute="bottom" constant="50" id="to7-3s-KEZ"/>
                             <constraint firstItem="BT1-vS-TsE" firstAttribute="trailing" secondItem="B7m-kL-5A1" secondAttribute="trailing" constant="100" id="vCr-X2-xlW"/>
                             <constraint firstItem="BT1-vS-TsE" firstAttribute="trailing" secondItem="jPO-t3-KSo" secondAttribute="trailing" constant="20" id="zu3-XY-cKx"/>
@@ -147,6 +161,7 @@
                         <outlet property="keyTextView" destination="sfC-Z1-Yjk" id="2Wj-5Z-3hh"/>
                         <outlet property="nameError" destination="NAh-JW-Ht7" id="arI-aL-th3"/>
                         <outlet property="nameKeyField" destination="jPO-t3-KSo" id="ZJM-eo-RL3"/>
+                        <outlet property="notificationView" destination="idI-PG-pjJ" id="TbC-no-DXb"/>
                         <outlet property="publicKeyError" destination="d8x-Hm-gHO" id="2AU-SN-s1I"/>
                         <outlet property="saveButton" destination="B7m-kL-5A1" id="4fC-iw-0Zj"/>
                         <segue destination="QiX-9o-pKS" kind="presentation" identifier="lockApp" modalPresentationStyle="fullScreen" id="uwd-d4-0Sn"/>

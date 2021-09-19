@@ -32,7 +32,10 @@ class ExportKeys: UIViewController, UITableViewDelegate, UITableViewDataSource{
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell") //on associe la tableView au custom de Style/customeCelleTableView.swift
         //constructHelpView()
         self.activityIndicator.layer.cornerRadius = 10
+        
     }
+    
+    
     
 
     @IBAction func closeHelpSelected(sender: UIButton){

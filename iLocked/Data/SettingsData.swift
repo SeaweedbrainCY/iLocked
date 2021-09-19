@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import StoreKit
 
 class SettingsData {
     
@@ -78,6 +79,29 @@ class SettingsData {
         }
         return (isHiddenInAppSwitcher, (password, timeBeforeLocking))
     }
+    
+    /// Test and display (if the test is passed) the review request to the user
+    /// It should be ask for all user after 10 relaods
+    public func shouldAskForReview(){
+        var count = UserDefaults.standard.integer(forKey: settingsPath.ratingRequest.path)
+        count += 1
+        
+        // Get the current bundle version for the app
+        let infoDictionaryKey = kCFBundleVersionKey as String
+        guard let currentVersion = Bundle.main.object(forInfoDictionaryKey: infoDictionaryKey) as? String
+            else {return}
+        
+        guard let lastVersionPromptedForReview = UserDefaults.standard.string(forKey: settingsPath.lastVersionPromptedForReview.path) else {
+            return
+        }
+        if count >= 10 && lastVersionPromptedForReview != currentVersion{
+            let twoSecondsFromNow = DispatchTime.now() + 2.0
+                DispatchQueue.main.asyncAfter(deadline: twoSecondsFromNow) {[] in
+                    SKStoreReviewController.requestReview()
+                    UserDefaults.standard.set(currentVersion, forKey: settingsPath.lastVersionPromptedForReview.path)
+                }
+        }
+    }
 }
     
 public enum SettingsName : String { // List all key's name according to the corresponding setting
@@ -109,6 +133,8 @@ public enum settingsPath : String{
     case timeWhenClose
     case arrayNameId
     case logError
+    case ratingRequest
+    case lastVersionPromptedForReview
     
     var path : String{
         switch self {
@@ -120,6 +146,10 @@ public enum settingsPath : String{
             return "arrayNameId.txt"
         case.logError :
             return "logError.txt"
+        case .ratingRequest:
+            return "ratingRequest"
+        case .lastVersionPromptedForReview:
+            return "lastVersionPromptedForReview"
         }
     }
 }

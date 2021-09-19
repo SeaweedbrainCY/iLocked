@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import SwiftyRSA
-
+import StoreKit
 
 class Encrypt: UIViewController, UITextViewDelegate{
     
@@ -69,6 +69,7 @@ class Encrypt: UIViewController, UITextViewDelegate{
         // construct view
         self.constructView()
         
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,6 +87,8 @@ class Encrypt: UIViewController, UITextViewDelegate{
         )
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
+        let settings = SettingsData()
+        settings.shouldAskForReview()
     }
 
     func alert(_ title: String, message: String) {

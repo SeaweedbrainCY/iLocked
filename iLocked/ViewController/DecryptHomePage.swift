@@ -41,7 +41,12 @@ class Decrypt: UIViewController, UITextViewDelegate {
             object: nil
         )
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-       
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        let settings = SettingsData()
+        settings.shouldAskForReview()
     }
     
     

@@ -37,6 +37,7 @@ class DecryptedResult : UIViewController{
         self.contructView()
         decryption()
         print("Decryption view did appear")
+        
     }
         
     

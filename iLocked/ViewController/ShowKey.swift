@@ -59,6 +59,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(copyButtonSelected))
             tap.numberOfTapsRequired = 2
         self.view.addGestureRecognizer(tap)
+        
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)

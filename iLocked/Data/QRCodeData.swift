@@ -127,6 +127,7 @@ class QRCodeData {
     // MUST NEVER BE DELETED
     public func decodeQrCodeText(_ text: String) throws -> [String:String]{
         guard let data: [String: String] = text.jsonToDictionary() else {
+            print("incorrect json")
             throw qrCodeError.incorrectJSON
         }
         
@@ -176,7 +177,7 @@ class QRCodeData {
     
 }
 
-enum qrCodeError : Error{
+enum qrCodeError : Error, LocalizedError, CustomNSError{
     case unknownVersion
     case invalideChesksum
     case unknownType
@@ -184,7 +185,7 @@ enum qrCodeError : Error{
     case noChecksum
     case noKey
     
-    var description : String{
+    var localizedDescription : String{
         switch self {
         case .unknownVersion :
             return "The data cannot be decoded because the version of the qrCode is unknown."

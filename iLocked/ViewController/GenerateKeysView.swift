@@ -53,12 +53,14 @@ class GenerateKeysView: UIViewController,MFMailComposeViewControllerDelegate {
             self.waitingView.startAnimating()
         }
     }
+   
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         if retrievedString != nil && retrievedString != ""{ // load Home Page view
             self.performSegue(withIdentifier: "HomePage", sender: self)
         }
+        
     }
     
     @IBAction func generateButtonSelected(sender: UIButton){

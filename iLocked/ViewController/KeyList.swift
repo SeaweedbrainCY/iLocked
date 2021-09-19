@@ -54,7 +54,6 @@ class KeyList : UIViewController, UITableViewDelegate, UITableViewDataSource{
         if isKeySelection {
             navigationItem.title = "Select a key".localized()
         }
-
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -31,7 +31,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         self.scrollView.delegate = self
         self.loadViews()
-        
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -41,6 +41,7 @@ class EncryptedResult: UIViewController, UIScrollViewDelegate {
         let tap = UITapGestureRecognizer(target: self, action: #selector(copyButtonSelected))
             tap.numberOfTapsRequired = 2
         self.view.addGestureRecognizer(tap)
+        
     }
     
     
