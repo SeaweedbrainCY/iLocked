@@ -18,6 +18,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     
     //var nameKeyTitle = UILabel()
     //var nameKey = UILabel()
+    
     var keyTitle = UILabel()
     var key = UILabel()
     var encryptButton = UIButton()
@@ -29,6 +30,10 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     var date = UILabel()
     var tips = UILabel()
     var QRCodeButton = UIButton()
+    let shareModeItems: [String] = ["Shortcut", "Plain text"]
+    var shareModeButton = UISegmentedControl()
+    var shareModeTitle = UILabel()
+    var shareModeInfoButton = UIButton()
     
     
     
@@ -156,7 +161,41 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
        // self.key.layer.cornerRadius = 20
         
         
+        self.backgroundView.addSubview(self.shareModeInfoButton)
+        self.shareModeInfoButton.translatesAutoresizingMaskIntoConstraints = false
+        self.shareModeInfoButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.shareModeInfoButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        self.shareModeInfoButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.scrollView.leftAnchor, multiplier: 1.5).isActive = true
+        self.shareModeInfoButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 3).isActive = true
+        self.shareModeInfoButton.setImage(UIImage(systemName: "info.circle.fill"), for: .normal)
+        self.shareModeInfoButton.tintColor = .lightGray
         
+        self.backgroundView.addSubview(self.shareModeTitle)
+        self.shareModeTitle.translatesAutoresizingMaskIntoConstraints = false
+        self.shareModeTitle.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        self.shareModeTitle.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.shareModeTitle.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 3).isActive = true
+        self.shareModeTitle.leftAnchor.constraint(equalToSystemSpacingAfter: self.shareModeInfoButton.rightAnchor, multiplier: 1).isActive = true
+        self.shareModeTitle.text = "Share mode :"
+        self.shareModeTitle.font = UIFont(name: "Avenir Next Demibold", size: 10)
+        self.shareModeTitle.textColor = .white
+       
+        
+        
+        
+        self.shareModeButton = UISegmentedControl(items: self.shareModeItems)
+        self.backgroundView.addSubview(self.shareModeButton)
+        self.shareModeButton.translatesAutoresizingMaskIntoConstraints = false
+        self.shareModeButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
+        self.shareModeButton.rightAnchor.constraint(equalTo: self.scrollView.rightAnchor, constant: -20).isActive = true
+        self.shareModeButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.shareModeTitle.rightAnchor, multiplier: 1).isActive = true
+        
+        self.shareModeButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 3).isActive = true
+        self.shareModeButton.selectedSegmentIndex = 0
+        self.shareModeButton.tintColor = .white
+        self.shareModeButton.backgroundColor = Colors.darkGray5.color
+        self.shareModeButton.selectedSegmentTintColor = .systemBlue
+        self.shareModeButton.addTarget(self, action: #selector(shareModeValueChanged), for: .valueChanged)
         
         let viewWidthUsable: CGFloat = self.view.frame.width - 60
         let buttonDistance: CGFloat = 10
@@ -167,7 +206,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.encryptButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         self.encryptButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         self.encryptButton.leftAnchor.constraint(equalTo: self.scrollView.leftAnchor, constant: 30).isActive = true
-        self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
+        self.encryptButton.topAnchor.constraint(equalToSystemSpacingBelow: self.shareModeButton.bottomAnchor, multiplier: 2).isActive = true
         let image = UIImage(systemName: "lock.doc")!
         
         
@@ -179,12 +218,13 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.encryptButton.rondBorder()
         self.encryptButton.addTarget(self, action: #selector(self.encryptMessageSelected), for: .touchUpInside)
         
+        
         self.backgroundView.addSubview(self.shareButton)
         self.shareButton.translatesAutoresizingMaskIntoConstraints = false
         self.shareButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         self.shareButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         self.shareButton.leftAnchor.constraint(equalTo: self.encryptButton.rightAnchor, constant: buttonDistance).isActive = true
-        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
+        self.shareButton.topAnchor.constraint(equalToSystemSpacingBelow: self.shareModeButton.bottomAnchor, multiplier: 2).isActive = true
         
         self.shareButton.setImage(UIImage(systemName: "square.and.arrow.up") , for: .normal)
         self.shareButton.tintColor = .systemOrange
@@ -196,7 +236,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.QRCodeButton.translatesAutoresizingMaskIntoConstraints = false
         self.QRCodeButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         self.QRCodeButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
-        self.QRCodeButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
+        self.QRCodeButton.topAnchor.constraint(equalToSystemSpacingBelow: self.shareModeButton.bottomAnchor, multiplier: 2).isActive = true
         self.QRCodeButton.leftAnchor.constraint(equalTo: self.shareButton.rightAnchor, constant: buttonDistance).isActive = true
         self.QRCodeButton.setImage(UIImage(systemName: "qrcode") , for: .normal)
         self.QRCodeButton.tintColor = .systemOrange
@@ -209,7 +249,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.deleteButton.translatesAutoresizingMaskIntoConstraints = false
         self.deleteButton.widthAnchor.constraint(equalToConstant: buttonWidth).isActive = true
         self.deleteButton.heightAnchor.constraint(equalToConstant: buttonWidth).isActive = true
-        self.deleteButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 2).isActive = true
+        self.deleteButton.topAnchor.constraint(equalToSystemSpacingBelow: self.shareModeButton.bottomAnchor, multiplier: 2).isActive = true
         self.deleteButton.leftAnchor.constraint(equalTo: self.QRCodeButton.rightAnchor, constant: buttonDistance).isActive = true
         if #available(iOS 13.0, *) {
             self.deleteButton.setImage(UIImage(systemName: "trash") , for: .normal)
@@ -382,6 +422,10 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     
     @objc private func notificationViewSelected(sender: UIButton){// If the notification is touched, we hide it
         backToNormal()
+    }
+    
+    @objc func shareModeValueChanged(){
+        
     }
     
     
