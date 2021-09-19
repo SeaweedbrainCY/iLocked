@@ -94,12 +94,12 @@
                                     <action selector="nameKeyErrorSelected:" destination="nVe-hc-Wct" eventType="touchUpInside" id="ERE-hu-VzP"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idI-PG-pjJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idI-PG-pjJ">
                                 <rect key="frame" x="10" y="118" width="408" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gw2-py-ekR"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="14"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="notificationViewSelectedWithSender:" destination="nVe-hc-Wct" eventType="touchUpInside" id="T7x-9u-Efv"/>
@@ -111,6 +111,7 @@
                         <constraints>
                             <constraint firstItem="BT1-vS-TsE" firstAttribute="trailing" secondItem="sfC-Z1-Yjk" secondAttribute="trailing" constant="20" id="1Vo-Zd-zda"/>
                             <constraint firstItem="BT1-vS-TsE" firstAttribute="bottom" secondItem="sfC-Z1-Yjk" secondAttribute="bottom" constant="150" id="2iq-RY-q7Y"/>
+                            <constraint firstItem="idI-PG-pjJ" firstAttribute="centerX" secondItem="wqN-sq-iWz" secondAttribute="centerX" id="887-YH-lKT"/>
                             <constraint firstItem="sfC-Z1-Yjk" firstAttribute="top" secondItem="JYE-Xh-LeX" secondAttribute="bottom" constant="8" id="B7j-Go-9dS"/>
                             <constraint firstItem="BT1-vS-TsE" firstAttribute="bottom" secondItem="B7m-kL-5A1" secondAttribute="bottom" constant="68" id="GHR-XT-Aiy"/>
                             <constraint firstItem="B7m-kL-5A1" firstAttribute="leading" secondItem="BT1-vS-TsE" secondAttribute="leading" constant="100" id="QP3-3B-R3l"/>
