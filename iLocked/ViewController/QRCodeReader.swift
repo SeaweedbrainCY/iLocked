@@ -75,7 +75,7 @@ class QRCodeReader: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
     
     
     func failed() {
-        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .alert)
+        let ac = UIAlertController(title: "Scanning not supported".localized(), message: "Your device does not support scanning a code from an item. Please use a device with a camera.".localized(withKey: "noCameraSupport"), preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: "OK", style: .default))
         present(ac, animated: true)
         captureSession = nil

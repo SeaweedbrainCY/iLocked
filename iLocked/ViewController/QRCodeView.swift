@@ -96,7 +96,7 @@ class QRCodeViewController: UIViewController {
             self.qrCodeImage.image = UIImage(systemName: "exclamationmark.triangle.fill")
             self.qrCodeImage.tintColor = .systemOrange
             self.titleStr = "Error ! 🔨".localized()
-            self.descriptionLabel.text = "Impossible to generate the QRCode. " + error.localizedDescription
+            self.descriptionLabel.text = "Impossible to generate the QRCode. ".localized() + error.localizedDescription
             self.descriptionLabel.textColor = .systemRed
             background.async {
                 try? self.log.write(message: "⚠️ ERROR. An error occured when generating a QRCode. Error thrown = \(error). Operation aborted and error message displayed.")

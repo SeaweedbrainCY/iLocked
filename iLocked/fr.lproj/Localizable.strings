@@ -321,3 +321,38 @@
 "impossibleToDecrypt" = "iLocked ne peut pas déchiffrer ce texte. Veuillez ré-essayer ou chiffrer un nouveau message";
 
 "Impossible to read the logs." = "Impossible de lire les logs";
+
+
+"Impossible to retrieve any data of the QRCode" = "Impossible de récupérer les données du QRCode";
+
+"The QRCode doesn't contain a public key" = "Le QRCode ne contient pas de clé publique";
+
+"Invalid data. Cannot be read" = "Données incorrectes. Impossible de lire";
+
+"Invalid QRCode version. Cannot be read" = "Version du QRCode invalide. Impossible de lire";
+
+"The QRCode data is corrupted" = "Les données du QRCode sont corrompues";
+
+"Data type unknown. Impossible to decode" = "Type de donnée inconnu. Impossible de décoder";
+
+"The data integrity cannot be checked. Decoding prohibited" = "Intégrité des données non verifiables. Décodage interdit.";
+
+"Invalid format. Cannot be read" = "Format invalide. Impossible de lire.";
+
+"Shortcut" = "Raccourcis";
+
+"Plain text" = "Format texte";
+
+"Share as :" = "Partager en :";
+
+
+"Error 🚧. Please try again." = "Erreur 🚧. Veuillez ré-essayer.";
+
+"Impossible to generate the QRCode. " = "Impossible de générer le QRCode. ";
+
+"Scanning not supported" = "Scann non supporté";
+
+"Your device does not support scanning a code from an item. Please use a device with a camera.".localized(withKey: "noCameraSupport"
+    
+"noCameraSupport" = "Votre appareil ne support pas le scan de QRCode. Utilisez un appareil avec une caméra";
+

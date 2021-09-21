@@ -30,7 +30,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     var date = UILabel()
     var tips = UILabel()
     var QRCodeButton = UIButton()
-    let shareModeItems: [String] = ["Shortcut", "Plain text"]
+    let shareModeItems: [String] = ["Shortcut".localized(), "Plain text".localized()]
     var shareModeButton = UISegmentedControl()
     var shareModeTitle = UILabel()
     var shareModeInfoButton = UIButton()
@@ -176,7 +176,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.shareModeTitle.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.shareModeTitle.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 3).isActive = true
         self.shareModeTitle.leftAnchor.constraint(equalToSystemSpacingAfter: self.shareModeInfoButton.rightAnchor, multiplier: 1).isActive = true
-        self.shareModeTitle.text = "Share mode :"
+        self.shareModeTitle.text = "Share as :".localized()
         self.shareModeTitle.font = UIFont(name: "Avenir Next Demibold", size: 10)
         self.shareModeTitle.textColor = .white
        
@@ -483,7 +483,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
                 qrCodeView?.titleStr = self.keyTitle.text!
             }else {
                 qrCodeView?.text = ""
-                qrCodeView?.titleStr = "Error 🚧. Please try again."
+                qrCodeView?.titleStr = "Error 🚧. Please try again.".localized()
             }
         } 
         
