@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		18C22E061A4B98701C8A2A80 /* Pods_iLocked_iLockedUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98E3266A737B37B6E5EB8628 /* Pods_iLocked_iLockedUITests.framework */; };
 		8B2EBF535CDC2D70F1E25B9E /* Pods_iLocked.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51CC857FDA009979BA8EABC3 /* Pods_iLocked.framework */; };
-		900BEE4226D9493F00426C11 /* SwiftyRSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900BEE4126D9493F00426C11 /* SwiftyRSA.swift */; };
 		9013F7F326B05FC300CC7361 /* ExportKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9013F7F226B05FC300CC7361 /* ExportKeys.swift */; };
 		9014387D26D6687700384EB4 /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014387C26D6687700384EB4 /* Logs.swift */; };
 		9014387F26D807EA00384EB4 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9014387E26D807EA00384EB4 /* LogView.swift */; };
@@ -114,7 +113,6 @@
 		51CC857FDA009979BA8EABC3 /* Pods_iLocked.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLocked.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		730C3F2FDC83288355D730E1 /* Pods-iLockedTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLockedTests.debug.xcconfig"; path = "Target Support Files/Pods-iLockedTests/Pods-iLockedTests.debug.xcconfig"; sourceTree = "<group>"; };
 		795E0CE1AEC71C0C257C2D28 /* Pods-iLocked.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iLocked.release.xcconfig"; path = "Target Support Files/Pods-iLocked/Pods-iLocked.release.xcconfig"; sourceTree = "<group>"; };
-		900BEE4126D9493F00426C11 /* SwiftyRSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyRSA.swift; sourceTree = "<group>"; };
 		9013F7F226B05FC300CC7361 /* ExportKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportKeys.swift; sourceTree = "<group>"; };
 		9014387C26D6687700384EB4 /* Logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logs.swift; sourceTree = "<group>"; };
 		9014387E26D807EA00384EB4 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
@@ -424,7 +422,6 @@
 				904063A926949B1600946518 /* UIWindow.swift */,
 				90CDFA9E26CEED96006CF06D /* UIImage.swift */,
 				9031317B26D91A9E0085C9E2 /* Bundle.swift */,
-				900BEE4126D9493F00426C11 /* SwiftyRSA.swift */,
 				901F8D3626DC3FF3001BCD17 /* Data.swift */,
 			);
 			path = Extension;
@@ -705,7 +702,6 @@
 			files = (
 				90EBFC9226ACB68C002B30E9 /* TabBarController.swift in Sources */,
 				D8A64B3C2353BC70000613F3 /* KeyId.swift in Sources */,
-				900BEE4226D9493F00426C11 /* SwiftyRSA.swift in Sources */,
 				D8A64B562353BCC1000613F3 /* AddKey.swift in Sources */,
 				D8A64B4B2353BCA0000613F3 /* TextView.swift in Sources */,
 				D8A64B0B2353BC1C000613F3 /* ViewController.swift in Sources */,
@@ -951,7 +947,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -960,7 +956,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -979,7 +975,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -988,7 +984,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.0;
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

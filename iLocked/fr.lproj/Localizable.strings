@@ -335,7 +335,7 @@
 
 "Data type unknown. Impossible to decode" = "Type de donnée inconnu. Impossible de décoder";
 
-"The data integrity cannot be checked. Decoding prohibited" = "Intégrité des données non verifiables. Décodage interdit.";
+"The data integrity cannot be checked. Decoding prohibited" = "Intégrité des données non verifiable. Décodage interdit.";
 
 "Invalid format. Cannot be read" = "Format invalide. Impossible de lire.";
 
@@ -351,8 +351,6 @@
 "Impossible to generate the QRCode. " = "Impossible de générer le QRCode. ";
 
 "Scanning not supported" = "Scann non supporté";
-
-"Your device does not support scanning a code from an item. Please use a device with a camera.".localized(withKey: "noCameraSupport"
     
 "noCameraSupport" = "Votre appareil ne support pas le scan de QRCode. Utilisez un appareil avec une caméra";
 
