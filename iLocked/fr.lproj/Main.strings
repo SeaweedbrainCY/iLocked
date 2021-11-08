@@ -281,7 +281,7 @@
 "byC-BB-6Mv.text" = "Envoi sûr";
 
 /* Class = "UILabel"; text = "WARNING : Your are going to export your private key, a highly critical information. You absoutely must keep it in a safe place. Do not share it. Keep it for yourself."; ObjectID = "gO7-k7-Y51"; */
-"gO7-k7-Y51.text" = "ATTENTION : Vous vous apprêtez à exporter votre clé publique, une information extrêmement critique. Vous devez absolument la garder dans un endroit sûr. Ne la partagez pas. Gardez la pour vous seul.";
+"gO7-k7-Y51.text" = "ATTENTION : Vous vous apprêtez à exporter votre clé privée, une information extrêmement critique. Vous devez absolument la garder dans un endroit sûr. Ne la partagez pas. Gardez la pour vous seul.";
 
 /* Class = "UIButton"; normalTitle = "Get started"; ObjectID = "glu-yL-799"; */
 "glu-yL-799.normalTitle" = "Commencer";
@@ -293,7 +293,7 @@
 "mst-CE-gIr.text" = "Message d'erreur";
 
 /* Class = "UILabel"; text = "Critical information. Keep your private key safe."; ObjectID = "ocq-Yv-pRC"; */
-"ocq-Yv-pRC.text" = "Informations critiques. Gardez votre clé publique en sécurité.";
+"ocq-Yv-pRC.text" = "Informations critiques. Gardez votre clé privée en sécurité.";
 
 /* Class = "UILabel"; text = "iLocked encrypts and secures your messages"; ObjectID = "r6J-78-5EF"; */
 "r6J-78-5EF.text" = "iLocked chiffre et sécurise vos messages";
