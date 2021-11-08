@@ -137,6 +137,7 @@ public enum settingsPath : String{
     case logError
     case ratingRequest
     case lastVersionPromptedForReview
+    case shareMode
     
     var path : String{
         switch self {
@@ -152,6 +153,8 @@ public enum settingsPath : String{
             return "ratingRequest"
         case .lastVersionPromptedForReview:
             return "lastVersionPromptedForReview"
+        case .shareMode:
+            return "shareMode"
         }
     }
 }

@@ -48,6 +48,7 @@
 		90EBFC9926AD8C39002B30E9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90EBFC9B26AD8C39002B30E9 /* Localizable.strings */; };
 		90EE52B2267675FB00C506AA /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EE52B1267675FB00C506AA /* WebView.swift */; };
 		90EEEAFD266E7D0C00A158DA /* donationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90EEEAFC266E7D0C00A158DA /* donationView.swift */; };
+		90FD7069271EE712009A0618 /* SelectIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90FD7068271EE712009A0618 /* SelectIcon.swift */; };
 		B037C8C84669C52ACFCEFA52 /* Pods_iLockedTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1F5E282084DD7D32DBD73EC /* Pods_iLockedTests.framework */; };
 		D820B848235E3559006CEB38 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B847235E3559006CEB38 /* UIView.swift */; };
 		D820B84A235E359D006CEB38 /* DecryptedResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = D820B849235E359D006CEB38 /* DecryptedResult.swift */; };
@@ -154,6 +155,7 @@
 		90EBFC9A26AD8C39002B30E9 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		90EE52B1267675FB00C506AA /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		90EEEAFC266E7D0C00A158DA /* donationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donationView.swift; sourceTree = "<group>"; };
+		90FD7068271EE712009A0618 /* SelectIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectIcon.swift; sourceTree = "<group>"; };
 		98E3266A737B37B6E5EB8628 /* Pods_iLocked_iLockedUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLocked_iLockedUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F5E282084DD7D32DBD73EC /* Pods_iLockedTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iLockedTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D820B847235E3559006CEB38 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -262,6 +264,13 @@
 			path = Tutorial;
 			sourceTree = "<group>";
 		};
+		90C1B99A2738402F00EE4864 /* app_icon */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = app_icon;
+			sourceTree = "<group>";
+		};
 		90CDFAA026CFF674006CF06D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +332,7 @@
 				D8A64B0F2353BC23000613F3 /* Assets.xcassets */,
 				D8A64B112353BC23000613F3 /* LaunchScreen.storyboard */,
 				D8A64B142353BC23000613F3 /* Info.plist */,
+				90C1B99A2738402F00EE4864 /* app_icon */,
 			);
 			path = iLocked;
 			sourceTree = "<group>";
@@ -390,6 +400,7 @@
 				908AE09826B554570032D74A /* ImportKeys.swift */,
 				90D367A226C58FA800108B64 /* UpgradePage.swift */,
 				901F8D3B26DD14F4001BCD17 /* QRCodeReader.swift */,
+				90FD7068271EE712009A0618 /* SelectIcon.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -441,6 +452,7 @@
 				D8A64B012353BC1C000613F3 /* Resources */,
 				90B4CACF25CA0A2A00D6119B /* ShellScript */,
 				E785E6545F102E0D03C2F8C1 /* [CP] Embed Pods Frameworks */,
+				90C1B9992738399000EE4864 /* Increment Build */,
 			);
 			buildRules = (
 			);
@@ -637,6 +649,24 @@
 			shellPath = /bin/sh;
 			shellScript = "#if which swiftlint >/dev/null; then\n  #  swiftlint\n#else\n #   echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi'''\n";
 		};
+		90C1B9992738399000EE4864 /* Increment Build */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Increment Build";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/iLocked/Info.plist\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/iLocked/Info.plist\"\n";
+		};
 		D929CF1090988723D4C97791 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -728,6 +758,7 @@
 				90EBFC9426ACB6BD002B30E9 /* NavigationController.swift in Sources */,
 				901D23A326C9C27500C5DCCA /* ThirdTutoView.swift in Sources */,
 				904063AC26971CCD00946518 /* Colors.swift in Sources */,
+				90FD7069271EE712009A0618 /* SelectIcon.swift in Sources */,
 				D8A64B592353BCC1000613F3 /* EncryptHomePage.swift in Sources */,
 				9031317C26D91A9E0085C9E2 /* Bundle.swift in Sources */,
 				90B69BE2269DB58A00451DFC /* FirstWelcomeView.swift in Sources */,
@@ -947,7 +978,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -956,7 +987,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -975,7 +1006,7 @@
 				CODE_SIGN_ENTITLEMENTS = iLocked/iLocked.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3T8JC8YTSR;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
@@ -984,7 +1015,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.nat.iLocked;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

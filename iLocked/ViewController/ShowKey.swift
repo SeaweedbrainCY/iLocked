@@ -169,6 +169,7 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.shareModeInfoButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 3).isActive = true
         self.shareModeInfoButton.setImage(UIImage(systemName: "info.circle.fill"), for: .normal)
         self.shareModeInfoButton.tintColor = .lightGray
+        self.shareModeInfoButton.addTarget(self, action: #selector(shareModeInfoSelected), for: .touchUpInside)
         
         self.backgroundView.addSubview(self.shareModeTitle)
         self.shareModeTitle.translatesAutoresizingMaskIntoConstraints = false
@@ -189,7 +190,6 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         self.shareModeButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
         self.shareModeButton.rightAnchor.constraint(equalTo: self.scrollView.rightAnchor, constant: -20).isActive = true
         self.shareModeButton.leftAnchor.constraint(equalToSystemSpacingAfter: self.shareModeTitle.rightAnchor, multiplier: 1).isActive = true
-        
         self.shareModeButton.topAnchor.constraint(equalToSystemSpacingBelow: self.key.bottomAnchor, multiplier: 3).isActive = true
         self.shareModeButton.selectedSegmentIndex = 0
         self.shareModeButton.tintColor = .white
@@ -425,6 +425,17 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
     }
     
     @objc func shareModeValueChanged(){
+        let settings = SettingsData()
+        var settingsInfo = settings.getSetting()
+        if self.shareModeButton.selectedSegmentIndex == 0 {
+            settingsInfo.updateValue("shortcut", forKey: settingsPath.shareMode.path)
+        } else {
+            settingsInfo.updateValue("text", forKey: settingsPath.shareMode.path)
+        }
+        settings.saveSetting(dict: settingsInfo)
+    }
+    
+    @objc func shareModeInfoSelected(){
         
     }
     
@@ -453,6 +464,20 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
         })
         self.perform(#selector(dismissView), with: nil, afterDelay: 1.6)
     }
+    
+    func getSettings(){
+        let settings = SettingsData()
+        var settingsInfo = settings.getSetting()
+        if (settingsInfo.keys).contains(settingsPath.shareMode.path)  {
+            if settingsInfo[settingsPath.shareMode.path] == "text" {
+                self.shareModeButton.selectedSegmentIndex = 1
+            } // else it's already in short cut
+        } else {// else it's already in short cut and we save it
+            settingsInfo.updateValue("shortcut", forKey: settingsPath.shareMode.path)
+        }
+    }
+    
+    
     
     
     
@@ -485,7 +510,6 @@ class ShowKey: UIViewController, UIScrollViewDelegate {
                 qrCodeView?.text = ""
                 qrCodeView?.titleStr = "Error 🚧. Please try again.".localized()
             }
-        } 
-        
+        }
     }
 }

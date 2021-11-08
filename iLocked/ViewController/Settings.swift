@@ -61,7 +61,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
 
     ///number of section
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     /// Cells for each section
@@ -74,8 +74,9 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             } else {
                 return 2
             }
-        case 1 : return 2
-        case 2 :
+        case 1 : return 1
+        case 2 : return 2
+        case 3 :
             let settingsData = SettingsData()
             let settings = settingsData.getSetting()
             if (settings.keys).contains(SettingsName.isPasswordActivated.key) && settings[SettingsName.isPasswordActivated.key] == "false" {
@@ -83,8 +84,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             } else {
                 return 3
             }
-        case 3 : return 3
-        case 4 : return 1
+        case 4 : return 3
+        case 5 : return 1
         default : return 0
             
         }
@@ -124,7 +125,17 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     cell.textLabel?.text = "ERROR"
                 }
             }
-        } else if indexPath.section == 1{
+        } else if indexPath.section == 1 {
+            switch indexPath.row{
+            case 0:
+                cell.textLabel?.text = "🪄 Change app's icon"
+                accessoryView = UIImageView(image: self.nextViewSettingImageView)
+                accessoryView.tintColor = .darkGray
+            default :
+                cell.textLabel?.text = "ERROR"
+            }
+        
+        } else if indexPath.section == 2{
             switch indexPath.row {
             case 0:
                 cell.textLabel?.text = "🔑 Export your keys".localized()
@@ -136,7 +147,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             default:
                 cell.textLabel?.text = "ERROR"
             }
-        } else if indexPath.section == 2 {
+            
+        } else if indexPath.section == 3 {
             switch indexPath.row {
             case 0 :
                 if (setting.keys).contains(SettingsName.isPasswordActivated.key){ // Check if the setting is already init
@@ -199,7 +211,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             default :
                 cell.textLabel?.text = "ERROR"
             }
-        } else if indexPath.section == 3 {
+        } else if indexPath.section == 4 {
             switch indexPath.row {
             case 0 :
                 cell.textLabel?.text = "🕹 Show tutorial again".localized()
@@ -212,7 +224,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 
             default : cell.textLabel?.text = "ERROR"
             }
-        } else if indexPath.section == 4{
+        } else if indexPath.section == 5{
             switch indexPath.row {
             case 0 :
                 cell.textLabel?.text = "⚙️ Advanced settings".localized()
@@ -241,10 +253,11 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             } else {
                 return "Developer 👨‍💻".localized()
             }
-        case 1 : return "Keys 🔑".localized()
-        case 2 : return "Security 🔐".localized()
-        case 3 : return "Application 📱"
-        case 4 : return ""
+        case 1 : return "Personnalisation 🪄" // translation ?
+        case 2 : return "Keys 🔑".localized()
+        case 3 : return "Security 🔐".localized()
+        case 4 : return "Application 📱"
+        case 5 : return ""
         default : return "ERROR"
         }
     }
@@ -266,7 +279,14 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 }
             }
             
-        } else if indexPath.section == 1 {
+        } else if indexPath.section == 1{
+            switch indexPath.row {
+            case 0:
+                performSegue(withIdentifier: "selectIcon", sender: self)
+            default :
+                break
+            }
+        } else if indexPath.section == 2 {
             switch indexPath.row {
             case 0 :
                 self.performSegue(withIdentifier: "showExportKeys", sender: self)
@@ -308,7 +328,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             default:
                 break
             }
-        } else if indexPath.section == 3  {
+        } else if indexPath.section == 4  {
             var textVersion = ""
             if let version = Bundle.main.releaseVersionNumber {
                 print("version = \(version)")
@@ -342,7 +362,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 UIApplication.shared.open(URL(string: "https://devnathan.github.io")!, options: [:], completionHandler: nil)
             default : break
             }
-        } else if indexPath.section == 4{
+        } else if indexPath.section == 5{
             switch indexPath.row {
             case 0:
                 self.performSegue(withIdentifier: "advancedSettings", sender: self)
@@ -356,7 +376,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
    
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == 4 {
+        if section == 5 {
             let footerLabelView = UILabel()
             footerLabelView.textColor = .lightGray
             footerLabelView.font = UIFont(name: "Avenir Next Bold", size: 15)
@@ -385,7 +405,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == 4 {
+        if section == 5 {
             return 100
         }
         return 20
