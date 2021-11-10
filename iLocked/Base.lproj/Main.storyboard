@@ -1973,13 +1973,13 @@ Thanks a lot ! 🤍</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V60-rj-zff">
-                                <rect key="frame" x="0.0" y="134.33333333333337" width="409" height="1031.6666666666665"/>
+                                <rect key="frame" x="0.0" y="134.33333333333337" width="428" height="1031.6666666666665"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dx-Dm-H2Z">
-                                        <rect key="frame" x="0.0" y="0.0" width="409" height="1300"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1300"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; My password is ********* &quot;" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zlZ-Xg-NgT">
-                                                <rect key="frame" x="15" y="447.33333333333326" width="230" height="51"/>
+                                                <rect key="frame" x="15" y="418.66666666666663" width="230" height="51"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="230" id="3jf-Zx-QZv"/>
                                                 </constraints>
@@ -1988,14 +1988,14 @@ Thanks a lot ! 🤍</string>
                                                 <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share.attention" translatesAutoresizingMaskIntoConstraints="NO" id="wbp-O8-NNn">
-                                                <rect key="frame" x="253" y="440.66666666666663" width="53" height="53"/>
+                                                <rect key="frame" x="253" y="412" width="53" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="53" id="B18-M5-t1A"/>
                                                     <constraint firstAttribute="height" constant="53" id="O6I-iG-pj3"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unsafe to send" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuV-vQ-OaW">
-                                                <rect key="frame" x="326" y="444.66666666666663" width="63" height="53"/>
+                                                <rect key="frame" x="326" y="416" width="63" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="4Dp-y9-OtZ"/>
                                                     <constraint firstAttribute="width" constant="63" id="ZQZ-Lz-cBW"/>
@@ -2005,14 +2005,14 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share_ok" translatesAutoresizingMaskIntoConstraints="NO" id="0ps-gO-264">
-                                                <rect key="frame" x="253" y="548.66666666666663" width="53" height="53"/>
+                                                <rect key="frame" x="253" y="520" width="53" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="eea-Mv-gVu"/>
                                                     <constraint firstAttribute="width" constant="53" id="uHy-XY-Ov4"/>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iLocked encrypts and secures your messages" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6J-78-5EF">
-                                                <rect key="frame" x="20" y="20" width="369" height="91"/>
+                                                <rect key="frame" x="20" y="20" width="388" height="91"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="91" id="Ebo-tS-s7K"/>
                                                 </constraints>
@@ -2021,13 +2021,13 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Share your private information without any security and confidentiality issue." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aRB-RU-I4k">
-                                                <rect key="frame" x="20" y="281" width="369" height="86.333333333333314"/>
+                                                <rect key="frame" x="20" y="281" width="388" height="57.666666666666686"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&quot; ubevVizgv#oebbfzO!YTA§TRSFj &quot;" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdU-sv-N8V">
-                                                <rect key="frame" x="15" y="552.66666666666663" width="194" height="44"/>
+                                                <rect key="frame" x="15" y="524" width="194" height="44"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="194" id="qfy-4y-Bls"/>
                                                 </constraints>
@@ -2036,7 +2036,7 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="view_chargement" translatesAutoresizingMaskIntoConstraints="NO" id="ml2-TL-JG8">
-                                                <rect key="frame" x="159.66666666666666" y="150.99999999999997" width="90" height="90"/>
+                                                <rect key="frame" x="169" y="150.99999999999997" width="90" height="90"/>
                                                 <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="2Aq-xy-uon"/>
@@ -2044,7 +2044,7 @@ Thanks a lot ! 🤍</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Safe to send" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="byC-BB-6Mv">
-                                                <rect key="frame" x="326" y="551.66666666666663" width="63" height="53"/>
+                                                <rect key="frame" x="326" y="523" width="63" height="53"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="53" id="RKR-Fz-Yns"/>
                                                     <constraint firstAttribute="width" constant="63" id="ieW-Sw-1kc"/>
@@ -2054,13 +2054,13 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Code, credit card, secret, password, critical info, confidential message ..." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEs-xh-NID">
-                                                <rect key="frame" x="10" y="377.33333333333337" width="389" height="41"/>
+                                                <rect key="frame" x="10" y="348.66666666666663" width="408" height="41"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="15"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wifi.slash" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="0dk-rq-5IA">
-                                                <rect key="frame" x="20" y="657" width="60" height="57.666666666666629"/>
+                                                <rect key="frame" x="20" y="628.33333333333337" width="60" height="57.666666666666629"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="87C-my-rq3"/>
@@ -2068,7 +2068,7 @@ Thanks a lot ! 🤍</string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="No need for internet connection" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UXE-VK-jzA">
-                                                <rect key="frame" x="88" y="656.66666666666663" width="301" height="60"/>
+                                                <rect key="frame" x="88" y="628" width="320" height="60"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="prC-Zp-V1N"/>
                                                 </constraints>
@@ -2077,13 +2077,13 @@ Thanks a lot ! 🤍</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="🔐 What's in your iPhone, stays in your iPhone" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxC-uf-Lfn">
-                                                <rect key="frame" x="88" y="716.66666666666663" width="311" height="16.666666666666629"/>
+                                                <rect key="frame" x="88" y="688" width="330" height="16.666666666666629"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="12"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glu-yL-799">
-                                                <rect key="frame" x="104.66666666666669" y="810.66666666666663" width="200" height="51"/>
+                                                <rect key="frame" x="114" y="782" width="200" height="51"/>
                                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="51" id="BUN-cU-mtm"/>
@@ -2153,11 +2153,11 @@ Thanks a lot ! 🤍</string>
                                 <viewLayoutGuide key="frameLayoutGuide" id="7lv-k7-fVV"/>
                             </scrollView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.17000000178813934" translatesAutoresizingMaskIntoConstraints="NO" id="5CJ-h6-x1p">
-                                <rect key="frame" x="20" y="44" width="369" height="4"/>
+                                <rect key="frame" x="20" y="44" width="388" height="4"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome ! 👋" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24N-2Q-Wsr">
-                                <rect key="frame" x="20" y="58" width="369" height="56.333333333333343"/>
+                                <rect key="frame" x="20" y="58" width="388" height="56.333333333333343"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="41"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
