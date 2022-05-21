@@ -5,6 +5,8 @@
 
 iLocked is an iOS application. It purpose is to give to anyone an easy and efficient way to encrypt or decrypt any and all text message and send it via usuals messaging app (like Messenger, WhatsApp etc...).
 
+Get iLocked on the ![app store](https://apps.apple.com/fr/app/ilocked-protect-your-privacy/id1582183144) ! 
+
 # Security contribution 
 
 Email : nathanstchepinsky@protonmail.com
@@ -23,7 +25,7 @@ iLocked allows anyone to encrypt, with a highly secure cryptographic function, a
 ### Even add and store your friends' public key 
 <img src="https://github.com/DevNathan/iLocked/blob/8e0aa637dcac0b9a2b7876bad317ad19722eb7fa/presentation_images/keyList_homePage.png" width=40% height=40%>  <img src="https://github.com/DevNathan/iLocked/blob/8e0aa637dcac0b9a2b7876bad317ad19722eb7fa/presentation_images/Key_page.png" width=40% height=40%> 
 
-### All of that in a full open source application, released very soon
+### All of that in a full open source application !
 
 # Licence 
 
@@ -34,6 +36,10 @@ Except if a license is purchased, you are not allowed to make any profit from th
 - It is allowed to run iLocked without purchasing any license on for profit companies if the company itself (or its ITSM provider) run it.
 - To build services based on iLocked AND earning money from that, you MUST purchase a license.
 
-iLocked uses the following Open source components:
+iLocked uses the following Open source components: https://devnathan.github.io/source/iLocked/openSource.html
 
-- 
+# Author 
+
+Nathan Stchepinsky 
+
+Email : nathanstchepinsky@protonmail.com
