@@ -1,0 +1,64 @@
+Target dependency graph (30 targets)
+Target 'iLocked' in project 'iLocked'
+➜ Implicit dependency on target 'Pods-iLocked' in project 'Pods' via file 'Pods_iLocked.framework' in build phase 'Link Binary'
+➜ Implicit dependency on target 'SwiftyRSA' in project 'Pods' via options '-framework SwiftyRSA' in build setting 'OTHER_LDFLAGS'
+➜ Explicit dependency on target 'QRCode' in project 'QRCode'
+➜ Explicit dependency on target 'InAppPurchaseLib' in project 'InAppPurchaseLib'
+➜ Explicit dependency on target 'SPConfetti' in project 'SPConfetti'
+Target 'SPConfetti' in project 'SPConfetti'
+➜ Explicit dependency on target 'SPConfetti' in project 'SPConfetti'
+➜ Explicit dependency on target 'SPConfetti_SPConfetti' in project 'SPConfetti'
+Target 'SPConfetti' in project 'SPConfetti'
+➜ Explicit dependency on target 'SPConfetti_SPConfetti' in project 'SPConfetti'
+Target 'SPConfetti_SPConfetti' in project 'SPConfetti' (no dependencies)
+Target 'InAppPurchaseLib' in project 'InAppPurchaseLib'
+➜ Explicit dependency on target 'InAppPurchaseLib' in project 'InAppPurchaseLib'
+Target 'InAppPurchaseLib' in project 'InAppPurchaseLib' (no dependencies)
+Target 'QRCode' in project 'QRCode'
+➜ Explicit dependency on target 'QRCode' in project 'QRCode'
+Target 'QRCode' in project 'QRCode' (no dependencies)
+Target 'Pods-iLocked' in project 'Pods'
+➜ Explicit dependency on target 'SwiftyRSA' in project 'Pods'
+Target 'SwiftyRSA' in project 'Pods' (no dependencies)
+Target 'iLocked' in project 'iLocked'
+➜ Implicit dependency on target 'Pods-iLocked' in project 'Pods' via file 'Pods_iLocked.framework' in build phase 'Link Binary'
+➜ Implicit dependency on target 'SwiftyRSA' in project 'Pods' via options '-framework SwiftyRSA' in build setting 'OTHER_LDFLAGS'
+➜ Explicit dependency on target 'QRCode' in project 'QRCode'
+➜ Explicit dependency on target 'InAppPurchaseLib' in project 'InAppPurchaseLib'
+➜ Explicit dependency on target 'SPConfetti' in project 'SPConfetti'
+Target 'SPConfetti' in project 'SPConfetti'
+➜ Explicit dependency on target 'SPConfetti' in project 'SPConfetti'
+➜ Explicit dependency on target 'SPConfetti_SPConfetti' in project 'SPConfetti'
+Target 'SPConfetti' in project 'SPConfetti'
+➜ Explicit dependency on target 'SPConfetti_SPConfetti' in project 'SPConfetti'
+Target 'SPConfetti_SPConfetti' in project 'SPConfetti' (no dependencies)
+Target 'InAppPurchaseLib' in project 'InAppPurchaseLib'
+➜ Explicit dependency on target 'InAppPurchaseLib' in project 'InAppPurchaseLib'
+Target 'InAppPurchaseLib' in project 'InAppPurchaseLib' (no dependencies)
+Target 'QRCode' in project 'QRCode'
+➜ Explicit dependency on target 'QRCode' in project 'QRCode'
+Target 'QRCode' in project 'QRCode' (no dependencies)
+Target 'Pods-iLocked' in project 'Pods'
+➜ Explicit dependency on target 'SwiftyRSA' in project 'Pods'
+Target 'SwiftyRSA' in project 'Pods' (no dependencies)
+Target 'iLocked' in project 'iLocked'
+➜ Implicit dependency on target 'Pods-iLocked' in project 'Pods' via file 'Pods_iLocked.framework' in build phase 'Link Binary'
+➜ Implicit dependency on target 'SwiftyRSA' in project 'Pods' via options '-framework SwiftyRSA' in build setting 'OTHER_LDFLAGS'
+➜ Explicit dependency on target 'QRCode' in project 'QRCode'
+➜ Explicit dependency on target 'InAppPurchaseLib' in project 'InAppPurchaseLib'
+➜ Explicit dependency on target 'SPConfetti' in project 'SPConfetti'
+Target 'SPConfetti' in project 'SPConfetti'
+➜ Explicit dependency on target 'SPConfetti' in project 'SPConfetti'
+➜ Explicit dependency on target 'SPConfetti_SPConfetti' in project 'SPConfetti'
+Target 'SPConfetti' in project 'SPConfetti'
+➜ Explicit dependency on target 'SPConfetti_SPConfetti' in project 'SPConfetti'
+Target 'SPConfetti_SPConfetti' in project 'SPConfetti' (no dependencies)
+Target 'InAppPurchaseLib' in project 'InAppPurchaseLib'
+➜ Explicit dependency on target 'InAppPurchaseLib' in project 'InAppPurchaseLib'
+Target 'InAppPurchaseLib' in project 'InAppPurchaseLib' (no dependencies)
+Target 'QRCode' in project 'QRCode'
+➜ Explicit dependency on target 'QRCode' in project 'QRCode'
+Target 'QRCode' in project 'QRCode' (no dependencies)
+Target 'Pods-iLocked' in project 'Pods'
+➜ Explicit dependency on target 'SwiftyRSA' in project 'Pods'
+Target 'SwiftyRSA' in project 'Pods' (no dependencies)

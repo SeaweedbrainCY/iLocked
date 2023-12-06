@@ -1,0 +1,39 @@
+{
+  "" : {
+    "dependencies" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/InAppPurchaseLib.build/Debug-maccatalyst/InAppPurchaseLib.build/Objects-normal/arm64/InAppPurchaseLib-master.d",
+    "diagnostics" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/InAppPurchaseLib.build/Debug-maccatalyst/InAppPurchaseLib.build/Objects-normal/arm64/InAppPurchaseLib-master.dia",
+    "emit-module-dependencies" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/InAppPurchaseLib.build/Debug-maccatalyst/InAppPurchaseLib.build/Objects-normal/arm64/InAppPurchaseLib-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/InAppPurchaseLib.build/Debug-maccatalyst/InAppPurchaseLib.build/Objects-normal/arm64/InAppPurchaseLib-master-emit-module.dia",
+    "swift-dependencies" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/InAppPurchaseLib.build/Debug-maccatalyst/InAppPurchaseLib.build/Objects-normal/arm64/InAppPurchaseLib-master.swiftdeps"
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/Common/IAPCallback.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/Common/IAPError.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/Common/IAPStorageService.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/InAppPurchase.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/InAppPurchaseLib.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/Product/IAPProduct.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/Product/IAPProductService.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/Product/SKProductExtension.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/Purchase/IAPReceiptService.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Library/Developer/Xcode/DerivedData/iLocked-esxkutcmrvnuovccuulaaqjcklgg/SourcePackages/checkouts/iap-swift-lib/Sources/InAppPurchaseLib/Purchase/IAPTransactionObserver.swift" : {
+
+  }
+}

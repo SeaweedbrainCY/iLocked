@@ -1,0 +1,45 @@
+{
+  "" : {
+    "dependencies" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/SwiftyRSA.build/Objects-normal/arm64/SwiftyRSA-master.d",
+    "diagnostics" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/SwiftyRSA.build/Objects-normal/arm64/SwiftyRSA-master.dia",
+    "emit-module-dependencies" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/SwiftyRSA.build/Objects-normal/arm64/SwiftyRSA-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/SwiftyRSA.build/Objects-normal/arm64/SwiftyRSA-master-emit-module.dia",
+    "swift-dependencies" : "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/DerivedData/iLocked/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphonesimulator/SwiftyRSA.build/Objects-normal/arm64/SwiftyRSA-master.swiftdeps"
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/Asn1Parser.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/ClearMessage.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/EncryptedMessage.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/Key.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/Message.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/PrivateKey.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/PublicKey.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/Signature.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/SwiftyRSA.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/SwiftyRSA+ObjC.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/SwiftyRSAError.swift" : {
+
+  },
+  "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/Pods/SwiftyRSA/Source/X509Certificate.swift" : {
+
+  }
+}

@@ -1,0 +1,4 @@
+module InAppPurchaseLib {
+header "InAppPurchaseLib-Swift.h"
+export *
+}

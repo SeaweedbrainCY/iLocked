@@ -9,15 +9,11 @@
 import Foundation
 import UIKit
 
-<<<<<<< Updated upstream
 class SelectIcon: UIViewController, UIScrollViewDelegate{
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-=======
-class SelectIcon: UIViewController{
->>>>>>> Stashed changes
     
     @IBOutlet weak var backgroundLogo1:UIView!
     @IBOutlet weak var backgroundLogo2:UIView!
@@ -31,29 +27,22 @@ class SelectIcon: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         constructViews()
-<<<<<<< Updated upstream
         
         self.scrollView.delegate = self
     }
     
     /*private func constructViews(){
-=======
-    }
-    
-    private func constructViews(){
->>>>>>> Stashed changes
         let allBackgroundViews: [UIView] = [self.backgroundLogo1, self.backgroundLogo2, self.backgroundLogo3, self.backgroundLogo4, self.backgroundLogo5, self.backgroundLogo6]
         
         for background in allBackgroundViews{
             background.frame = CGRect(x: background.frame.origin.x, y: background.frame.origin.y, width: self.view.frame.width / 3, height: self.view.frame.width / 3)
         }
-<<<<<<< Updated upstream
     }*/
     
     private func constructViews(){
         let allBackgroundViews: [(UIView, UIView)] = [(self.backgroundLogo1, self.backgroundLogo2), (self.backgroundLogo3, self.backgroundLogo4), (self.backgroundLogo5, self.backgroundLogo6)]
         let background_width: CGFloat = self.view.frame.width / 3
-        let allBackgroundImage = [] // link to all icon's images
+       // let allBackgroundImage = [] // link to all icon's images
         
         // Stock the view above the one we are setting up. By default, the first views are set up below the top scroll view
         var topLeftView: NSLayoutYAxisAnchor = self.scrollView.topAnchor
@@ -82,10 +71,8 @@ class SelectIcon: UIViewController{
             right_view.topAnchor.constraint(equalToSystemSpacingBelow: topRightView, multiplier: 2).isActive = true
             
             // update the top view
-            topLeftView = left_view
-            topRightView = right_view
+          //  topLeftView = left_view
+         //   topRightView = right_view
         }
-=======
->>>>>>> Stashed changes
     }
 }

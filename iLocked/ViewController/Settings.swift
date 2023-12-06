@@ -125,7 +125,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     cell.textLabel?.text = "ERROR"
                 }
             }
-<<<<<<< Updated upstream
+
+        
         } else if indexPath.section == 1 {
             switch indexPath.row{
             case 0:
@@ -136,8 +137,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 cell.textLabel?.text = "ERROR"
             }
         
-=======
->>>>>>> Stashed changes
+
         } else if indexPath.section == 2{
             switch indexPath.row {
             case 0:
@@ -150,19 +150,6 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             default:
                 cell.textLabel?.text = "ERROR"
             }
-<<<<<<< Updated upstream
-            
-=======
-        } else if indexPath.section == 2 {
-            switch indexPath.row{
-            case 0:
-                cell.textLabel?.text = "🪄 Change app's icon"
-                accessoryView = UIImageView(image: self.externalLinkView)
-                accessoryView.tintColor = .darkGray
-            default :
-                cell.textLabel?.text = "ERROR"
-            }
->>>>>>> Stashed changes
         } else if indexPath.section == 3 {
             switch indexPath.row {
             case 0 :
