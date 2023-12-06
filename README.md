@@ -36,7 +36,7 @@ Except if a license is purchased, you are not allowed to make any profit from th
 - It is allowed to run iLocked without purchasing any license on for profit companies if the company itself (or its ITSM provider) run it.
 - To build services based on iLocked AND earning money from that, you MUST purchase a license.
 
-iLocked uses the following Open source components: https://devnathan.github.io/source/iLocked/openSource.html
+iLocked uses the following Open source components: https://nathan.stchepinsky.net/source/iLocked/openSource.html
 
 # Author 
 
