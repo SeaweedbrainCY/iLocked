@@ -1,4 +1,0 @@
-module SPConfetti {
-header "SPConfetti-Swift.h"
-export *
-}

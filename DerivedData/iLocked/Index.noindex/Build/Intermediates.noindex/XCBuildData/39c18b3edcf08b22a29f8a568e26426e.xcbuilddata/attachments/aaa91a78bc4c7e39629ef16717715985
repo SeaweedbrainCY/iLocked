@@ -1,5 +1,0 @@
-#!/bin/sh
-buildNumber=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/iLocked/Info.plist")
-buildNumber=$(($buildNumber + 1))
-/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $buildNumber" "/Users/stchepinskynathan/Desktop/iOS_applications/iLocked/iLocked/Info.plist"
-

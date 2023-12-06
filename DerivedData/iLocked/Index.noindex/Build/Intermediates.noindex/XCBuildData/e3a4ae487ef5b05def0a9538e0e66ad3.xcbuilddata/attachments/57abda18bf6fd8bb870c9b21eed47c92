@@ -1,4 +1,0 @@
-module QRCode {
-header "QRCode-Swift.h"
-export *
-}
