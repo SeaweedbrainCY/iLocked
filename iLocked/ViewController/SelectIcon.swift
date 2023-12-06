@@ -9,11 +9,15 @@
 import Foundation
 import UIKit
 
+<<<<<<< Updated upstream
 class SelectIcon: UIViewController, UIScrollViewDelegate{
     
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+=======
+class SelectIcon: UIViewController{
+>>>>>>> Stashed changes
     
     @IBOutlet weak var backgroundLogo1:UIView!
     @IBOutlet weak var backgroundLogo2:UIView!
@@ -27,16 +31,23 @@ class SelectIcon: UIViewController, UIScrollViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         constructViews()
+<<<<<<< Updated upstream
         
         self.scrollView.delegate = self
     }
     
     /*private func constructViews(){
+=======
+    }
+    
+    private func constructViews(){
+>>>>>>> Stashed changes
         let allBackgroundViews: [UIView] = [self.backgroundLogo1, self.backgroundLogo2, self.backgroundLogo3, self.backgroundLogo4, self.backgroundLogo5, self.backgroundLogo6]
         
         for background in allBackgroundViews{
             background.frame = CGRect(x: background.frame.origin.x, y: background.frame.origin.y, width: self.view.frame.width / 3, height: self.view.frame.width / 3)
         }
+<<<<<<< Updated upstream
     }*/
     
     private func constructViews(){
@@ -74,5 +85,7 @@ class SelectIcon: UIViewController, UIScrollViewDelegate{
             topLeftView = left_view
             topRightView = right_view
         }
+=======
+>>>>>>> Stashed changes
     }
 }

@@ -188,7 +188,7 @@
 
 "Human readable" = "Lisible (Human readable)";
 
-"WarningOnTableViewExport" = "ATTENTION : Vous vous apprêtez à exporter votre clé publique, une information extrêmement critique. Vous devez absolument la garder dans un endroit sûr. Ne la partagez pas. Gardez la pour vous seul";
+"WarningOnTableViewExport" = "ATTENTION : Vous vous apprêtez à exporter votre clé privée, une information extrêmement critique. Vous devez absolument la garder dans un endroit sûr. Ne la partagez pas. Gardez la pour vous seul";
 
 "PEM format and X.509 certificate for the public key" = "Format PEM et certificat X.509 pour la clé publique";
 

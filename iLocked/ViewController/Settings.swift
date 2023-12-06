@@ -125,6 +125,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                     cell.textLabel?.text = "ERROR"
                 }
             }
+<<<<<<< Updated upstream
         } else if indexPath.section == 1 {
             switch indexPath.row{
             case 0:
@@ -135,6 +136,8 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 cell.textLabel?.text = "ERROR"
             }
         
+=======
+>>>>>>> Stashed changes
         } else if indexPath.section == 2{
             switch indexPath.row {
             case 0:
@@ -147,7 +150,19 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
             default:
                 cell.textLabel?.text = "ERROR"
             }
+<<<<<<< Updated upstream
             
+=======
+        } else if indexPath.section == 2 {
+            switch indexPath.row{
+            case 0:
+                cell.textLabel?.text = "🪄 Change app's icon"
+                accessoryView = UIImageView(image: self.externalLinkView)
+                accessoryView.tintColor = .darkGray
+            default :
+                cell.textLabel?.text = "ERROR"
+            }
+>>>>>>> Stashed changes
         } else if indexPath.section == 3 {
             switch indexPath.row {
             case 0 :
@@ -359,7 +374,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
                 alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil)) // Retour
                 present(alert, animated: true)
             case 2: // developer website
-                UIApplication.shared.open(URL(string: "https://devnathan.github.io")!, options: [:], completionHandler: nil)
+                UIApplication.shared.open(URL(string: "https://nathan.stchepinsky.net")!, options: [:], completionHandler: nil)
             default : break
             }
         } else if indexPath.section == 5{

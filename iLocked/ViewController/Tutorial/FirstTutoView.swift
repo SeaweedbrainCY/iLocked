@@ -311,9 +311,9 @@ public enum TutoVideo {
     
     var url: String {
         switch self {
-        case .addKey: return "https://devnathan.github.io/source/iLockedTutoVideo/" + "addKey.MP4".localized()
-        case .encryption : return "https://devnathan.github.io/source/iLockedTutoVideo/" + "encryption.MP4".localized()
-        case .decryption : return "https://devnathan.github.io/source/iLockedTutoVideo/" + "decryption.MP4".localized()
+        case .addKey: return "https://nathan.stchepinsky.net/source/iLockedTutoVideo/" + "addKey.MP4".localized()
+        case .encryption : return "https://nathan.stchepinsky.net/source/iLockedTutoVideo/" + "encryption.MP4".localized()
+        case .decryption : return "https://nathan.stchepinsky.net/source/iLockedTutoVideo/" + "decryption.MP4".localized()
 
         }
     }
