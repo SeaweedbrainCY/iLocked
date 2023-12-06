@@ -61,7 +61,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
 
     ///number of section
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 5
+        return 6
     }
     
     /// Cells for each section
@@ -246,6 +246,7 @@ class Settings: UIViewController, UITableViewDelegate, UITableViewDataSource, MF
         case 2 : return "Security 🔐".localized()
         case 3 : return "Application 📱"
         case 4 : return ""
+        case 5 : return ""
         default : return "ERROR"
         }
     }
