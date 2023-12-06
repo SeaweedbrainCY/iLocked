@@ -1,0 +1,32 @@
+{
+  "pins" : [
+    {
+      "identity" : "iap-swift-lib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/iridescent-dev/iap-swift-lib.git",
+      "state" : {
+        "revision" : "dc8e1d3fbdde1960c75ec50ba46b76a427af6097",
+        "version" : "1.0.4"
+      }
+    },
+    {
+      "identity" : "qrcode",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dmrschmidt/QRCode",
+      "state" : {
+        "revision" : "a23c2d2b77483c5ce20ffaf4e68fef2d1a0bbca9",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "spconfetti",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ivanvorobei/SPConfetti",
+      "state" : {
+        "revision" : "e9dadd8120923da7a395d9136157eb4d07cc051d",
+        "version" : "1.2.4"
+      }
+    }
+  ],
+  "version" : 2
+}
